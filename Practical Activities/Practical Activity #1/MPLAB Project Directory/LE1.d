@@ -1,0 +1,1 @@
+ LE1.d  LE1.p1:  D:/From\ old\ laptop/Subjects/Uni/3rd\ Year\ M/2nd\ sem/Embedded\ Systems/Practical\ Activities/Practical\ Activity\ #1/MPLAB\ Project\ Directory/LE1.c

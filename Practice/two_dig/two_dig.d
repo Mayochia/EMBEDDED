@@ -1,0 +1,1 @@
+ two_dig.d  two_dig.p1:  D:/From\ old\ laptop/Subjects/Uni/3rd\ Year\ M/2nd\ sem/Embedded\ Systems/Practice/two_dig/two_dig.c

@@ -1,0 +1,7 @@
+_delay: CODE, 1856 0 40
+_main: CODE, 1896 0 148
+_instCtrl: CODE, 1805 0 19
+_dataCtrl: CODE, 1786 0 19
+__initialization: CODE, 2044 0 0
+_initLCD: CODE, 1824 0 32
+Total: 258

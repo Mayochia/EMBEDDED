@@ -1,0 +1,21 @@
+_display_dispense_large: CODE, 201 0 85
+_delay_lcd: CODE, 659 0 17
+_delay: CODE, 574 0 24
+__stringtab: STRING, 26 0 6
+_ISR: CODE, 598 0 23
+_display_menu: CODE, 450 0 52
+_coke_L: STRING, 67 0 15
+_main: CODE, 286 0 84
+_dispense: STRING, 82 0 14
+_sprite: STRING, 96 0 11
+_instCtrl: CODE, 640 0 19
+_dataCtrl: CODE, 621 0 19
+__initialization: CODE, 21 0 1
+_display_emergency: CODE, 370 0 80
+_print: CODE, 502 0 40
+_sprite_L: STRING, 50 0 17
+_emergency: STRING, 32 0 18
+_coke: STRING, 107 0 9
+_initLCD: CODE, 542 0 32
+_display_dispense_reg: CODE, 116 0 85
+Total: 651
