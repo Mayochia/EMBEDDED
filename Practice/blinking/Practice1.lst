@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.33 build 59893 
-                                                                                               Sun Mar 02 22:34:46 2025
+                                                                                               Sun Mar 09 17:23:03 2025
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 59893
      1                           	processor	16F877A
@@ -80,8 +80,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
     74  005F                     _GIE	set	95
     75  005C                     _INTE	set	92
     76  0059                     _INTF	set	89
-    77  005D                     _T0IE	set	93
-    78  005A                     _T0IF	set	90
+    77  005D                     _TMR0IE	set	93
+    78  005A                     _TMR0IF	set	90
     79  0081                     _OPTION_REG	set	129
     80  0085                     _TRISA	set	133
     81  0086                     _TRISB	set	134
@@ -195,8 +195,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    189  001D  30FF               	movlw	255
    190  001E  0086               	movwf	6	;volatile
    191                           
-   192                           ;blinking.c: 50: OPTION_REG = 0x04;
-   193  001F  3004               	movlw	4
+   192                           ;blinking.c: 50: OPTION_REG = 0xC4;
+   193  001F  30C4               	movlw	196
    194  0020  0081               	movwf	1	;volatile
    195                           
    196                           ;blinking.c: 51: INTE = 1;
@@ -205,10 +205,10 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    199                           ;blinking.c: 52: INTF = 0;
    200  0022  108B               	bcf	11,1	;volatile
    201                           
-   202                           ;blinking.c: 54: T0IE = 1;
+   202                           ;blinking.c: 54: TMR0IE = 1;
    203  0023  168B               	bsf	11,5	;volatile
    204                           
-   205                           ;blinking.c: 55: T0IF = 0;
+   205                           ;blinking.c: 55: TMR0IF = 0;
    206  0024  110B               	bcf	11,2	;volatile
    207                           
    208                           ;blinking.c: 57: GIE = 1;
@@ -232,8 +232,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    226  002D  1303               	bcf	3,6	;RP1=0, select bank0
    227  002E  0085               	movwf	5	;volatile
    228                           
-   229                           ;blinking.c: 65: delay(50);
-   230  002F  3032               	movlw	50
+   229                           ;blinking.c: 65: delay(122);
+   230  002F  307A               	movlw	122
    231  0030  00F4               	movwf	delay@num
    232  0031  3000               	movlw	0
    233  0032  00F5               	movwf	delay@num+1
@@ -244,8 +244,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    238  0039  1303               	bcf	3,6	;RP1=0, select bank0
    239  003A  0185               	clrf	5	;volatile
    240                           
-   241                           ;blinking.c: 67: delay(10);
-   242  003B  300A               	movlw	10
+   241                           ;blinking.c: 67: delay(122);
+   242  003B  307A               	movlw	122
    243  003C  00F4               	movwf	delay@num
    244  003D  3000               	movlw	0
    245  003E  00F5               	movwf	delay@num+1
@@ -386,11 +386,11 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    380  0063  2868               	goto	i1l35
    381  0064                     i1l34:	
    382                           
-   383                           ;blinking.c: 36: else if(T0IF) {
+   383                           ;blinking.c: 36: else if(TMR0IF) {
    384  0064  1D0B               	btfss	11,2	;volatile
    385  0065  2868               	goto	i1l35
    386                           
-   387                           ;blinking.c: 37: T0IF = 0;
+   387                           ;blinking.c: 37: TMR0IF = 0;
    388  0066  110B               	bcf	11,2	;volatile
    389                           
    390                           ;blinking.c: 38: count_flag = 1;
@@ -571,27 +571,27 @@ DATA                 0      0       A      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.33 build 59893 
-Symbol Table                                                                                   Sun Mar 02 22:34:46 2025
+Symbol Table                                                                                   Sun Mar 09 17:23:03 2025
 
             __CFG_CP$OFF 0000                       l27 0047                       u25 0051  
                     l532 0029                      _GIE 005F             __CFG_CPD$OFF 0000  
                     _ISR 005D                      fsr0 0004             __CFG_FOSC$XT 0000  
-           __CFG_LVP$OFF 0000                     ?_ISR 0070                     _T0IE 005D  
-                   _T0IF 005A                     _INTE 005C                     _INTF 0059  
-                   i1l34 0064                     i1l35 0068             __CFG_WRT$OFF 0000  
-                   _main 001A                     btemp 007E            __CFG_BOREN$ON 0000  
-                   ltemp 007E                     start 0012                     ttemp 007E  
-                   wtemp 007E                    ??_ISR 0070                    ?_main 0070  
-          __CFG_WDTE$OFF 0000                    _PORTA 0005                    _TRISA 0085  
-                  _TRISB 0086            __CFG_PWRTE$ON 0000                    _delay 0045  
-         __pbitbssCOMMON 03C8                    pclath 000A                    ltemp0 007E  
-                  ltemp1 0082                    ltemp2 0086                    ltemp3 0080  
-                  ttemp0 007E                    ttemp1 0081                    ttemp2 0084  
-                  ttemp3 0087                    ttemp4 007F                    status 0003  
-                  wtemp0 007E                    wtemp1 0080                    wtemp2 0082  
-                  wtemp3 0084                    wtemp4 0086                    wtemp5 0088  
-                  wtemp6 007F          __initialization 0015             __end_of_main 0045  
-                 ??_main 0079                   ?_delay 0074                   saved_w 007E  
+           __CFG_LVP$OFF 0000                     ?_ISR 0070                     _INTE 005C  
+                   _INTF 0059                     i1l34 0064                     i1l35 0068  
+           __CFG_WRT$OFF 0000                     _main 001A                     btemp 007E  
+          __CFG_BOREN$ON 0000                     ltemp 007E                     start 0012  
+                   ttemp 007E                     wtemp 007E                    ??_ISR 0070  
+                  ?_main 0070            __CFG_WDTE$OFF 0000                    _PORTA 0005  
+                  _TRISA 0085                    _TRISB 0086            __CFG_PWRTE$ON 0000  
+                  _delay 0045           __pbitbssCOMMON 03C8                    pclath 000A  
+                  ltemp0 007E                    ltemp1 0082                    ltemp2 0086  
+                  ltemp3 0080                    ttemp0 007E                    ttemp1 0081  
+                  ttemp2 0084                    ttemp3 0087                    ttemp4 007F  
+                  status 0003                    wtemp0 007E                    wtemp1 0080  
+                  wtemp2 0082                    wtemp3 0084                    wtemp4 0086  
+                  wtemp5 0088                    wtemp6 007F          __initialization 0015  
+           __end_of_main 0045                   ??_main 0079                   ?_delay 0074  
+                 _TMR0IE 005D                   _TMR0IF 005A                   saved_w 007E  
 __end_of__initialization 0016           __pcstackCOMMON 0070            __end_of_delay 005D  
                 ??_delay 0076               __pmaintext 001A               __pintentry 0004  
              _count_flag 03C9                  __ptext0 0000                  __ptext1 0045  

@@ -147,8 +147,6 @@ __Lintentry 8 0 CODE 0 intentry -
 __CFG_BOREN$ON 0 0 ABS 0 - Practice1.obj
 __pintentry 8 0 CODE 0 intentry Practice1.obj
 __CFG_PWRTE$ON 0 0 ABS 0 - Practice1.obj
-_T0IE 5D 0 ABS 0 - Practice1.obj
-_T0IF 5A 0 ABS 0 - Practice1.obj
 _INTE 5C 0 ABS 0 - Practice1.obj
 _INTF 59 0 ABS 0 - Practice1.obj
 _main 34 0 CODE 0 maintext Practice1.obj
@@ -196,6 +194,8 @@ __Lcommon 0 0 ABS 0 common -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 _btn_stat 3C8 -34F COMMON 1 bitbssCOMMON Practice1.obj
+_TMR0IE 5D 0 ABS 0 - Practice1.obj
+_TMR0IF 5A 0 ABS 0 - Practice1.obj
 ___int_sp 0 0 STACK 2 stack startup.obj
 __Habs1 0 0 ABS 0 abs1 -
 __Labs1 0 0 ABS 0 abs1 -

@@ -1,0 +1,39 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Sat Dec 23 17:18:21 2023
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                 RES_VECT       code   0x000000    program   0x000002
+                   .cinit    romdata   0x000001    program   0x000004
+                MAIN_PROG       code   0x000003    program   0x000022
+.config_2007_BUILD/DEFAULT/PRODUCTION/BLINK_V       code   0x002007    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000013      
+                            0x002007    0x002007      
+            21 out of 8454 program addresses used, program memory utilization is 0%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    Delay   0x00000f    program     static D:\Pre-Engineering\Mplab\PIC16F877A_Blink.X\Blink_V1.0.asm
+                    START   0x000003    program     static D:\Pre-Engineering\Mplab\PIC16F877A_Blink.X\Blink_V1.0.asm
+                    start   0x000007    program     static D:\Pre-Engineering\Mplab\PIC16F877A_Blink.X\Blink_V1.0.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    START   0x000003    program     static D:\Pre-Engineering\Mplab\PIC16F877A_Blink.X\Blink_V1.0.asm
+                    start   0x000007    program     static D:\Pre-Engineering\Mplab\PIC16F877A_Blink.X\Blink_V1.0.asm
+                    Delay   0x00000f    program     static D:\Pre-Engineering\Mplab\PIC16F877A_Blink.X\Blink_V1.0.asm
+
+

@@ -1,0 +1,1 @@
+ twnty.d  twnty.p1:  D:/From\ old\ laptop/Subjects/Uni/3rd\ Year\ M/2nd\ sem/Embedded\ Systems/Practice/24/twnty.c

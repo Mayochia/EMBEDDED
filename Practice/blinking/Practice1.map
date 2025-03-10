@@ -4,7 +4,7 @@ Linker command line:
 
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.33\dat\en_msgs.txt -cs \
   -h+Practice1.sym --cmf=Practice1.cmf -z -Q16F877A \
-  -oC:\Users\MAYOCH~1\AppData\Local\Temp\sm40.6 -MPractice1.map -E1 \
+  -oC:\Users\MAYOCH~1\AppData\Local\Temp\s2n8.6 -MPractice1.map -E1 \
   -ver=XC8 -ASTACK=0110h-016fh -pstack=STACK -ACONST=00h-0FFhx32 \
   -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -AENTRY=00h-0FFhx32 \
   -ASTRING=00h-0FFhx32 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
@@ -136,8 +136,8 @@ _INTF                    (abs)        0059
 _ISR                     text2        005D
 _OPTION_REG              (abs)        0081
 _PORTA                   (abs)        0005
-_T0IE                    (abs)        005D
-_T0IF                    (abs)        005A
+_TMR0IE                  (abs)        005D
+_TMR0IF                  (abs)        005A
 _TRISA                   (abs)        0085
 _TRISB                   (abs)        0086
 __CFG_BOREN$ON           (abs)        0000

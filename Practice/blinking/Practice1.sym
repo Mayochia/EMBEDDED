@@ -10,8 +10,6 @@ __Lintentry 4 0 CODE 0
 __CFG_BOREN$ON 0 0 ABS 0
 __pintentry 4 0 CODE 0
 __CFG_PWRTE$ON 0 0 ABS 0
-_T0IE 5D 0 ABS 0
-_T0IF 5A 0 ABS 0
 _INTE 5C 0 ABS 0
 _INTF 59 0 ABS 0
 _main 1A 0 CODE 0
@@ -59,6 +57,8 @@ __Lcommon 0 0 ABS 0
 __Heeprom_data 0 0 EEDATA 3
 __Leeprom_data 0 0 EEDATA 3
 _btn_stat 3C8 -34F COMMON 1
+_TMR0IE 5D 0 ABS 0
+_TMR0IF 5A 0 ABS 0
 ___int_sp 0 0 STACK 2
 __Habs1 0 0 ABS 0
 __Labs1 0 0 ABS 0

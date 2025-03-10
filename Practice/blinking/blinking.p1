@@ -3,8 +3,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _GIE `Vb ~T0 @X0 0 e@95 ]
 "2465
 [v _INTF `Vb ~T0 @X0 0 e@89 ]
-"2629
-[v _T0IF `Vb ~T0 @X0 0 e@90 ]
+"2649
+[v _TMR0IF `Vb ~T0 @X0 0 e@90 ]
 [p mainexit ]
 "1286
 [v _TRISA `Vuc ~T0 @X0 0 e@133 ]
@@ -14,8 +14,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _OPTION_REG `Vuc ~T0 @X0 0 e@129 ]
 "2461
 [v _INTE `Vb ~T0 @X0 0 e@92 ]
-"2627
-[v _T0IE `Vb ~T0 @X0 0 e@93 ]
+"2647
+[v _TMR0IE `Vb ~T0 @X0 0 e@93 ]
 "158
 [v _PORTA `Vuc ~T0 @X0 0 e@5 ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
@@ -1132,12 +1132,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 103  ]
 "36
 [e :U 102 ]
-[; ;blinking.c: 36: else if(T0IF) {
-[e $ ! _T0IF 104  ]
+[; ;blinking.c: 36: else if(TMR0IF) {
+[e $ ! _TMR0IF 104  ]
 {
-[; ;blinking.c: 37: T0IF = 0;
+[; ;blinking.c: 37: TMR0IF = 0;
 "37
-[e = _T0IF -> -> 0 `i `b ]
+[e = _TMR0IF -> -> 0 `i `b ]
 [; ;blinking.c: 38: count_flag = 1;
 "38
 [e = _count_flag -> -> 1 `i `b ]
@@ -1165,21 +1165,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;blinking.c: 48: TRISB = 0xFF;
 "48
 [e = _TRISB -> -> 255 `i `uc ]
-[; ;blinking.c: 50: OPTION_REG = 0x04;
+[; ;blinking.c: 50: OPTION_REG = 0xC4;
 "50
-[e = _OPTION_REG -> -> 4 `i `uc ]
+[e = _OPTION_REG -> -> 196 `i `uc ]
 [; ;blinking.c: 51: INTE = 1;
 "51
 [e = _INTE -> -> 1 `i `b ]
 [; ;blinking.c: 52: INTF = 0;
 "52
 [e = _INTF -> -> 0 `i `b ]
-[; ;blinking.c: 54: T0IE = 1;
+[; ;blinking.c: 54: TMR0IE = 1;
 "54
-[e = _T0IE -> -> 1 `i `b ]
-[; ;blinking.c: 55: T0IF = 0;
+[e = _TMR0IE -> -> 1 `i `b ]
+[; ;blinking.c: 55: TMR0IF = 0;
 "55
-[e = _T0IF -> -> 0 `i `b ]
+[e = _TMR0IF -> -> 0 `i `b ]
 [; ;blinking.c: 57: GIE = 1;
 "57
 [e = _GIE -> -> 1 `i `b ]
@@ -1197,15 +1197,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;blinking.c: 64: PORTA = 0x01;
 "64
 [e = _PORTA -> -> 1 `i `uc ]
-[; ;blinking.c: 65: delay(50);
+[; ;blinking.c: 65: delay(122);
 "65
-[e ( _delay (1 -> 50 `i ]
+[e ( _delay (1 -> 122 `i ]
 [; ;blinking.c: 66: PORTA = 0x00;
 "66
 [e = _PORTA -> -> 0 `i `uc ]
-[; ;blinking.c: 67: delay(10);
+[; ;blinking.c: 67: delay(122);
 "67
-[e ( _delay (1 -> 10 `i ]
+[e ( _delay (1 -> 122 `i ]
 "68
 }
 [; ;blinking.c: 68: }

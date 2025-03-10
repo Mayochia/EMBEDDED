@@ -13,7 +13,6 @@ int switchState = 0;
 int ledState = 0;
 bit count_flag = 0;
 bit flags = 0;
-unsigned char overflowcount=0;
 
 void delay(int num)
 {
@@ -31,19 +30,16 @@ void delay(int num)
 
 void interrupt ISR()
 {
-
     GIE = 0;        // disables all unmasked interrupts to prevent overlap
     if (INTF)        // check the interrupt flag
     {
         INTF = 0;    
         switchState ^= 1;
     }
-    else if (TMR0IF)
+    else if (T0IF)
     {
-        
-        TMR0IF = 0;
-        count_flag=1;
-        
+        T0IF = 0;
+        count_flag = 1;
     }
     GIE = 1;
 }
@@ -53,29 +49,29 @@ int main()
     TRISA = 0x00;
     TRISB = 0xFF;
     
-    OPTION_REG = 0xC4;
-    TMR0IE = 1;
-    TMR0IF = 0;
+    OPTION_REG = 0x04;
+    T0IE = 1;
+    T0IF = 0;
     GIE = 1;
     
     PORTA = 0x00;
     
     while (1)
     {
-        if (switchState == 0)
+        if (switchState == 1)
         {
-            ledState = !ledState;
-            PORTA = ledState;
-            delay(122);
+            PORTA = 0x01;
+            ledState = 1;
+            delay(100);
             
             if (switchState == 1)
             {
                 PORTA = 0x00;
                 ledState = 0;
-                delay(122);
+                delay(100);
             }
         }
-        else if (switchState == 1)
+        else if (switchState == 0)
         {
             PORTA = ledState ? 0x01 : 0x00;
         }

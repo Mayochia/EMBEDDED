@@ -175,10 +175,10 @@ _GIE	set	0x5F
 _INTE	set	0x5C
 	global	_INTF
 _INTF	set	0x59
-	global	_T0IE
-_T0IE	set	0x5D
-	global	_T0IF
-_T0IF	set	0x5A
+	global	_TMR0IE
+_TMR0IE	set	0x5D
+	global	_TMR0IF
+_TMR0IF	set	0x5A
 	global	_OPTION_REG
 _OPTION_REG	set	0x81
 	global	_TRISA
@@ -443,8 +443,8 @@ l518:
 	line	50
 	
 l520:	
-;blinking.c: 50: OPTION_REG = 0x04;
-	movlw	(04h)
+;blinking.c: 50: OPTION_REG = 0xC4;
+	movlw	(0C4h)
 	movwf	(129)^080h	;volatile
 	line	51
 	
@@ -459,12 +459,12 @@ l524:
 	line	54
 	
 l526:	
-;blinking.c: 54: T0IE = 1;
+;blinking.c: 54: TMR0IE = 1;
 	bsf	(93/8),(93)&7	;volatile
 	line	55
 	
 l528:	
-;blinking.c: 55: T0IF = 0;
+;blinking.c: 55: TMR0IF = 0;
 	bcf	(90/8),(90)&7	;volatile
 	line	57
 	
@@ -502,10 +502,10 @@ l534:
 	line	65
 	
 l536:	
-;blinking.c: 65: delay(50);
-	movlw	low(032h)
+;blinking.c: 65: delay(122);
+	movlw	low(07Ah)
 	movwf	(delay@num)
-	movlw	high(032h)
+	movlw	high(07Ah)
 	movwf	((delay@num))+1
 	fcall	_delay
 	line	66
@@ -518,10 +518,10 @@ l538:
 	line	67
 	
 l540:	
-;blinking.c: 67: delay(10);
-	movlw	low(0Ah)
+;blinking.c: 67: delay(122);
+	movlw	low(07Ah)
 	movwf	(delay@num)
-	movlw	high(0Ah)
+	movlw	high(07Ah)
 	movwf	((delay@num))+1
 	fcall	_delay
 	line	68
@@ -762,7 +762,7 @@ i1l512:
 	line	36
 	
 i1l34:	
-;blinking.c: 36: else if(T0IF) {
+;blinking.c: 36: else if(TMR0IF) {
 	btfss	(90/8),(90)&7	;volatile
 	goto	u4_21
 	goto	u4_20
@@ -772,7 +772,7 @@ u4_20:
 	line	37
 	
 i1l514:	
-;blinking.c: 37: T0IF = 0;
+;blinking.c: 37: TMR0IF = 0;
 	bcf	(90/8),(90)&7	;volatile
 	line	38
 ;blinking.c: 38: count_flag = 1;
