@@ -1,1 +1,1 @@
- Ochia_PreMid.d  Ochia_PreMid.p1:  Z:/CPE3201/Premid/Ochia_PreMid.c
+ Ochia_PreMid.d  Ochia_PreMid.p1:  D:/From\ old\ laptop/Subjects/Uni/3rd\ Year\ M/2nd\ sem/Embedded\ Systems/Premid/Ochia_PreMid.c

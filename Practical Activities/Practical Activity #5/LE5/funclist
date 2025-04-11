@@ -1,0 +1,17 @@
+___ftneg: CODE, 1616 0 10
+___awdiv: CODE, 1169 0 93
+_delay: CODE, 1601 0 15
+_ISR: CODE, 1578 0 23
+___ftpack: CODE, 967 0 106
+___awmod: CODE, 1262 0 79
+_trunc: CODE, 1341 0 74
+_main: CODE, 31 0 345
+_round: CODE, 1073 0 96
+___ftadd: CODE, 376 0 265
+__initialization: CODE, 21 0 6
+_frexp: CODE, 1481 0 60
+___awtoft: CODE, 1541 0 37
+___altoft: CODE, 1415 0 66
+___fttol: CODE, 825 0 142
+___ftdiv: CODE, 641 0 184
+Total: 1601

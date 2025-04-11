@@ -1,0 +1,1 @@
+ LE6-4-RX.d  LE6-4-RX.p1:  D:/From\ old\ laptop/Subjects/Uni/3rd\ Year\ M/2nd\ sem/Embedded\ Systems/Practical\ Activities/Practical\ Activity\ #6/LE6-4-RX/LE6-4-RX.c

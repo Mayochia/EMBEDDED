@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.33 build 59893 
-                                                                                               Mon Mar 10 17:19:03 2025
+                                                                                               Mon Mar 10 20:34:53 2025
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 59893
      1                           	processor	16F877A
@@ -23,89 +23,89 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
     17                           	psect	text5,local,class=CODE,merge=1,delta=2
     18                           	psect	text6,local,class=CODE,merge=1,delta=2
     19                           	psect	text7,local,class=CODE,merge=1,delta=2
-    20                           	psect	intentry,global,class=CODE,delta=2
-    21                           	dabs	1,0x7E,2
-    22  0000                     	;# 
-    23  0001                     	;# 
-    24  0002                     	;# 
-    25  0003                     	;# 
-    26  0004                     	;# 
-    27  0005                     	;# 
-    28  0006                     	;# 
-    29  0007                     	;# 
-    30  0008                     	;# 
-    31  0009                     	;# 
-    32  000A                     	;# 
-    33  000B                     	;# 
-    34  000C                     	;# 
-    35  000D                     	;# 
-    36  000E                     	;# 
+    20                           	psect	text8,local,class=CODE,merge=1,delta=2
+    21                           	psect	intentry,global,class=CODE,delta=2
+    22                           	dabs	1,0x7E,2
+    23  0000                     	;# 
+    24  0001                     	;# 
+    25  0002                     	;# 
+    26  0003                     	;# 
+    27  0004                     	;# 
+    28  0005                     	;# 
+    29  0006                     	;# 
+    30  0007                     	;# 
+    31  0008                     	;# 
+    32  0009                     	;# 
+    33  000A                     	;# 
+    34  000B                     	;# 
+    35  000C                     	;# 
+    36  000D                     	;# 
     37  000E                     	;# 
-    38  000F                     	;# 
-    39  0010                     	;# 
-    40  0011                     	;# 
-    41  0012                     	;# 
-    42  0013                     	;# 
-    43  0014                     	;# 
-    44  0015                     	;# 
+    38  000E                     	;# 
+    39  000F                     	;# 
+    40  0010                     	;# 
+    41  0011                     	;# 
+    42  0012                     	;# 
+    43  0013                     	;# 
+    44  0014                     	;# 
     45  0015                     	;# 
-    46  0016                     	;# 
-    47  0017                     	;# 
-    48  0018                     	;# 
-    49  0019                     	;# 
-    50  001A                     	;# 
-    51  001B                     	;# 
+    46  0015                     	;# 
+    47  0016                     	;# 
+    48  0017                     	;# 
+    49  0018                     	;# 
+    50  0019                     	;# 
+    51  001A                     	;# 
     52  001B                     	;# 
-    53  001C                     	;# 
-    54  001D                     	;# 
-    55  001E                     	;# 
-    56  001F                     	;# 
-    57  0081                     	;# 
-    58  0085                     	;# 
-    59  0086                     	;# 
-    60  0087                     	;# 
-    61  0088                     	;# 
-    62  0089                     	;# 
-    63  008C                     	;# 
-    64  008D                     	;# 
-    65  008E                     	;# 
-    66  0091                     	;# 
-    67  0092                     	;# 
-    68  0093                     	;# 
-    69  0094                     	;# 
-    70  0098                     	;# 
-    71  0099                     	;# 
-    72  009C                     	;# 
-    73  009D                     	;# 
-    74  009E                     	;# 
-    75  009F                     	;# 
-    76  010C                     	;# 
-    77  010D                     	;# 
-    78  010E                     	;# 
-    79  010F                     	;# 
-    80  018C                     	;# 
-    81  018D                     	;# 
-    82                           
-    83                           	psect	idataBANK0
-    84  0257                     __pidataBANK0:	
-    85                           
-    86                           ;initializer for _count
-    87  0257  3443               	retlw	67
-    88  0258  344F               	retlw	79
-    89  0259  3455               	retlw	85
-    90  025A  344E               	retlw	78
-    91  025B  3454               	retlw	84
-    92  025C  343A               	retlw	58
-    93  025D  3400               	retlw	0
-    94  0007                     _PORTC	set	7
-    95  0008                     _PORTD	set	8
-    96  005F                     _GIE	set	95
-    97  005C                     _INTE	set	92
-    98  0059                     _INTF	set	89
-    99  0035                     _RB5	set	53
-   100  0036                     _RB6	set	54
-   101  0037                     _RB7	set	55
-   102  0044                     _RD4	set	68
+    53  001B                     	;# 
+    54  001C                     	;# 
+    55  001D                     	;# 
+    56  001E                     	;# 
+    57  001F                     	;# 
+    58  0081                     	;# 
+    59  0085                     	;# 
+    60  0086                     	;# 
+    61  0087                     	;# 
+    62  0088                     	;# 
+    63  0089                     	;# 
+    64  008C                     	;# 
+    65  008D                     	;# 
+    66  008E                     	;# 
+    67  0091                     	;# 
+    68  0092                     	;# 
+    69  0093                     	;# 
+    70  0094                     	;# 
+    71  0098                     	;# 
+    72  0099                     	;# 
+    73  009C                     	;# 
+    74  009D                     	;# 
+    75  009E                     	;# 
+    76  009F                     	;# 
+    77  010C                     	;# 
+    78  010D                     	;# 
+    79  010E                     	;# 
+    80  010F                     	;# 
+    81  018C                     	;# 
+    82  018D                     	;# 
+    83                           
+    84                           	psect	idataBANK0
+    85  022E                     __pidataBANK0:	
+    86                           
+    87                           ;initializer for _count
+    88  022E  3443               	retlw	67
+    89  022F  344F               	retlw	79
+    90  0230  3455               	retlw	85
+    91  0231  344E               	retlw	78
+    92  0232  3454               	retlw	84
+    93  0233  343A               	retlw	58
+    94  0234  3400               	retlw	0
+    95  0007                     _PORTC	set	7
+    96  0008                     _PORTD	set	8
+    97  005F                     _GIE	set	95
+    98  005C                     _INTE	set	92
+    99  0059                     _INTF	set	89
+   100  0035                     _RB5	set	53
+   101  0036                     _RB6	set	54
+   102  0037                     _RB7	set	55
    103  005D                     _TMR0IE	set	93
    104  005A                     _TMR0IF	set	90
    105  0081                     _OPTION_REG	set	129
@@ -123,20 +123,20 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    117  0015  01F8               	clrf	__pbssCOMMON& (0+127)
    118                           
    119                           ; Clear objects allocated to BANK0
-   120  0016  01B8               	clrf	__pbssBANK0& (0+127)
-   121  0017  01B9               	clrf	(__pbssBANK0+1)& (0+127)
+   120  0016  01B4               	clrf	__pbssBANK0& (0+127)
+   121  0017  01B5               	clrf	(__pbssBANK0+1)& (0+127)
    122                           
    123                           ; Initialize objects allocated to BANK0
    124  0018  1383               	bcf	3,7	;select IRP bank0
-   125  0019  3038               	movlw	low (__pdataBANK0+7)
+   125  0019  3034               	movlw	low (__pdataBANK0+7)
    126  001A  00FD               	movwf	btemp+-1
    127  001B  3002               	movlw	high __pidataBANK0
    128  001C  00FE               	movwf	btemp
-   129  001D  3057               	movlw	low __pidataBANK0
+   129  001D  302E               	movlw	low __pidataBANK0
    130  001E  00FF               	movwf	btemp+1
-   131  001F  3031               	movlw	low __pdataBANK0
+   131  001F  302D               	movlw	low __pdataBANK0
    132  0020  0084               	movwf	4
-   133  0021  120A  118A  224A   	fcall	init_ram0
+   133  0021  120A  118A  2221   	fcall	init_ram0
    134  0024                     end_of_initialization:	
    135                           ;End of C runtime variable initialization code
    136                           
@@ -150,43 +150,43 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    144  0078                     	ds	1
    145                           
    146                           	psect	bssBANK0
-   147  0038                     __pbssBANK0:	
-   148  0038                     _btn_flag:	
-   149  0038                     	ds	1
-   150  0039                     _key:	
-   151  0039                     	ds	1
+   147  0034                     __pbssBANK0:	
+   148  0034                     _btn_flag:	
+   149  0034                     	ds	1
+   150  0035                     _key:	
+   151  0035                     	ds	1
    152                           
    153                           	psect	dataBANK0
-   154  0031                     __pdataBANK0:	
-   155  0031                     _count:	
-   156  0031                     	ds	7
+   154  002D                     __pdataBANK0:	
+   155  002D                     _count:	
+   156  002D                     	ds	7
    157                           
    158                           	psect	inittext
-   159  0246                     init_fetch0:	
+   159  021D                     init_fetch0:	
    160                           ;	Called with low address in FSR and high address in W
    161                           
-   162  0246  087E               	movf	126,w
-   163  0247  008A               	movwf	10
-   164  0248  087F               	movf	127,w
-   165  0249  0082               	movwf	2
-   166  024A                     init_ram0:	
+   162  021D  087E               	movf	126,w
+   163  021E  008A               	movwf	10
+   164  021F  087F               	movf	127,w
+   165  0220  0082               	movwf	2
+   166  0221                     init_ram0:	
    167                           ;Called with:
    168                           ;	high address of idata address in btemp 
    169                           ;	low address of idata address in btemp+1 
    170                           ;	low address of data in FSR
    171                           ;	high address + 1 of data in btemp-1
    172                           
-   173  024A  2246  120A  118A   	fcall	init_fetch0
-   174  024D  0080               	movwf	0
-   175  024E  0A84               	incf	4,f
-   176  024F  0804               	movf	4,w
-   177  0250  067D               	xorwf	125,w
-   178  0251  1903               	btfsc	3,2
-   179  0252  3400               	retlw	0
-   180  0253  0AFF               	incf	127,f
-   181  0254  1903               	btfsc	3,2
-   182  0255  0AFE               	incf	126,f
-   183  0256  2A4A               	goto	init_ram0
+   173  0221  221D  120A  118A   	fcall	init_fetch0
+   174  0224  0080               	movwf	0
+   175  0225  0A84               	incf	4,f
+   176  0226  0804               	movf	4,w
+   177  0227  067D               	xorwf	125,w
+   178  0228  1903               	btfsc	3,2
+   179  0229  3400               	retlw	0
+   180  022A  0AFF               	incf	127,f
+   181  022B  1903               	btfsc	3,2
+   182  022C  0AFE               	incf	126,f
+   183  022D  2A21               	goto	init_ram0
    184                           
    185                           	psect	cstackCOMMON
    186  0070                     __pcstackCOMMON:	
@@ -245,1105 +245,1123 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    239                           ; 1 bytes @ 0x7
    240  0077                     	ds	1
    241  0078                     ??_initLCD:	
-   242                           
-   243                           	psect	cstackBANK0
-   244  0020                     __pcstackBANK0:	
-   245                           ; 0 bytes @ 0x8
-   246                           
-   247  0020                     delay@flags:	
-   248  0020                     delay_lcd@i:	
-   249                           ; 2 bytes @ 0x0
-   250                           
-   251                           
+   242  0078                     ??_update_display:	
+   243                           ; 0 bytes @ 0x8
+   244                           
+   245                           
+   246                           	psect	cstackBANK0
+   247  0020                     __pcstackBANK0:	
+   248                           ; 0 bytes @ 0x8
+   249                           
+   250  0020                     delay@flags:	
+   251  0020                     delay_lcd@i:	
    252                           ; 2 bytes @ 0x0
-   253  0020                     	ds	2
-   254  0022                     delay_lcd@j:	
-   255                           
-   256                           ; 2 bytes @ 0x2
-   257  0022                     	ds	2
-   258  0024                     ??_display_count_msg:	
-   259                           
-   260                           ; 0 bytes @ 0x4
-   261  0024                     	ds	1
-   262  0025                     display_count_msg@msg:	
-   263                           
-   264                           ; 1 bytes @ 0x5
-   265  0025                     	ds	1
-   266  0026                     display_count_msg@i:	
+   253                           
+   254                           
+   255                           ; 2 bytes @ 0x0
+   256  0020                     	ds	2
+   257  0022                     delay_lcd@j:	
+   258                           
+   259                           ; 2 bytes @ 0x2
+   260  0022                     	ds	2
+   261  0024                     ??_display_count_msg:	
+   262  0024                     ?_update_display:	
+   263                           ; 0 bytes @ 0x4
+   264                           
+   265  0024                     update_display@MSB:	
+   266                           ; 0 bytes @ 0x4
    267                           
-   268                           ; 2 bytes @ 0x6
-   269  0026                     	ds	2
-   270  0028                     ??_main:	
-   271                           
-   272                           ; 0 bytes @ 0x8
-   273  0028                     	ds	1
-   274  0029                     main@speed:	
-   275                           
-   276                           ; 2 bytes @ 0x9
-   277  0029                     	ds	2
-   278  002B                     main@direction:	
+   268                           
+   269                           ; 2 bytes @ 0x4
+   270  0024                     	ds	1
+   271  0025                     display_count_msg@msg:	
+   272                           
+   273                           ; 1 bytes @ 0x5
+   274  0025                     	ds	1
+   275  0026                     display_count_msg@i:	
+   276  0026                     update_display@LSB:	
+   277                           ; 2 bytes @ 0x6
+   278                           
    279                           
-   280                           ; 2 bytes @ 0xB
-   281  002B                     	ds	2
-   282  002D                     main@MSB:	
+   280                           ; 2 bytes @ 0x6
+   281  0026                     	ds	2
+   282  0028                     ??_main:	
    283                           
-   284                           ; 2 bytes @ 0xD
-   285  002D                     	ds	2
-   286  002F                     main@LSB:	
+   284                           ; 0 bytes @ 0x8
+   285  0028                     	ds	1
+   286  0029                     main@MSB:	
    287                           
-   288                           ; 2 bytes @ 0xF
-   289  002F                     	ds	2
-   290                           
-   291                           	psect	maintext
-   292  0028                     __pmaintext:	
-   293 ;;
-   294 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
-   295 ;;
-   296 ;; *************** function _main *****************
-   297 ;; Defined at:
-   298 ;;		line 75 in file "Z:\CPE3201\Premid\Ochia_PreMid.c"
-   299 ;; Parameters:    Size  Location     Type
-   300 ;;		None
-   301 ;; Auto vars:     Size  Location     Type
-   302 ;;  LSB             2   15[BANK0 ] int 
-   303 ;;  MSB             2   13[BANK0 ] int 
-   304 ;;  direction       2   11[BANK0 ] int 
-   305 ;;  speed           2    9[BANK0 ] int 
-   306 ;; Return value:  Size  Location     Type
-   307 ;;		None               void
-   308 ;; Registers used:
-   309 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
-   310 ;; Tracked objects:
-   311 ;;		On entry : 17F/0
-   312 ;;		On exit  : 0/0
-   313 ;;		Unchanged: 0/0
-   314 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   315 ;;      Params:         0       0       0       0       0
-   316 ;;      Locals:         0       8       0       0       0
-   317 ;;      Temps:          0       1       0       0       0
-   318 ;;      Totals:         0       9       0       0       0
-   319 ;;Total ram usage:        9 bytes
-   320 ;; Hardware stack levels required when called:    4
-   321 ;; This function calls:
-   322 ;;		_dataCtrl
-   323 ;;		_delay
-   324 ;;		_display_count_msg
-   325 ;;		_initLCD
-   326 ;;		_instCtrl
-   327 ;; This function is called by:
-   328 ;;		Startup code after reset
-   329 ;; This function uses a non-reentrant model
-   330 ;;
-   331                           
+   288                           ; 2 bytes @ 0x9
+   289  0029                     	ds	2
+   290  002B                     main@LSB:	
+   291                           
+   292                           ; 2 bytes @ 0xB
+   293  002B                     	ds	2
+   294                           
+   295                           	psect	maintext
+   296  0028                     __pmaintext:	
+   297 ;;
+   298 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   299 ;;
+   300 ;; *************** function _main *****************
+   301 ;; Defined at:
+   302 ;;		line 81 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
+   303 ;; Parameters:    Size  Location     Type
+   304 ;;		None
+   305 ;; Auto vars:     Size  Location     Type
+   306 ;;  LSB             2   11[BANK0 ] int 
+   307 ;;  MSB             2    9[BANK0 ] int 
+   308 ;; Return value:  Size  Location     Type
+   309 ;;		None               void
+   310 ;; Registers used:
+   311 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   312 ;; Tracked objects:
+   313 ;;		On entry : 17F/0
+   314 ;;		On exit  : 0/0
+   315 ;;		Unchanged: 0/0
+   316 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   317 ;;      Params:         0       0       0       0       0
+   318 ;;      Locals:         0       4       0       0       0
+   319 ;;      Temps:          0       1       0       0       0
+   320 ;;      Totals:         0       5       0       0       0
+   321 ;;Total ram usage:        5 bytes
+   322 ;; Hardware stack levels required when called:    4
+   323 ;; This function calls:
+   324 ;;		_delay
+   325 ;;		_display_count_msg
+   326 ;;		_initLCD
+   327 ;;		_update_display
+   328 ;; This function is called by:
+   329 ;;		Startup code after reset
+   330 ;; This function uses a non-reentrant model
+   331 ;;
    332                           
-   333                           ;psect for function _main
-   334  0028                     _main:	
-   335                           
-   336                           ;Ochia_PreMid.c: 77: int speed = 0;
-   337                           
-   338                           ;incstack = 0
-   339                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-   340  0028  1283               	bcf	3,5	;RP0=0, select bank0
-   341  0029  1303               	bcf	3,6	;RP1=0, select bank0
-   342  002A  01A9               	clrf	main@speed
-   343  002B  01AA               	clrf	main@speed+1
-   344                           
-   345                           ;Ochia_PreMid.c: 79: TRISB = 0x0F;
-   346  002C  300F               	movlw	15
-   347  002D  1683               	bsf	3,5	;RP0=1, select bank1
-   348  002E  1303               	bcf	3,6	;RP1=0, select bank1
-   349  002F  0086               	movwf	6	;volatile
-   350                           
-   351                           ;Ochia_PreMid.c: 80: TRISC = 0x00;
-   352  0030  0187               	clrf	7	;volatile
+   333                           
+   334                           ;psect for function _main
+   335  0028                     _main:	
+   336                           
+   337                           ;Ochia_PreMid.c: 82: int MSB = 2;
+   338                           
+   339                           ;incstack = 0
+   340                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   341  0028  3002               	movlw	2
+   342  0029  1283               	bcf	3,5	;RP0=0, select bank0
+   343  002A  1303               	bcf	3,6	;RP1=0, select bank0
+   344  002B  00A9               	movwf	main@MSB
+   345  002C  3000               	movlw	0
+   346  002D  00AA               	movwf	main@MSB+1
+   347                           
+   348                           ;Ochia_PreMid.c: 83: int LSB = 4;
+   349  002E  3004               	movlw	4
+   350  002F  00AB               	movwf	main@LSB
+   351  0030  3000               	movlw	0
+   352  0031  00AC               	movwf	main@LSB+1
    353                           
-   354                           ;Ochia_PreMid.c: 81: TRISD = 0xFF;
-   355  0031  30FF               	movlw	255
-   356  0032  0088               	movwf	8	;volatile
-   357                           
-   358                           ;Ochia_PreMid.c: 82: OPTION_REG = 0xC4;
-   359  0033  30C4               	movlw	196
-   360  0034  0081               	movwf	1	;volatile
-   361                           
-   362                           ;Ochia_PreMid.c: 83: INTE = 1;
-   363  0035  160B               	bsf	11,4	;volatile
-   364                           
-   365                           ;Ochia_PreMid.c: 84: INTF = 0;
-   366  0036  108B               	bcf	11,1	;volatile
-   367                           
-   368                           ;Ochia_PreMid.c: 85: TMR0IE = 1;
-   369  0037  168B               	bsf	11,5	;volatile
+   354                           ;Ochia_PreMid.c: 86: TRISB = 0x0F;
+   355  0032  300F               	movlw	15
+   356  0033  1683               	bsf	3,5	;RP0=1, select bank1
+   357  0034  1303               	bcf	3,6	;RP1=0, select bank1
+   358  0035  0086               	movwf	6	;volatile
+   359                           
+   360                           ;Ochia_PreMid.c: 87: TRISC = 0x00;
+   361  0036  0187               	clrf	7	;volatile
+   362                           
+   363                           ;Ochia_PreMid.c: 88: TRISD = 0xFF;
+   364  0037  30FF               	movlw	255
+   365  0038  0088               	movwf	8	;volatile
+   366                           
+   367                           ;Ochia_PreMid.c: 91: OPTION_REG = 0xC4;
+   368  0039  30C4               	movlw	196
+   369  003A  0081               	movwf	1	;volatile
    370                           
-   371                           ;Ochia_PreMid.c: 86: TMR0IF = 0;
-   372  0038  110B               	bcf	11,2	;volatile
+   371                           ;Ochia_PreMid.c: 92: INTE = 1;
+   372  003B  160B               	bsf	11,4	;volatile
    373                           
-   374                           ;Ochia_PreMid.c: 87: GIE = 1;
-   375  0039  178B               	bsf	11,7	;volatile
+   374                           ;Ochia_PreMid.c: 93: INTF = 0;
+   375  003C  108B               	bcf	11,1	;volatile
    376                           
-   377                           ;Ochia_PreMid.c: 89: int MSB = 2;
-   378  003A  3002               	movlw	2
-   379  003B  1283               	bcf	3,5	;RP0=0, select bank0
-   380  003C  1303               	bcf	3,6	;RP1=0, select bank0
-   381  003D  00AD               	movwf	main@MSB
-   382  003E  3000               	movlw	0
-   383  003F  00AE               	movwf	main@MSB+1
-   384                           
-   385                           ;Ochia_PreMid.c: 90: int LSB = 4;
-   386  0040  3004               	movlw	4
-   387  0041  00AF               	movwf	main@LSB
-   388  0042  3000               	movlw	0
-   389  0043  00B0               	movwf	main@LSB+1
-   390                           
-   391                           ;Ochia_PreMid.c: 92: initLCD();
-   392  0044  120A  118A  21C7  120A  118A  	fcall	_initLCD
-   393                           
-   394                           ;Ochia_PreMid.c: 93: display_count_msg(count);
-   395  0049  3031               	movlw	_count& (0+255)
-   396  004A  120A  118A  21A4  120A  118A  	fcall	_display_count_msg
-   397                           
-   398                           ;Ochia_PreMid.c: 94: instCtrl(0xC0);
-   399  004F  30C0               	movlw	192
-   400  0050  120A  118A  2220  120A  118A  	fcall	_instCtrl
-   401                           
-   402                           ;Ochia_PreMid.c: 95: dataCtrl(MSB + '0');
-   403  0055  1283               	bcf	3,5	;RP0=0, select bank0
-   404  0056  1303               	bcf	3,6	;RP1=0, select bank0
-   405  0057  082D               	movf	main@MSB,w
-   406  0058  3E30               	addlw	48
-   407  0059  120A  118A  2233  120A  118A  	fcall	_dataCtrl
-   408                           
-   409                           ;Ochia_PreMid.c: 96: instCtrl(0xC1);
-   410  005E  30C1               	movlw	193
-   411  005F  120A  118A  2220  120A  118A  	fcall	_instCtrl
+   377                           ;Ochia_PreMid.c: 94: TMR0IE = 1;
+   378  003D  168B               	bsf	11,5	;volatile
+   379                           
+   380                           ;Ochia_PreMid.c: 95: TMR0IF = 0;
+   381  003E  110B               	bcf	11,2	;volatile
+   382                           
+   383                           ;Ochia_PreMid.c: 96: GIE = 1;
+   384  003F  178B               	bsf	11,7	;volatile
+   385                           
+   386                           ;Ochia_PreMid.c: 99: initLCD();
+   387  0040  120A  118A  21A1  120A  118A  	fcall	_initLCD
+   388                           
+   389                           ;Ochia_PreMid.c: 100: display_count_msg(count);
+   390  0045  302D               	movlw	_count& (0+255)
+   391  0046  120A  118A  215B  120A  118A  	fcall	_display_count_msg
+   392                           
+   393                           ;Ochia_PreMid.c: 101: update_display(MSB, LSB);
+   394  004B  1283               	bcf	3,5	;RP0=0, select bank0
+   395  004C  1303               	bcf	3,6	;RP1=0, select bank0
+   396  004D  082A               	movf	main@MSB+1,w
+   397  004E  01A5               	clrf	update_display@MSB+1
+   398  004F  07A5               	addwf	update_display@MSB+1,f
+   399  0050  0829               	movf	main@MSB,w
+   400  0051  01A4               	clrf	update_display@MSB
+   401  0052  07A4               	addwf	update_display@MSB,f
+   402  0053  082C               	movf	main@LSB+1,w
+   403  0054  01A7               	clrf	update_display@LSB+1
+   404  0055  07A7               	addwf	update_display@LSB+1,f
+   405  0056  082B               	movf	main@LSB,w
+   406  0057  01A6               	clrf	update_display@LSB
+   407  0058  07A6               	addwf	update_display@LSB,f
+   408  0059  120A  118A  21E0  120A  118A  	fcall	_update_display
+   409  005E                     l905:	
+   410                           ;Ochia_PreMid.c: 103: while (1) {
+   411                           
    412                           
-   413                           ;Ochia_PreMid.c: 97: dataCtrl(LSB + '0');
-   414  0064  1283               	bcf	3,5	;RP0=0, select bank0
-   415  0065  1303               	bcf	3,6	;RP1=0, select bank0
-   416  0066  082F               	movf	main@LSB,w
-   417  0067  3E30               	addlw	48
-   418  0068  120A  118A  2233  120A  118A  	fcall	_dataCtrl
-   419                           
-   420                           ;Ochia_PreMid.c: 99: int direction = 0;
-   421  006D  1283               	bcf	3,5	;RP0=0, select bank0
-   422  006E  1303               	bcf	3,6	;RP1=0, select bank0
-   423  006F  01AB               	clrf	main@direction
-   424  0070  01AC               	clrf	main@direction+1
-   425  0071                     l941:	
-   426                           ;Ochia_PreMid.c: 101: while (1) {
-   427                           
-   428                           
-   429                           ;Ochia_PreMid.c: 104: if(RD4){
-   430  0071  1283               	bcf	3,5	;RP0=0, select bank0
-   431  0072  1303               	bcf	3,6	;RP1=0, select bank0
-   432  0073  1E08               	btfss	8,4	;volatile
-   433  0074  2924               	goto	l77
-   434                           
-   435                           ;Ochia_PreMid.c: 105: instCtrl(0xC0);
-   436  0075  30C0               	movlw	192
-   437  0076  120A  118A  2220  120A  118A  	fcall	_instCtrl
-   438                           
-   439                           ;Ochia_PreMid.c: 106: dataCtrl(MSB + '0');
-   440  007B  1283               	bcf	3,5	;RP0=0, select bank0
-   441  007C  1303               	bcf	3,6	;RP1=0, select bank0
-   442  007D  082D               	movf	main@MSB,w
-   443  007E  3E30               	addlw	48
-   444  007F  120A  118A  2233  120A  118A  	fcall	_dataCtrl
-   445                           
-   446                           ;Ochia_PreMid.c: 107: instCtrl(0xC1);
-   447  0084  30C1               	movlw	193
-   448  0085  120A  118A  2220  120A  118A  	fcall	_instCtrl
-   449                           
-   450                           ;Ochia_PreMid.c: 108: dataCtrl(LSB + '0');
-   451  008A  1283               	bcf	3,5	;RP0=0, select bank0
-   452  008B  1303               	bcf	3,6	;RP1=0, select bank0
-   453  008C  082F               	movf	main@LSB,w
-   454  008D  3E30               	addlw	48
-   455  008E  120A  118A  2233  120A  118A  	fcall	_dataCtrl
-   456                           
-   457                           ;Ochia_PreMid.c: 109: key = PORTD & 0x0F;
-   458  0093  1283               	bcf	3,5	;RP0=0, select bank0
-   459  0094  1303               	bcf	3,6	;RP1=0, select bank0
-   460  0095  0808               	movf	8,w	;volatile
-   461  0096  390F               	andlw	15
-   462  0097  00A8               	movwf	??_main
-   463  0098  0828               	movf	??_main,w
-   464  0099  00B9               	movwf	_key
-   465                           
-   466                           ;Ochia_PreMid.c: 111: if (key == 0x0D){
-   467  009A  0839               	movf	_key,w
-   468  009B  3A0D               	xorlw	13
-   469  009C  1D03               	skipz
-   470  009D  28A0               	goto	l951
-   471                           
-   472                           ;Ochia_PreMid.c: 112: btn_flag = 1;
-   473  009E  01B8               	clrf	_btn_flag
-   474  009F  0AB8               	incf	_btn_flag,f
-   475  00A0                     l951:	
-   476                           
-   477                           ;Ochia_PreMid.c: 113: }
-   478                           ;Ochia_PreMid.c: 115: if (btn_flag == 0) {
-   479  00A0  08B8               	movf	_btn_flag,f
-   480  00A1  1D03               	skipz
-   481  00A2  2924               	goto	l77
-   482                           
-   483                           ;Ochia_PreMid.c: 116: if (key == 0x0C){
-   484  00A3  0839               	movf	_key,w
-   485  00A4  3A0C               	xorlw	12
-   486  00A5  1D03               	skipz
-   487  00A6  28DC               	goto	l969
-   488                           
-   489                           ;Ochia_PreMid.c: 117: if (MSB >= 2 && LSB >= 4) {
-   490  00A7  082E               	movf	main@MSB+1,w
-   491  00A8  3A80               	xorlw	128
-   492  00A9  00FF               	movwf	127
-   493  00AA  3080               	movlw	128
-   494  00AB  027F               	subwf	127,w
-   495  00AC  1D03               	skipz
-   496  00AD  28B0               	goto	u545
-   497  00AE  3002               	movlw	2
-   498  00AF  022D               	subwf	main@MSB,w
-   499  00B0                     u545:	
-   500  00B0  1C03               	skipc
-   501  00B1  28C6               	goto	l961
-   502  00B2  1283               	bcf	3,5	;RP0=0, select bank0
-   503  00B3  1303               	bcf	3,6	;RP1=0, select bank0
-   504  00B4  0830               	movf	main@LSB+1,w
-   505  00B5  3A80               	xorlw	128
-   506  00B6  00FF               	movwf	127
-   507  00B7  3080               	movlw	128
-   508  00B8  027F               	subwf	127,w
-   509  00B9  1D03               	skipz
-   510  00BA  28BD               	goto	u555
-   511  00BB  3004               	movlw	4
-   512  00BC  022F               	subwf	main@LSB,w
-   513  00BD                     u555:	
-   514  00BD  1C03               	skipc
-   515  00BE  28C6               	goto	l961
-   516                           
-   517                           ;Ochia_PreMid.c: 118: LSB = 0;
-   518  00BF  1283               	bcf	3,5	;RP0=0, select bank0
-   519  00C0  1303               	bcf	3,6	;RP1=0, select bank0
-   520  00C1  01AF               	clrf	main@LSB
-   521  00C2  01B0               	clrf	main@LSB+1
-   522                           
-   523                           ;Ochia_PreMid.c: 119: MSB = 0;
-   524  00C3  01AD               	clrf	main@MSB
-   525  00C4  01AE               	clrf	main@MSB+1
-   526                           
-   527                           ;Ochia_PreMid.c: 120: } else if (LSB == 9) {
-   528  00C5  2906               	goto	l983
-   529  00C6                     l961:	
-   530  00C6  3009               	movlw	9
-   531  00C7  1283               	bcf	3,5	;RP0=0, select bank0
-   532  00C8  1303               	bcf	3,6	;RP1=0, select bank0
-   533  00C9  062F               	xorwf	main@LSB,w
-   534  00CA  0430               	iorwf	main@LSB+1,w
-   535  00CB  1D03               	skipz
-   536  00CC  28D6               	goto	l967
-   537                           
-   538                           ;Ochia_PreMid.c: 121: LSB = 0;
-   539  00CD  01AF               	clrf	main@LSB
-   540  00CE  01B0               	clrf	main@LSB+1
-   541                           
-   542                           ;Ochia_PreMid.c: 122: MSB += 1;
-   543  00CF  3001               	movlw	1
-   544  00D0  07AD               	addwf	main@MSB,f
-   545  00D1  1803               	skipnc
-   546  00D2  0AAE               	incf	main@MSB+1,f
-   547  00D3  3000               	movlw	0
-   548  00D4  07AE               	addwf	main@MSB+1,f
-   549                           
-   550                           ;Ochia_PreMid.c: 123: } else {
-   551  00D5  2906               	goto	l983
-   552  00D6                     l967:	
-   553                           
-   554                           ;Ochia_PreMid.c: 124: LSB += 1;
-   555  00D6  3001               	movlw	1
-   556  00D7  07AF               	addwf	main@LSB,f
-   557  00D8  1803               	skipnc
-   558  00D9  0AB0               	incf	main@LSB+1,f
-   559  00DA  3000               	movlw	0
-   560  00DB  2905               	goto	L1
-   561  00DC                     l969:	
-   562                           ;Ochia_PreMid.c: 125: }
-   563                           ;Ochia_PreMid.c: 127: } else if (key == 0x0E){
-   564                           
-   565  00DC  0839               	movf	_key,w
-   566  00DD  3A0E               	xorlw	14
-   567  00DE  1D03               	skipz
-   568  00DF  2906               	goto	l983
-   569                           
-   570                           ;Ochia_PreMid.c: 128: if (MSB == 0 && LSB == 0) {
-   571  00E0  082E               	movf	main@MSB+1,w
-   572  00E1  042D               	iorwf	main@MSB,w
-   573  00E2  1D03               	skipz
-   574  00E3  28F1               	goto	l977
-   575  00E4  0830               	movf	main@LSB+1,w
-   576  00E5  042F               	iorwf	main@LSB,w
-   577  00E6  1D03               	skipz
-   578  00E7  28F1               	goto	l977
-   579                           
-   580                           ;Ochia_PreMid.c: 129: LSB = 4;
-   581  00E8  3004               	movlw	4
-   582  00E9  00AF               	movwf	main@LSB
-   583  00EA  3000               	movlw	0
-   584  00EB  00B0               	movwf	main@LSB+1
-   585                           
-   586                           ;Ochia_PreMid.c: 130: MSB = 2;
-   587  00EC  3002               	movlw	2
-   588  00ED  00AD               	movwf	main@MSB
-   589  00EE  3000               	movlw	0
-   590  00EF  00AE               	movwf	main@MSB+1
-   591                           
-   592                           ;Ochia_PreMid.c: 131: } else if (LSB == 0) {
-   593  00F0  2906               	goto	l983
-   594  00F1                     l977:	
-   595  00F1  0830               	movf	main@LSB+1,w
-   596  00F2  042F               	iorwf	main@LSB,w
-   597  00F3  1D03               	skipz
-   598  00F4  2900               	goto	l981
-   599                           
-   600                           ;Ochia_PreMid.c: 132: MSB -= 1;
-   601  00F5  30FF               	movlw	255
-   602  00F6  07AD               	addwf	main@MSB,f
-   603  00F7  1803               	skipnc
-   604  00F8  0AAE               	incf	main@MSB+1,f
-   605  00F9  30FF               	movlw	255
-   606  00FA  07AE               	addwf	main@MSB+1,f
-   607                           
-   608                           ;Ochia_PreMid.c: 133: LSB = 9;
-   609  00FB  3009               	movlw	9
-   610  00FC  00AF               	movwf	main@LSB
-   611  00FD  3000               	movlw	0
-   612  00FE  00B0               	movwf	main@LSB+1
-   613                           
-   614                           ;Ochia_PreMid.c: 134: } else {
-   615  00FF  2906               	goto	l983
-   616  0100                     l981:	
-   617                           
-   618                           ;Ochia_PreMid.c: 135: LSB -= 1;
-   619  0100  30FF               	movlw	255
-   620  0101  07AF               	addwf	main@LSB,f
-   621  0102  1803               	skipnc
-   622  0103  0AB0               	incf	main@LSB+1,f
-   623  0104  30FF               	movlw	255
-   624  0105                     L1:	
-   625  0105  07B0               	addwf	main@LSB+1,f
-   626  0106                     l983:	
-   627                           
-   628                           ;Ochia_PreMid.c: 136: }
-   629                           ;Ochia_PreMid.c: 138: }
-   630                           ;Ochia_PreMid.c: 140: instCtrl(0xC1);
-   631  0106  30C1               	movlw	193
-   632  0107  120A  118A  2220  120A  118A  	fcall	_instCtrl
-   633                           
-   634                           ;Ochia_PreMid.c: 141: dataCtrl(LSB + '0');
-   635  010C  1283               	bcf	3,5	;RP0=0, select bank0
-   636  010D  1303               	bcf	3,6	;RP1=0, select bank0
-   637  010E  082F               	movf	main@LSB,w
-   638  010F  3E30               	addlw	48
-   639  0110  120A  118A  2233  120A  118A  	fcall	_dataCtrl
-   640                           
-   641                           ;Ochia_PreMid.c: 142: instCtrl(0xC0);
-   642  0115  30C0               	movlw	192
-   643  0116  120A  118A  2220  120A  118A  	fcall	_instCtrl
-   644                           
-   645                           ;Ochia_PreMid.c: 143: dataCtrl(MSB + '0');
-   646  011B  1283               	bcf	3,5	;RP0=0, select bank0
-   647  011C  1303               	bcf	3,6	;RP1=0, select bank0
-   648  011D  082D               	movf	main@MSB,w
-   649  011E  3E30               	addlw	48
-   650  011F  120A  118A  2233  120A  118A  	fcall	_dataCtrl
-   651  0124                     l77:	
-   652                           
-   653                           ;Ochia_PreMid.c: 144: }
-   654                           ;Ochia_PreMid.c: 145: }
-   655                           ;Ochia_PreMid.c: 151: if (btn_flag == 1) {
-   656  0124  1283               	bcf	3,5	;RP0=0, select bank0
-   657  0125  1303               	bcf	3,6	;RP1=0, select bank0
-   658  0126  0838               	movf	_btn_flag,w
-   659  0127  3A01               	xorlw	1
-   660  0128  1D03               	skipz
-   661  0129  2871               	goto	l941
-   662                           
-   663                           ;Ochia_PreMid.c: 152: if (MSB == 0 && LSB == 0) {
-   664  012A  082E               	movf	main@MSB+1,w
-   665  012B  042D               	iorwf	main@MSB,w
-   666  012C  1D03               	skipz
-   667  012D  293B               	goto	l997
-   668  012E  0830               	movf	main@LSB+1,w
-   669  012F  042F               	iorwf	main@LSB,w
-   670  0130  1D03               	skipz
-   671  0131  293B               	goto	l997
-   672                           
-   673                           ;Ochia_PreMid.c: 153: LSB = 4;
-   674  0132  3004               	movlw	4
-   675  0133  00AF               	movwf	main@LSB
-   676  0134  3000               	movlw	0
-   677  0135  00B0               	movwf	main@LSB+1
-   678                           
-   679                           ;Ochia_PreMid.c: 154: MSB = 2;
-   680  0136  3002               	movlw	2
-   681  0137  00AD               	movwf	main@MSB
-   682  0138  3000               	movlw	0
-   683  0139  00AE               	movwf	main@MSB+1
-   684                           
-   685                           ;Ochia_PreMid.c: 155: } else if (LSB == 0) {
-   686  013A  2950               	goto	l1003
-   687  013B                     l997:	
-   688  013B  0830               	movf	main@LSB+1,w
-   689  013C  042F               	iorwf	main@LSB,w
-   690  013D  1D03               	skipz
-   691  013E  294A               	goto	l1001
-   692                           
-   693                           ;Ochia_PreMid.c: 156: MSB -= 1;
-   694  013F  30FF               	movlw	255
-   695  0140  07AD               	addwf	main@MSB,f
-   696  0141  1803               	skipnc
-   697  0142  0AAE               	incf	main@MSB+1,f
-   698  0143  30FF               	movlw	255
-   699  0144  07AE               	addwf	main@MSB+1,f
-   700                           
-   701                           ;Ochia_PreMid.c: 157: LSB = 9;
-   702  0145  3009               	movlw	9
-   703  0146  00AF               	movwf	main@LSB
-   704  0147  3000               	movlw	0
-   705  0148  00B0               	movwf	main@LSB+1
-   706                           
-   707                           ;Ochia_PreMid.c: 158: } else {
-   708  0149  2950               	goto	l1003
-   709  014A                     l1001:	
-   710                           
-   711                           ;Ochia_PreMid.c: 159: LSB -= 1;
-   712  014A  30FF               	movlw	255
-   713  014B  07AF               	addwf	main@LSB,f
-   714  014C  1803               	skipnc
-   715  014D  0AB0               	incf	main@LSB+1,f
-   716  014E  30FF               	movlw	255
-   717  014F  07B0               	addwf	main@LSB+1,f
-   718  0150                     l1003:	
-   719                           
-   720                           ;Ochia_PreMid.c: 160: }
-   721                           ;Ochia_PreMid.c: 162: instCtrl(0xC1);
-   722  0150  30C1               	movlw	193
-   723  0151  120A  118A  2220  120A  118A  	fcall	_instCtrl
-   724                           
-   725                           ;Ochia_PreMid.c: 163: dataCtrl(LSB + '0');
-   726  0156  1283               	bcf	3,5	;RP0=0, select bank0
-   727  0157  1303               	bcf	3,6	;RP1=0, select bank0
-   728  0158  082F               	movf	main@LSB,w
-   729  0159  3E30               	addlw	48
-   730  015A  120A  118A  2233  120A  118A  	fcall	_dataCtrl
-   731                           
-   732                           ;Ochia_PreMid.c: 164: instCtrl(0xC0);
-   733  015F  30C0               	movlw	192
-   734  0160  120A  118A  2220  120A  118A  	fcall	_instCtrl
-   735                           
-   736                           ;Ochia_PreMid.c: 165: dataCtrl(MSB + '0');
-   737  0165  1283               	bcf	3,5	;RP0=0, select bank0
-   738  0166  1303               	bcf	3,6	;RP1=0, select bank0
-   739  0167  082D               	movf	main@MSB,w
-   740  0168  3E30               	addlw	48
-   741  0169  120A  118A  2233  120A  118A  	fcall	_dataCtrl
-   742                           
-   743                           ;Ochia_PreMid.c: 166: delay(31);
-   744  016E  301F               	movlw	31
-   745  016F  00F5               	movwf	delay@num
-   746  0170  3000               	movlw	0
-   747  0171  00F6               	movwf	delay@num+1
-   748  0172  120A  118A  21E7  120A  118A  	fcall	_delay
-   749  0177  2871               	goto	l941
-   750  0178                     __end_of_main:	
-   751                           
-   752                           	psect	text1
-   753  01C7                     __ptext1:	
-   754 ;; *************** function _initLCD *****************
-   755 ;; Defined at:
-   756 ;;		line 60 in file "Z:\CPE3201\Premid\Ochia_PreMid.c"
-   757 ;; Parameters:    Size  Location     Type
-   758 ;;		None
-   759 ;; Auto vars:     Size  Location     Type
-   760 ;;		None
-   761 ;; Return value:  Size  Location     Type
-   762 ;;		None               void
-   763 ;; Registers used:
-   764 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
-   765 ;; Tracked objects:
-   766 ;;		On entry : 0/0
-   767 ;;		On exit  : 0/0
-   768 ;;		Unchanged: 0/0
-   769 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   770 ;;      Params:         0       0       0       0       0
-   771 ;;      Locals:         0       0       0       0       0
-   772 ;;      Temps:          0       0       0       0       0
-   773 ;;      Totals:         0       0       0       0       0
-   774 ;;Total ram usage:        0 bytes
-   775 ;; Hardware stack levels used:    1
-   776 ;; Hardware stack levels required when called:    3
-   777 ;; This function calls:
-   778 ;;		_delay_lcd
-   779 ;;		_instCtrl
-   780 ;; This function is called by:
-   781 ;;		_main
-   782 ;; This function uses a non-reentrant model
-   783 ;;
-   784                           
-   785                           
-   786                           ;psect for function _initLCD
-   787  01C7                     _initLCD:	
+   413                           ;Ochia_PreMid.c: 104: key = PORTD & 0x0F;
+   414  005E  1283               	bcf	3,5	;RP0=0, select bank0
+   415  005F  1303               	bcf	3,6	;RP1=0, select bank0
+   416  0060  0808               	movf	8,w	;volatile
+   417  0061  390F               	andlw	15
+   418  0062  00A8               	movwf	??_main
+   419  0063  0828               	movf	??_main,w
+   420  0064  00B5               	movwf	_key
+   421                           
+   422                           ;Ochia_PreMid.c: 106: if (btn_flag == 0) {
+   423  0065  08B4               	movf	_btn_flag,f
+   424  0066  1D03               	skipz
+   425  0067  28E8               	goto	l943
+   426                           
+   427                           ;Ochia_PreMid.c: 107: if (key == 0x0C) {
+   428  0068  0835               	movf	_key,w
+   429  0069  3A0C               	xorlw	12
+   430  006A  1D03               	skipz
+   431  006B  289E               	goto	l927
+   432                           
+   433                           ;Ochia_PreMid.c: 108: if (MSB < 2 || (MSB == 2 && LSB < 4)) {
+   434  006C  082A               	movf	main@MSB+1,w
+   435  006D  3A80               	xorlw	128
+   436  006E  00FF               	movwf	127
+   437  006F  3080               	movlw	128
+   438  0070  027F               	subwf	127,w
+   439  0071  1D03               	skipz
+   440  0072  2875               	goto	u545
+   441  0073  3002               	movlw	2
+   442  0074  0229               	subwf	main@MSB,w
+   443  0075                     u545:	
+   444  0075  1C03               	skipc
+   445  0076  2889               	goto	l917
+   446  0077  3002               	movlw	2
+   447  0078  1283               	bcf	3,5	;RP0=0, select bank0
+   448  0079  1303               	bcf	3,6	;RP1=0, select bank0
+   449  007A  0629               	xorwf	main@MSB,w
+   450  007B  042A               	iorwf	main@MSB+1,w
+   451  007C  1D03               	skipz
+   452  007D  28E8               	goto	l943
+   453  007E  082C               	movf	main@LSB+1,w
+   454  007F  3A80               	xorlw	128
+   455  0080  00FF               	movwf	127
+   456  0081  3080               	movlw	128
+   457  0082  027F               	subwf	127,w
+   458  0083  1D03               	skipz
+   459  0084  2887               	goto	u565
+   460  0085  3004               	movlw	4
+   461  0086  022B               	subwf	main@LSB,w
+   462  0087                     u565:	
+   463  0087  1803               	skipnc
+   464  0088  28E8               	goto	l943
+   465  0089                     l917:	
+   466                           
+   467                           ;Ochia_PreMid.c: 109: if (LSB == 9) {
+   468  0089  3009               	movlw	9
+   469  008A  1283               	bcf	3,5	;RP0=0, select bank0
+   470  008B  1303               	bcf	3,6	;RP1=0, select bank0
+   471  008C  062B               	xorwf	main@LSB,w
+   472  008D  042C               	iorwf	main@LSB+1,w
+   473  008E  1D03               	skipz
+   474  008F  2898               	goto	l923
+   475                           
+   476                           ;Ochia_PreMid.c: 110: LSB = 0;
+   477  0090  01AB               	clrf	main@LSB
+   478  0091  01AC               	clrf	main@LSB+1
+   479                           
+   480                           ;Ochia_PreMid.c: 111: MSB++;
+   481  0092  3001               	movlw	1
+   482  0093  07A9               	addwf	main@MSB,f
+   483  0094  1803               	skipnc
+   484  0095  0AAA               	incf	main@MSB+1,f
+   485  0096  3000               	movlw	0
+   486  0097  28CF               	goto	L2
+   487  0098                     l923:	
+   488                           ;Ochia_PreMid.c: 112: } else {
+   489                           
+   490                           
+   491                           ;Ochia_PreMid.c: 113: LSB++;
+   492  0098  3001               	movlw	1
+   493  0099  07AB               	addwf	main@LSB,f
+   494  009A  1803               	skipnc
+   495  009B  0AAC               	incf	main@LSB+1,f
+   496  009C  3000               	movlw	0
+   497  009D  28D6               	goto	L1
+   498  009E                     l927:	
+   499                           ;Ochia_PreMid.c: 116: }
+   500                           ;Ochia_PreMid.c: 117: } else if (key == 0x0E) {
+   501                           
+   502                           ;Ochia_PreMid.c: 114: }
+   503                           ;Ochia_PreMid.c: 115: update_display(MSB, LSB);
+   504                           
+   505  009E  1283               	bcf	3,5	;RP0=0, select bank0
+   506  009F  1303               	bcf	3,6	;RP1=0, select bank0
+   507  00A0  0835               	movf	_key,w
+   508  00A1  3A0E               	xorlw	14
+   509  00A2  1D03               	skipz
+   510  00A3  28E8               	goto	l943
+   511                           
+   512                           ;Ochia_PreMid.c: 118: if (MSB > 0 || (MSB == 0 && LSB > 0)) {
+   513  00A4  082A               	movf	main@MSB+1,w
+   514  00A5  3A80               	xorlw	128
+   515  00A6  00FF               	movwf	127
+   516  00A7  3080               	movlw	128
+   517  00A8  027F               	subwf	127,w
+   518  00A9  1D03               	skipz
+   519  00AA  28AD               	goto	u595
+   520  00AB  3001               	movlw	1
+   521  00AC  0229               	subwf	main@MSB,w
+   522  00AD                     u595:	
+   523  00AD  1803               	skipnc
+   524  00AE  28C0               	goto	l935
+   525  00AF  1283               	bcf	3,5	;RP0=0, select bank0
+   526  00B0  1303               	bcf	3,6	;RP1=0, select bank0
+   527  00B1  082A               	movf	main@MSB+1,w
+   528  00B2  0429               	iorwf	main@MSB,w
+   529  00B3  1D03               	skipz
+   530  00B4  28E8               	goto	l943
+   531  00B5  082C               	movf	main@LSB+1,w
+   532  00B6  3A80               	xorlw	128
+   533  00B7  00FF               	movwf	127
+   534  00B8  3080               	movlw	128
+   535  00B9  027F               	subwf	127,w
+   536  00BA  1D03               	skipz
+   537  00BB  28BE               	goto	u615
+   538  00BC  3001               	movlw	1
+   539  00BD  022B               	subwf	main@LSB,w
+   540  00BE                     u615:	
+   541  00BE  1C03               	skipc
+   542  00BF  28E8               	goto	l943
+   543  00C0                     l935:	
+   544                           
+   545                           ;Ochia_PreMid.c: 119: if (LSB == 0) {
+   546  00C0  1283               	bcf	3,5	;RP0=0, select bank0
+   547  00C1  1303               	bcf	3,6	;RP1=0, select bank0
+   548  00C2  082C               	movf	main@LSB+1,w
+   549  00C3  042B               	iorwf	main@LSB,w
+   550  00C4  1D03               	skipz
+   551  00C5  28D1               	goto	l939
+   552                           
+   553                           ;Ochia_PreMid.c: 120: LSB = 9;
+   554  00C6  3009               	movlw	9
+   555  00C7  00AB               	movwf	main@LSB
+   556  00C8  3000               	movlw	0
+   557  00C9  00AC               	movwf	main@LSB+1
+   558                           
+   559                           ;Ochia_PreMid.c: 121: MSB--;
+   560  00CA  30FF               	movlw	255
+   561  00CB  07A9               	addwf	main@MSB,f
+   562  00CC  1803               	skipnc
+   563  00CD  0AAA               	incf	main@MSB+1,f
+   564  00CE  30FF               	movlw	255
+   565  00CF                     L2:	
+   566  00CF  07AA               	addwf	main@MSB+1,f
+   567                           
+   568                           ;Ochia_PreMid.c: 122: } else {
+   569  00D0  28D7               	goto	l941
+   570  00D1                     l939:	
+   571                           
+   572                           ;Ochia_PreMid.c: 123: LSB--;
+   573  00D1  30FF               	movlw	255
+   574  00D2  07AB               	addwf	main@LSB,f
+   575  00D3  1803               	skipnc
+   576  00D4  0AAC               	incf	main@LSB+1,f
+   577  00D5  30FF               	movlw	255
+   578  00D6                     L1:	
+   579  00D6  07AC               	addwf	main@LSB+1,f
+   580  00D7                     l941:	
+   581                           
+   582                           ;Ochia_PreMid.c: 124: }
+   583                           ;Ochia_PreMid.c: 125: update_display(MSB, LSB);
+   584  00D7  082A               	movf	main@MSB+1,w
+   585  00D8  01A5               	clrf	update_display@MSB+1
+   586  00D9  07A5               	addwf	update_display@MSB+1,f
+   587  00DA  0829               	movf	main@MSB,w
+   588  00DB  01A4               	clrf	update_display@MSB
+   589  00DC  07A4               	addwf	update_display@MSB,f
+   590  00DD  082C               	movf	main@LSB+1,w
+   591  00DE  01A7               	clrf	update_display@LSB+1
+   592  00DF  07A7               	addwf	update_display@LSB+1,f
+   593  00E0  082B               	movf	main@LSB,w
+   594  00E1  01A6               	clrf	update_display@LSB
+   595  00E2  07A6               	addwf	update_display@LSB,f
+   596  00E3  120A  118A  21E0  120A  118A  	fcall	_update_display
+   597  00E8                     l943:	
+   598                           
+   599                           ;Ochia_PreMid.c: 126: }
+   600                           ;Ochia_PreMid.c: 127: }
+   601                           ;Ochia_PreMid.c: 128: }
+   602                           ;Ochia_PreMid.c: 130: if (btn_flag == 1) {
+   603  00E8  1283               	bcf	3,5	;RP0=0, select bank0
+   604  00E9  1303               	bcf	3,6	;RP1=0, select bank0
+   605  00EA  0834               	movf	_btn_flag,w
+   606  00EB  3A01               	xorlw	1
+   607  00EC  1D03               	skipz
+   608  00ED  285E               	goto	l905
+   609                           
+   610                           ;Ochia_PreMid.c: 131: if (MSB == 0 && LSB == 0) {
+   611  00EE  082A               	movf	main@MSB+1,w
+   612  00EF  0429               	iorwf	main@MSB,w
+   613  00F0  1D03               	skipz
+   614  00F1  28FF               	goto	l951
+   615  00F2  082C               	movf	main@LSB+1,w
+   616  00F3  042B               	iorwf	main@LSB,w
+   617  00F4  1D03               	skipz
+   618  00F5  28FF               	goto	l951
+   619                           
+   620                           ;Ochia_PreMid.c: 132: MSB = 2;
+   621  00F6  3002               	movlw	2
+   622  00F7  00A9               	movwf	main@MSB
+   623  00F8  3000               	movlw	0
+   624  00F9  00AA               	movwf	main@MSB+1
+   625                           
+   626                           ;Ochia_PreMid.c: 133: LSB = 4;
+   627  00FA  3004               	movlw	4
+   628  00FB  00AB               	movwf	main@LSB
+   629  00FC  3000               	movlw	0
+   630  00FD  00AC               	movwf	main@LSB+1
+   631                           
+   632                           ;Ochia_PreMid.c: 134: } else {
+   633  00FE  2914               	goto	l957
+   634  00FF                     l951:	
+   635                           
+   636                           ;Ochia_PreMid.c: 135: if (LSB == 0) {
+   637  00FF  082C               	movf	main@LSB+1,w
+   638  0100  042B               	iorwf	main@LSB,w
+   639  0101  1D03               	skipz
+   640  0102  290E               	goto	l955
+   641                           
+   642                           ;Ochia_PreMid.c: 136: LSB = 9;
+   643  0103  3009               	movlw	9
+   644  0104  00AB               	movwf	main@LSB
+   645  0105  3000               	movlw	0
+   646  0106  00AC               	movwf	main@LSB+1
+   647                           
+   648                           ;Ochia_PreMid.c: 137: MSB--;
+   649  0107  30FF               	movlw	255
+   650  0108  07A9               	addwf	main@MSB,f
+   651  0109  1803               	skipnc
+   652  010A  0AAA               	incf	main@MSB+1,f
+   653  010B  30FF               	movlw	255
+   654  010C  07AA               	addwf	main@MSB+1,f
+   655                           
+   656                           ;Ochia_PreMid.c: 138: } else {
+   657  010D  2914               	goto	l957
+   658  010E                     l955:	
+   659                           
+   660                           ;Ochia_PreMid.c: 139: LSB--;
+   661  010E  30FF               	movlw	255
+   662  010F  07AB               	addwf	main@LSB,f
+   663  0110  1803               	skipnc
+   664  0111  0AAC               	incf	main@LSB+1,f
+   665  0112  30FF               	movlw	255
+   666  0113  07AC               	addwf	main@LSB+1,f
+   667  0114                     l957:	
+   668                           
+   669                           ;Ochia_PreMid.c: 140: }
+   670                           ;Ochia_PreMid.c: 141: }
+   671                           ;Ochia_PreMid.c: 142: update_display(MSB, LSB);
+   672  0114  082A               	movf	main@MSB+1,w
+   673  0115  01A5               	clrf	update_display@MSB+1
+   674  0116  07A5               	addwf	update_display@MSB+1,f
+   675  0117  0829               	movf	main@MSB,w
+   676  0118  01A4               	clrf	update_display@MSB
+   677  0119  07A4               	addwf	update_display@MSB,f
+   678  011A  082C               	movf	main@LSB+1,w
+   679  011B  01A7               	clrf	update_display@LSB+1
+   680  011C  07A7               	addwf	update_display@LSB+1,f
+   681  011D  082B               	movf	main@LSB,w
+   682  011E  01A6               	clrf	update_display@LSB
+   683  011F  07A6               	addwf	update_display@LSB,f
+   684  0120  120A  118A  21E0  120A  118A  	fcall	_update_display
+   685                           
+   686                           ;Ochia_PreMid.c: 143: delay(31);
+   687  0125  301F               	movlw	31
+   688  0126  00F5               	movwf	delay@num
+   689  0127  3000               	movlw	0
+   690  0128  00F6               	movwf	delay@num+1
+   691  0129  120A  118A  21C1  120A  118A  	fcall	_delay
+   692  012E  285E               	goto	l905
+   693  012F                     __end_of_main:	
+   694                           
+   695                           	psect	text1
+   696  01E0                     __ptext1:	
+   697 ;; *************** function _update_display *****************
+   698 ;; Defined at:
+   699 ;;		line 75 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
+   700 ;; Parameters:    Size  Location     Type
+   701 ;;  MSB             2    4[BANK0 ] int 
+   702 ;;  LSB             2    6[BANK0 ] int 
+   703 ;; Auto vars:     Size  Location     Type
+   704 ;;		None
+   705 ;; Return value:  Size  Location     Type
+   706 ;;		None               void
+   707 ;; Registers used:
+   708 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   709 ;; Tracked objects:
+   710 ;;		On entry : 0/0
+   711 ;;		On exit  : 0/0
+   712 ;;		Unchanged: 0/0
+   713 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   714 ;;      Params:         0       4       0       0       0
+   715 ;;      Locals:         0       0       0       0       0
+   716 ;;      Temps:          0       0       0       0       0
+   717 ;;      Totals:         0       4       0       0       0
+   718 ;;Total ram usage:        4 bytes
+   719 ;; Hardware stack levels used:    1
+   720 ;; Hardware stack levels required when called:    3
+   721 ;; This function calls:
+   722 ;;		_dataCtrl
+   723 ;;		_instCtrl
+   724 ;; This function is called by:
+   725 ;;		_main
+   726 ;; This function uses a non-reentrant model
+   727 ;;
+   728                           
+   729                           
+   730                           ;psect for function _update_display
+   731  01E0                     _update_display:	
+   732                           
+   733                           ;Ochia_PreMid.c: 76: instCtrl(0xC0);
+   734                           
+   735                           ;incstack = 0
+   736                           ; Regs used in _update_display: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   737  01E0  30C0               	movlw	192
+   738  01E1  120A  118A  21F7  120A  118A  	fcall	_instCtrl
+   739                           
+   740                           ;Ochia_PreMid.c: 77: dataCtrl(MSB + '0');
+   741  01E6  1283               	bcf	3,5	;RP0=0, select bank0
+   742  01E7  1303               	bcf	3,6	;RP1=0, select bank0
+   743  01E8  0824               	movf	update_display@MSB,w
+   744  01E9  3E30               	addlw	48
+   745  01EA  120A  118A  220A  120A  118A  	fcall	_dataCtrl
+   746                           
+   747                           ;Ochia_PreMid.c: 78: dataCtrl(LSB + '0');
+   748  01EF  1283               	bcf	3,5	;RP0=0, select bank0
+   749  01F0  1303               	bcf	3,6	;RP1=0, select bank0
+   750  01F1  0826               	movf	update_display@LSB,w
+   751  01F2  3E30               	addlw	48
+   752  01F3  120A  118A  220A   	fcall	_dataCtrl
+   753  01F6  0008               	return
+   754  01F7                     __end_of_update_display:	
+   755                           
+   756                           	psect	text2
+   757  01A1                     __ptext2:	
+   758 ;; *************** function _initLCD *****************
+   759 ;; Defined at:
+   760 ;;		line 60 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
+   761 ;; Parameters:    Size  Location     Type
+   762 ;;		None
+   763 ;; Auto vars:     Size  Location     Type
+   764 ;;		None
+   765 ;; Return value:  Size  Location     Type
+   766 ;;		None               void
+   767 ;; Registers used:
+   768 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   769 ;; Tracked objects:
+   770 ;;		On entry : 0/0
+   771 ;;		On exit  : 0/0
+   772 ;;		Unchanged: 0/0
+   773 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   774 ;;      Params:         0       0       0       0       0
+   775 ;;      Locals:         0       0       0       0       0
+   776 ;;      Temps:          0       0       0       0       0
+   777 ;;      Totals:         0       0       0       0       0
+   778 ;;Total ram usage:        0 bytes
+   779 ;; Hardware stack levels used:    1
+   780 ;; Hardware stack levels required when called:    3
+   781 ;; This function calls:
+   782 ;;		_delay_lcd
+   783 ;;		_instCtrl
+   784 ;; This function is called by:
+   785 ;;		_main
+   786 ;; This function uses a non-reentrant model
+   787 ;;
    788                           
-   789                           ;Ochia_PreMid.c: 61: delay_lcd(1);
-   790                           
-   791                           ;incstack = 0
-   792                           ; Regs used in _initLCD: [wreg+status,2+status,0+btemp+1+pclath+cstack]
-   793  01C7  3001               	movlw	1
-   794  01C8  00F5               	movwf	delay_lcd@cnt
-   795  01C9  3000               	movlw	0
-   796  01CA  00F6               	movwf	delay_lcd@cnt+1
-   797  01CB  120A  118A  2178  120A  118A  	fcall	_delay_lcd
-   798                           
-   799                           ;Ochia_PreMid.c: 62: instCtrl(0x38);
-   800  01D0  3038               	movlw	56
-   801  01D1  120A  118A  2220  120A  118A  	fcall	_instCtrl
+   789                           
+   790                           ;psect for function _initLCD
+   791  01A1                     _initLCD:	
+   792                           
+   793                           ;Ochia_PreMid.c: 61: delay_lcd(1);
+   794                           
+   795                           ;incstack = 0
+   796                           ; Regs used in _initLCD: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   797  01A1  3001               	movlw	1
+   798  01A2  00F5               	movwf	delay_lcd@cnt
+   799  01A3  3000               	movlw	0
+   800  01A4  00F6               	movwf	delay_lcd@cnt+1
+   801  01A5  120A  118A  212F  120A  118A  	fcall	_delay_lcd
    802                           
-   803                           ;Ochia_PreMid.c: 63: instCtrl(0x01);
-   804  01D6  3001               	movlw	1
-   805  01D7  120A  118A  2220  120A  118A  	fcall	_instCtrl
+   803                           ;Ochia_PreMid.c: 62: instCtrl(0x38);
+   804  01AA  3038               	movlw	56
+   805  01AB  120A  118A  21F7  120A  118A  	fcall	_instCtrl
    806                           
-   807                           ;Ochia_PreMid.c: 64: instCtrl(0x06);
-   808  01DC  3006               	movlw	6
-   809  01DD  120A  118A  2220  120A  118A  	fcall	_instCtrl
+   807                           ;Ochia_PreMid.c: 63: instCtrl(0x01);
+   808  01B0  3001               	movlw	1
+   809  01B1  120A  118A  21F7  120A  118A  	fcall	_instCtrl
    810                           
-   811                           ;Ochia_PreMid.c: 65: instCtrl(0x0E);
-   812  01E2  300E               	movlw	14
-   813  01E3  120A  118A  2220   	fcall	_instCtrl
-   814  01E6  0008               	return
-   815  01E7                     __end_of_initLCD:	
-   816                           
-   817                           	psect	text2
-   818  0220                     __ptext2:	
-   819 ;; *************** function _instCtrl *****************
-   820 ;; Defined at:
-   821 ;;		line 51 in file "Z:\CPE3201\Premid\Ochia_PreMid.c"
-   822 ;; Parameters:    Size  Location     Type
-   823 ;;  INST            1    wreg     unsigned char 
-   824 ;; Auto vars:     Size  Location     Type
-   825 ;;  INST            1    7[COMMON] unsigned char 
-   826 ;; Return value:  Size  Location     Type
-   827 ;;		None               void
-   828 ;; Registers used:
-   829 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
-   830 ;; Tracked objects:
-   831 ;;		On entry : 0/0
-   832 ;;		On exit  : 0/0
-   833 ;;		Unchanged: 0/0
-   834 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   835 ;;      Params:         0       0       0       0       0
-   836 ;;      Locals:         1       0       0       0       0
-   837 ;;      Temps:          0       0       0       0       0
-   838 ;;      Totals:         1       0       0       0       0
-   839 ;;Total ram usage:        1 bytes
-   840 ;; Hardware stack levels used:    1
-   841 ;; Hardware stack levels required when called:    2
-   842 ;; This function calls:
-   843 ;;		_delay_lcd
-   844 ;; This function is called by:
-   845 ;;		_initLCD
-   846 ;;		_main
-   847 ;; This function uses a non-reentrant model
-   848 ;;
-   849                           
-   850                           
-   851                           ;psect for function _instCtrl
-   852  0220                     _instCtrl:	
+   811                           ;Ochia_PreMid.c: 64: instCtrl(0x06);
+   812  01B6  3006               	movlw	6
+   813  01B7  120A  118A  21F7  120A  118A  	fcall	_instCtrl
+   814                           
+   815                           ;Ochia_PreMid.c: 65: instCtrl(0x0E);
+   816  01BC  300E               	movlw	14
+   817  01BD  120A  118A  21F7   	fcall	_instCtrl
+   818  01C0  0008               	return
+   819  01C1                     __end_of_initLCD:	
+   820                           
+   821                           	psect	text3
+   822  01F7                     __ptext3:	
+   823 ;; *************** function _instCtrl *****************
+   824 ;; Defined at:
+   825 ;;		line 51 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
+   826 ;; Parameters:    Size  Location     Type
+   827 ;;  INST            1    wreg     unsigned char 
+   828 ;; Auto vars:     Size  Location     Type
+   829 ;;  INST            1    7[COMMON] unsigned char 
+   830 ;; Return value:  Size  Location     Type
+   831 ;;		None               void
+   832 ;; Registers used:
+   833 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   834 ;; Tracked objects:
+   835 ;;		On entry : 0/0
+   836 ;;		On exit  : 0/0
+   837 ;;		Unchanged: 0/0
+   838 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   839 ;;      Params:         0       0       0       0       0
+   840 ;;      Locals:         1       0       0       0       0
+   841 ;;      Temps:          0       0       0       0       0
+   842 ;;      Totals:         1       0       0       0       0
+   843 ;;Total ram usage:        1 bytes
+   844 ;; Hardware stack levels used:    1
+   845 ;; Hardware stack levels required when called:    2
+   846 ;; This function calls:
+   847 ;;		_delay_lcd
+   848 ;; This function is called by:
+   849 ;;		_initLCD
+   850 ;;		_update_display
+   851 ;; This function uses a non-reentrant model
+   852 ;;
    853                           
-   854                           ;incstack = 0
-   855                           ; Regs used in _instCtrl: [wreg+status,2+status,0+btemp+1+pclath+cstack]
-   856                           ;instCtrl@INST stored from wreg
-   857  0220  00F7               	movwf	instCtrl@INST
-   858                           
-   859                           ;Ochia_PreMid.c: 52: PORTC=INST;
-   860  0221  0877               	movf	instCtrl@INST,w
-   861  0222  1283               	bcf	3,5	;RP0=0, select bank0
-   862  0223  1303               	bcf	3,6	;RP1=0, select bank0
-   863  0224  0087               	movwf	7	;volatile
-   864                           
-   865                           ;Ochia_PreMid.c: 53: RB5=0;
-   866  0225  1286               	bcf	6,5	;volatile
-   867                           
-   868                           ;Ochia_PreMid.c: 54: RB6=0;
-   869  0226  1306               	bcf	6,6	;volatile
-   870                           
-   871                           ;Ochia_PreMid.c: 55: RB7=1;
-   872  0227  1786               	bsf	6,7	;volatile
-   873                           
-   874                           ;Ochia_PreMid.c: 56: delay_lcd(200);
-   875  0228  30C8               	movlw	200
-   876  0229  00F5               	movwf	delay_lcd@cnt
-   877  022A  3000               	movlw	0
-   878  022B  00F6               	movwf	delay_lcd@cnt+1
-   879  022C  120A  118A  2178   	fcall	_delay_lcd
-   880                           
-   881                           ;Ochia_PreMid.c: 57: RB7=0;
-   882  022F  1283               	bcf	3,5	;RP0=0, select bank0
-   883  0230  1303               	bcf	3,6	;RP1=0, select bank0
-   884  0231  1386               	bcf	6,7	;volatile
-   885  0232  0008               	return
-   886  0233                     __end_of_instCtrl:	
-   887                           
-   888                           	psect	text3
-   889  01A4                     __ptext3:	
-   890 ;; *************** function _display_count_msg *****************
-   891 ;; Defined at:
-   892 ;;		line 68 in file "Z:\CPE3201\Premid\Ochia_PreMid.c"
-   893 ;; Parameters:    Size  Location     Type
-   894 ;;  msg             1    wreg     PTR unsigned char 
-   895 ;;		 -> count(7), 
-   896 ;; Auto vars:     Size  Location     Type
-   897 ;;  msg             1    5[BANK0 ] PTR unsigned char 
-   898 ;;		 -> count(7), 
-   899 ;;  i               2    6[BANK0 ] int 
-   900 ;; Return value:  Size  Location     Type
-   901 ;;		None               void
-   902 ;; Registers used:
-   903 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
-   904 ;; Tracked objects:
-   905 ;;		On entry : 0/0
-   906 ;;		On exit  : 0/0
-   907 ;;		Unchanged: 0/0
-   908 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   909 ;;      Params:         0       0       0       0       0
-   910 ;;      Locals:         0       3       0       0       0
-   911 ;;      Temps:          0       1       0       0       0
-   912 ;;      Totals:         0       4       0       0       0
-   913 ;;Total ram usage:        4 bytes
-   914 ;; Hardware stack levels used:    1
-   915 ;; Hardware stack levels required when called:    3
-   916 ;; This function calls:
-   917 ;;		_dataCtrl
-   918 ;; This function is called by:
-   919 ;;		_main
-   920 ;; This function uses a non-reentrant model
-   921 ;;
-   922                           
-   923                           
-   924                           ;psect for function _display_count_msg
-   925  01A4                     _display_count_msg:	
+   854                           
+   855                           ;psect for function _instCtrl
+   856  01F7                     _instCtrl:	
+   857                           
+   858                           ;incstack = 0
+   859                           ; Regs used in _instCtrl: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   860                           ;instCtrl@INST stored from wreg
+   861  01F7  00F7               	movwf	instCtrl@INST
+   862                           
+   863                           ;Ochia_PreMid.c: 52: PORTC = INST;
+   864  01F8  0877               	movf	instCtrl@INST,w
+   865  01F9  1283               	bcf	3,5	;RP0=0, select bank0
+   866  01FA  1303               	bcf	3,6	;RP1=0, select bank0
+   867  01FB  0087               	movwf	7	;volatile
+   868                           
+   869                           ;Ochia_PreMid.c: 53: RB5 = 0;
+   870  01FC  1286               	bcf	6,5	;volatile
+   871                           
+   872                           ;Ochia_PreMid.c: 54: RB6 = 0;
+   873  01FD  1306               	bcf	6,6	;volatile
+   874                           
+   875                           ;Ochia_PreMid.c: 55: RB7 = 1;
+   876  01FE  1786               	bsf	6,7	;volatile
+   877                           
+   878                           ;Ochia_PreMid.c: 56: delay_lcd(200);
+   879  01FF  30C8               	movlw	200
+   880  0200  00F5               	movwf	delay_lcd@cnt
+   881  0201  3000               	movlw	0
+   882  0202  00F6               	movwf	delay_lcd@cnt+1
+   883  0203  120A  118A  212F   	fcall	_delay_lcd
+   884                           
+   885                           ;Ochia_PreMid.c: 57: RB7 = 0;
+   886  0206  1283               	bcf	3,5	;RP0=0, select bank0
+   887  0207  1303               	bcf	3,6	;RP1=0, select bank0
+   888  0208  1386               	bcf	6,7	;volatile
+   889  0209  0008               	return
+   890  020A                     __end_of_instCtrl:	
+   891                           
+   892                           	psect	text4
+   893  015B                     __ptext4:	
+   894 ;; *************** function _display_count_msg *****************
+   895 ;; Defined at:
+   896 ;;		line 68 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
+   897 ;; Parameters:    Size  Location     Type
+   898 ;;  msg             1    wreg     PTR unsigned char 
+   899 ;;		 -> count(7), 
+   900 ;; Auto vars:     Size  Location     Type
+   901 ;;  msg             1    5[BANK0 ] PTR unsigned char 
+   902 ;;		 -> count(7), 
+   903 ;;  i               2    6[BANK0 ] int 
+   904 ;; Return value:  Size  Location     Type
+   905 ;;		None               void
+   906 ;; Registers used:
+   907 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   908 ;; Tracked objects:
+   909 ;;		On entry : 0/0
+   910 ;;		On exit  : 0/0
+   911 ;;		Unchanged: 0/0
+   912 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   913 ;;      Params:         0       0       0       0       0
+   914 ;;      Locals:         0       3       0       0       0
+   915 ;;      Temps:          0       1       0       0       0
+   916 ;;      Totals:         0       4       0       0       0
+   917 ;;Total ram usage:        4 bytes
+   918 ;; Hardware stack levels used:    1
+   919 ;; Hardware stack levels required when called:    3
+   920 ;; This function calls:
+   921 ;;		_dataCtrl
+   922 ;; This function is called by:
+   923 ;;		_main
+   924 ;; This function uses a non-reentrant model
+   925 ;;
    926                           
-   927                           ;incstack = 0
-   928                           ; Regs used in _display_count_msg: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-   929                           ;display_count_msg@msg stored from wreg
-   930  01A4  1283               	bcf	3,5	;RP0=0, select bank0
-   931  01A5  1303               	bcf	3,6	;RP1=0, select bank0
-   932  01A6  00A5               	movwf	display_count_msg@msg
-   933                           
-   934                           ;Ochia_PreMid.c: 69: int i;
-   935                           ;Ochia_PreMid.c: 70: for(i = 0; msg[i] != '\0'; i++){
-   936  01A7  01A6               	clrf	display_count_msg@i
-   937  01A8  01A7               	clrf	display_count_msg@i+1
-   938  01A9                     l909:	
-   939  01A9  0826               	movf	display_count_msg@i,w
-   940  01AA  0725               	addwf	display_count_msg@msg,w
-   941  01AB  00A4               	movwf	??_display_count_msg
-   942  01AC  0824               	movf	??_display_count_msg,w
-   943  01AD  0084               	movwf	4
-   944  01AE  1383               	bcf	3,7	;select IRP bank0
-   945  01AF  0880               	movf	0,f
-   946  01B0  1903               	btfsc	3,2
-   947  01B1  0008               	return
-   948                           
-   949                           ;Ochia_PreMid.c: 71: dataCtrl(msg[i]);
-   950  01B2  0826               	movf	display_count_msg@i,w
-   951  01B3  0725               	addwf	display_count_msg@msg,w
-   952  01B4  00A4               	movwf	??_display_count_msg
-   953  01B5  0824               	movf	??_display_count_msg,w
-   954  01B6  0084               	movwf	4
-   955  01B7  1383               	bcf	3,7	;select IRP bank0
-   956  01B8  0800               	movf	0,w
-   957  01B9  120A  118A  2233  120A  118A  	fcall	_dataCtrl
-   958  01BE  3001               	movlw	1
-   959  01BF  1283               	bcf	3,5	;RP0=0, select bank0
-   960  01C0  1303               	bcf	3,6	;RP1=0, select bank0
-   961  01C1  07A6               	addwf	display_count_msg@i,f
-   962  01C2  1803               	skipnc
-   963  01C3  0AA7               	incf	display_count_msg@i+1,f
-   964  01C4  3000               	movlw	0
-   965  01C5  07A7               	addwf	display_count_msg@i+1,f
-   966  01C6  29A9               	goto	l909
-   967  01C7                     __end_of_display_count_msg:	
-   968                           
-   969                           	psect	text4
-   970  0233                     __ptext4:	
-   971 ;; *************** function _dataCtrl *****************
-   972 ;; Defined at:
-   973 ;;		line 42 in file "Z:\CPE3201\Premid\Ochia_PreMid.c"
-   974 ;; Parameters:    Size  Location     Type
-   975 ;;  DATA            1    wreg     unsigned char 
-   976 ;; Auto vars:     Size  Location     Type
-   977 ;;  DATA            1    7[COMMON] unsigned char 
-   978 ;; Return value:  Size  Location     Type
-   979 ;;		None               void
-   980 ;; Registers used:
-   981 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
-   982 ;; Tracked objects:
-   983 ;;		On entry : 0/0
-   984 ;;		On exit  : 0/0
-   985 ;;		Unchanged: 0/0
-   986 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   987 ;;      Params:         0       0       0       0       0
-   988 ;;      Locals:         1       0       0       0       0
-   989 ;;      Temps:          0       0       0       0       0
-   990 ;;      Totals:         1       0       0       0       0
-   991 ;;Total ram usage:        1 bytes
-   992 ;; Hardware stack levels used:    1
-   993 ;; Hardware stack levels required when called:    2
-   994 ;; This function calls:
-   995 ;;		_delay_lcd
-   996 ;; This function is called by:
-   997 ;;		_display_count_msg
-   998 ;;		_main
-   999 ;; This function uses a non-reentrant model
-  1000 ;;
-  1001                           
-  1002                           
-  1003                           ;psect for function _dataCtrl
-  1004  0233                     _dataCtrl:	
+   927                           
+   928                           ;psect for function _display_count_msg
+   929  015B                     _display_count_msg:	
+   930                           
+   931                           ;incstack = 0
+   932                           ; Regs used in _display_count_msg: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   933                           ;display_count_msg@msg stored from wreg
+   934  015B  1283               	bcf	3,5	;RP0=0, select bank0
+   935  015C  1303               	bcf	3,6	;RP1=0, select bank0
+   936  015D  00A5               	movwf	display_count_msg@msg
+   937                           
+   938                           ;Ochia_PreMid.c: 69: int i;
+   939                           ;Ochia_PreMid.c: 70: for (i = 0; msg[i] != '\0'; i++) {
+   940  015E  01A6               	clrf	display_count_msg@i
+   941  015F  01A7               	clrf	display_count_msg@i+1
+   942  0160                     l879:	
+   943  0160  0826               	movf	display_count_msg@i,w
+   944  0161  0725               	addwf	display_count_msg@msg,w
+   945  0162  00A4               	movwf	??_display_count_msg
+   946  0163  0824               	movf	??_display_count_msg,w
+   947  0164  0084               	movwf	4
+   948  0165  1383               	bcf	3,7	;select IRP bank0
+   949  0166  0880               	movf	0,f
+   950  0167  1903               	btfsc	3,2
+   951  0168  0008               	return
+   952                           
+   953                           ;Ochia_PreMid.c: 71: dataCtrl(msg[i]);
+   954  0169  0826               	movf	display_count_msg@i,w
+   955  016A  0725               	addwf	display_count_msg@msg,w
+   956  016B  00A4               	movwf	??_display_count_msg
+   957  016C  0824               	movf	??_display_count_msg,w
+   958  016D  0084               	movwf	4
+   959  016E  1383               	bcf	3,7	;select IRP bank0
+   960  016F  0800               	movf	0,w
+   961  0170  120A  118A  220A  120A  118A  	fcall	_dataCtrl
+   962  0175  3001               	movlw	1
+   963  0176  1283               	bcf	3,5	;RP0=0, select bank0
+   964  0177  1303               	bcf	3,6	;RP1=0, select bank0
+   965  0178  07A6               	addwf	display_count_msg@i,f
+   966  0179  1803               	skipnc
+   967  017A  0AA7               	incf	display_count_msg@i+1,f
+   968  017B  3000               	movlw	0
+   969  017C  07A7               	addwf	display_count_msg@i+1,f
+   970  017D  2960               	goto	l879
+   971  017E                     __end_of_display_count_msg:	
+   972                           
+   973                           	psect	text5
+   974  020A                     __ptext5:	
+   975 ;; *************** function _dataCtrl *****************
+   976 ;; Defined at:
+   977 ;;		line 42 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
+   978 ;; Parameters:    Size  Location     Type
+   979 ;;  DATA            1    wreg     unsigned char 
+   980 ;; Auto vars:     Size  Location     Type
+   981 ;;  DATA            1    7[COMMON] unsigned char 
+   982 ;; Return value:  Size  Location     Type
+   983 ;;		None               void
+   984 ;; Registers used:
+   985 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   986 ;; Tracked objects:
+   987 ;;		On entry : 0/0
+   988 ;;		On exit  : 0/0
+   989 ;;		Unchanged: 0/0
+   990 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   991 ;;      Params:         0       0       0       0       0
+   992 ;;      Locals:         1       0       0       0       0
+   993 ;;      Temps:          0       0       0       0       0
+   994 ;;      Totals:         1       0       0       0       0
+   995 ;;Total ram usage:        1 bytes
+   996 ;; Hardware stack levels used:    1
+   997 ;; Hardware stack levels required when called:    2
+   998 ;; This function calls:
+   999 ;;		_delay_lcd
+  1000 ;; This function is called by:
+  1001 ;;		_display_count_msg
+  1002 ;;		_update_display
+  1003 ;; This function uses a non-reentrant model
+  1004 ;;
   1005                           
-  1006                           ;incstack = 0
-  1007                           ; Regs used in _dataCtrl: [wreg+status,2+status,0+btemp+1+pclath+cstack]
-  1008                           ;dataCtrl@DATA stored from wreg
-  1009  0233  00F7               	movwf	dataCtrl@DATA
-  1010                           
-  1011                           ;Ochia_PreMid.c: 43: PORTC=DATA;
-  1012  0234  0877               	movf	dataCtrl@DATA,w
-  1013  0235  1283               	bcf	3,5	;RP0=0, select bank0
-  1014  0236  1303               	bcf	3,6	;RP1=0, select bank0
-  1015  0237  0087               	movwf	7	;volatile
-  1016                           
-  1017                           ;Ochia_PreMid.c: 44: RB5=1;
-  1018  0238  1686               	bsf	6,5	;volatile
-  1019                           
-  1020                           ;Ochia_PreMid.c: 45: RB6=0;
-  1021  0239  1306               	bcf	6,6	;volatile
-  1022                           
-  1023                           ;Ochia_PreMid.c: 46: RB7=1;
-  1024  023A  1786               	bsf	6,7	;volatile
-  1025                           
-  1026                           ;Ochia_PreMid.c: 47: delay_lcd(200);
-  1027  023B  30C8               	movlw	200
-  1028  023C  00F5               	movwf	delay_lcd@cnt
-  1029  023D  3000               	movlw	0
-  1030  023E  00F6               	movwf	delay_lcd@cnt+1
-  1031  023F  120A  118A  2178   	fcall	_delay_lcd
-  1032                           
-  1033                           ;Ochia_PreMid.c: 48: RB7=0;
-  1034  0242  1283               	bcf	3,5	;RP0=0, select bank0
-  1035  0243  1303               	bcf	3,6	;RP1=0, select bank0
-  1036  0244  1386               	bcf	6,7	;volatile
-  1037  0245  0008               	return
-  1038  0246                     __end_of_dataCtrl:	
-  1039                           
-  1040                           	psect	text5
-  1041  0178                     __ptext5:	
-  1042 ;; *************** function _delay_lcd *****************
-  1043 ;; Defined at:
-  1044 ;;		line 36 in file "Z:\CPE3201\Premid\Ochia_PreMid.c"
-  1045 ;; Parameters:    Size  Location     Type
-  1046 ;;  cnt             2    5[COMMON] int 
-  1047 ;; Auto vars:     Size  Location     Type
-  1048 ;;  j               2    2[BANK0 ] int 
-  1049 ;;  i               2    0[BANK0 ] int 
-  1050 ;; Return value:  Size  Location     Type
-  1051 ;;		None               void
-  1052 ;; Registers used:
-  1053 ;;		wreg, status,2, status,0, btemp+1
-  1054 ;; Tracked objects:
-  1055 ;;		On entry : 0/0
-  1056 ;;		On exit  : 0/0
-  1057 ;;		Unchanged: 0/0
-  1058 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1059 ;;      Params:         2       0       0       0       0
-  1060 ;;      Locals:         0       4       0       0       0
-  1061 ;;      Temps:          0       0       0       0       0
-  1062 ;;      Totals:         2       4       0       0       0
-  1063 ;;Total ram usage:        6 bytes
-  1064 ;; Hardware stack levels used:    1
-  1065 ;; Hardware stack levels required when called:    1
-  1066 ;; This function calls:
-  1067 ;;		Nothing
-  1068 ;; This function is called by:
-  1069 ;;		_dataCtrl
-  1070 ;;		_instCtrl
-  1071 ;;		_initLCD
-  1072 ;; This function uses a non-reentrant model
-  1073 ;;
-  1074                           
-  1075                           
-  1076                           ;psect for function _delay_lcd
-  1077  0178                     _delay_lcd:	
+  1006                           
+  1007                           ;psect for function _dataCtrl
+  1008  020A                     _dataCtrl:	
+  1009                           
+  1010                           ;incstack = 0
+  1011                           ; Regs used in _dataCtrl: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+  1012                           ;dataCtrl@DATA stored from wreg
+  1013  020A  00F7               	movwf	dataCtrl@DATA
+  1014                           
+  1015                           ;Ochia_PreMid.c: 43: PORTC = DATA;
+  1016  020B  0877               	movf	dataCtrl@DATA,w
+  1017  020C  1283               	bcf	3,5	;RP0=0, select bank0
+  1018  020D  1303               	bcf	3,6	;RP1=0, select bank0
+  1019  020E  0087               	movwf	7	;volatile
+  1020                           
+  1021                           ;Ochia_PreMid.c: 44: RB5 = 1;
+  1022  020F  1686               	bsf	6,5	;volatile
+  1023                           
+  1024                           ;Ochia_PreMid.c: 45: RB6 = 0;
+  1025  0210  1306               	bcf	6,6	;volatile
+  1026                           
+  1027                           ;Ochia_PreMid.c: 46: RB7 = 1;
+  1028  0211  1786               	bsf	6,7	;volatile
+  1029                           
+  1030                           ;Ochia_PreMid.c: 47: delay_lcd(200);
+  1031  0212  30C8               	movlw	200
+  1032  0213  00F5               	movwf	delay_lcd@cnt
+  1033  0214  3000               	movlw	0
+  1034  0215  00F6               	movwf	delay_lcd@cnt+1
+  1035  0216  120A  118A  212F   	fcall	_delay_lcd
+  1036                           
+  1037                           ;Ochia_PreMid.c: 48: RB7 = 0;
+  1038  0219  1283               	bcf	3,5	;RP0=0, select bank0
+  1039  021A  1303               	bcf	3,6	;RP1=0, select bank0
+  1040  021B  1386               	bcf	6,7	;volatile
+  1041  021C  0008               	return
+  1042  021D                     __end_of_dataCtrl:	
+  1043                           
+  1044                           	psect	text6
+  1045  012F                     __ptext6:	
+  1046 ;; *************** function _delay_lcd *****************
+  1047 ;; Defined at:
+  1048 ;;		line 36 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
+  1049 ;; Parameters:    Size  Location     Type
+  1050 ;;  cnt             2    5[COMMON] int 
+  1051 ;; Auto vars:     Size  Location     Type
+  1052 ;;  j               2    2[BANK0 ] int 
+  1053 ;;  i               2    0[BANK0 ] int 
+  1054 ;; Return value:  Size  Location     Type
+  1055 ;;		None               void
+  1056 ;; Registers used:
+  1057 ;;		wreg, status,2, status,0, btemp+1
+  1058 ;; Tracked objects:
+  1059 ;;		On entry : 0/0
+  1060 ;;		On exit  : 0/0
+  1061 ;;		Unchanged: 0/0
+  1062 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1063 ;;      Params:         2       0       0       0       0
+  1064 ;;      Locals:         0       4       0       0       0
+  1065 ;;      Temps:          0       0       0       0       0
+  1066 ;;      Totals:         2       4       0       0       0
+  1067 ;;Total ram usage:        6 bytes
+  1068 ;; Hardware stack levels used:    1
+  1069 ;; Hardware stack levels required when called:    1
+  1070 ;; This function calls:
+  1071 ;;		Nothing
+  1072 ;; This function is called by:
+  1073 ;;		_dataCtrl
+  1074 ;;		_instCtrl
+  1075 ;;		_initLCD
+  1076 ;; This function uses a non-reentrant model
+  1077 ;;
   1078                           
-  1079                           ;Ochia_PreMid.c: 37: int i, j;
-  1080                           ;Ochia_PreMid.c: 38: for (i = cnt; i != 0; i--);
-  1081                           
-  1082                           ;incstack = 0
-  1083                           ; Regs used in _delay_lcd: [wreg+status,2+status,0+btemp+1]
-  1084  0178  0876               	movf	delay_lcd@cnt+1,w
-  1085  0179  1283               	bcf	3,5	;RP0=0, select bank0
-  1086  017A  1303               	bcf	3,6	;RP1=0, select bank0
-  1087  017B  01A1               	clrf	delay_lcd@i+1
-  1088  017C  07A1               	addwf	delay_lcd@i+1,f
-  1089  017D  0875               	movf	delay_lcd@cnt,w
-  1090  017E  01A0               	clrf	delay_lcd@i
-  1091  017F  07A0               	addwf	delay_lcd@i,f
-  1092  0180  0821               	movf	delay_lcd@i+1,w
-  1093  0181  0420               	iorwf	delay_lcd@i,w
-  1094  0182  1903               	btfsc	3,2
-  1095  0183  298E               	goto	l739
-  1096  0184                     l735:	
-  1097  0184  30FF               	movlw	255
-  1098  0185  07A0               	addwf	delay_lcd@i,f
-  1099  0186  1803               	skipnc
-  1100  0187  0AA1               	incf	delay_lcd@i+1,f
-  1101  0188  30FF               	movlw	255
-  1102  0189  07A1               	addwf	delay_lcd@i+1,f
-  1103  018A  0821               	movf	delay_lcd@i+1,w
-  1104  018B  0420               	iorwf	delay_lcd@i,w
-  1105  018C  1D03               	skipz
-  1106  018D  2984               	goto	l735
-  1107  018E                     l739:	
-  1108                           
-  1109                           ;Ochia_PreMid.c: 39: for (j = 0; j < 1000; j++);
-  1110  018E  01A2               	clrf	delay_lcd@j
-  1111  018F  01A3               	clrf	delay_lcd@j+1
-  1112  0190                     L2:	
-  1113  0190  0823               	movf	delay_lcd@j+1,w
-  1114  0191  3A80               	xorlw	128
-  1115  0192  00FF               	movwf	127
-  1116  0193  3083               	movlw	131
-  1117  0194  027F               	subwf	127,w
-  1118  0195  1D03               	skipz
-  1119  0196  2999               	goto	u275
-  1120  0197  30E8               	movlw	232
-  1121  0198  0222               	subwf	delay_lcd@j,w
-  1122  0199                     u275:	
-  1123  0199  1803               	btfsc	3,0
-  1124  019A  0008               	return
-  1125  019B  3001               	movlw	1
-  1126  019C  1283               	bcf	3,5	;RP0=0, select bank0
-  1127  019D  1303               	bcf	3,6	;RP1=0, select bank0
-  1128  019E  07A2               	addwf	delay_lcd@j,f
-  1129  019F  1803               	skipnc
-  1130  01A0  0AA3               	incf	delay_lcd@j+1,f
-  1131  01A1  3000               	movlw	0
-  1132  01A2  07A3               	addwf	delay_lcd@j+1,f
-  1133  01A3  2990               	goto	L2
-  1134  01A4                     __end_of_delay_lcd:	
-  1135                           
-  1136                           	psect	text6
-  1137  01E7                     __ptext6:	
-  1138 ;; *************** function _delay *****************
-  1139 ;; Defined at:
-  1140 ;;		line 24 in file "Z:\CPE3201\Premid\Ochia_PreMid.c"
-  1141 ;; Parameters:    Size  Location     Type
-  1142 ;;  num             2    5[COMMON] int 
-  1143 ;; Auto vars:     Size  Location     Type
-  1144 ;;  flags           2    0[BANK0 ] int 
-  1145 ;; Return value:  Size  Location     Type
-  1146 ;;		None               void
-  1147 ;; Registers used:
-  1148 ;;		wreg, status,2
-  1149 ;; Tracked objects:
-  1150 ;;		On entry : 0/0
-  1151 ;;		On exit  : 0/0
-  1152 ;;		Unchanged: 0/0
-  1153 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1154 ;;      Params:         2       0       0       0       0
-  1155 ;;      Locals:         0       2       0       0       0
-  1156 ;;      Temps:          1       0       0       0       0
-  1157 ;;      Totals:         3       2       0       0       0
-  1158 ;;Total ram usage:        5 bytes
-  1159 ;; Hardware stack levels used:    1
-  1160 ;; Hardware stack levels required when called:    1
-  1161 ;; This function calls:
-  1162 ;;		Nothing
-  1163 ;; This function is called by:
-  1164 ;;		_main
-  1165 ;; This function uses a non-reentrant model
-  1166 ;;
-  1167                           
-  1168                           
-  1169                           ;psect for function _delay
-  1170  01E7                     _delay:	
+  1079                           
+  1080                           ;psect for function _delay_lcd
+  1081  012F                     _delay_lcd:	
+  1082                           
+  1083                           ;Ochia_PreMid.c: 37: int i, j;
+  1084                           ;Ochia_PreMid.c: 38: for (i = cnt; i != 0; i--);
+  1085                           
+  1086                           ;incstack = 0
+  1087                           ; Regs used in _delay_lcd: [wreg+status,2+status,0+btemp+1]
+  1088  012F  0876               	movf	delay_lcd@cnt+1,w
+  1089  0130  1283               	bcf	3,5	;RP0=0, select bank0
+  1090  0131  1303               	bcf	3,6	;RP1=0, select bank0
+  1091  0132  01A1               	clrf	delay_lcd@i+1
+  1092  0133  07A1               	addwf	delay_lcd@i+1,f
+  1093  0134  0875               	movf	delay_lcd@cnt,w
+  1094  0135  01A0               	clrf	delay_lcd@i
+  1095  0136  07A0               	addwf	delay_lcd@i,f
+  1096  0137  0821               	movf	delay_lcd@i+1,w
+  1097  0138  0420               	iorwf	delay_lcd@i,w
+  1098  0139  1903               	btfsc	3,2
+  1099  013A  2945               	goto	l725
+  1100  013B                     l721:	
+  1101  013B  30FF               	movlw	255
+  1102  013C  07A0               	addwf	delay_lcd@i,f
+  1103  013D  1803               	skipnc
+  1104  013E  0AA1               	incf	delay_lcd@i+1,f
+  1105  013F  30FF               	movlw	255
+  1106  0140  07A1               	addwf	delay_lcd@i+1,f
+  1107  0141  0821               	movf	delay_lcd@i+1,w
+  1108  0142  0420               	iorwf	delay_lcd@i,w
+  1109  0143  1D03               	skipz
+  1110  0144  293B               	goto	l721
+  1111  0145                     l725:	
+  1112                           
+  1113                           ;Ochia_PreMid.c: 39: for (j = 0; j < 1000; j++);
+  1114  0145  01A2               	clrf	delay_lcd@j
+  1115  0146  01A3               	clrf	delay_lcd@j+1
+  1116  0147                     L3:	
+  1117  0147  0823               	movf	delay_lcd@j+1,w
+  1118  0148  3A80               	xorlw	128
+  1119  0149  00FF               	movwf	127
+  1120  014A  3083               	movlw	131
+  1121  014B  027F               	subwf	127,w
+  1122  014C  1D03               	skipz
+  1123  014D  2950               	goto	u285
+  1124  014E  30E8               	movlw	232
+  1125  014F  0222               	subwf	delay_lcd@j,w
+  1126  0150                     u285:	
+  1127  0150  1803               	btfsc	3,0
+  1128  0151  0008               	return
+  1129  0152  3001               	movlw	1
+  1130  0153  1283               	bcf	3,5	;RP0=0, select bank0
+  1131  0154  1303               	bcf	3,6	;RP1=0, select bank0
+  1132  0155  07A2               	addwf	delay_lcd@j,f
+  1133  0156  1803               	skipnc
+  1134  0157  0AA3               	incf	delay_lcd@j+1,f
+  1135  0158  3000               	movlw	0
+  1136  0159  07A3               	addwf	delay_lcd@j+1,f
+  1137  015A  2947               	goto	L3
+  1138  015B                     __end_of_delay_lcd:	
+  1139                           
+  1140                           	psect	text7
+  1141  01C1                     __ptext7:	
+  1142 ;; *************** function _delay *****************
+  1143 ;; Defined at:
+  1144 ;;		line 26 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
+  1145 ;; Parameters:    Size  Location     Type
+  1146 ;;  num             2    5[COMMON] int 
+  1147 ;; Auto vars:     Size  Location     Type
+  1148 ;;  flags           2    0[BANK0 ] int 
+  1149 ;; Return value:  Size  Location     Type
+  1150 ;;		None               void
+  1151 ;; Registers used:
+  1152 ;;		wreg, status,2
+  1153 ;; Tracked objects:
+  1154 ;;		On entry : 0/0
+  1155 ;;		On exit  : 0/0
+  1156 ;;		Unchanged: 0/0
+  1157 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1158 ;;      Params:         2       0       0       0       0
+  1159 ;;      Locals:         0       2       0       0       0
+  1160 ;;      Temps:          1       0       0       0       0
+  1161 ;;      Totals:         3       2       0       0       0
+  1162 ;;Total ram usage:        5 bytes
+  1163 ;; Hardware stack levels used:    1
+  1164 ;; Hardware stack levels required when called:    1
+  1165 ;; This function calls:
+  1166 ;;		Nothing
+  1167 ;; This function is called by:
+  1168 ;;		_main
+  1169 ;; This function uses a non-reentrant model
+  1170 ;;
   1171                           
-  1172                           ;Ochia_PreMid.c: 26: int flags = 0;
-  1173                           
-  1174                           ;incstack = 0
-  1175                           ; Regs used in _delay: [wreg+status,2]
-  1176  01E7  1283               	bcf	3,5	;RP0=0, select bank0
-  1177  01E8  1303               	bcf	3,6	;RP1=0, select bank0
-  1178  01E9  01A0               	clrf	delay@flags
-  1179  01EA  01A1               	clrf	delay@flags+1
-  1180  01EB                     l781:	
-  1181                           ;Ochia_PreMid.c: 28: while (flags < num) {
-  1182                           
-  1183  01EB  1283               	bcf	3,5	;RP0=0, select bank0
-  1184  01EC  1303               	bcf	3,6	;RP1=0, select bank0
-  1185  01ED  0821               	movf	delay@flags+1,w
-  1186  01EE  3A80               	xorlw	128
-  1187  01EF  00F7               	movwf	??_delay
-  1188  01F0  0876               	movf	delay@num+1,w
-  1189  01F1  3A80               	xorlw	128
-  1190  01F2  0277               	subwf	??_delay,w
-  1191  01F3  1D03               	skipz
-  1192  01F4  29F7               	goto	u305
-  1193  01F5  0875               	movf	delay@num,w
-  1194  01F6  0220               	subwf	delay@flags,w
-  1195  01F7                     u305:	
-  1196  01F7  1803               	btfsc	3,0
-  1197  01F8  0008               	return
-  1198                           
-  1199                           ;Ochia_PreMid.c: 29: if(count_flag) {
-  1200  01F9  0878               	movf	_count_flag,w
-  1201  01FA  1903               	btfsc	3,2
-  1202  01FB  29EB               	goto	l781
-  1203                           
-  1204                           ;Ochia_PreMid.c: 30: count_flag = 0;
-  1205  01FC  01F8               	clrf	_count_flag
-  1206                           
-  1207                           ;Ochia_PreMid.c: 31: flags++;
-  1208  01FD  3001               	movlw	1
-  1209  01FE  1283               	bcf	3,5	;RP0=0, select bank0
-  1210  01FF  1303               	bcf	3,6	;RP1=0, select bank0
-  1211  0200  07A0               	addwf	delay@flags,f
-  1212  0201  1803               	skipnc
-  1213  0202  0AA1               	incf	delay@flags+1,f
-  1214  0203  3000               	movlw	0
-  1215  0204  07A1               	addwf	delay@flags+1,f
-  1216  0205  29EB               	goto	l781
-  1217  0206                     __end_of_delay:	
-  1218                           
-  1219                           	psect	text7
-  1220  0206                     __ptext7:	
-  1221 ;; *************** function _ISR *****************
-  1222 ;; Defined at:
-  1223 ;;		line 8 in file "Z:\CPE3201\Premid\Ochia_PreMid.c"
-  1224 ;; Parameters:    Size  Location     Type
-  1225 ;;		None
-  1226 ;; Auto vars:     Size  Location     Type
-  1227 ;;		None
-  1228 ;; Return value:  Size  Location     Type
-  1229 ;;		None               void
-  1230 ;; Registers used:
-  1231 ;;		wreg, status,2, status,0
-  1232 ;; Tracked objects:
-  1233 ;;		On entry : 0/0
-  1234 ;;		On exit  : 0/0
-  1235 ;;		Unchanged: 0/0
-  1236 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1237 ;;      Params:         0       0       0       0       0
-  1238 ;;      Locals:         0       0       0       0       0
-  1239 ;;      Temps:          5       0       0       0       0
-  1240 ;;      Totals:         5       0       0       0       0
-  1241 ;;Total ram usage:        5 bytes
-  1242 ;; Hardware stack levels used:    1
-  1243 ;; This function calls:
-  1244 ;;		Nothing
-  1245 ;; This function is called by:
-  1246 ;;		Interrupt level 1
-  1247 ;; This function uses a non-reentrant model
-  1248 ;;
-  1249                           
-  1250                           
-  1251                           ;psect for function _ISR
-  1252  0206                     _ISR:	
+  1172                           
+  1173                           ;psect for function _delay
+  1174  01C1                     _delay:	
+  1175                           
+  1176                           ;Ochia_PreMid.c: 27: int flags = 0;
+  1177                           
+  1178                           ;incstack = 0
+  1179                           ; Regs used in _delay: [wreg+status,2]
+  1180  01C1  1283               	bcf	3,5	;RP0=0, select bank0
+  1181  01C2  1303               	bcf	3,6	;RP1=0, select bank0
+  1182  01C3  01A0               	clrf	delay@flags
+  1183  01C4  01A1               	clrf	delay@flags+1
+  1184  01C5                     l767:	
+  1185                           ;Ochia_PreMid.c: 28: while (flags < num) {
+  1186                           
+  1187  01C5  1283               	bcf	3,5	;RP0=0, select bank0
+  1188  01C6  1303               	bcf	3,6	;RP1=0, select bank0
+  1189  01C7  0821               	movf	delay@flags+1,w
+  1190  01C8  3A80               	xorlw	128
+  1191  01C9  00F7               	movwf	??_delay
+  1192  01CA  0876               	movf	delay@num+1,w
+  1193  01CB  3A80               	xorlw	128
+  1194  01CC  0277               	subwf	??_delay,w
+  1195  01CD  1D03               	skipz
+  1196  01CE  29D1               	goto	u315
+  1197  01CF  0875               	movf	delay@num,w
+  1198  01D0  0220               	subwf	delay@flags,w
+  1199  01D1                     u315:	
+  1200  01D1  1803               	btfsc	3,0
+  1201  01D2  0008               	return
+  1202                           
+  1203                           ;Ochia_PreMid.c: 29: if (count_flag) {
+  1204  01D3  0878               	movf	_count_flag,w
+  1205  01D4  1903               	btfsc	3,2
+  1206  01D5  29C5               	goto	l767
+  1207                           
+  1208                           ;Ochia_PreMid.c: 30: count_flag = 0;
+  1209  01D6  01F8               	clrf	_count_flag
+  1210                           
+  1211                           ;Ochia_PreMid.c: 31: flags++;
+  1212  01D7  3001               	movlw	1
+  1213  01D8  1283               	bcf	3,5	;RP0=0, select bank0
+  1214  01D9  1303               	bcf	3,6	;RP1=0, select bank0
+  1215  01DA  07A0               	addwf	delay@flags,f
+  1216  01DB  1803               	skipnc
+  1217  01DC  0AA1               	incf	delay@flags+1,f
+  1218  01DD  3000               	movlw	0
+  1219  01DE  07A1               	addwf	delay@flags+1,f
+  1220  01DF  29C5               	goto	l767
+  1221  01E0                     __end_of_delay:	
+  1222                           
+  1223                           	psect	text8
+  1224  017E                     __ptext8:	
+  1225 ;; *************** function _ISR *****************
+  1226 ;; Defined at:
+  1227 ;;		line 8 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
+  1228 ;; Parameters:    Size  Location     Type
+  1229 ;;		None
+  1230 ;; Auto vars:     Size  Location     Type
+  1231 ;;		None
+  1232 ;; Return value:  Size  Location     Type
+  1233 ;;		None               void
+  1234 ;; Registers used:
+  1235 ;;		wreg, status,2, status,0
+  1236 ;; Tracked objects:
+  1237 ;;		On entry : 0/0
+  1238 ;;		On exit  : 0/0
+  1239 ;;		Unchanged: 0/0
+  1240 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1241 ;;      Params:         0       0       0       0       0
+  1242 ;;      Locals:         0       0       0       0       0
+  1243 ;;      Temps:          5       0       0       0       0
+  1244 ;;      Totals:         5       0       0       0       0
+  1245 ;;Total ram usage:        5 bytes
+  1246 ;; Hardware stack levels used:    1
+  1247 ;; This function calls:
+  1248 ;;		Nothing
+  1249 ;; This function is called by:
+  1250 ;;		Interrupt level 1
+  1251 ;; This function uses a non-reentrant model
+  1252 ;;
   1253                           
-  1254                           ;Ochia_PreMid.c: 10: GIE = 0;
-  1255  0206  138B               	bcf	11,7	;volatile
-  1256                           
-  1257                           ;Ochia_PreMid.c: 12: if(INTF) {
-  1258  0207  1C8B               	btfss	11,1	;volatile
-  1259  0208  2A0F               	goto	i1l41
+  1254                           
+  1255                           ;psect for function _ISR
+  1256  017E                     _ISR:	
+  1257                           
+  1258                           ;Ochia_PreMid.c: 9: GIE = 0;
+  1259  017E  138B               	bcf	11,7	;volatile
   1260                           
-  1261                           ;Ochia_PreMid.c: 13: INTF = 0;
-  1262  0209  108B               	bcf	11,1	;volatile
-  1263                           
-  1264                           ;Ochia_PreMid.c: 14: btn_flag ^= 1;
-  1265  020A  3001               	movlw	1
-  1266  020B  00F0               	movwf	??_ISR
-  1267  020C  0870               	movf	??_ISR,w
-  1268  020D  06B8               	xorwf	_btn_flag,f
-  1269                           
-  1270                           ;Ochia_PreMid.c: 15: }
-  1271  020E  2A14               	goto	i1l42
-  1272  020F                     i1l41:	
-  1273                           
-  1274                           ;Ochia_PreMid.c: 16: else if(TMR0IF) {
-  1275  020F  1D0B               	btfss	11,2	;volatile
-  1276  0210  2A14               	goto	i1l42
-  1277                           
-  1278                           ;Ochia_PreMid.c: 17: TMR0IF = 0;
-  1279  0211  110B               	bcf	11,2	;volatile
+  1261                           ;Ochia_PreMid.c: 11: if (INTF) {
+  1262  017F  1C8B               	btfss	11,1	;volatile
+  1263  0180  2990               	goto	i1l39
+  1264                           
+  1265                           ;Ochia_PreMid.c: 12: INTF = 0;
+  1266  0181  108B               	bcf	11,1	;volatile
+  1267                           
+  1268                           ;Ochia_PreMid.c: 13: key = PORTD & 0x0F;
+  1269  0182  0808               	movf	8,w	;volatile
+  1270  0183  390F               	andlw	15
+  1271  0184  00F0               	movwf	??_ISR
+  1272  0185  0870               	movf	??_ISR,w
+  1273  0186  00B5               	movwf	_key
+  1274                           
+  1275                           ;Ochia_PreMid.c: 14: if (key == 0x0D) {
+  1276  0187  0835               	movf	_key,w
+  1277  0188  3A0D               	xorlw	13
+  1278  0189  1D03               	skipz
+  1279  018A  2995               	goto	i1l41
   1280                           
-  1281                           ;Ochia_PreMid.c: 18: count_flag = 1;
-  1282  0212  01F8               	clrf	_count_flag
-  1283  0213  0AF8               	incf	_count_flag,f
-  1284  0214                     i1l42:	
-  1285                           
-  1286                           ;Ochia_PreMid.c: 19: }
-  1287                           ;Ochia_PreMid.c: 20: GIE = 1;
-  1288  0214  178B               	bsf	11,7	;volatile
-  1289  0215  0874               	movf	??_ISR+4,w
-  1290  0216  00FF               	movwf	127
-  1291  0217  0873               	movf	??_ISR+3,w
-  1292  0218  008A               	movwf	10
-  1293  0219  0872               	movf	??_ISR+2,w
-  1294  021A  0084               	movwf	4
-  1295  021B  0E71               	swapf	(??_ISR+1)^(0+-128),w
-  1296  021C  0083               	movwf	3
-  1297  021D  0EFE               	swapf	126,f
-  1298  021E  0E7E               	swapf	126,w
-  1299  021F  0009               	retfie
-  1300  0220                     __end_of_ISR:	
-  1301  007E                     btemp	set	126	;btemp
-  1302  007E                     wtemp	set	126
-  1303  007E                     wtemp0	set	126
-  1304  0080                     wtemp1	set	128
-  1305  0082                     wtemp2	set	130
-  1306  0084                     wtemp3	set	132
-  1307  0086                     wtemp4	set	134
-  1308  0088                     wtemp5	set	136
-  1309  007F                     wtemp6	set	127
-  1310  007E                     ttemp	set	126
-  1311  007E                     ttemp0	set	126
-  1312  0081                     ttemp1	set	129
-  1313  0084                     ttemp2	set	132
-  1314  0087                     ttemp3	set	135
-  1315  007F                     ttemp4	set	127
-  1316  007E                     ltemp	set	126
-  1317  007E                     ltemp0	set	126
-  1318  0082                     ltemp1	set	130
-  1319  0086                     ltemp2	set	134
-  1320  0080                     ltemp3	set	128
-  1321                           
-  1322                           	psect	intentry
-  1323  0004                     __pintentry:	
-  1324                           ;incstack = 0
-  1325                           ; Regs used in _ISR: [wreg+status,2+status,0]
-  1326                           
-  1327  0004                     interrupt_function:	
-  1328  007E                     saved_w	set	btemp
-  1329  0004  00FE               	movwf	btemp
-  1330  0005  0E03               	swapf	3,w
-  1331  0006  00F1               	movwf	??_ISR+1
-  1332  0007  0804               	movf	4,w
-  1333  0008  00F2               	movwf	??_ISR+2
-  1334  0009  080A               	movf	10,w
-  1335  000A  00F3               	movwf	??_ISR+3
-  1336  000B  1283               	bcf	3,5	;RP0=0, select bank0
-  1337  000C  1303               	bcf	3,6	;RP1=0, select bank0
-  1338  000D  087F               	movf	btemp+1,w
-  1339  000E  00F4               	movwf	??_ISR+4
-  1340  000F  120A  118A  2A06   	ljmp	_ISR
+  1281                           ;Ochia_PreMid.c: 15: btn_flag ^= 1;
+  1282  018B  3001               	movlw	1
+  1283  018C  00F0               	movwf	??_ISR
+  1284  018D  0870               	movf	??_ISR,w
+  1285  018E  06B4               	xorwf	_btn_flag,f
+  1286                           
+  1287                           ;Ochia_PreMid.c: 16: }
+  1288                           ;Ochia_PreMid.c: 17: }
+  1289  018F  2995               	goto	i1l41
+  1290  0190                     i1l39:	
+  1291                           
+  1292                           ;Ochia_PreMid.c: 18: else if (TMR0IF) {
+  1293  0190  1D0B               	btfss	11,2	;volatile
+  1294  0191  2995               	goto	i1l41
+  1295                           
+  1296                           ;Ochia_PreMid.c: 19: TMR0IF = 0;
+  1297  0192  110B               	bcf	11,2	;volatile
+  1298                           
+  1299                           ;Ochia_PreMid.c: 20: count_flag = 1;
+  1300  0193  01F8               	clrf	_count_flag
+  1301  0194  0AF8               	incf	_count_flag,f
+  1302  0195                     i1l41:	
+  1303                           
+  1304                           ;Ochia_PreMid.c: 21: }
+  1305                           ;Ochia_PreMid.c: 23: GIE = 1;
+  1306  0195  178B               	bsf	11,7	;volatile
+  1307  0196  0874               	movf	??_ISR+4,w
+  1308  0197  00FF               	movwf	127
+  1309  0198  0873               	movf	??_ISR+3,w
+  1310  0199  008A               	movwf	10
+  1311  019A  0872               	movf	??_ISR+2,w
+  1312  019B  0084               	movwf	4
+  1313  019C  0E71               	swapf	(??_ISR+1)^(0+-128),w
+  1314  019D  0083               	movwf	3
+  1315  019E  0EFE               	swapf	126,f
+  1316  019F  0E7E               	swapf	126,w
+  1317  01A0  0009               	retfie
+  1318  01A1                     __end_of_ISR:	
+  1319  007E                     btemp	set	126	;btemp
+  1320  007E                     wtemp	set	126
+  1321  007E                     wtemp0	set	126
+  1322  0080                     wtemp1	set	128
+  1323  0082                     wtemp2	set	130
+  1324  0084                     wtemp3	set	132
+  1325  0086                     wtemp4	set	134
+  1326  0088                     wtemp5	set	136
+  1327  007F                     wtemp6	set	127
+  1328  007E                     ttemp	set	126
+  1329  007E                     ttemp0	set	126
+  1330  0081                     ttemp1	set	129
+  1331  0084                     ttemp2	set	132
+  1332  0087                     ttemp3	set	135
+  1333  007F                     ttemp4	set	127
+  1334  007E                     ltemp	set	126
+  1335  007E                     ltemp0	set	126
+  1336  0082                     ltemp1	set	130
+  1337  0086                     ltemp2	set	134
+  1338  0080                     ltemp3	set	128
+  1339                           
+  1340                           	psect	intentry
+  1341  0004                     __pintentry:	
+  1342                           ;incstack = 0
+  1343                           ; Regs used in _ISR: [wreg+status,2+status,0]
+  1344                           
+  1345  0004                     interrupt_function:	
+  1346  007E                     saved_w	set	btemp
+  1347  0004  00FE               	movwf	btemp
+  1348  0005  0E03               	swapf	3,w
+  1349  0006  00F1               	movwf	??_ISR+1
+  1350  0007  0804               	movf	4,w
+  1351  0008  00F2               	movwf	??_ISR+2
+  1352  0009  080A               	movf	10,w
+  1353  000A  00F3               	movwf	??_ISR+3
+  1354  000B  1283               	bcf	3,5	;RP0=0, select bank0
+  1355  000C  1303               	bcf	3,6	;RP1=0, select bank0
+  1356  000D  087F               	movf	btemp+1,w
+  1357  000E  00F4               	movwf	??_ISR+4
+  1358  000F  120A  118A  297E   	ljmp	_ISR
 
 
 Data Sizes:
@@ -1357,7 +1375,7 @@ Data Sizes:
 Auto Spaces:
     Space          Size  Autos    Used
     COMMON           14      8       9
-    BANK0            80     17      26
+    BANK0            80     13      22
     BANK1            80      0       0
     BANK3            96      0       0
     BANK2            96      0       0
@@ -1370,9 +1388,9 @@ Pointer List with Targets:
 
 Critical Paths under _main in COMMON
 
-    _main->_dataCtrl
     _main->_delay
-    _main->_instCtrl
+    _update_display->_dataCtrl
+    _update_display->_instCtrl
     _initLCD->_instCtrl
     _instCtrl->_delay_lcd
     _display_count_msg->_dataCtrl
@@ -1385,6 +1403,7 @@ Critical Paths under _ISR in COMMON
 Critical Paths under _main in BANK0
 
     _main->_display_count_msg
+    _main->_update_display
     _initLCD->_delay_lcd
     _instCtrl->_delay_lcd
     _dataCtrl->_delay_lcd
@@ -1422,19 +1441,23 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 9     9      0    2296
-                                              8 BANK0      9     9      0
-                           _dataCtrl
+ (0) _main                                                 5     5      0    2808
+                                              8 BANK0      5     5      0
                               _delay
                   _display_count_msg
                             _initLCD
+                     _update_display
+ ---------------------------------------------------------------------------------
+ (1) _update_display                                       4     0      4    1058
+                                              4 BANK0      4     0      4
+                           _dataCtrl
                            _instCtrl
  ---------------------------------------------------------------------------------
  (1) _initLCD                                              0     0      0     568
                           _delay_lcd
                            _instCtrl
  ---------------------------------------------------------------------------------
- (1) _instCtrl                                             1     1      0     295
+ (2) _instCtrl                                             1     1      0     295
                                               7 COMMON     1     1      0
                           _delay_lcd
  ---------------------------------------------------------------------------------
@@ -1446,7 +1469,7 @@ Call Graph Tables:
                                               7 COMMON     1     1      0
                           _delay_lcd
  ---------------------------------------------------------------------------------
- (2) _delay_lcd                                            6     4      2     273
+ (3) _delay_lcd                                            6     4      2     273
                                               5 COMMON     2     0      2
                                               0 BANK0      4     4      0
  ---------------------------------------------------------------------------------
@@ -1454,7 +1477,7 @@ Call Graph Tables:
                                               5 COMMON     3     1      2
                                               0 BANK0      2     2      0
  ---------------------------------------------------------------------------------
- Estimated maximum stack depth 2
+ Estimated maximum stack depth 3
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
@@ -1467,8 +1490,6 @@ Call Graph Tables:
  Call Graph Graphs:
 
  _main (ROOT)
-   _dataCtrl
-     _delay_lcd
    _delay
    _display_count_msg
      _dataCtrl
@@ -1477,8 +1498,11 @@ Call Graph Tables:
      _delay_lcd
      _instCtrl
        _delay_lcd
-   _instCtrl
-     _delay_lcd
+   _update_display
+     _dataCtrl
+       _delay_lcd
+     _instCtrl
+       _delay_lcd
 
  _ISR (ROOT)
 
@@ -1496,69 +1520,71 @@ BANK1               50      0       0       7        0.0%
 BITBANK1            50      0       0       6        0.0%
 SFR1                 0      0       0       2        0.0%
 BITSFR1              0      0       0       2        0.0%
-BANK0               50     11      1A       5       32.5%
+BANK0               50      D      16       5       27.5%
 BITBANK0            50      0       0       4        0.0%
 SFR0                 0      0       0       1        0.0%
 BITSFR0              0      0       0       1        0.0%
 COMMON               E      8       9       1       64.3%
 BITCOMMON            E      0       0       0        0.0%
 CODE                 0      0       0       0        0.0%
-DATA                 0      0      23      12        0.0%
-ABS                  0      0      23       3        0.0%
+DATA                 0      0      1F      12        0.0%
+ABS                  0      0      1F       3        0.0%
 NULL                 0      0       0       0        0.0%
 STACK                0      0       0       2        0.0%
 EEDATA             100      0       0       0        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.33 build 59893 
-Symbol Table                                                                                   Mon Mar 10 17:19:03 2025
+Symbol Table                                                                                   Mon Mar 10 20:34:53 2025
 
-                         pc 0002                          l77 0124                          fsr 0004  
-                       l735 0184                         l739 018E                         l781 01EB  
-                       l909 01A9                         l941 0071                         l951 00A0  
-                       l961 00C6                         l981 0100                         l967 00D6  
-                       l983 0106                         l977 00F1                         l969 00DC  
-                       _GIE 005F                         l997 013B                         _RB5 0035  
-                       _RB6 0036                         _RB7 0037                         _RD4 0044  
-                       u305 01F7                         u275 0199                         _ISR 0206  
-                       u545 00B0                         u555 00BD                         _key 0039  
+                         pc 0002                          fsr 0004              _update_display 01E0  
+                       l721 013B                         l725 0145                         l905 005E  
+                       l923 0098                         l941 00D7                         l917 0089  
+                       l767 01C5                         l951 00FF                         l935 00C0  
+                       l927 009E                         l943 00E8                         l955 010E  
+                       l939 00D1                         l957 0114                         l879 0160  
+                       _GIE 005F                         _RB5 0035                         _RB6 0036  
+                       _RB7 0037                         u315 01D1                         _ISR 017E  
+                       u285 0150                         u615 00BE                         u545 0075  
+                       u565 0087                         u595 00AD                         _key 0035  
                        fsr0 0004                         indf 0000                        ?_ISR 0070  
-                      l1001 014A                        l1003 0150                        _INTE 005C  
-                      _INTF 0059                        i1l41 020F                        i1l42 0214  
-                      _main 0028                        btemp 007E                        ltemp 007E  
-                      start 0012                        ttemp 007E                        wtemp 007E  
-                     ??_ISR 0070                       ?_main 0070                       _PORTC 0007  
-                     _PORTD 0008                       _TRISB 0086                       _TRISC 0087  
-                     _TRISD 0088             __end_of_initLCD 01E7                       _delay 01E7  
-                     _count 0031                       pclath 000A                       ltemp0 007E  
-                     ltemp1 0082                       ltemp2 0086                       ltemp3 0080  
-                     ttemp0 007E                       ttemp1 0081                       ttemp2 0084  
-                     ttemp3 0087                       ttemp4 007F                       status 0003  
-                     wtemp0 007E                       wtemp1 0080                       wtemp2 0082  
-                     wtemp3 0084                       wtemp4 0086                       wtemp5 0088  
-                     wtemp6 007F             __initialization 0015                __end_of_main 0178  
-                    ??_main 0028               main@direction 002B                      ?_delay 0075  
-                    _TMR0IE 005D                      _TMR0IF 005A            __end_of_dataCtrl 0246  
-          __end_of_instCtrl 0233                   ??_initLCD 0078                      saved_w 007E  
-   __end_of__initialization 0024              __pcstackCOMMON 0070                __pidataBANK0 0257  
-             __end_of_delay 0206          __size_of_delay_lcd 002C                     ??_delay 0077  
-                __pbssBANK0 0038                  __pmaintext 0028                  __pintentry 0004  
-                 ?_dataCtrl 0070           __end_of_delay_lcd 01A4                   ?_instCtrl 0070  
-                _count_flag 0078                     __ptext1 01C7                     __ptext2 0220  
-                   __ptext3 01A4                     __ptext4 0233                     __ptext5 0178  
-                   __ptext6 01E7                     __ptext7 0206                     _initLCD 01C7  
-              __size_of_ISR 001A                  delay@flags 0020                  ??_dataCtrl 0077  
-                   main@LSB 002F                     main@MSB 002D                  delay_lcd@i 0020  
-                delay_lcd@j 0022        end_of_initialization 0024                  ??_instCtrl 0077  
-        display_count_msg@i 0026                instCtrl@INST 0077         start_initialization 0015  
-               __end_of_ISR 0220                dataCtrl@DATA 0077                  init_fetch0 0246  
-               __pdataBANK0 0031                 __pbssCOMMON 0078                   ___latbits 0002  
-             __pcstackBANK0 0020           __size_of_dataCtrl 0013                   _delay_lcd 0178  
+                      _INTE 005C                        _INTF 0059                        i1l41 0195  
+                      i1l39 0190                        _main 0028                        btemp 007E  
+                      ltemp 007E                        start 0012                        ttemp 007E  
+                      wtemp 007E                       ??_ISR 0070      __end_of_update_display 01F7  
+                     ?_main 0070                       _PORTC 0007                       _PORTD 0008  
+                     _TRISB 0086                       _TRISC 0087                       _TRISD 0088  
+           __end_of_initLCD 01C1                       _delay 01C1                       _count 002D  
+                     pclath 000A                       ltemp0 007E                       ltemp1 0082  
+                     ltemp2 0086                       ltemp3 0080                       ttemp0 007E  
+                     ttemp1 0081                       ttemp2 0084                       ttemp3 0087  
+                     ttemp4 007F                       status 0003                       wtemp0 007E  
+                     wtemp1 0080                       wtemp2 0082                       wtemp3 0084  
+                     wtemp4 0086                       wtemp5 0088                       wtemp6 007F  
+           __initialization 0015                __end_of_main 012F             ?_update_display 0024  
+                    ??_main 0028                      ?_delay 0075                      _TMR0IE 005D  
+                    _TMR0IF 005A            __end_of_dataCtrl 021D            __end_of_instCtrl 020A  
+                 ??_initLCD 0078                      saved_w 007E     __end_of__initialization 0024  
+            __pcstackCOMMON 0070                __pidataBANK0 022E               __end_of_delay 01E0  
+        __size_of_delay_lcd 002C                     ??_delay 0077                  __pbssBANK0 0034  
+                __pmaintext 0028                  __pintentry 0004                   ?_dataCtrl 0070  
+         __end_of_delay_lcd 015B                   ?_instCtrl 0070                  _count_flag 0078  
+          ??_update_display 0078                     __ptext1 01E0                     __ptext2 01A1  
+                   __ptext3 01F7                     __ptext4 015B                     __ptext5 020A  
+                   __ptext6 012F                     __ptext7 01C1                     __ptext8 017E  
+                   _initLCD 01A1                __size_of_ISR 0023                  delay@flags 0020  
+                ??_dataCtrl 0077                     main@LSB 002B                     main@MSB 0029  
+                delay_lcd@i 0020                  delay_lcd@j 0022        end_of_initialization 0024  
+                ??_instCtrl 0077          display_count_msg@i 0026                instCtrl@INST 0077  
+       start_initialization 0015                 __end_of_ISR 01A1           update_display@LSB 0026  
+         update_display@MSB 0024                dataCtrl@DATA 0077                  init_fetch0 021D  
+               __pdataBANK0 002D                 __pbssCOMMON 0078                   ___latbits 0002  
+             __pcstackBANK0 0020           __size_of_dataCtrl 0013                   _delay_lcd 012F  
          __size_of_instCtrl 0013                    ?_initLCD 0070              __size_of_delay 001F  
-         _display_count_msg 01A4          ?_display_count_msg 0070           interrupt_function 0004  
-                ?_delay_lcd 0075         ??_display_count_msg 0024                   main@speed 0029  
- __end_of_display_count_msg 01C7                delay_lcd@cnt 0075                    _dataCtrl 0233  
-          __size_of_initLCD 0020                    _btn_flag 0038               __size_of_main 0150  
-                  _instCtrl 0220                    delay@num 0075                 ??_delay_lcd 0077  
-__size_of_display_count_msg 0023                    init_ram0 024A        display_count_msg@msg 0025  
+         _display_count_msg 015B          ?_display_count_msg 0070           interrupt_function 0004  
+                ?_delay_lcd 0075         ??_display_count_msg 0024   __end_of_display_count_msg 017E  
+              delay_lcd@cnt 0075     __size_of_update_display 0017                    _dataCtrl 020A  
+          __size_of_initLCD 0020                    _btn_flag 0034               __size_of_main 0107  
+                  _instCtrl 01F7                    delay@num 0075                 ??_delay_lcd 0077  
+__size_of_display_count_msg 0023                    init_ram0 0221        display_count_msg@msg 0025  
                   intlevel1 0000                  _OPTION_REG 0081  

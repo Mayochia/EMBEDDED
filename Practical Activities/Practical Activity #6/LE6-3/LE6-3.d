@@ -1,0 +1,1 @@
+ LE6-3.d  LE6-3.p1:  D:/From\ old\ laptop/Subjects/Uni/3rd\ Year\ M/2nd\ sem/Embedded\ Systems/Practical\ Activities/Practical\ Activity\ #6/LE6-3/LE6-3.c

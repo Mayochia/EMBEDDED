@@ -3,6 +3,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _GIE `Vb ~T0 @X0 0 e@95 ]
 "2465
 [v _INTF `Vb ~T0 @X0 0 e@89 ]
+"329
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 "2649
 [v _TMR0IF `Vb ~T0 @X0 0 e@90 ]
 "268
@@ -26,10 +28,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _INTE `Vb ~T0 @X0 0 e@92 ]
 "2647
 [v _TMR0IE `Vb ~T0 @X0 0 e@93 ]
-"2569
-[v _RD4 `Vb ~T0 @X0 0 e@68 ]
-"329
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic16f877a.h: 47: extern volatile unsigned char INDF @ 0x000;
@@ -1043,7 +1041,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom_routines.h: 43: extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 [; ;eeprom_routines.h: 44: extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 [; ;pic.h: 154: extern __nonreentrant void _delay(unsigned long);
-"3 Z:\CPE3201\Premid\Ochia_PreMid.c
+"3 D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c
 [v _key `uc ~T0 @X0 1 e ]
 [; ;Ochia_PreMid.c: 3: unsigned char key;
 "4
@@ -1068,7 +1066,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-[; ;Ochia_PreMid.c: 6: unsigned char count[]="COUNT:";
+[; ;Ochia_PreMid.c: 6: unsigned char count[] = "COUNT:";
 [v F1095 `(v ~T0 @X0 1 tf ]
 "8
 [v _ISR `IF1095 ~T0 @X0 1 e ]
@@ -1076,65 +1074,76 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Ochia_PreMid.c: 8: void interrupt ISR() {
 [e :U _ISR ]
 [f ]
-[; ;Ochia_PreMid.c: 10: GIE = 0;
-"10
+[; ;Ochia_PreMid.c: 9: GIE = 0;
+"9
 [e = _GIE -> -> 0 `i `b ]
-[; ;Ochia_PreMid.c: 12: if(INTF) {
-"12
+[; ;Ochia_PreMid.c: 11: if (INTF) {
+"11
 [e $ ! _INTF 97  ]
 {
-[; ;Ochia_PreMid.c: 13: INTF = 0;
-"13
+[; ;Ochia_PreMid.c: 12: INTF = 0;
+"12
 [e = _INTF -> -> 0 `i `b ]
-[; ;Ochia_PreMid.c: 14: btn_flag ^= 1;
+[; ;Ochia_PreMid.c: 13: key = PORTD & 0x0F;
+"13
+[e = _key -> & -> _PORTD `i -> 15 `i `uc ]
+[; ;Ochia_PreMid.c: 14: if (key == 0x0D) {
 "14
-[e =^ _btn_flag -> -> 1 `i `uc ]
-"15
-}
-[; ;Ochia_PreMid.c: 15: }
-[e $U 98  ]
-"16
-[e :U 97 ]
-[; ;Ochia_PreMid.c: 16: else if(TMR0IF) {
-[e $ ! _TMR0IF 99  ]
+[e $ ! == -> _key `i -> 13 `i 98  ]
 {
-[; ;Ochia_PreMid.c: 17: TMR0IF = 0;
-"17
-[e = _TMR0IF -> -> 0 `i `b ]
-[; ;Ochia_PreMid.c: 18: count_flag = 1;
-"18
-[e = _count_flag -> -> 1 `i `uc ]
-"19
+[; ;Ochia_PreMid.c: 15: btn_flag ^= 1;
+"15
+[e =^ _btn_flag -> -> 1 `i `uc ]
+"16
 }
-[e :U 99 ]
-"20
 [e :U 98 ]
-[; ;Ochia_PreMid.c: 19: }
-[; ;Ochia_PreMid.c: 20: GIE = 1;
+"17
+}
+[; ;Ochia_PreMid.c: 16: }
+[; ;Ochia_PreMid.c: 17: }
+[e $U 99  ]
+"18
+[e :U 97 ]
+[; ;Ochia_PreMid.c: 18: else if (TMR0IF) {
+[e $ ! _TMR0IF 100  ]
+{
+[; ;Ochia_PreMid.c: 19: TMR0IF = 0;
+"19
+[e = _TMR0IF -> -> 0 `i `b ]
+[; ;Ochia_PreMid.c: 20: count_flag = 1;
+"20
+[e = _count_flag -> -> 1 `i `uc ]
+"21
+}
+[e :U 100 ]
+"23
+[e :U 99 ]
+[; ;Ochia_PreMid.c: 21: }
+[; ;Ochia_PreMid.c: 23: GIE = 1;
 [e = _GIE -> -> 1 `i `b ]
-[; ;Ochia_PreMid.c: 22: }
-"22
+[; ;Ochia_PreMid.c: 24: }
+"24
 [e :UE 96 ]
 }
-"24
+"26
 [v _delay `(v ~T0 @X0 1 ef1`i ]
 {
-[; ;Ochia_PreMid.c: 24: void delay(int num) {
+[; ;Ochia_PreMid.c: 26: void delay(int num) {
 [e :U _delay ]
 [v _num `i ~T0 @X0 1 r1 ]
 [f ]
-"26
+"27
 [v _flags `i ~T0 @X0 1 a ]
-[; ;Ochia_PreMid.c: 26: int flags = 0;
+[; ;Ochia_PreMid.c: 27: int flags = 0;
 [e = _flags -> 0 `i ]
 [; ;Ochia_PreMid.c: 28: while (flags < num) {
 "28
-[e $U 101  ]
-[e :U 102 ]
+[e $U 102  ]
+[e :U 103 ]
 {
-[; ;Ochia_PreMid.c: 29: if(count_flag) {
+[; ;Ochia_PreMid.c: 29: if (count_flag) {
 "29
-[e $ ! != -> _count_flag `i -> -> -> 0 `i `uc `i 104  ]
+[e $ ! != -> _count_flag `i -> -> -> 0 `i `uc `i 105  ]
 {
 [; ;Ochia_PreMid.c: 30: count_flag = 0;
 "30
@@ -1144,23 +1153,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _flags -> 1 `i ]
 "32
 }
-[e :U 104 ]
+[e :U 105 ]
 "33
 }
-[e :U 101 ]
+[e :U 102 ]
 "28
-[e $ < _flags _num 102  ]
-[e :U 103 ]
+[e $ < _flags _num 103  ]
+[e :U 104 ]
 [; ;Ochia_PreMid.c: 32: }
 [; ;Ochia_PreMid.c: 33: }
 [; ;Ochia_PreMid.c: 34: }
 "34
-[e :UE 100 ]
+[e :UE 101 ]
 }
 "36
 [v _delay_lcd `(v ~T0 @X0 1 ef1`i ]
 {
-[; ;Ochia_PreMid.c: 36: void delay_lcd (int cnt) {
+[; ;Ochia_PreMid.c: 36: void delay_lcd(int cnt) {
 [e :U _delay_lcd ]
 [v _cnt `i ~T0 @X0 1 r1 ]
 [f ]
@@ -1172,90 +1181,90 @@ Version 3.2 HI-TECH Software Intermediate Code
 "38
 {
 [e = _i _cnt ]
-[e $ != _i -> 0 `i 106  ]
-[e $U 107  ]
-[e :U 106 ]
-[e -- _i -> 1 `i ]
-[e $ != _i -> 0 `i 106  ]
+[e $ != _i -> 0 `i 107  ]
+[e $U 108  ]
 [e :U 107 ]
+[e -- _i -> 1 `i ]
+[e $ != _i -> 0 `i 107  ]
+[e :U 108 ]
 }
 [; ;Ochia_PreMid.c: 39: for (j = 0; j < 1000; j++);
 "39
 {
 [e = _j -> 0 `i ]
-[e $ < _j -> 1000 `i 109  ]
-[e $U 110  ]
-[e :U 109 ]
-[e ++ _j -> 1 `i ]
-[e $ < _j -> 1000 `i 109  ]
+[e $ < _j -> 1000 `i 110  ]
+[e $U 111  ]
 [e :U 110 ]
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 1000 `i 110  ]
+[e :U 111 ]
 }
 [; ;Ochia_PreMid.c: 40: }
 "40
-[e :UE 105 ]
+[e :UE 106 ]
 }
 "42
 [v _dataCtrl `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;Ochia_PreMid.c: 42: void dataCtrl(unsigned char DATA){
+[; ;Ochia_PreMid.c: 42: void dataCtrl(unsigned char DATA) {
 [e :U _dataCtrl ]
 [v _DATA `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;Ochia_PreMid.c: 43: PORTC=DATA;
+[; ;Ochia_PreMid.c: 43: PORTC = DATA;
 "43
 [e = _PORTC _DATA ]
-[; ;Ochia_PreMid.c: 44: RB5=1;
+[; ;Ochia_PreMid.c: 44: RB5 = 1;
 "44
 [e = _RB5 -> -> 1 `i `b ]
-[; ;Ochia_PreMid.c: 45: RB6=0;
+[; ;Ochia_PreMid.c: 45: RB6 = 0;
 "45
 [e = _RB6 -> -> 0 `i `b ]
-[; ;Ochia_PreMid.c: 46: RB7=1;
+[; ;Ochia_PreMid.c: 46: RB7 = 1;
 "46
 [e = _RB7 -> -> 1 `i `b ]
 [; ;Ochia_PreMid.c: 47: delay_lcd(200);
 "47
 [e ( _delay_lcd (1 -> 200 `i ]
-[; ;Ochia_PreMid.c: 48: RB7=0;
+[; ;Ochia_PreMid.c: 48: RB7 = 0;
 "48
 [e = _RB7 -> -> 0 `i `b ]
 [; ;Ochia_PreMid.c: 49: }
 "49
-[e :UE 112 ]
+[e :UE 113 ]
 }
 "51
 [v _instCtrl `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;Ochia_PreMid.c: 51: void instCtrl(unsigned char INST){
+[; ;Ochia_PreMid.c: 51: void instCtrl(unsigned char INST) {
 [e :U _instCtrl ]
 [v _INST `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;Ochia_PreMid.c: 52: PORTC=INST;
+[; ;Ochia_PreMid.c: 52: PORTC = INST;
 "52
 [e = _PORTC _INST ]
-[; ;Ochia_PreMid.c: 53: RB5=0;
+[; ;Ochia_PreMid.c: 53: RB5 = 0;
 "53
 [e = _RB5 -> -> 0 `i `b ]
-[; ;Ochia_PreMid.c: 54: RB6=0;
+[; ;Ochia_PreMid.c: 54: RB6 = 0;
 "54
 [e = _RB6 -> -> 0 `i `b ]
-[; ;Ochia_PreMid.c: 55: RB7=1;
+[; ;Ochia_PreMid.c: 55: RB7 = 1;
 "55
 [e = _RB7 -> -> 1 `i `b ]
 [; ;Ochia_PreMid.c: 56: delay_lcd(200);
 "56
 [e ( _delay_lcd (1 -> 200 `i ]
-[; ;Ochia_PreMid.c: 57: RB7=0;
+[; ;Ochia_PreMid.c: 57: RB7 = 0;
 "57
 [e = _RB7 -> -> 0 `i `b ]
 [; ;Ochia_PreMid.c: 58: }
 "58
-[e :UE 113 ]
+[e :UE 114 ]
 }
 "60
 [v _initLCD `(v ~T0 @X0 1 ef ]
 {
-[; ;Ochia_PreMid.c: 60: void initLCD(){
+[; ;Ochia_PreMid.c: 60: void initLCD() {
 [e :U _initLCD ]
 [f ]
 [; ;Ochia_PreMid.c: 61: delay_lcd(1);
@@ -1275,24 +1284,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _instCtrl (1 -> -> 14 `i `uc ]
 [; ;Ochia_PreMid.c: 66: }
 "66
-[e :UE 114 ]
+[e :UE 115 ]
 }
 "68
 [v _display_count_msg `(v ~T0 @X0 1 ef1`*uc ]
 {
-[; ;Ochia_PreMid.c: 68: void display_count_msg(unsigned char *msg){
+[; ;Ochia_PreMid.c: 68: void display_count_msg(unsigned char *msg) {
 [e :U _display_count_msg ]
 [v _msg `*uc ~T0 @X0 1 r1 ]
 [f ]
 "69
 [v _i `i ~T0 @X0 1 a ]
 [; ;Ochia_PreMid.c: 69: int i;
-[; ;Ochia_PreMid.c: 70: for(i = 0; msg[i] != '\0'; i++){
+[; ;Ochia_PreMid.c: 70: for (i = 0; msg[i] != '\0'; i++) {
 "70
 {
 [e = _i -> 0 `i ]
-[e $U 119  ]
-[e :U 116 ]
+[e $U 120  ]
+[e :U 117 ]
 {
 [; ;Ochia_PreMid.c: 71: dataCtrl(msg[i]);
 "71
@@ -1301,299 +1310,251 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "70
 [e ++ _i -> 1 `i ]
-[e :U 119 ]
-[e $ != -> *U + _msg * -> _i `x -> -> # *U _msg `i `x `ui -> 0 `ui 116  ]
-[e :U 117 ]
+[e :U 120 ]
+[e $ != -> *U + _msg * -> _i `x -> -> # *U _msg `i `x `ui -> 0 `ui 117  ]
+[e :U 118 ]
 "72
 }
 [; ;Ochia_PreMid.c: 72: }
 [; ;Ochia_PreMid.c: 73: }
 "73
-[e :UE 115 ]
+[e :UE 116 ]
 }
 "75
+[v _update_display `(v ~T0 @X0 1 ef2`i`i ]
+{
+[; ;Ochia_PreMid.c: 75: void update_display(int MSB, int LSB) {
+[e :U _update_display ]
+[v _MSB `i ~T0 @X0 1 r1 ]
+[v _LSB `i ~T0 @X0 1 r2 ]
+[f ]
+[; ;Ochia_PreMid.c: 76: instCtrl(0xC0);
+"76
+[e ( _instCtrl (1 -> -> 192 `i `uc ]
+[; ;Ochia_PreMid.c: 77: dataCtrl(MSB + '0');
+"77
+[e ( _dataCtrl (1 -> + -> _MSB `ui -> 48 `ui `uc ]
+[; ;Ochia_PreMid.c: 78: dataCtrl(LSB + '0');
+"78
+[e ( _dataCtrl (1 -> + -> _LSB `ui -> 48 `ui `uc ]
+[; ;Ochia_PreMid.c: 79: }
+"79
+[e :UE 121 ]
+}
+"81
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;Ochia_PreMid.c: 75: void main(){
+[; ;Ochia_PreMid.c: 81: void main() {
 [e :U _main ]
 [f ]
-"77
-[v _speed `i ~T0 @X0 1 a ]
-[; ;Ochia_PreMid.c: 77: int speed = 0;
-[e = _speed -> 0 `i ]
-[; ;Ochia_PreMid.c: 79: TRISB = 0x0F;
-"79
-[e = _TRISB -> -> 15 `i `uc ]
-[; ;Ochia_PreMid.c: 80: TRISC = 0x00;
-"80
-[e = _TRISC -> -> 0 `i `uc ]
-[; ;Ochia_PreMid.c: 81: TRISD = 0xFF;
-"81
-[e = _TRISD -> -> 255 `i `uc ]
-[; ;Ochia_PreMid.c: 82: OPTION_REG = 0xC4;
 "82
-[e = _OPTION_REG -> -> 196 `i `uc ]
-[; ;Ochia_PreMid.c: 83: INTE = 1;
-"83
-[e = _INTE -> -> 1 `i `b ]
-[; ;Ochia_PreMid.c: 84: INTF = 0;
-"84
-[e = _INTF -> -> 0 `i `b ]
-[; ;Ochia_PreMid.c: 85: TMR0IE = 1;
-"85
-[e = _TMR0IE -> -> 1 `i `b ]
-[; ;Ochia_PreMid.c: 86: TMR0IF = 0;
-"86
-[e = _TMR0IF -> -> 0 `i `b ]
-[; ;Ochia_PreMid.c: 87: GIE = 1;
-"87
-[e = _GIE -> -> 1 `i `b ]
-"89
 [v _MSB `i ~T0 @X0 1 a ]
-[; ;Ochia_PreMid.c: 89: int MSB = 2;
+[; ;Ochia_PreMid.c: 82: int MSB = 2;
 [e = _MSB -> 2 `i ]
-"90
+"83
 [v _LSB `i ~T0 @X0 1 a ]
-[; ;Ochia_PreMid.c: 90: int LSB = 4;
+[; ;Ochia_PreMid.c: 83: int LSB = 4;
 [e = _LSB -> 4 `i ]
-[; ;Ochia_PreMid.c: 92: initLCD();
+[; ;Ochia_PreMid.c: 86: TRISB = 0x0F;
+"86
+[e = _TRISB -> -> 15 `i `uc ]
+[; ;Ochia_PreMid.c: 87: TRISC = 0x00;
+"87
+[e = _TRISC -> -> 0 `i `uc ]
+[; ;Ochia_PreMid.c: 88: TRISD = 0xFF;
+"88
+[e = _TRISD -> -> 255 `i `uc ]
+[; ;Ochia_PreMid.c: 91: OPTION_REG = 0xC4;
+"91
+[e = _OPTION_REG -> -> 196 `i `uc ]
+[; ;Ochia_PreMid.c: 92: INTE = 1;
 "92
-[e ( _initLCD ..  ]
-[; ;Ochia_PreMid.c: 93: display_count_msg(count);
+[e = _INTE -> -> 1 `i `b ]
+[; ;Ochia_PreMid.c: 93: INTF = 0;
 "93
-[e ( _display_count_msg (1 &U _count ]
-[; ;Ochia_PreMid.c: 94: instCtrl(0xC0);
+[e = _INTF -> -> 0 `i `b ]
+[; ;Ochia_PreMid.c: 94: TMR0IE = 1;
 "94
-[e ( _instCtrl (1 -> -> 192 `i `uc ]
-[; ;Ochia_PreMid.c: 95: dataCtrl(MSB + '0');
+[e = _TMR0IE -> -> 1 `i `b ]
+[; ;Ochia_PreMid.c: 95: TMR0IF = 0;
 "95
-[e ( _dataCtrl (1 -> + -> _MSB `ui -> 48 `ui `uc ]
-[; ;Ochia_PreMid.c: 96: instCtrl(0xC1);
+[e = _TMR0IF -> -> 0 `i `b ]
+[; ;Ochia_PreMid.c: 96: GIE = 1;
 "96
-[e ( _instCtrl (1 -> -> 193 `i `uc ]
-[; ;Ochia_PreMid.c: 97: dataCtrl(LSB + '0');
-"97
-[e ( _dataCtrl (1 -> + -> _LSB `ui -> 48 `ui `uc ]
+[e = _GIE -> -> 1 `i `b ]
+[; ;Ochia_PreMid.c: 99: initLCD();
 "99
-[v _direction `i ~T0 @X0 1 a ]
-[; ;Ochia_PreMid.c: 99: int direction = 0;
-[e = _direction -> 0 `i ]
-[; ;Ochia_PreMid.c: 101: while (1) {
+[e ( _initLCD ..  ]
+[; ;Ochia_PreMid.c: 100: display_count_msg(count);
+"100
+[e ( _display_count_msg (1 &U _count ]
+[; ;Ochia_PreMid.c: 101: update_display(MSB, LSB);
 "101
-[e :U 122 ]
+[e ( _update_display (2 , _MSB _LSB ]
+[; ;Ochia_PreMid.c: 103: while (1) {
+"103
+[e :U 124 ]
 {
-[; ;Ochia_PreMid.c: 104: if(RD4){
+[; ;Ochia_PreMid.c: 104: key = PORTD & 0x0F;
 "104
-[e $ ! _RD4 124  ]
-{
-[; ;Ochia_PreMid.c: 105: instCtrl(0xC0);
-"105
-[e ( _instCtrl (1 -> -> 192 `i `uc ]
-[; ;Ochia_PreMid.c: 106: dataCtrl(MSB + '0');
-"106
-[e ( _dataCtrl (1 -> + -> _MSB `ui -> 48 `ui `uc ]
-[; ;Ochia_PreMid.c: 107: instCtrl(0xC1);
-"107
-[e ( _instCtrl (1 -> -> 193 `i `uc ]
-[; ;Ochia_PreMid.c: 108: dataCtrl(LSB + '0');
-"108
-[e ( _dataCtrl (1 -> + -> _LSB `ui -> 48 `ui `uc ]
-[; ;Ochia_PreMid.c: 109: key = PORTD & 0x0F;
-"109
 [e = _key -> & -> _PORTD `i -> 15 `i `uc ]
-[; ;Ochia_PreMid.c: 111: if (key == 0x0D){
-"111
-[e $ ! == -> _key `i -> 13 `i 125  ]
-{
-[; ;Ochia_PreMid.c: 112: btn_flag = 1;
-"112
-[e = _btn_flag -> -> 1 `i `uc ]
-"113
-}
-[e :U 125 ]
-[; ;Ochia_PreMid.c: 113: }
-[; ;Ochia_PreMid.c: 115: if (btn_flag == 0) {
-"115
+[; ;Ochia_PreMid.c: 106: if (btn_flag == 0) {
+"106
 [e $ ! == -> _btn_flag `i -> 0 `i 126  ]
 {
-[; ;Ochia_PreMid.c: 116: if (key == 0x0C){
-"116
+[; ;Ochia_PreMid.c: 107: if (key == 0x0C) {
+"107
 [e $ ! == -> _key `i -> 12 `i 127  ]
 {
-[; ;Ochia_PreMid.c: 117: if (MSB >= 2 && LSB >= 4) {
-"117
-[e $ ! && >= _MSB -> 2 `i >= _LSB -> 4 `i 128  ]
+[; ;Ochia_PreMid.c: 108: if (MSB < 2 || (MSB == 2 && LSB < 4)) {
+"108
+[e $ ! || < _MSB -> 2 `i && == _MSB -> 2 `i < _LSB -> 4 `i 128  ]
 {
-[; ;Ochia_PreMid.c: 118: LSB = 0;
-"118
+[; ;Ochia_PreMid.c: 109: if (LSB == 9) {
+"109
+[e $ ! == _LSB -> 9 `i 129  ]
+{
+[; ;Ochia_PreMid.c: 110: LSB = 0;
+"110
 [e = _LSB -> 0 `i ]
-[; ;Ochia_PreMid.c: 119: MSB = 0;
-"119
-[e = _MSB -> 0 `i ]
-"120
+[; ;Ochia_PreMid.c: 111: MSB++;
+"111
+[e ++ _MSB -> 1 `i ]
+"112
 }
-[; ;Ochia_PreMid.c: 120: } else if (LSB == 9) {
-[e $U 129  ]
-[e :U 128 ]
-[e $ ! == _LSB -> 9 `i 130  ]
-{
-[; ;Ochia_PreMid.c: 121: LSB = 0;
-"121
-[e = _LSB -> 0 `i ]
-[; ;Ochia_PreMid.c: 122: MSB += 1;
-"122
-[e =+ _MSB -> 1 `i ]
-"123
-}
-[; ;Ochia_PreMid.c: 123: } else {
-[e $U 131  ]
-[e :U 130 ]
-{
-[; ;Ochia_PreMid.c: 124: LSB += 1;
-"124
-[e =+ _LSB -> 1 `i ]
-"125
-}
-[e :U 131 ]
+[; ;Ochia_PreMid.c: 112: } else {
+[e $U 130  ]
 [e :U 129 ]
-"127
+{
+[; ;Ochia_PreMid.c: 113: LSB++;
+"113
+[e ++ _LSB -> 1 `i ]
+"114
 }
-[; ;Ochia_PreMid.c: 125: }
-[; ;Ochia_PreMid.c: 127: } else if (key == 0x0E){
-[e $U 132  ]
+[e :U 130 ]
+[; ;Ochia_PreMid.c: 114: }
+[; ;Ochia_PreMid.c: 115: update_display(MSB, LSB);
+"115
+[e ( _update_display (2 , _MSB _LSB ]
+"116
+}
+[e :U 128 ]
+"117
+}
+[; ;Ochia_PreMid.c: 116: }
+[; ;Ochia_PreMid.c: 117: } else if (key == 0x0E) {
+[e $U 131  ]
 [e :U 127 ]
-[e $ ! == -> _key `i -> 14 `i 133  ]
+[e $ ! == -> _key `i -> 14 `i 132  ]
 {
-[; ;Ochia_PreMid.c: 128: if (MSB == 0 && LSB == 0) {
-"128
-[e $ ! && == _MSB -> 0 `i == _LSB -> 0 `i 134  ]
+[; ;Ochia_PreMid.c: 118: if (MSB > 0 || (MSB == 0 && LSB > 0)) {
+"118
+[e $ ! || > _MSB -> 0 `i && == _MSB -> 0 `i > _LSB -> 0 `i 133  ]
 {
-[; ;Ochia_PreMid.c: 129: LSB = 4;
-"129
-[e = _LSB -> 4 `i ]
-[; ;Ochia_PreMid.c: 130: MSB = 2;
-"130
-[e = _MSB -> 2 `i ]
-"131
+[; ;Ochia_PreMid.c: 119: if (LSB == 0) {
+"119
+[e $ ! == _LSB -> 0 `i 134  ]
+{
+[; ;Ochia_PreMid.c: 120: LSB = 9;
+"120
+[e = _LSB -> 9 `i ]
+[; ;Ochia_PreMid.c: 121: MSB--;
+"121
+[e -- _MSB -> 1 `i ]
+"122
 }
-[; ;Ochia_PreMid.c: 131: } else if (LSB == 0) {
+[; ;Ochia_PreMid.c: 122: } else {
 [e $U 135  ]
 [e :U 134 ]
-[e $ ! == _LSB -> 0 `i 136  ]
 {
-[; ;Ochia_PreMid.c: 132: MSB -= 1;
+[; ;Ochia_PreMid.c: 123: LSB--;
+"123
+[e -- _LSB -> 1 `i ]
+"124
+}
+[e :U 135 ]
+[; ;Ochia_PreMid.c: 124: }
+[; ;Ochia_PreMid.c: 125: update_display(MSB, LSB);
+"125
+[e ( _update_display (2 , _MSB _LSB ]
+"126
+}
+[e :U 133 ]
+"127
+}
+[e :U 132 ]
+"128
+[e :U 131 ]
+}
+[e :U 126 ]
+[; ;Ochia_PreMid.c: 126: }
+[; ;Ochia_PreMid.c: 127: }
+[; ;Ochia_PreMid.c: 128: }
+[; ;Ochia_PreMid.c: 130: if (btn_flag == 1) {
+"130
+[e $ ! == -> _btn_flag `i -> 1 `i 136  ]
+{
+[; ;Ochia_PreMid.c: 131: if (MSB == 0 && LSB == 0) {
+"131
+[e $ ! && == _MSB -> 0 `i == _LSB -> 0 `i 137  ]
+{
+[; ;Ochia_PreMid.c: 132: MSB = 2;
 "132
-[e =- _MSB -> 1 `i ]
-[; ;Ochia_PreMid.c: 133: LSB = 9;
+[e = _MSB -> 2 `i ]
+[; ;Ochia_PreMid.c: 133: LSB = 4;
 "133
-[e = _LSB -> 9 `i ]
+[e = _LSB -> 4 `i ]
 "134
 }
 [; ;Ochia_PreMid.c: 134: } else {
-[e $U 137  ]
-[e :U 136 ]
-{
-[; ;Ochia_PreMid.c: 135: LSB -= 1;
-"135
-[e =- _LSB -> 1 `i ]
-"136
-}
+[e $U 138  ]
 [e :U 137 ]
-[e :U 135 ]
+{
+[; ;Ochia_PreMid.c: 135: if (LSB == 0) {
+"135
+[e $ ! == _LSB -> 0 `i 139  ]
+{
+[; ;Ochia_PreMid.c: 136: LSB = 9;
+"136
+[e = _LSB -> 9 `i ]
+[; ;Ochia_PreMid.c: 137: MSB--;
+"137
+[e -- _MSB -> 1 `i ]
 "138
 }
-[e :U 133 ]
-"140
-[e :U 132 ]
-[; ;Ochia_PreMid.c: 136: }
-[; ;Ochia_PreMid.c: 138: }
-[; ;Ochia_PreMid.c: 140: instCtrl(0xC1);
-[e ( _instCtrl (1 -> -> 193 `i `uc ]
-[; ;Ochia_PreMid.c: 141: dataCtrl(LSB + '0');
-"141
-[e ( _dataCtrl (1 -> + -> _LSB `ui -> 48 `ui `uc ]
-[; ;Ochia_PreMid.c: 142: instCtrl(0xC0);
-"142
-[e ( _instCtrl (1 -> -> 192 `i `uc ]
-[; ;Ochia_PreMid.c: 143: dataCtrl(MSB + '0');
-"143
-[e ( _dataCtrl (1 -> + -> _MSB `ui -> 48 `ui `uc ]
-"144
-}
-[e :U 126 ]
-"145
-}
-[e :U 124 ]
-[; ;Ochia_PreMid.c: 144: }
-[; ;Ochia_PreMid.c: 145: }
-[; ;Ochia_PreMid.c: 151: if (btn_flag == 1) {
-"151
-[e $ ! == -> _btn_flag `i -> 1 `i 138  ]
-{
-[; ;Ochia_PreMid.c: 152: if (MSB == 0 && LSB == 0) {
-"152
-[e $ ! && == _MSB -> 0 `i == _LSB -> 0 `i 139  ]
-{
-[; ;Ochia_PreMid.c: 153: LSB = 4;
-"153
-[e = _LSB -> 4 `i ]
-[; ;Ochia_PreMid.c: 154: MSB = 2;
-"154
-[e = _MSB -> 2 `i ]
-"155
-}
-[; ;Ochia_PreMid.c: 155: } else if (LSB == 0) {
+[; ;Ochia_PreMid.c: 138: } else {
 [e $U 140  ]
 [e :U 139 ]
-[e $ ! == _LSB -> 0 `i 141  ]
 {
-[; ;Ochia_PreMid.c: 156: MSB -= 1;
-"156
-[e =- _MSB -> 1 `i ]
-[; ;Ochia_PreMid.c: 157: LSB = 9;
-"157
-[e = _LSB -> 9 `i ]
-"158
+[; ;Ochia_PreMid.c: 139: LSB--;
+"139
+[e -- _LSB -> 1 `i ]
+"140
 }
-[; ;Ochia_PreMid.c: 158: } else {
-[e $U 142  ]
-[e :U 141 ]
-{
-[; ;Ochia_PreMid.c: 159: LSB -= 1;
-"159
-[e =- _LSB -> 1 `i ]
-"160
-}
-[e :U 142 ]
 [e :U 140 ]
-[; ;Ochia_PreMid.c: 160: }
-[; ;Ochia_PreMid.c: 162: instCtrl(0xC1);
-"162
-[e ( _instCtrl (1 -> -> 193 `i `uc ]
-[; ;Ochia_PreMid.c: 163: dataCtrl(LSB + '0');
-"163
-[e ( _dataCtrl (1 -> + -> _LSB `ui -> 48 `ui `uc ]
-[; ;Ochia_PreMid.c: 164: instCtrl(0xC0);
-"164
-[e ( _instCtrl (1 -> -> 192 `i `uc ]
-[; ;Ochia_PreMid.c: 165: dataCtrl(MSB + '0');
-"165
-[e ( _dataCtrl (1 -> + -> _MSB `ui -> 48 `ui `uc ]
-[; ;Ochia_PreMid.c: 166: delay(31);
-"166
-[e ( _delay (1 -> 31 `i ]
-"167
+"141
 }
 [e :U 138 ]
-"169
+[; ;Ochia_PreMid.c: 140: }
+[; ;Ochia_PreMid.c: 141: }
+[; ;Ochia_PreMid.c: 142: update_display(MSB, LSB);
+"142
+[e ( _update_display (2 , _MSB _LSB ]
+[; ;Ochia_PreMid.c: 143: delay(31);
+"143
+[e ( _delay (1 -> 31 `i ]
+"144
 }
-[e :U 121 ]
-"101
-[e $U 122  ]
+[e :U 136 ]
+"145
+}
 [e :U 123 ]
-[; ;Ochia_PreMid.c: 167: }
-[; ;Ochia_PreMid.c: 169: }
-[; ;Ochia_PreMid.c: 170: }
-"170
-[e :UE 120 ]
+"103
+[e $U 124  ]
+[e :U 125 ]
+[; ;Ochia_PreMid.c: 144: }
+[; ;Ochia_PreMid.c: 145: }
+[; ;Ochia_PreMid.c: 146: }
+"146
+[e :UE 122 ]
 }

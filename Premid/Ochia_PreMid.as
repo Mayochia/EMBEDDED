@@ -159,11 +159,12 @@ EEADRH equ 010Fh ;#
 EECON1 equ 018Ch ;# 
 # 2301 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h"
 EECON2 equ 018Dh ;# 
-	FNCALL	_main,_dataCtrl
 	FNCALL	_main,_delay
 	FNCALL	_main,_display_count_msg
 	FNCALL	_main,_initLCD
-	FNCALL	_main,_instCtrl
+	FNCALL	_main,_update_display
+	FNCALL	_update_display,_dataCtrl
+	FNCALL	_update_display,_instCtrl
 	FNCALL	_initLCD,_delay_lcd
 	FNCALL	_initLCD,_instCtrl
 	FNCALL	_instCtrl,_delay_lcd
@@ -177,7 +178,7 @@ EECON2 equ 018Dh ;#
 psect	idataBANK0,class=CODE,space=0,delta=2,noexec
 global __pidataBANK0
 __pidataBANK0:
-	file	"Z:\CPE3201\Premid\Ochia_PreMid.c"
+	file	"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
 	line	6
 
 ;initializer for _count
@@ -207,8 +208,6 @@ _RB5	set	0x35
 _RB6	set	0x36
 	global	_RB7
 _RB7	set	0x37
-	global	_RD4
-_RD4	set	0x44
 	global	_TMR0IE
 _TMR0IE	set	0x5D
 	global	_TMR0IF
@@ -248,7 +247,7 @@ _key:
 psect	dataBANK0,class=BANK0,space=1,noexec
 global __pdataBANK0
 __pdataBANK0:
-	file	"Z:\CPE3201\Premid\Ochia_PreMid.c"
+	file	"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
 	line	6
 _count:
        ds      7
@@ -339,6 +338,7 @@ dataCtrl@DATA:	; 1 bytes @ 0x7
 instCtrl@INST:	; 1 bytes @ 0x7
 	ds	1
 ??_initLCD:	; 0 bytes @ 0x8
+??_update_display:	; 0 bytes @ 0x8
 psect	cstackBANK0,class=BANK0,space=1,noexec
 global __pcstackBANK0
 __pcstackBANK0:
@@ -351,26 +351,25 @@ delay_lcd@i:	; 2 bytes @ 0x0
 delay_lcd@j:	; 2 bytes @ 0x2
 	ds	2
 ??_display_count_msg:	; 0 bytes @ 0x4
+?_update_display:	; 0 bytes @ 0x4
+	global	update_display@MSB
+update_display@MSB:	; 2 bytes @ 0x4
 	ds	1
 	global	display_count_msg@msg
 display_count_msg@msg:	; 1 bytes @ 0x5
 	ds	1
 	global	display_count_msg@i
 display_count_msg@i:	; 2 bytes @ 0x6
+	global	update_display@LSB
+update_display@LSB:	; 2 bytes @ 0x6
 	ds	2
 ??_main:	; 0 bytes @ 0x8
 	ds	1
-	global	main@speed
-main@speed:	; 2 bytes @ 0x9
-	ds	2
-	global	main@direction
-main@direction:	; 2 bytes @ 0xB
-	ds	2
 	global	main@MSB
-main@MSB:	; 2 bytes @ 0xD
+main@MSB:	; 2 bytes @ 0x9
 	ds	2
 	global	main@LSB
-main@LSB:	; 2 bytes @ 0xF
+main@LSB:	; 2 bytes @ 0xB
 	ds	2
 ;!
 ;!Data Sizes:
@@ -384,7 +383,7 @@ main@LSB:	; 2 bytes @ 0xF
 ;!Auto Spaces:
 ;!    Space          Size  Autos    Used
 ;!    COMMON           14      8       9
-;!    BANK0            80     17      26
+;!    BANK0            80     13      22
 ;!    BANK1            80      0       0
 ;!    BANK3            96      0       0
 ;!    BANK2            96      0       0
@@ -400,9 +399,9 @@ main@LSB:	; 2 bytes @ 0xF
 ;!
 ;!Critical Paths under _main in COMMON
 ;!
-;!    _main->_dataCtrl
 ;!    _main->_delay
-;!    _main->_instCtrl
+;!    _update_display->_dataCtrl
+;!    _update_display->_instCtrl
 ;!    _initLCD->_instCtrl
 ;!    _instCtrl->_delay_lcd
 ;!    _display_count_msg->_dataCtrl
@@ -415,6 +414,7 @@ main@LSB:	; 2 bytes @ 0xF
 ;!Critical Paths under _main in BANK0
 ;!
 ;!    _main->_display_count_msg
+;!    _main->_update_display
 ;!    _initLCD->_delay_lcd
 ;!    _instCtrl->_delay_lcd
 ;!    _dataCtrl->_delay_lcd
@@ -457,19 +457,23 @@ main@LSB:	; 2 bytes @ 0xF
 ;! ---------------------------------------------------------------------------------
 ;! (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
 ;! ---------------------------------------------------------------------------------
-;! (0) _main                                                 9     9      0    2296
-;!                                              8 BANK0      9     9      0
-;!                           _dataCtrl
+;! (0) _main                                                 5     5      0    2808
+;!                                              8 BANK0      5     5      0
 ;!                              _delay
 ;!                  _display_count_msg
 ;!                            _initLCD
+;!                     _update_display
+;! ---------------------------------------------------------------------------------
+;! (1) _update_display                                       4     0      4    1058
+;!                                              4 BANK0      4     0      4
+;!                           _dataCtrl
 ;!                           _instCtrl
 ;! ---------------------------------------------------------------------------------
 ;! (1) _initLCD                                              0     0      0     568
 ;!                          _delay_lcd
 ;!                           _instCtrl
 ;! ---------------------------------------------------------------------------------
-;! (1) _instCtrl                                             1     1      0     295
+;! (2) _instCtrl                                             1     1      0     295
 ;!                                              7 COMMON     1     1      0
 ;!                          _delay_lcd
 ;! ---------------------------------------------------------------------------------
@@ -481,7 +485,7 @@ main@LSB:	; 2 bytes @ 0xF
 ;!                                              7 COMMON     1     1      0
 ;!                          _delay_lcd
 ;! ---------------------------------------------------------------------------------
-;! (2) _delay_lcd                                            6     4      2     273
+;! (3) _delay_lcd                                            6     4      2     273
 ;!                                              5 COMMON     2     0      2
 ;!                                              0 BANK0      4     4      0
 ;! ---------------------------------------------------------------------------------
@@ -489,7 +493,7 @@ main@LSB:	; 2 bytes @ 0xF
 ;!                                              5 COMMON     3     1      2
 ;!                                              0 BANK0      2     2      0
 ;! ---------------------------------------------------------------------------------
-;! Estimated maximum stack depth 2
+;! Estimated maximum stack depth 3
 ;! ---------------------------------------------------------------------------------
 ;! (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
 ;! ---------------------------------------------------------------------------------
@@ -502,8 +506,6 @@ main@LSB:	; 2 bytes @ 0xF
 ;! Call Graph Graphs:
 ;!
 ;! _main (ROOT)
-;!   _dataCtrl
-;!     _delay_lcd
 ;!   _delay
 ;!   _display_count_msg
 ;!     _dataCtrl
@@ -512,8 +514,11 @@ main@LSB:	; 2 bytes @ 0xF
 ;!     _delay_lcd
 ;!     _instCtrl
 ;!       _delay_lcd
-;!   _instCtrl
-;!     _delay_lcd
+;!   _update_display
+;!     _dataCtrl
+;!       _delay_lcd
+;!     _instCtrl
+;!       _delay_lcd
 ;!
 ;! _ISR (ROOT)
 ;!
@@ -533,15 +538,15 @@ main@LSB:	; 2 bytes @ 0xF
 ;!BITBANK1            50      0       0       6        0.0%
 ;!SFR1                 0      0       0       2        0.0%
 ;!BITSFR1              0      0       0       2        0.0%
-;!BANK0               50     11      1A       5       32.5%
+;!BANK0               50      D      16       5       27.5%
 ;!BITBANK0            50      0       0       4        0.0%
 ;!SFR0                 0      0       0       1        0.0%
 ;!BITSFR0              0      0       0       1        0.0%
 ;!COMMON               E      8       9       1       64.3%
 ;!BITCOMMON            E      0       0       0        0.0%
 ;!CODE                 0      0       0       0        0.0%
-;!DATA                 0      0      23      12        0.0%
-;!ABS                  0      0      23       3        0.0%
+;!DATA                 0      0      1F      12        0.0%
+;!ABS                  0      0      1F       3        0.0%
 ;!NULL                 0      0       0       0        0.0%
 ;!STACK                0      0       0       2        0.0%
 ;!EEDATA             100      0       0       0        0.0%
@@ -550,14 +555,12 @@ main@LSB:	; 2 bytes @ 0xF
 
 ;; *************** function _main *****************
 ;; Defined at:
-;;		line 75 in file "Z:\CPE3201\Premid\Ochia_PreMid.c"
+;;		line 81 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
-;;  LSB             2   15[BANK0 ] int 
-;;  MSB             2   13[BANK0 ] int 
-;;  direction       2   11[BANK0 ] int 
-;;  speed           2    9[BANK0 ] int 
+;;  LSB             2   11[BANK0 ] int 
+;;  MSB             2    9[BANK0 ] int 
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
@@ -568,29 +571,28 @@ main@LSB:	; 2 bytes @ 0xF
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
 ;;      Params:         0       0       0       0       0
-;;      Locals:         0       8       0       0       0
+;;      Locals:         0       4       0       0       0
 ;;      Temps:          0       1       0       0       0
-;;      Totals:         0       9       0       0       0
-;;Total ram usage:        9 bytes
+;;      Totals:         0       5       0       0       0
+;;Total ram usage:        5 bytes
 ;; Hardware stack levels required when called:    4
 ;; This function calls:
-;;		_dataCtrl
 ;;		_delay
 ;;		_display_count_msg
 ;;		_initLCD
-;;		_instCtrl
+;;		_update_display
 ;; This function is called by:
 ;;		Startup code after reset
 ;; This function uses a non-reentrant model
 ;;
 psect	maintext,global,class=CODE,delta=2,split=1
-	file	"Z:\CPE3201\Premid\Ochia_PreMid.c"
-	line	75
+	file	"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
+	line	81
 global __pmaintext
 __pmaintext:	;psect for function _main
 psect	maintext
-	file	"Z:\CPE3201\Premid\Ochia_PreMid.c"
-	line	75
+	file	"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
+	line	81
 	global	__size_of_main
 	__size_of_main	equ	__end_of_main-_main
 	
@@ -598,168 +600,111 @@ _main:
 ;incstack = 0
 	opt	stack 4
 ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-	line	77
-	
-l911:	
-;Ochia_PreMid.c: 77: int speed = 0;
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	clrf	(main@speed)
-	clrf	(main@speed+1)
-	line	79
-	
-l913:	
-;Ochia_PreMid.c: 79: TRISB = 0x0F;
-	movlw	(0Fh)
-	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
-	movwf	(134)^080h	;volatile
-	line	80
-	
-l915:	
-;Ochia_PreMid.c: 80: TRISC = 0x00;
-	clrf	(135)^080h	;volatile
-	line	81
-;Ochia_PreMid.c: 81: TRISD = 0xFF;
-	movlw	(0FFh)
-	movwf	(136)^080h	;volatile
 	line	82
-;Ochia_PreMid.c: 82: OPTION_REG = 0xC4;
-	movlw	(0C4h)
-	movwf	(129)^080h	;volatile
-	line	83
 	
-l917:	
-;Ochia_PreMid.c: 83: INTE = 1;
-	bsf	(92/8),(92)&7	;volatile
-	line	84
-	
-l919:	
-;Ochia_PreMid.c: 84: INTF = 0;
-	bcf	(89/8),(89)&7	;volatile
-	line	85
-	
-l921:	
-;Ochia_PreMid.c: 85: TMR0IE = 1;
-	bsf	(93/8),(93)&7	;volatile
-	line	86
-	
-l923:	
-;Ochia_PreMid.c: 86: TMR0IF = 0;
-	bcf	(90/8),(90)&7	;volatile
-	line	87
-	
-l925:	
-;Ochia_PreMid.c: 87: GIE = 1;
-	bsf	(95/8),(95)&7	;volatile
-	line	89
-;Ochia_PreMid.c: 89: int MSB = 2;
+l881:	
+;Ochia_PreMid.c: 82: int MSB = 2;
 	movlw	low(02h)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(main@MSB)
 	movlw	high(02h)
 	movwf	((main@MSB))+1
-	line	90
-;Ochia_PreMid.c: 90: int LSB = 4;
+	line	83
+;Ochia_PreMid.c: 83: int LSB = 4;
 	movlw	low(04h)
 	movwf	(main@LSB)
 	movlw	high(04h)
 	movwf	((main@LSB))+1
+	line	86
+;Ochia_PreMid.c: 86: TRISB = 0x0F;
+	movlw	(0Fh)
+	bsf	status, 5	;RP0=1, select bank1
+	bcf	status, 6	;RP1=0, select bank1
+	movwf	(134)^080h	;volatile
+	line	87
+	
+l883:	
+;Ochia_PreMid.c: 87: TRISC = 0x00;
+	clrf	(135)^080h	;volatile
+	line	88
+	
+l885:	
+;Ochia_PreMid.c: 88: TRISD = 0xFF;
+	movlw	(0FFh)
+	movwf	(136)^080h	;volatile
+	line	91
+	
+l887:	
+;Ochia_PreMid.c: 91: OPTION_REG = 0xC4;
+	movlw	(0C4h)
+	movwf	(129)^080h	;volatile
 	line	92
 	
-l927:	
-;Ochia_PreMid.c: 92: initLCD();
-	fcall	_initLCD
+l889:	
+;Ochia_PreMid.c: 92: INTE = 1;
+	bsf	(92/8),(92)&7	;volatile
 	line	93
 	
-l929:	
-;Ochia_PreMid.c: 93: display_count_msg(count);
-	movlw	(_count)&0ffh
-	fcall	_display_count_msg
+l891:	
+;Ochia_PreMid.c: 93: INTF = 0;
+	bcf	(89/8),(89)&7	;volatile
 	line	94
 	
-l931:	
-;Ochia_PreMid.c: 94: instCtrl(0xC0);
-	movlw	(0C0h)
-	fcall	_instCtrl
+l893:	
+;Ochia_PreMid.c: 94: TMR0IE = 1;
+	bsf	(93/8),(93)&7	;volatile
 	line	95
 	
-l933:	
-;Ochia_PreMid.c: 95: dataCtrl(MSB + '0');
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movf	(main@MSB),w
-	addlw	030h
-	fcall	_dataCtrl
+l895:	
+;Ochia_PreMid.c: 95: TMR0IF = 0;
+	bcf	(90/8),(90)&7	;volatile
 	line	96
 	
-l935:	
-;Ochia_PreMid.c: 96: instCtrl(0xC1);
-	movlw	(0C1h)
-	fcall	_instCtrl
-	line	97
-	
-l937:	
-;Ochia_PreMid.c: 97: dataCtrl(LSB + '0');
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movf	(main@LSB),w
-	addlw	030h
-	fcall	_dataCtrl
+l897:	
+;Ochia_PreMid.c: 96: GIE = 1;
+	bsf	(95/8),(95)&7	;volatile
 	line	99
 	
-l939:	
-;Ochia_PreMid.c: 99: int direction = 0;
+l899:	
+;Ochia_PreMid.c: 99: initLCD();
+	fcall	_initLCD
+	line	100
+	
+l901:	
+;Ochia_PreMid.c: 100: display_count_msg(count);
+	movlw	(_count)&0ffh
+	fcall	_display_count_msg
+	line	101
+	
+l903:	
+;Ochia_PreMid.c: 101: update_display(MSB, LSB);
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
-	clrf	(main@direction)
-	clrf	(main@direction+1)
-	goto	l941
-	line	101
-;Ochia_PreMid.c: 101: while (1) {
+	movf	(main@MSB+1),w
+	clrf	(update_display@MSB+1)
+	addwf	(update_display@MSB+1)
+	movf	(main@MSB),w
+	clrf	(update_display@MSB)
+	addwf	(update_display@MSB)
+
+	movf	(main@LSB+1),w
+	clrf	(update_display@LSB+1)
+	addwf	(update_display@LSB+1)
+	movf	(main@LSB),w
+	clrf	(update_display@LSB)
+	addwf	(update_display@LSB)
+
+	fcall	_update_display
+	goto	l905
+	line	103
+;Ochia_PreMid.c: 103: while (1) {
 	
-l76:	
+l78:	
 	line	104
 	
-l941:	
-;Ochia_PreMid.c: 104: if(RD4){
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	btfss	(68/8),(68)&7	;volatile
-	goto	u501
-	goto	u500
-u501:
-	goto	l77
-u500:
-	line	105
-	
-l943:	
-;Ochia_PreMid.c: 105: instCtrl(0xC0);
-	movlw	(0C0h)
-	fcall	_instCtrl
-	line	106
-;Ochia_PreMid.c: 106: dataCtrl(MSB + '0');
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movf	(main@MSB),w
-	addlw	030h
-	fcall	_dataCtrl
-	line	107
-;Ochia_PreMid.c: 107: instCtrl(0xC1);
-	movlw	(0C1h)
-	fcall	_instCtrl
-	line	108
-;Ochia_PreMid.c: 108: dataCtrl(LSB + '0');
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movf	(main@LSB),w
-	addlw	030h
-	fcall	_dataCtrl
-	line	109
-	
-l945:	
-;Ochia_PreMid.c: 109: key = PORTD & 0x0F;
+l905:	
+;Ochia_PreMid.c: 104: key = PORTD & 0x0F;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(8),w	;volatile
@@ -767,56 +712,33 @@ l945:
 	movwf	(??_main+0)+0
 	movf	(??_main+0)+0,w
 	movwf	(_key)
-	line	111
+	line	106
 	
-l947:	
-;Ochia_PreMid.c: 111: if (key == 0x0D){
-	movf	(_key),w
-	xorlw	0Dh
-	skipz
-	goto	u511
-	goto	u510
-u511:
-	goto	l951
-u510:
-	line	112
-	
-l949:	
-;Ochia_PreMid.c: 112: btn_flag = 1;
-	clrf	(_btn_flag)
-	incf	(_btn_flag),f
-	goto	l951
-	line	113
-	
-l78:	
-	line	115
-	
-l951:	
-;Ochia_PreMid.c: 113: }
-;Ochia_PreMid.c: 115: if (btn_flag == 0) {
+l907:	
+;Ochia_PreMid.c: 106: if (btn_flag == 0) {
 	movf	(_btn_flag),f
 	skipz
 	goto	u521
 	goto	u520
 u521:
-	goto	l77
+	goto	l943
 u520:
-	line	116
+	line	107
 	
-l953:	
-;Ochia_PreMid.c: 116: if (key == 0x0C){
+l909:	
+;Ochia_PreMid.c: 107: if (key == 0x0C) {
 	movf	(_key),w
 	xorlw	0Ch
 	skipz
 	goto	u531
 	goto	u530
 u531:
-	goto	l969
+	goto	l927
 u530:
-	line	117
+	line	108
 	
-l955:	
-;Ochia_PreMid.c: 117: if (MSB >= 2 && LSB >= 4) {
+l911:	
+;Ochia_PreMid.c: 108: if (MSB < 2 || (MSB == 2 && LSB < 4)) {
 	movf	(main@MSB+1),w
 	xorlw	80h
 	movwf	btemp+1
@@ -832,417 +754,514 @@ u545:
 	goto	u541
 	goto	u540
 u541:
-	goto	l961
+	goto	l917
 u540:
 	
-l957:	
+l913:	
+	movlw	02h
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
+	xorwf	(main@MSB),w
+	iorwf	(main@MSB+1),w
+	skipz
+	goto	u551
+	goto	u550
+u551:
+	goto	l943
+u550:
+	
+l915:	
 	movf	(main@LSB+1),w
 	xorlw	80h
 	movwf	btemp+1
 	movlw	(high(04h))^80h
 	subwf	btemp+1,w
 	skipz
-	goto	u555
+	goto	u565
 	movlw	low(04h)
 	subwf	(main@LSB),w
-u555:
+u565:
 
-	skipc
-	goto	u551
-	goto	u550
-u551:
-	goto	l961
-u550:
-	line	118
+	skipnc
+	goto	u561
+	goto	u560
+u561:
+	goto	l943
+u560:
+	goto	l917
 	
-l959:	
-;Ochia_PreMid.c: 118: LSB = 0;
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	clrf	(main@LSB)
-	clrf	(main@LSB+1)
-	line	119
-;Ochia_PreMid.c: 119: MSB = 0;
-	clrf	(main@MSB)
-	clrf	(main@MSB+1)
-	line	120
-;Ochia_PreMid.c: 120: } else if (LSB == 9) {
-	goto	l983
+l83:	
+	line	109
 	
-l81:	
-	
-l961:	
+l917:	
+;Ochia_PreMid.c: 109: if (LSB == 9) {
 	movlw	09h
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	xorwf	(main@LSB),w
 	iorwf	(main@LSB+1),w
 	skipz
-	goto	u561
-	goto	u560
-u561:
-	goto	l967
-u560:
-	line	121
+	goto	u571
+	goto	u570
+u571:
+	goto	l923
+u570:
+	line	110
 	
-l963:	
-;Ochia_PreMid.c: 121: LSB = 0;
+l919:	
+;Ochia_PreMid.c: 110: LSB = 0;
 	clrf	(main@LSB)
 	clrf	(main@LSB+1)
-	line	122
+	line	111
 	
-l965:	
-;Ochia_PreMid.c: 122: MSB += 1;
+l921:	
+;Ochia_PreMid.c: 111: MSB++;
 	movlw	low(01h)
 	addwf	(main@MSB),f
 	skipnc
 	incf	(main@MSB+1),f
 	movlw	high(01h)
 	addwf	(main@MSB+1),f
-	line	123
-;Ochia_PreMid.c: 123: } else {
-	goto	l983
+	line	112
+;Ochia_PreMid.c: 112: } else {
+	goto	l925
 	
-l83:	
-	line	124
+l84:	
+	line	113
 	
-l967:	
-;Ochia_PreMid.c: 124: LSB += 1;
+l923:	
+;Ochia_PreMid.c: 113: LSB++;
 	movlw	low(01h)
 	addwf	(main@LSB),f
 	skipnc
 	incf	(main@LSB+1),f
 	movlw	high(01h)
 	addwf	(main@LSB+1),f
-	goto	l983
-	line	125
+	goto	l925
+	line	114
 	
-l84:	
-	goto	l983
+l85:	
+	line	115
 	
-l82:	
-	line	127
-;Ochia_PreMid.c: 125: }
-;Ochia_PreMid.c: 127: } else if (key == 0x0E){
-	goto	l983
+l925:	
+;Ochia_PreMid.c: 114: }
+;Ochia_PreMid.c: 115: update_display(MSB, LSB);
+	movf	(main@MSB+1),w
+	clrf	(update_display@MSB+1)
+	addwf	(update_display@MSB+1)
+	movf	(main@MSB),w
+	clrf	(update_display@MSB)
+	addwf	(update_display@MSB)
+
+	movf	(main@LSB+1),w
+	clrf	(update_display@LSB+1)
+	addwf	(update_display@LSB+1)
+	movf	(main@LSB),w
+	clrf	(update_display@LSB)
+	addwf	(update_display@LSB)
+
+	fcall	_update_display
+	goto	l943
+	line	116
+	
+l81:	
+	line	117
+;Ochia_PreMid.c: 116: }
+;Ochia_PreMid.c: 117: } else if (key == 0x0E) {
+	goto	l943
 	
 l80:	
 	
-l969:	
+l927:	
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(_key),w
 	xorlw	0Eh
-	skipz
-	goto	u571
-	goto	u570
-u571:
-	goto	l983
-u570:
-	line	128
-	
-l971:	
-;Ochia_PreMid.c: 128: if (MSB == 0 && LSB == 0) {
-	movf	((main@MSB+1)),w
-	iorwf	((main@MSB)),w
 	skipz
 	goto	u581
 	goto	u580
 u581:
-	goto	l977
+	goto	l943
 u580:
+	line	118
 	
-l973:	
-	movf	((main@LSB+1)),w
-	iorwf	((main@LSB)),w
+l929:	
+;Ochia_PreMid.c: 118: if (MSB > 0 || (MSB == 0 && LSB > 0)) {
+	movf	(main@MSB+1),w
+	xorlw	80h
+	movwf	btemp+1
+	movlw	(high(01h))^80h
+	subwf	btemp+1,w
 	skipz
+	goto	u595
+	movlw	low(01h)
+	subwf	(main@MSB),w
+u595:
+
+	skipnc
 	goto	u591
 	goto	u590
 u591:
-	goto	l977
+	goto	l935
 u590:
-	line	129
 	
-l975:	
-;Ochia_PreMid.c: 129: LSB = 4;
-	movlw	low(04h)
-	movwf	(main@LSB)
-	movlw	high(04h)
-	movwf	((main@LSB))+1
-	line	130
-;Ochia_PreMid.c: 130: MSB = 2;
-	movlw	low(02h)
-	movwf	(main@MSB)
-	movlw	high(02h)
-	movwf	((main@MSB))+1
-	line	131
-;Ochia_PreMid.c: 131: } else if (LSB == 0) {
-	goto	l983
-	
-l87:	
-	
-l977:	
-	movf	((main@LSB+1)),w
-	iorwf	((main@LSB)),w
+l931:	
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movf	((main@MSB+1)),w
+	iorwf	((main@MSB)),w
 	skipz
 	goto	u601
 	goto	u600
 u601:
-	goto	l981
+	goto	l943
 u600:
-	line	132
 	
-l979:	
-;Ochia_PreMid.c: 132: MSB -= 1;
+l933:	
+	movf	(main@LSB+1),w
+	xorlw	80h
+	movwf	btemp+1
+	movlw	(high(01h))^80h
+	subwf	btemp+1,w
+	skipz
+	goto	u615
+	movlw	low(01h)
+	subwf	(main@LSB),w
+u615:
+
+	skipc
+	goto	u611
+	goto	u610
+u611:
+	goto	l943
+u610:
+	goto	l935
+	
+l90:	
+	line	119
+	
+l935:	
+;Ochia_PreMid.c: 119: if (LSB == 0) {
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movf	((main@LSB+1)),w
+	iorwf	((main@LSB)),w
+	skipz
+	goto	u621
+	goto	u620
+u621:
+	goto	l939
+u620:
+	line	120
+	
+l937:	
+;Ochia_PreMid.c: 120: LSB = 9;
+	movlw	low(09h)
+	movwf	(main@LSB)
+	movlw	high(09h)
+	movwf	((main@LSB))+1
+	line	121
+;Ochia_PreMid.c: 121: MSB--;
 	movlw	low(-1)
 	addwf	(main@MSB),f
 	skipnc
 	incf	(main@MSB+1),f
 	movlw	high(-1)
 	addwf	(main@MSB+1),f
-	line	133
-;Ochia_PreMid.c: 133: LSB = 9;
-	movlw	low(09h)
-	movwf	(main@LSB)
-	movlw	high(09h)
-	movwf	((main@LSB))+1
-	line	134
-;Ochia_PreMid.c: 134: } else {
-	goto	l983
+	line	122
+;Ochia_PreMid.c: 122: } else {
+	goto	l941
 	
-l89:	
-	line	135
+l91:	
+	line	123
 	
-l981:	
-;Ochia_PreMid.c: 135: LSB -= 1;
+l939:	
+;Ochia_PreMid.c: 123: LSB--;
 	movlw	low(-1)
 	addwf	(main@LSB),f
 	skipnc
 	incf	(main@LSB+1),f
 	movlw	high(-1)
 	addwf	(main@LSB+1),f
-	goto	l983
-	line	136
+	goto	l941
+	line	124
 	
-l90:	
-	goto	l983
+l92:	
+	line	125
+	
+l941:	
+;Ochia_PreMid.c: 124: }
+;Ochia_PreMid.c: 125: update_display(MSB, LSB);
+	movf	(main@MSB+1),w
+	clrf	(update_display@MSB+1)
+	addwf	(update_display@MSB+1)
+	movf	(main@MSB),w
+	clrf	(update_display@MSB)
+	addwf	(update_display@MSB)
+
+	movf	(main@LSB+1),w
+	clrf	(update_display@LSB+1)
+	addwf	(update_display@LSB+1)
+	movf	(main@LSB),w
+	clrf	(update_display@LSB)
+	addwf	(update_display@LSB)
+
+	fcall	_update_display
+	goto	l943
+	line	126
 	
 l88:	
-	goto	l983
-	line	138
+	goto	l943
+	line	127
+	
+l87:	
+	goto	l943
+	line	128
 	
 l86:	
-	goto	l983
-	line	140
-	
-l85:	
-	
-l983:	
-;Ochia_PreMid.c: 136: }
-;Ochia_PreMid.c: 138: }
-;Ochia_PreMid.c: 140: instCtrl(0xC1);
-	movlw	(0C1h)
-	fcall	_instCtrl
-	line	141
-	
-l985:	
-;Ochia_PreMid.c: 141: dataCtrl(LSB + '0');
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movf	(main@LSB),w
-	addlw	030h
-	fcall	_dataCtrl
-	line	142
-	
-l987:	
-;Ochia_PreMid.c: 142: instCtrl(0xC0);
-	movlw	(0C0h)
-	fcall	_instCtrl
-	line	143
-	
-l989:	
-;Ochia_PreMid.c: 143: dataCtrl(MSB + '0');
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movf	(main@MSB),w
-	addlw	030h
-	fcall	_dataCtrl
-	goto	l77
-	line	144
+	goto	l943
 	
 l79:	
-	line	145
+	line	130
 	
-l77:	
-	line	151
-;Ochia_PreMid.c: 144: }
-;Ochia_PreMid.c: 145: }
-;Ochia_PreMid.c: 151: if (btn_flag == 1) {
+l943:	
+;Ochia_PreMid.c: 126: }
+;Ochia_PreMid.c: 127: }
+;Ochia_PreMid.c: 128: }
+;Ochia_PreMid.c: 130: if (btn_flag == 1) {
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(_btn_flag),w
 	xorlw	01h
 	skipz
-	goto	u611
-	goto	u610
-u611:
-	goto	l941
-u610:
-	line	152
-	
-l991:	
-;Ochia_PreMid.c: 152: if (MSB == 0 && LSB == 0) {
-	movf	((main@MSB+1)),w
-	iorwf	((main@MSB)),w
-	skipz
-	goto	u621
-	goto	u620
-u621:
-	goto	l997
-u620:
-	
-l993:	
-	movf	((main@LSB+1)),w
-	iorwf	((main@LSB)),w
-	skipz
 	goto	u631
 	goto	u630
 u631:
-	goto	l997
+	goto	l905
 u630:
-	line	153
+	line	131
 	
-l995:	
-;Ochia_PreMid.c: 153: LSB = 4;
-	movlw	low(04h)
-	movwf	(main@LSB)
-	movlw	high(04h)
-	movwf	((main@LSB))+1
-	line	154
-;Ochia_PreMid.c: 154: MSB = 2;
-	movlw	low(02h)
-	movwf	(main@MSB)
-	movlw	high(02h)
-	movwf	((main@MSB))+1
-	line	155
-;Ochia_PreMid.c: 155: } else if (LSB == 0) {
-	goto	l1003
-	
-l92:	
-	
-l997:	
-	movf	((main@LSB+1)),w
-	iorwf	((main@LSB)),w
+l945:	
+;Ochia_PreMid.c: 131: if (MSB == 0 && LSB == 0) {
+	movf	((main@MSB+1)),w
+	iorwf	((main@MSB)),w
 	skipz
 	goto	u641
 	goto	u640
 u641:
-	goto	l1001
+	goto	l951
 u640:
-	line	156
 	
-l999:	
-;Ochia_PreMid.c: 156: MSB -= 1;
+l947:	
+	movf	((main@LSB+1)),w
+	iorwf	((main@LSB)),w
+	skipz
+	goto	u651
+	goto	u650
+u651:
+	goto	l951
+u650:
+	line	132
+	
+l949:	
+;Ochia_PreMid.c: 132: MSB = 2;
+	movlw	low(02h)
+	movwf	(main@MSB)
+	movlw	high(02h)
+	movwf	((main@MSB))+1
+	line	133
+;Ochia_PreMid.c: 133: LSB = 4;
+	movlw	low(04h)
+	movwf	(main@LSB)
+	movlw	high(04h)
+	movwf	((main@LSB))+1
+	line	134
+;Ochia_PreMid.c: 134: } else {
+	goto	l957
+	
+l94:	
+	line	135
+	
+l951:	
+;Ochia_PreMid.c: 135: if (LSB == 0) {
+	movf	((main@LSB+1)),w
+	iorwf	((main@LSB)),w
+	skipz
+	goto	u661
+	goto	u660
+u661:
+	goto	l955
+u660:
+	line	136
+	
+l953:	
+;Ochia_PreMid.c: 136: LSB = 9;
+	movlw	low(09h)
+	movwf	(main@LSB)
+	movlw	high(09h)
+	movwf	((main@LSB))+1
+	line	137
+;Ochia_PreMid.c: 137: MSB--;
 	movlw	low(-1)
 	addwf	(main@MSB),f
 	skipnc
 	incf	(main@MSB+1),f
 	movlw	high(-1)
 	addwf	(main@MSB+1),f
-	line	157
-;Ochia_PreMid.c: 157: LSB = 9;
-	movlw	low(09h)
-	movwf	(main@LSB)
-	movlw	high(09h)
-	movwf	((main@LSB))+1
-	line	158
-;Ochia_PreMid.c: 158: } else {
-	goto	l1003
+	line	138
+;Ochia_PreMid.c: 138: } else {
+	goto	l957
 	
-l94:	
-	line	159
+l96:	
+	line	139
 	
-l1001:	
-;Ochia_PreMid.c: 159: LSB -= 1;
+l955:	
+;Ochia_PreMid.c: 139: LSB--;
 	movlw	low(-1)
 	addwf	(main@LSB),f
 	skipnc
 	incf	(main@LSB+1),f
 	movlw	high(-1)
 	addwf	(main@LSB+1),f
-	goto	l1003
-	line	160
+	goto	l957
+	line	140
+	
+l97:	
+	goto	l957
+	line	141
 	
 l95:	
-	goto	l1003
+	line	142
 	
-l93:	
-	line	162
-	
-l1003:	
-;Ochia_PreMid.c: 160: }
-;Ochia_PreMid.c: 162: instCtrl(0xC1);
-	movlw	(0C1h)
-	fcall	_instCtrl
-	line	163
-	
-l1005:	
-;Ochia_PreMid.c: 163: dataCtrl(LSB + '0');
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movf	(main@LSB),w
-	addlw	030h
-	fcall	_dataCtrl
-	line	164
-	
-l1007:	
-;Ochia_PreMid.c: 164: instCtrl(0xC0);
-	movlw	(0C0h)
-	fcall	_instCtrl
-	line	165
-	
-l1009:	
-;Ochia_PreMid.c: 165: dataCtrl(MSB + '0');
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
+l957:	
+;Ochia_PreMid.c: 140: }
+;Ochia_PreMid.c: 141: }
+;Ochia_PreMid.c: 142: update_display(MSB, LSB);
+	movf	(main@MSB+1),w
+	clrf	(update_display@MSB+1)
+	addwf	(update_display@MSB+1)
 	movf	(main@MSB),w
-	addlw	030h
-	fcall	_dataCtrl
-	line	166
+	clrf	(update_display@MSB)
+	addwf	(update_display@MSB)
+
+	movf	(main@LSB+1),w
+	clrf	(update_display@LSB+1)
+	addwf	(update_display@LSB+1)
+	movf	(main@LSB),w
+	clrf	(update_display@LSB)
+	addwf	(update_display@LSB)
+
+	fcall	_update_display
+	line	143
 	
-l1011:	
-;Ochia_PreMid.c: 166: delay(31);
+l959:	
+;Ochia_PreMid.c: 143: delay(31);
 	movlw	low(01Fh)
 	movwf	(delay@num)
 	movlw	high(01Fh)
 	movwf	((delay@num))+1
 	fcall	_delay
-	goto	l941
-	line	167
+	goto	l905
+	line	144
 	
-l91:	
-	goto	l941
-	line	169
-	
-l96:	
-	line	101
-	goto	l941
-	
-l97:	
-	line	170
+l93:	
+	goto	l905
+	line	145
 	
 l98:	
+	line	103
+	goto	l905
+	
+l99:	
+	line	146
+	
+l100:	
 	global	start
 	ljmp	start
 	opt stack 0
 GLOBAL	__end_of_main
 	__end_of_main:
 	signat	_main,88
+	global	_update_display
+
+;; *************** function _update_display *****************
+;; Defined at:
+;;		line 75 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
+;; Parameters:    Size  Location     Type
+;;  MSB             2    4[BANK0 ] int 
+;;  LSB             2    6[BANK0 ] int 
+;; Auto vars:     Size  Location     Type
+;;		None
+;; Return value:  Size  Location     Type
+;;		None               void
+;; Registers used:
+;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+;; Tracked objects:
+;;		On entry : 0/0
+;;		On exit  : 0/0
+;;		Unchanged: 0/0
+;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+;;      Params:         0       4       0       0       0
+;;      Locals:         0       0       0       0       0
+;;      Temps:          0       0       0       0       0
+;;      Totals:         0       4       0       0       0
+;;Total ram usage:        4 bytes
+;; Hardware stack levels used:    1
+;; Hardware stack levels required when called:    3
+;; This function calls:
+;;		_dataCtrl
+;;		_instCtrl
+;; This function is called by:
+;;		_main
+;; This function uses a non-reentrant model
+;;
+psect	text1,local,class=CODE,delta=2,merge=1
+	line	75
+global __ptext1
+__ptext1:	;psect for function _update_display
+psect	text1
+	file	"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
+	line	75
+	global	__size_of_update_display
+	__size_of_update_display	equ	__end_of_update_display-_update_display
+	
+_update_display:	
+;incstack = 0
+	opt	stack 4
+; Regs used in _update_display: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+	line	76
+	
+l779:	
+;Ochia_PreMid.c: 76: instCtrl(0xC0);
+	movlw	(0C0h)
+	fcall	_instCtrl
+	line	77
+;Ochia_PreMid.c: 77: dataCtrl(MSB + '0');
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movf	(update_display@MSB),w
+	addlw	030h
+	fcall	_dataCtrl
+	line	78
+;Ochia_PreMid.c: 78: dataCtrl(LSB + '0');
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movf	(update_display@LSB),w
+	addlw	030h
+	fcall	_dataCtrl
+	line	79
+	
+l75:	
+	return
+	opt stack 0
+GLOBAL	__end_of_update_display
+	__end_of_update_display:
+	signat	_update_display,8312
 	global	_initLCD
 
 ;; *************** function _initLCD *****************
 ;; Defined at:
-;;		line 60 in file "Z:\CPE3201\Premid\Ochia_PreMid.c"
+;;		line 60 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -1270,12 +1289,12 @@ GLOBAL	__end_of_main
 ;;		_main
 ;; This function uses a non-reentrant model
 ;;
-psect	text1,local,class=CODE,delta=2,merge=1
+psect	text2,local,class=CODE,delta=2,merge=1
 	line	60
-global __ptext1
-__ptext1:	;psect for function _initLCD
-psect	text1
-	file	"Z:\CPE3201\Premid\Ochia_PreMid.c"
+global __ptext2
+__ptext2:	;psect for function _initLCD
+psect	text2
+	file	"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
 	line	60
 	global	__size_of_initLCD
 	__size_of_initLCD	equ	__end_of_initLCD-_initLCD
@@ -1286,7 +1305,7 @@ _initLCD:
 ; Regs used in _initLCD: [wreg+status,2+status,0+btemp+1+pclath+cstack]
 	line	61
 	
-l783:	
+l769:	
 ;Ochia_PreMid.c: 61: delay_lcd(1);
 	movlw	low(01h)
 	movwf	(delay_lcd@cnt)
@@ -1311,7 +1330,7 @@ l783:
 	fcall	_instCtrl
 	line	66
 	
-l67:	
+l66:	
 	return
 	opt stack 0
 GLOBAL	__end_of_initLCD
@@ -1321,7 +1340,7 @@ GLOBAL	__end_of_initLCD
 
 ;; *************** function _instCtrl *****************
 ;; Defined at:
-;;		line 51 in file "Z:\CPE3201\Premid\Ochia_PreMid.c"
+;;		line 51 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
 ;; Parameters:    Size  Location     Type
 ;;  INST            1    wreg     unsigned char 
 ;; Auto vars:     Size  Location     Type
@@ -1346,51 +1365,51 @@ GLOBAL	__end_of_initLCD
 ;;		_delay_lcd
 ;; This function is called by:
 ;;		_initLCD
-;;		_main
+;;		_update_display
 ;; This function uses a non-reentrant model
 ;;
-psect	text2,local,class=CODE,delta=2,merge=1
+psect	text3,local,class=CODE,delta=2,merge=1
 	line	51
-global __ptext2
-__ptext2:	;psect for function _instCtrl
-psect	text2
-	file	"Z:\CPE3201\Premid\Ochia_PreMid.c"
+global __ptext3
+__ptext3:	;psect for function _instCtrl
+psect	text3
+	file	"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
 	line	51
 	global	__size_of_instCtrl
 	__size_of_instCtrl	equ	__end_of_instCtrl-_instCtrl
 	
 _instCtrl:	
 ;incstack = 0
-	opt	stack 5
+	opt	stack 4
 ; Regs used in _instCtrl: [wreg+status,2+status,0+btemp+1+pclath+cstack]
 ;instCtrl@INST stored from wreg
 	movwf	(instCtrl@INST)
 	line	52
 	
-l761:	
-;Ochia_PreMid.c: 52: PORTC=INST;
+l747:	
+;Ochia_PreMid.c: 52: PORTC = INST;
 	movf	(instCtrl@INST),w
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(7)	;volatile
 	line	53
 	
-l763:	
-;Ochia_PreMid.c: 53: RB5=0;
+l749:	
+;Ochia_PreMid.c: 53: RB5 = 0;
 	bcf	(53/8),(53)&7	;volatile
 	line	54
 	
-l765:	
-;Ochia_PreMid.c: 54: RB6=0;
+l751:	
+;Ochia_PreMid.c: 54: RB6 = 0;
 	bcf	(54/8),(54)&7	;volatile
 	line	55
 	
-l767:	
-;Ochia_PreMid.c: 55: RB7=1;
+l753:	
+;Ochia_PreMid.c: 55: RB7 = 1;
 	bsf	(55/8),(55)&7	;volatile
 	line	56
 	
-l769:	
+l755:	
 ;Ochia_PreMid.c: 56: delay_lcd(200);
 	movlw	low(0C8h)
 	movwf	(delay_lcd@cnt)
@@ -1399,14 +1418,14 @@ l769:
 	fcall	_delay_lcd
 	line	57
 	
-l771:	
-;Ochia_PreMid.c: 57: RB7=0;
+l757:	
+;Ochia_PreMid.c: 57: RB7 = 0;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bcf	(55/8),(55)&7	;volatile
 	line	58
 	
-l64:	
+l63:	
 	return
 	opt stack 0
 GLOBAL	__end_of_instCtrl
@@ -1416,7 +1435,7 @@ GLOBAL	__end_of_instCtrl
 
 ;; *************** function _display_count_msg *****************
 ;; Defined at:
-;;		line 68 in file "Z:\CPE3201\Premid\Ochia_PreMid.c"
+;;		line 68 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
 ;; Parameters:    Size  Location     Type
 ;;  msg             1    wreg     PTR unsigned char 
 ;;		 -> count(7), 
@@ -1446,12 +1465,12 @@ GLOBAL	__end_of_instCtrl
 ;;		_main
 ;; This function uses a non-reentrant model
 ;;
-psect	text3,local,class=CODE,delta=2,merge=1
+psect	text4,local,class=CODE,delta=2,merge=1
 	line	68
-global __ptext3
-__ptext3:	;psect for function _display_count_msg
-psect	text3
-	file	"Z:\CPE3201\Premid\Ochia_PreMid.c"
+global __ptext4
+__ptext4:	;psect for function _display_count_msg
+psect	text4
+	file	"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
 	line	68
 	global	__size_of_display_count_msg
 	__size_of_display_count_msg	equ	__end_of_display_count_msg-_display_count_msg
@@ -1466,17 +1485,17 @@ _display_count_msg:
 	movwf	(display_count_msg@msg)
 	line	70
 	
-l903:	
+l873:	
 ;Ochia_PreMid.c: 69: int i;
-;Ochia_PreMid.c: 70: for(i = 0; msg[i] != '\0'; i++){
+;Ochia_PreMid.c: 70: for (i = 0; msg[i] != '\0'; i++) {
 	clrf	(display_count_msg@i)
 	clrf	(display_count_msg@i+1)
-	goto	l909
+	goto	l879
 	
-l71:	
+l70:	
 	line	71
 	
-l905:	
+l875:	
 ;Ochia_PreMid.c: 71: dataCtrl(msg[i]);
 	movf	(display_count_msg@i),w
 	addwf	(display_count_msg@msg),w
@@ -1488,7 +1507,7 @@ l905:
 	fcall	_dataCtrl
 	line	70
 	
-l907:	
+l877:	
 	movlw	low(01h)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -1497,11 +1516,11 @@ l907:
 	incf	(display_count_msg@i+1),f
 	movlw	high(01h)
 	addwf	(display_count_msg@i+1),f
-	goto	l909
+	goto	l879
 	
-l70:	
+l69:	
 	
-l909:	
+l879:	
 	movf	(display_count_msg@i),w
 	addwf	(display_count_msg@msg),w
 	movwf	(??_display_count_msg+0)+0
@@ -1510,17 +1529,17 @@ l909:
 	bcf	status, 7	;select IRP bank0
 	movf	indf,f
 	skipz
-	goto	u491
-	goto	u490
-u491:
-	goto	l905
-u490:
-	goto	l73
+	goto	u511
+	goto	u510
+u511:
+	goto	l875
+u510:
+	goto	l72
 	
-l72:	
+l71:	
 	line	73
 	
-l73:	
+l72:	
 	return
 	opt stack 0
 GLOBAL	__end_of_display_count_msg
@@ -1530,7 +1549,7 @@ GLOBAL	__end_of_display_count_msg
 
 ;; *************** function _dataCtrl *****************
 ;; Defined at:
-;;		line 42 in file "Z:\CPE3201\Premid\Ochia_PreMid.c"
+;;		line 42 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
 ;; Parameters:    Size  Location     Type
 ;;  DATA            1    wreg     unsigned char 
 ;; Auto vars:     Size  Location     Type
@@ -1555,15 +1574,15 @@ GLOBAL	__end_of_display_count_msg
 ;;		_delay_lcd
 ;; This function is called by:
 ;;		_display_count_msg
-;;		_main
+;;		_update_display
 ;; This function uses a non-reentrant model
 ;;
-psect	text4,local,class=CODE,delta=2,merge=1
+psect	text5,local,class=CODE,delta=2,merge=1
 	line	42
-global __ptext4
-__ptext4:	;psect for function _dataCtrl
-psect	text4
-	file	"Z:\CPE3201\Premid\Ochia_PreMid.c"
+global __ptext5
+__ptext5:	;psect for function _dataCtrl
+psect	text5
+	file	"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
 	line	42
 	global	__size_of_dataCtrl
 	__size_of_dataCtrl	equ	__end_of_dataCtrl-_dataCtrl
@@ -1576,30 +1595,30 @@ _dataCtrl:
 	movwf	(dataCtrl@DATA)
 	line	43
 	
-l749:	
-;Ochia_PreMid.c: 43: PORTC=DATA;
+l735:	
+;Ochia_PreMid.c: 43: PORTC = DATA;
 	movf	(dataCtrl@DATA),w
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(7)	;volatile
 	line	44
 	
-l751:	
-;Ochia_PreMid.c: 44: RB5=1;
+l737:	
+;Ochia_PreMid.c: 44: RB5 = 1;
 	bsf	(53/8),(53)&7	;volatile
 	line	45
 	
-l753:	
-;Ochia_PreMid.c: 45: RB6=0;
+l739:	
+;Ochia_PreMid.c: 45: RB6 = 0;
 	bcf	(54/8),(54)&7	;volatile
 	line	46
 	
-l755:	
-;Ochia_PreMid.c: 46: RB7=1;
+l741:	
+;Ochia_PreMid.c: 46: RB7 = 1;
 	bsf	(55/8),(55)&7	;volatile
 	line	47
 	
-l757:	
+l743:	
 ;Ochia_PreMid.c: 47: delay_lcd(200);
 	movlw	low(0C8h)
 	movwf	(delay_lcd@cnt)
@@ -1608,14 +1627,14 @@ l757:
 	fcall	_delay_lcd
 	line	48
 	
-l759:	
-;Ochia_PreMid.c: 48: RB7=0;
+l745:	
+;Ochia_PreMid.c: 48: RB7 = 0;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bcf	(55/8),(55)&7	;volatile
 	line	49
 	
-l61:	
+l60:	
 	return
 	opt stack 0
 GLOBAL	__end_of_dataCtrl
@@ -1625,7 +1644,7 @@ GLOBAL	__end_of_dataCtrl
 
 ;; *************** function _delay_lcd *****************
 ;; Defined at:
-;;		line 36 in file "Z:\CPE3201\Premid\Ochia_PreMid.c"
+;;		line 36 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
 ;; Parameters:    Size  Location     Type
 ;;  cnt             2    5[COMMON] int 
 ;; Auto vars:     Size  Location     Type
@@ -1655,23 +1674,23 @@ GLOBAL	__end_of_dataCtrl
 ;;		_initLCD
 ;; This function uses a non-reentrant model
 ;;
-psect	text5,local,class=CODE,delta=2,merge=1
+psect	text6,local,class=CODE,delta=2,merge=1
 	line	36
-global __ptext5
-__ptext5:	;psect for function _delay_lcd
-psect	text5
-	file	"Z:\CPE3201\Premid\Ochia_PreMid.c"
+global __ptext6
+__ptext6:	;psect for function _delay_lcd
+psect	text6
+	file	"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
 	line	36
 	global	__size_of_delay_lcd
 	__size_of_delay_lcd	equ	__end_of_delay_lcd-_delay_lcd
 	
 _delay_lcd:	
 ;incstack = 0
-	opt	stack 5
+	opt	stack 4
 ; Regs used in _delay_lcd: [wreg+status,2+status,0+btemp+1]
 	line	38
 	
-l729:	
+l715:	
 ;Ochia_PreMid.c: 37: int i, j;
 ;Ochia_PreMid.c: 38: for (i = cnt; i != 0; i--);
 	movf	(delay_lcd@cnt+1),w
@@ -1684,23 +1703,23 @@ l729:
 	addwf	(delay_lcd@i)
 
 	
-l731:	
+l717:	
 	movf	((delay_lcd@i+1)),w
 	iorwf	((delay_lcd@i)),w
 	skipz
-	goto	u251
-	goto	u250
-u251:
-	goto	l735
-u250:
-	goto	l739
+	goto	u261
+	goto	u260
+u261:
+	goto	l721
+u260:
+	goto	l725
 	
-l733:	
-	goto	l739
+l719:	
+	goto	l725
 	
-l54:	
+l53:	
 	
-l735:	
+l721:	
 	movlw	low(-1)
 	addwf	(delay_lcd@i),f
 	skipnc
@@ -1708,61 +1727,26 @@ l735:
 	movlw	high(-1)
 	addwf	(delay_lcd@i+1),f
 	
-l737:	
+l723:	
 	movf	((delay_lcd@i+1)),w
 	iorwf	((delay_lcd@i)),w
 	skipz
-	goto	u261
-	goto	u260
-u261:
-	goto	l735
-u260:
-	goto	l739
+	goto	u271
+	goto	u270
+u271:
+	goto	l721
+u270:
+	goto	l725
 	
-l55:	
+l54:	
 	line	39
 	
-l739:	
+l725:	
 ;Ochia_PreMid.c: 39: for (j = 0; j < 1000; j++);
 	clrf	(delay_lcd@j)
 	clrf	(delay_lcd@j+1)
 	
-l741:	
-	movf	(delay_lcd@j+1),w
-	xorlw	80h
-	movwf	btemp+1
-	movlw	(high(03E8h))^80h
-	subwf	btemp+1,w
-	skipz
-	goto	u275
-	movlw	low(03E8h)
-	subwf	(delay_lcd@j),w
-u275:
-
-	skipc
-	goto	u271
-	goto	u270
-u271:
-	goto	l745
-u270:
-	goto	l58
-	
-l743:	
-	goto	l58
-	
-l56:	
-	
-l745:	
-	movlw	low(01h)
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	addwf	(delay_lcd@j),f
-	skipnc
-	incf	(delay_lcd@j+1),f
-	movlw	high(01h)
-	addwf	(delay_lcd@j+1),f
-	
-l747:	
+l727:	
 	movf	(delay_lcd@j+1),w
 	xorlw	80h
 	movwf	btemp+1
@@ -1778,14 +1762,49 @@ u285:
 	goto	u281
 	goto	u280
 u281:
-	goto	l745
+	goto	l731
 u280:
-	goto	l58
+	goto	l57
 	
-l57:	
+l729:	
+	goto	l57
+	
+l55:	
+	
+l731:	
+	movlw	low(01h)
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	addwf	(delay_lcd@j),f
+	skipnc
+	incf	(delay_lcd@j+1),f
+	movlw	high(01h)
+	addwf	(delay_lcd@j+1),f
+	
+l733:	
+	movf	(delay_lcd@j+1),w
+	xorlw	80h
+	movwf	btemp+1
+	movlw	(high(03E8h))^80h
+	subwf	btemp+1,w
+	skipz
+	goto	u295
+	movlw	low(03E8h)
+	subwf	(delay_lcd@j),w
+u295:
+
+	skipc
+	goto	u291
+	goto	u290
+u291:
+	goto	l731
+u290:
+	goto	l57
+	
+l56:	
 	line	40
 	
-l58:	
+l57:	
 	return
 	opt stack 0
 GLOBAL	__end_of_delay_lcd
@@ -1795,7 +1814,7 @@ GLOBAL	__end_of_delay_lcd
 
 ;; *************** function _delay *****************
 ;; Defined at:
-;;		line 24 in file "Z:\CPE3201\Premid\Ochia_PreMid.c"
+;;		line 26 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
 ;; Parameters:    Size  Location     Type
 ;;  num             2    5[COMMON] int 
 ;; Auto vars:     Size  Location     Type
@@ -1822,13 +1841,13 @@ GLOBAL	__end_of_delay_lcd
 ;;		_main
 ;; This function uses a non-reentrant model
 ;;
-psect	text6,local,class=CODE,delta=2,merge=1
-	line	24
-global __ptext6
-__ptext6:	;psect for function _delay
-psect	text6
-	file	"Z:\CPE3201\Premid\Ochia_PreMid.c"
-	line	24
+psect	text7,local,class=CODE,delta=2,merge=1
+	line	26
+global __ptext7
+__ptext7:	;psect for function _delay
+psect	text7
+	file	"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
+	line	26
 	global	__size_of_delay
 	__size_of_delay	equ	__end_of_delay-_delay
 	
@@ -1836,36 +1855,36 @@ _delay:
 ;incstack = 0
 	opt	stack 6
 ; Regs used in _delay: [wreg+status,2]
-	line	26
+	line	27
 	
-l773:	
-;Ochia_PreMid.c: 26: int flags = 0;
+l759:	
+;Ochia_PreMid.c: 27: int flags = 0;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	clrf	(delay@flags)
 	clrf	(delay@flags+1)
 	line	28
 ;Ochia_PreMid.c: 28: while (flags < num) {
-	goto	l781
+	goto	l767
 	
-l48:	
+l47:	
 	line	29
 	
-l775:	
-;Ochia_PreMid.c: 29: if(count_flag) {
+l761:	
+;Ochia_PreMid.c: 29: if (count_flag) {
 	movf	(_count_flag),w
 	skipz
-	goto	u290
-	goto	l781
-u290:
+	goto	u300
+	goto	l767
+u300:
 	line	30
 	
-l777:	
+l763:	
 ;Ochia_PreMid.c: 30: count_flag = 0;
 	clrf	(_count_flag)
 	line	31
 	
-l779:	
+l765:	
 ;Ochia_PreMid.c: 31: flags++;
 	movlw	low(01h)
 	bcf	status, 5	;RP0=0, select bank0
@@ -1875,17 +1894,17 @@ l779:
 	incf	(delay@flags+1),f
 	movlw	high(01h)
 	addwf	(delay@flags+1),f
-	goto	l781
+	goto	l767
 	line	32
 	
-l49:	
-	goto	l781
+l48:	
+	goto	l767
 	line	33
 	
-l47:	
+l46:	
 	line	28
 	
-l781:	
+l767:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(delay@flags+1),w
@@ -1895,23 +1914,23 @@ l781:
 	xorlw	80h
 	subwf	(??_delay+0)+0,w
 	skipz
-	goto	u305
+	goto	u315
 	movf	(delay@num),w
 	subwf	(delay@flags),w
-u305:
+u315:
 
 	skipc
-	goto	u301
-	goto	u300
-u301:
-	goto	l775
-u300:
-	goto	l51
+	goto	u311
+	goto	u310
+u311:
+	goto	l761
+u310:
+	goto	l50
 	
-l50:	
+l49:	
 	line	34
 	
-l51:	
+l50:	
 	return
 	opt stack 0
 GLOBAL	__end_of_delay
@@ -1921,7 +1940,7 @@ GLOBAL	__end_of_delay
 
 ;; *************** function _ISR *****************
 ;; Defined at:
-;;		line 8 in file "Z:\CPE3201\Premid\Ochia_PreMid.c"
+;;		line 8 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -1947,12 +1966,12 @@ GLOBAL	__end_of_delay
 ;;		Interrupt level 1
 ;; This function uses a non-reentrant model
 ;;
-psect	text7,local,class=CODE,delta=2,merge=1
+psect	text8,local,class=CODE,delta=2,merge=1
 	line	8
-global __ptext7
-__ptext7:	;psect for function _ISR
-psect	text7
-	file	"Z:\CPE3201\Premid\Ochia_PreMid.c"
+global __ptext8
+__ptext8:	;psect for function _ISR
+psect	text8
+	file	"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Premid\Ochia_PreMid.c"
 	line	8
 	global	__size_of_ISR
 	__size_of_ISR	equ	__end_of_ISR-_ISR
@@ -1980,68 +1999,94 @@ interrupt_function:
 	movf	btemp+1,w
 	movwf	(??_ISR+4)
 	ljmp	_ISR
-psect	text7
-	line	10
+psect	text8
+	line	9
 	
-i1l793:	
-;Ochia_PreMid.c: 10: GIE = 0;
+i1l781:	
+;Ochia_PreMid.c: 9: GIE = 0;
 	bcf	(95/8),(95)&7	;volatile
-	line	12
-;Ochia_PreMid.c: 12: if(INTF) {
+	line	11
+;Ochia_PreMid.c: 11: if (INTF) {
 	btfss	(89/8),(89)&7	;volatile
-	goto	u32_21
-	goto	u32_20
-u32_21:
-	goto	i1l41
-u32_20:
+	goto	u33_21
+	goto	u33_20
+u33_21:
+	goto	i1l39
+u33_20:
+	line	12
+	
+i1l783:	
+;Ochia_PreMid.c: 12: INTF = 0;
+	bcf	(89/8),(89)&7	;volatile
 	line	13
 	
-i1l795:	
-;Ochia_PreMid.c: 13: INTF = 0;
-	bcf	(89/8),(89)&7	;volatile
+i1l785:	
+;Ochia_PreMid.c: 13: key = PORTD & 0x0F;
+	movf	(8),w	;volatile
+	andlw	0Fh
+	movwf	(??_ISR+0)+0
+	movf	(??_ISR+0)+0,w
+	movwf	(_key)
 	line	14
 	
-i1l797:	
-;Ochia_PreMid.c: 14: btn_flag ^= 1;
+i1l787:	
+;Ochia_PreMid.c: 14: if (key == 0x0D) {
+	movf	(_key),w
+	xorlw	0Dh
+	skipz
+	goto	u34_21
+	goto	u34_20
+u34_21:
+	goto	i1l41
+u34_20:
+	line	15
+	
+i1l789:	
+;Ochia_PreMid.c: 15: btn_flag ^= 1;
 	movlw	(01h)
 	movwf	(??_ISR+0)+0
 	movf	(??_ISR+0)+0,w
 	xorwf	(_btn_flag),f
-	line	15
-;Ochia_PreMid.c: 15: }
-	goto	i1l42
+	goto	i1l41
 	line	16
 	
-i1l41:	
-;Ochia_PreMid.c: 16: else if(TMR0IF) {
-	btfss	(90/8),(90)&7	;volatile
-	goto	u33_21
-	goto	u33_20
-u33_21:
-	goto	i1l42
-u33_20:
+i1l40:	
 	line	17
-	
-i1l799:	
-;Ochia_PreMid.c: 17: TMR0IF = 0;
-	bcf	(90/8),(90)&7	;volatile
+;Ochia_PreMid.c: 16: }
+;Ochia_PreMid.c: 17: }
+	goto	i1l41
 	line	18
-;Ochia_PreMid.c: 18: count_flag = 1;
-	clrf	(_count_flag)
-	incf	(_count_flag),f
-	goto	i1l42
+	
+i1l39:	
+;Ochia_PreMid.c: 18: else if (TMR0IF) {
+	btfss	(90/8),(90)&7	;volatile
+	goto	u35_21
+	goto	u35_20
+u35_21:
+	goto	i1l41
+u35_20:
 	line	19
 	
-i1l43:	
+i1l791:	
+;Ochia_PreMid.c: 19: TMR0IF = 0;
+	bcf	(90/8),(90)&7	;volatile
 	line	20
+;Ochia_PreMid.c: 20: count_flag = 1;
+	clrf	(_count_flag)
+	incf	(_count_flag),f
+	goto	i1l41
+	line	21
 	
 i1l42:	
-;Ochia_PreMid.c: 19: }
-;Ochia_PreMid.c: 20: GIE = 1;
-	bsf	(95/8),(95)&7	;volatile
-	line	22
+	line	23
 	
-i1l44:	
+i1l41:	
+;Ochia_PreMid.c: 21: }
+;Ochia_PreMid.c: 23: GIE = 1;
+	bsf	(95/8),(95)&7	;volatile
+	line	24
+	
+i1l43:	
 	movf	(??_ISR+4),w
 	movwf	btemp+1
 	movf	(??_ISR+3),w
