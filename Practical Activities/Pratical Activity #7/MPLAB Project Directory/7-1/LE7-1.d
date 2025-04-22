@@ -1,0 +1,1 @@
+ LE7-1.d  LE7-1.p1:  D:/Desktop/3rd\ year\ 2nd\ sem/Embedded\ Systems/Practical\ Activities/Pratical\ Activity\ #7/MPLAB\ Project\ Directory/7-1/LE7-1.c

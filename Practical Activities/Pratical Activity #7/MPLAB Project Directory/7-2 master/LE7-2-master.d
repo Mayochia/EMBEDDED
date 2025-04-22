@@ -1,0 +1,1 @@
+ LE7-2-master.d  LE7-2-master.p1:  D:/Desktop/3rd\ year\ 2nd\ sem/Embedded\ Systems/Practical\ Activities/Pratical\ Activity\ #7/MPLAB\ Project\ Directory/7-2\ master/LE7-2-master.c
