@@ -172,19 +172,12 @@ void dispT() {
     dataCtrl('e');
     dataCtrl(':');
    
-    char val[5];
-	val[0] = ' ';
-	val[1] = ' ';
-	val[2] = ' ';
-	val[3] = ' ';
-	val[4] = ' ';
-    sprintf(val, "%f", T);
+    char val[8]; // bigger buffer
+    sprintf(val, "%.1f", T); // 1 decimal place
    
-    dataCtrl(val[0]);
-    dataCtrl(val[1]);
-    dataCtrl(val[2]);
-	dataCtrl(val[3]);
-	dataCtrl(val[4]);
+    for (int i = 0; val[i] != '\0'; i++) {
+        dataCtrl(val[i]);
+    }
 	dataCtrl(' ');
     dataCtrl('C');
 }

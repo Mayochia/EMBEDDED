@@ -1575,202 +1575,193 @@ Version 3.2 HI-TECH Software Intermediate Code
 "173
 [e ( _dataCtrl (1 -> -> 58 `ui `uc ]
 "175
-[v _val `uc ~T0 @X0 -> 5 `i a ]
-[; ;LE7-3.c: 175: char val[5];
-[; ;LE7-3.c: 176: val[0] = ' ';
+[v _val `uc ~T0 @X0 -> 8 `i a ]
+[; ;LE7-3.c: 175: char val[8];
+[; ;LE7-3.c: 176: sprintf(val, "%.1f", T);
 "176
-[e = *U + &U _val * -> -> -> 0 `i `ui `ux -> -> # *U &U _val `ui `ux -> -> 32 `ui `uc ]
-[; ;LE7-3.c: 177: val[1] = ' ';
-"177
-[e = *U + &U _val * -> -> -> 1 `i `ui `ux -> -> # *U &U _val `ui `ux -> -> 32 `ui `uc ]
-[; ;LE7-3.c: 178: val[2] = ' ';
-"178
-[e = *U + &U _val * -> -> -> 2 `i `ui `ux -> -> # *U &U _val `ui `ux -> -> 32 `ui `uc ]
-[; ;LE7-3.c: 179: val[3] = ' ';
-"179
-[e = *U + &U _val * -> -> -> 3 `i `ui `ux -> -> # *U &U _val `ui `ux -> -> 32 `ui `uc ]
-[; ;LE7-3.c: 180: val[4] = ' ';
-"180
-[e = *U + &U _val * -> -> -> 4 `i `ui `ux -> -> # *U &U _val `ui `ux -> -> 32 `ui `uc ]
-[; ;LE7-3.c: 181: sprintf(val, "%f", T);
-"181
 [e ( _sprintf (1 , (. , &U _val :s 2C -> _T `d ]
-[; ;LE7-3.c: 183: dataCtrl(val[0]);
-"183
-[e ( _dataCtrl (1 *U + &U _val * -> -> -> 0 `i `ui `ux -> -> # *U &U _val `ui `ux ]
-[; ;LE7-3.c: 184: dataCtrl(val[1]);
-"184
-[e ( _dataCtrl (1 *U + &U _val * -> -> -> 1 `i `ui `ux -> -> # *U &U _val `ui `ux ]
-[; ;LE7-3.c: 185: dataCtrl(val[2]);
-"185
-[e ( _dataCtrl (1 *U + &U _val * -> -> -> 2 `i `ui `ux -> -> # *U &U _val `ui `ux ]
-[; ;LE7-3.c: 186: dataCtrl(val[3]);
-"186
-[e ( _dataCtrl (1 *U + &U _val * -> -> -> 3 `i `ui `ux -> -> # *U &U _val `ui `ux ]
-[; ;LE7-3.c: 187: dataCtrl(val[4]);
-"187
-[e ( _dataCtrl (1 *U + &U _val * -> -> -> 4 `i `ui `ux -> -> # *U &U _val `ui `ux ]
-[; ;LE7-3.c: 188: dataCtrl(' ');
-"188
+[; ;LE7-3.c: 178: for (int i = 0; val[i] != '\0'; i++) {
+"178
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $U 116  ]
+[e :U 113 ]
+{
+[; ;LE7-3.c: 179: dataCtrl(val[i]);
+"179
+[e ( _dataCtrl (1 *U + &U _val * -> -> _i `ui `ux -> -> # *U &U _val `ui `ux ]
+"180
+}
+"178
+[e ++ _i -> 1 `i ]
+[e :U 116 ]
+[e $ != -> *U + &U _val * -> -> _i `ui `ux -> -> # *U &U _val `ui `ux `ui -> 0 `ui 113  ]
+[e :U 114 ]
+"180
+}
+[; ;LE7-3.c: 180: }
+[; ;LE7-3.c: 181: dataCtrl(' ');
+"181
 [e ( _dataCtrl (1 -> -> 32 `ui `uc ]
-[; ;LE7-3.c: 189: dataCtrl('C');
-"189
+[; ;LE7-3.c: 182: dataCtrl('C');
+"182
 [e ( _dataCtrl (1 -> -> 67 `ui `uc ]
-[; ;LE7-3.c: 190: }
-"190
+[; ;LE7-3.c: 183: }
+"183
 [e :UE 112 ]
 }
-"193
+"186
 [v _init_I2C_Master `(v ~T0 @X0 1 ef ]
 {
-[; ;LE7-3.c: 193: void init_I2C_Master(void){
+[; ;LE7-3.c: 186: void init_I2C_Master(void){
 [e :U _init_I2C_Master ]
 [f ]
-[; ;LE7-3.c: 194: TRISC3 = 1;
-"194
+[; ;LE7-3.c: 187: TRISC3 = 1;
+"187
 [e = _TRISC3 -> -> 1 `i `b ]
-[; ;LE7-3.c: 195: TRISC4 = 1;
-"195
+[; ;LE7-3.c: 188: TRISC4 = 1;
+"188
 [e = _TRISC4 -> -> 1 `i `b ]
-[; ;LE7-3.c: 196: SSPCON = 0x28;
-"196
+[; ;LE7-3.c: 189: SSPCON = 0x28;
+"189
 [e = _SSPCON -> -> 40 `i `uc ]
-[; ;LE7-3.c: 197: SSPCON2 = 0x00;
-"197
+[; ;LE7-3.c: 190: SSPCON2 = 0x00;
+"190
 [e = _SSPCON2 -> -> 0 `i `uc ]
-[; ;LE7-3.c: 199: SSPSTAT = 0x00;
-"199
+[; ;LE7-3.c: 192: SSPSTAT = 0x00;
+"192
 [e = _SSPSTAT -> -> 0 `i `uc ]
-[; ;LE7-3.c: 200: SSPADD = 0x09;
-"200
+[; ;LE7-3.c: 193: SSPADD = 0x09;
+"193
 [e = _SSPADD -> -> 9 `i `uc ]
-[; ;LE7-3.c: 201: }
-"201
-[e :UE 113 ]
+[; ;LE7-3.c: 194: }
+"194
+[e :UE 117 ]
 }
-"203
+"196
 [v _I2C_Wait `(v ~T0 @X0 1 ef ]
-"204
+"197
 {
-[; ;LE7-3.c: 203: void I2C_Wait(void)
-[; ;LE7-3.c: 204: {
+[; ;LE7-3.c: 196: void I2C_Wait(void)
+[; ;LE7-3.c: 197: {
 [e :U _I2C_Wait ]
 [f ]
-[; ;LE7-3.c: 206: while((SSPCON2 & 0x1F) || (SSPSTAT & 0x04));
-"206
-[e $U 115  ]
-[e :U 116 ]
-[e :U 115 ]
-[e $ || != & -> _SSPCON2 `i -> 31 `i -> 0 `i != & -> _SSPSTAT `i -> 4 `i -> 0 `i 116  ]
-[e :U 117 ]
-[; ;LE7-3.c: 207: }
-"207
-[e :UE 114 ]
+[; ;LE7-3.c: 199: while((SSPCON2 & 0x1F) || (SSPSTAT & 0x04));
+"199
+[e $U 119  ]
+[e :U 120 ]
+[e :U 119 ]
+[e $ || != & -> _SSPCON2 `i -> 31 `i -> 0 `i != & -> _SSPSTAT `i -> 4 `i -> 0 `i 120  ]
+[e :U 121 ]
+[; ;LE7-3.c: 200: }
+"200
+[e :UE 118 ]
 }
-"209
+"202
 [v _I2C_Start `(v ~T0 @X0 1 ef ]
 {
-[; ;LE7-3.c: 209: void I2C_Start(void){
+[; ;LE7-3.c: 202: void I2C_Start(void){
 [e :U _I2C_Start ]
+[f ]
+[; ;LE7-3.c: 204: I2C_Wait();
+"204
+[e ( _I2C_Wait ..  ]
+[; ;LE7-3.c: 206: SEN = 1;
+"206
+[e = _SEN -> -> 1 `i `b ]
+[; ;LE7-3.c: 207: }
+"207
+[e :UE 122 ]
+}
+"209
+[v _I2C_Stop `(v ~T0 @X0 1 ef ]
+{
+[; ;LE7-3.c: 209: void I2C_Stop(void){
+[e :U _I2C_Stop ]
 [f ]
 [; ;LE7-3.c: 211: I2C_Wait();
 "211
 [e ( _I2C_Wait ..  ]
-[; ;LE7-3.c: 213: SEN = 1;
+[; ;LE7-3.c: 213: PEN = 1;
 "213
-[e = _SEN -> -> 1 `i `b ]
+[e = _PEN -> -> 1 `i `b ]
 [; ;LE7-3.c: 214: }
 "214
-[e :UE 118 ]
+[e :UE 123 ]
 }
 "216
-[v _I2C_Stop `(v ~T0 @X0 1 ef ]
+[v _I2C_RepeatedStart `(v ~T0 @X0 1 ef ]
 {
-[; ;LE7-3.c: 216: void I2C_Stop(void){
-[e :U _I2C_Stop ]
+[; ;LE7-3.c: 216: void I2C_RepeatedStart(void){
+[e :U _I2C_RepeatedStart ]
 [f ]
 [; ;LE7-3.c: 218: I2C_Wait();
 "218
 [e ( _I2C_Wait ..  ]
-[; ;LE7-3.c: 220: PEN = 1;
+[; ;LE7-3.c: 220: RSEN = 1;
 "220
-[e = _PEN -> -> 1 `i `b ]
+[e = _RSEN -> -> 1 `i `b ]
 [; ;LE7-3.c: 221: }
 "221
-[e :UE 119 ]
+[e :UE 124 ]
 }
 "223
-[v _I2C_RepeatedStart `(v ~T0 @X0 1 ef ]
+[v _I2C_Send `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;LE7-3.c: 223: void I2C_RepeatedStart(void){
-[e :U _I2C_RepeatedStart ]
+[; ;LE7-3.c: 223: void I2C_Send(unsigned char data){
+[e :U _I2C_Send ]
+[v _data `uc ~T0 @X0 1 r1 ]
 [f ]
 [; ;LE7-3.c: 225: I2C_Wait();
 "225
 [e ( _I2C_Wait ..  ]
-[; ;LE7-3.c: 227: RSEN = 1;
+[; ;LE7-3.c: 227: SSPBUF = data;
 "227
-[e = _RSEN -> -> 1 `i `b ]
+[e = _SSPBUF _data ]
 [; ;LE7-3.c: 228: }
 "228
-[e :UE 120 ]
+[e :UE 125 ]
 }
 "230
-[v _I2C_Send `(v ~T0 @X0 1 ef1`uc ]
-{
-[; ;LE7-3.c: 230: void I2C_Send(unsigned char data){
-[e :U _I2C_Send ]
-[v _data `uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;LE7-3.c: 232: I2C_Wait();
-"232
-[e ( _I2C_Wait ..  ]
-[; ;LE7-3.c: 234: SSPBUF = data;
-"234
-[e = _SSPBUF _data ]
-[; ;LE7-3.c: 235: }
-"235
-[e :UE 121 ]
-}
-"237
 [v _I2C_Receive `(uc ~T0 @X0 1 ef1`uc ]
 {
-[; ;LE7-3.c: 237: unsigned char I2C_Receive(unsigned char ack){
+[; ;LE7-3.c: 230: unsigned char I2C_Receive(unsigned char ack){
 [e :U _I2C_Receive ]
 [v _ack `uc ~T0 @X0 1 r1 ]
 [f ]
-"238
+"231
 [v _temp `uc ~T0 @X0 1 a ]
-[; ;LE7-3.c: 238: unsigned char temp;
-[; ;LE7-3.c: 239: I2C_Wait();
-"239
+[; ;LE7-3.c: 231: unsigned char temp;
+[; ;LE7-3.c: 232: I2C_Wait();
+"232
 [e ( _I2C_Wait ..  ]
-[; ;LE7-3.c: 240: RCEN = 1;
-"240
+[; ;LE7-3.c: 233: RCEN = 1;
+"233
 [e = _RCEN -> -> 1 `i `b ]
-[; ;LE7-3.c: 241: I2C_Wait();
-"241
+[; ;LE7-3.c: 234: I2C_Wait();
+"234
 [e ( _I2C_Wait ..  ]
-[; ;LE7-3.c: 242: temp = SSPBUF;
-"242
+[; ;LE7-3.c: 235: temp = SSPBUF;
+"235
 [e = _temp _SSPBUF ]
-[; ;LE7-3.c: 243: I2C_Wait();
-"243
+[; ;LE7-3.c: 236: I2C_Wait();
+"236
 [e ( _I2C_Wait ..  ]
-[; ;LE7-3.c: 244: ACKDT = (ack)?0:1;
-"244
+[; ;LE7-3.c: 237: ACKDT = (ack)?0:1;
+"237
 [e = _ACKDT -> ? != -> _ack `i -> -> -> 0 `i `uc `i : -> 0 `i -> 1 `i `b ]
-[; ;LE7-3.c: 245: ACKEN = 1;
-"245
+[; ;LE7-3.c: 238: ACKEN = 1;
+"238
 [e = _ACKEN -> -> 1 `i `b ]
-[; ;LE7-3.c: 246: return temp;
-"246
+[; ;LE7-3.c: 239: return temp;
+"239
 [e ) _temp ]
-[e $UE 122  ]
-[; ;LE7-3.c: 247: }
-"247
-[e :UE 122 ]
+[e $UE 126  ]
+[; ;LE7-3.c: 240: }
+"240
+[e :UE 126 ]
 }
-[p f _sprintf 8396928 ]
-[a 2C 37 102 0 ]
+[p f _sprintf 8462464 ]
+[a 2C 37 46 49 102 0 ]
 [a 1C 37 100 0 ]

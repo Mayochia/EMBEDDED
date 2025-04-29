@@ -61,6 +61,8 @@
 [v ___ftsub __ftsub `(f  1 e 3 0 ]
 "44 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c
 [v ___fttol __fttol `(l  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\isdigit.c
+[v _isdigit isdigit `(b  1 e 0 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lbdiv.c
 [v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lbmod.c
@@ -143,19 +145,19 @@
 [v _dispRH dispRH `(v  1 e 0 0 ]
 "159
 [v _dispT dispT `(v  1 e 0 0 ]
-"193
+"186
 [v _init_I2C_Master init_I2C_Master `(v  1 e 0 0 ]
-"203
+"196
 [v _I2C_Wait I2C_Wait `(v  1 e 0 0 ]
-"209
+"202
 [v _I2C_Start I2C_Start `(v  1 e 0 0 ]
-"216
+"209
 [v _I2C_Stop I2C_Stop `(v  1 e 0 0 ]
-"223
+"216
 [v _I2C_RepeatedStart I2C_RepeatedStart `(v  1 e 0 0 ]
-"230
+"223
 [v _I2C_Send I2C_Send `(v  1 e 0 0 ]
-"237
+"230
 [v _I2C_Receive I2C_Receive `(uc  1 e 1 0 ]
 "207 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
@@ -229,15 +231,15 @@
 [v _main main `(v  1 e 0 0 ]
 {
 "37
-[v main@t t `f  1 a 3 44 ]
-[v main@rh rh `f  1 a 3 41 ]
+[v main@t t `f  1 a 3 49 ]
+[v main@rh rh `f  1 a 3 46 ]
 "35
-[v main@T_temp T_temp `ui  1 a 2 54 ]
-[v main@RH_temp RH_temp `ui  1 a 2 52 ]
+[v main@T_temp T_temp `ui  1 a 2 59 ]
+[v main@RH_temp RH_temp `ui  1 a 2 57 ]
 "34
-[v main@res res `i  1 a 2 50 ]
+[v main@res res `i  1 a 2 55 ]
 "36
-[v main@temp temp `uc  1 a 1 56 ]
+[v main@temp temp `uc  1 a 1 61 ]
 "102
 } 0
 "5 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\pow.c
@@ -345,10 +347,10 @@
 [v ___awtoft@c c `i  1 p 2 8 ]
 "42
 } 0
-"193 D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c
+"186 D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c
 [v _init_I2C_Master init_I2C_Master `(v  1 e 0 0 ]
 {
-"201
+"194
 } 0
 "118
 [v _initLCD initLCD `(v  1 e 0 0 ]
@@ -358,9 +360,11 @@
 "159
 [v _dispT dispT `(v  1 e 0 0 ]
 {
+"178
+[v dispT@i i `i  1 a 2 42 ]
 "175
-[v dispT@val val `[5]uc  1 a 5 34 ]
-"190
+[v dispT@val val `[8]uc  1 a 8 34 ]
+"183
 } 0
 "135
 [v _dispRH dispRH `(v  1 e 0 0 ]
@@ -376,17 +380,18 @@
 "1210
 [v sprintf@vd vd `ul  1 a 4 7 ]
 "1238
-[v sprintf@vd_186 vd `ul  1 a 4 11 ]
-[s S171 . 4 `*.1DCCuc 1 _cp 2 0 `ui 1 _len 2 2 ]
+[v sprintf@vd_192 vd `ul  1 a 4 11 ]
+[s S177 . 4 `*.1DCCuc 1 _cp 2 0 `ui 1 _len 2 2 ]
 "525
-[u S174 . 4 `ul 1 _val 4 0 `S171 1 _str 4 0 ]
-[v sprintf@_val _val `S174  1 a 4 23 ]
+[u S180 . 4 `ul 1 _val 4 0 `S177 1 _str 4 0 ]
+[v sprintf@_val _val `S180  1 a 4 23 ]
 "516
 [v sprintf@fval fval `d  1 a 3 30 ]
 [v sprintf@integ integ `d  1 a 3 18 ]
-[v sprintf@exp exp `i  1 a 2 27 ]
 "504
-[v sprintf@prec prec `i  1 a 2 21 ]
+[v sprintf@prec prec `i  1 a 2 28 ]
+"516
+[v sprintf@exp exp `i  1 a 2 21 ]
 "508
 [v sprintf@flag flag `us  1 a 2 16 ]
 "499
@@ -397,7 +402,7 @@
 [v sprintf@sp sp `*.4uc  1 a 1 wreg ]
 [v sprintf@f f `*.24DCCuc  1 p 1 67 ]
 "542
-[v sprintf@sp sp `*.4uc  1 a 1 29 ]
+[v sprintf@sp sp `*.4uc  1 a 1 27 ]
 "1550
 } 0
 "425
@@ -409,7 +414,16 @@
 [v scale@scl scl `c  1 a 1 40 ]
 "441
 } 0
-"409
+"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\isdigit.c
+[v _isdigit isdigit `(b  1 e 0 0 ]
+{
+[v isdigit@c c `uc  1 a 1 wreg ]
+[v isdigit@c c `uc  1 a 1 wreg ]
+"14
+[v isdigit@c c `uc  1 a 1 1 ]
+"15
+} 0
+"409 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c
 [v _fround fround `(d  1 s 3 fround ]
 {
 [v fround@prec prec `uc  1 a 1 wreg ]
@@ -620,44 +634,44 @@
 [v ___ftpack@sign sign `uc  1 p 1 4 ]
 "86
 } 0
-"216 D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c
+"209 D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c
 [v _I2C_Stop I2C_Stop `(v  1 e 0 0 ]
-{
-"221
-} 0
-"209
-[v _I2C_Start I2C_Start `(v  1 e 0 0 ]
 {
 "214
 } 0
-"230
+"202
+[v _I2C_Start I2C_Start `(v  1 e 0 0 ]
+{
+"207
+} 0
+"223
 [v _I2C_Send I2C_Send `(v  1 e 0 0 ]
 {
 [v I2C_Send@data data `uc  1 a 1 wreg ]
 [v I2C_Send@data data `uc  1 a 1 wreg ]
-"232
+"225
 [v I2C_Send@data data `uc  1 a 1 0 ]
-"235
-} 0
-"223
-[v _I2C_RepeatedStart I2C_RepeatedStart `(v  1 e 0 0 ]
-{
 "228
 } 0
-"237
+"216
+[v _I2C_RepeatedStart I2C_RepeatedStart `(v  1 e 0 0 ]
+{
+"221
+} 0
+"230
 [v _I2C_Receive I2C_Receive `(uc  1 e 1 0 ]
 {
 [v I2C_Receive@ack ack `uc  1 a 1 wreg ]
-"238
+"231
 [v I2C_Receive@temp temp `uc  1 a 1 2 ]
-"237
+"230
 [v I2C_Receive@ack ack `uc  1 a 1 wreg ]
-"239
+"232
 [v I2C_Receive@ack ack `uc  1 a 1 1 ]
-"247
+"240
 } 0
-"203
+"196
 [v _I2C_Wait I2C_Wait `(v  1 e 0 0 ]
 {
-"207
+"200
 } 0
