@@ -1425,104 +1425,8 @@ extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsi
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 
-# 8 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdio.h"
-typedef int ptrdiff_t;
-typedef unsigned size_t;
-typedef unsigned short wchar_t;
 
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdarg.h"
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 23 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdio.h"
-extern int errno;
-
-# 54
-struct __prbuf
-{
-char * ptr;
-void (* func)(char);
-};
-
-# 17 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\conio.h"
-extern int errno;
-
-
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 31
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 99 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 191
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-
-# 3 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\math.h"
-extern double fabs(double);
-extern double floor(double);
-extern double ceil(double);
-extern double modf(double, double *);
-extern double sqrt(double);
-extern double atof(const char *);
-extern double sin(double);
-extern double cos(double);
-extern double tan(double);
-extern double asin(double);
-extern double acos(double);
-extern double atan(double);
-extern double atan2(double, double);
-extern double log(double);
-extern double log10(double);
-extern double pow(double, double);
-extern double exp(double);
-extern double sinh(double);
-extern double cosh(double);
-extern double tanh(double);
-extern double eval_poly(double, const double *, int);
-extern double frexp(double, int *);
-extern double ldexp(double, int);
-extern double fmod(double, double);
-extern double trunc(double);
-extern double round(double);
-
-
-# 5 "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c"
+# 2 "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c"
 #pragma config FOSC = XT
 #pragma config WDTE = OFF
 #pragma config PWRTE = ON
@@ -1532,179 +1436,54 @@ extern double round(double);
 #pragma config WRT = OFF
 #pragma config CP = OFF
 
-int RH;
-float T;
+unsigned int RH = 0, T = 0;
+unsigned int RH_tens, RH_ones,
+Temp_tens, Temp_ones;
 
-void delay_ms(int cnt);
-
-
-void initLCD();
-void instCtrl(unsigned char INST);
-void dataCtrl(unsigned char DATA);
-void dispRH();
-void dispT();
-void init_I2C_Master(void);
-void I2C_Wait(void);
-void I2C_Start(void);
-void I2C_Stop(void);
-void I2C_RepeatedStart(void);
-void I2C_Send(unsigned char data);
-unsigned char I2C_Receive(unsigned char ack);
-
-void main(void) {
-int res = (int)(pow(2,14));
-unsigned int RH_temp = 0x0000, T_temp = 0x0000;
-unsigned char temp = 0x00;
-float rh, t;
-TRISB = 0x00;
-TRISD = 0x00;
-PORTB = 0x00;
-PORTD = 0x00;
-init_I2C_Master();
-
-for(;;)
-{
-initLCD();
-
-I2C_Start();
-I2C_Send(0x80);
-I2C_Send(0xE5);
-I2C_RepeatedStart();
-I2C_Send(0x81);
-RH_temp = I2C_Receive(1);
-temp = I2C_Receive(0);
-I2C_Stop();
-delay_ms(200);
-
-
-RH_temp = RH_temp << 6;
-temp = temp >> 2;
-RH_temp = RH_temp | temp;
-
-rh = (float)(-6+(125*((float)RH_temp/(float)res)));
-RH = (int)(rh);
-
-
-I2C_Start();
-I2C_Send(0x80);
-I2C_Send(0xE3);
-I2C_Stop();
-delay_ms(200);
-
-
-temp = 0x00;
-I2C_Start();
-I2C_Send(0x80);
-I2C_Send(0xE3);
-I2C_RepeatedStart();
-I2C_Send(0x81);
-T_temp = I2C_Receive(1);
-temp = I2C_Receive(0);
-I2C_Stop();
-delay_ms(200);
-
-T_temp = T_temp << 6;
-temp = temp >> 2;
-T_temp = T_temp | temp;
-
-t = (float)(-46.85+(175.72*((float)T_temp/(float)res)));
-T = t;
-
-
-I2C_Start();
-I2C_Send(0x80);
-I2C_Send(0xE5);
-I2C_Stop();
-delay_ms(200);
-
-dispRH();
-dispT();
-}
-}
-void delay_ms(int cnt) {
+void delayLCD(int MUL) {
 int i, j;
-for (i = cnt; i != 0; i--);
-for (j = 0; j < 5000; j++);
+for (i = MUL; i != 0; i--) {
+for (j = 0; j < 256; j++) {}
+}
 }
 
-
-
-void instCtrl(unsigned char INST) {
+void instCtrl (unsigned char INST)
+{
 PORTB = INST;
 RD0 = 0;
-RD1 = 1;
-delay_ms(1);
 RD1 = 0;
-}
-void initLCD() {
-delay_ms(1);
-instCtrl(0x38);
-instCtrl(0x01);
-instCtrl(0x06);
-instCtrl(0x0E);
+RD2 = 1;
+delayLCD(1);
+RD2 = 0;
 }
 
-void dataCtrl(unsigned char DATA) {
+void dataCtrl (unsigned char DATA)
+{
 PORTB = DATA;
 RD0 = 1;
-RD1 = 1;
-delay_ms(5);
 RD1 = 0;
+RD2 = 1;
+delayLCD(1);
+RD2 = 0;
 }
 
-
-void dispRH() {
-instCtrl(0x80);
-
-dataCtrl('H');
-dataCtrl('u');
-dataCtrl('m');
-dataCtrl('i');
-dataCtrl('d');
-dataCtrl('i');
-dataCtrl('t');
-dataCtrl('y');
-dataCtrl(':');
-
-char val[4];
-val[2] = ' ';
-val[3] = ' ';
-sprintf(val, "%d", RH);
-
-dataCtrl(val[0]);
-dataCtrl(val[1]);
-dataCtrl(val[2]);
-dataCtrl('%');
+void initLCD() {
+delayLCD(15);
+instCtrl(0x38);
+instCtrl(0x0C);
+instCtrl(0x06);
+instCtrl(0x01);
+delayLCD(2);
 }
 
-void dispT() {
-instCtrl(0xC0);
-
-dataCtrl('T');
-dataCtrl('e');
-dataCtrl('m');
-dataCtrl('p');
-dataCtrl('e');
-dataCtrl('r');
-dataCtrl('a');
-dataCtrl('t');
-dataCtrl('u');
-dataCtrl('r');
-dataCtrl('e');
-dataCtrl(':');
-
-char val[8];
-sprintf(val, "%.1f", T);
-
-for (int i = 0; val[i] != '\0'; i++) {
-dataCtrl(val[i]);
+void display(const char *input) {
+int i;
+for (i = 0; input[i] != '\0'; i++) {
+dataCtrl(input[i]);
 }
-dataCtrl(' ');
-dataCtrl('C');
 }
 
-
-void init_I2C_Master(void){
+void init_I2C_Master(){
 TRISC3 = 1;
 TRISC4 = 1;
 SSPCON = 0x28;
@@ -1712,6 +1491,7 @@ SSPCON2 = 0x00;
 
 SSPSTAT = 0x00;
 SSPADD = 0x09;
+
 }
 
 void I2C_Wait(void)
@@ -1720,43 +1500,164 @@ void I2C_Wait(void)
 while((SSPCON2 & 0x1F) || (SSPSTAT & 0x04));
 }
 
-void I2C_Start(void){
+void I2C_Start(void)
+{
 
 I2C_Wait();
 
 SEN = 1;
 }
-
-void I2C_Stop(void){
+void I2C_Stop(void)
+{
 
 I2C_Wait();
 
 PEN = 1;
 }
 
-void I2C_RepeatedStart(void){
+void I2C_RepeatedStart(void)
+{
 
 I2C_Wait();
 
 RSEN = 1;
 }
 
-void I2C_Send(unsigned char data){
+void I2C_Send(unsigned char data)
+{
 
 I2C_Wait();
 
 SSPBUF = data;
 }
 
-unsigned char I2C_Receive(unsigned char ack){
+unsigned char I2C_Receive(unsigned char ack)
+{
 unsigned char temp;
 I2C_Wait();
 RCEN = 1;
+
 I2C_Wait();
 temp = SSPBUF;
+
 I2C_Wait();
 ACKDT = (ack)?0:1;
 ACKEN = 1;
+
 return temp;
 }
 
+void delay(int MUL) {
+int i, j;
+for (i = MUL; i != 0; i--) {
+for (j = 0; j < 256; j++) {}
+}
+}
+
+void displayHumidity(){
+instCtrl(0x80);
+display("Humidity: ");
+dataCtrl(RH_tens + '0');
+dataCtrl(RH_ones + '0');
+display(".0%");
+}
+
+void displayTemp(){
+instCtrl(0xC0);
+display("Temperature: ");
+dataCtrl(Temp_tens + '0');
+dataCtrl(Temp_ones + '0');
+display(".0 C");
+}
+
+
+void main(void)
+{
+TRISB = 0x00;
+TRISD = 0x00;
+
+unsigned int RH_temp = 0x0000, T_temp = 0x0000;
+unsigned char temp = 0x00;
+
+init_I2C_Master();
+initLCD();
+while(1)
+{
+I2C_Start();
+I2C_Send(0x80);
+I2C_Send(0xE5);
+I2C_RepeatedStart();
+
+I2C_Send(0x81);
+RH_temp = I2C_Receive(1);
+temp = I2C_Receive(0);
+I2C_Stop;
+delay(1);
+
+RH_temp = RH_temp << 6;
+temp = temp >> 2;
+RH_temp = RH_temp | temp;
+
+
+float rh = ((125*((float)RH_temp/16384)));
+if(rh >= 6){
+rh = rh - 6;
+}
+else{
+rh = 0.00;
+}
+
+RH = (unsigned int)rh;
+
+RH_tens = RH / 10;
+RH_ones = RH % 10;
+
+displayHumidity();
+
+I2C_Start();
+I2C_Send(0x80);
+I2C_Send(0xE3);
+I2C_Stop();
+delay(1);
+
+temp = 0x00;
+I2C_Start();
+I2C_Send(0x80);
+I2C_Send(0xE3);
+I2C_RepeatedStart();
+I2C_Send(0x81);
+
+T_temp = I2C_Receive(1);
+temp = I2C_Receive(0);
+I2C_Stop();
+delay(10);
+
+
+
+
+T_temp = T_temp << 6;
+temp = temp >> 2;
+T_temp = T_temp | temp;
+
+float t = (175.72)*((float)T_temp / 16384);
+if(t >= 46.85){
+t = t - 46.85;
+}
+else{
+t = 0.00;
+}
+
+T = (unsigned int)t;
+
+Temp_tens = T / 10;
+Temp_ones = T % 10;
+
+I2C_Start();
+I2C_Send(0x80);
+I2C_Send(0xE5);
+I2C_Stop();
+delay(10);
+
+displayTemp();
+}
+}
