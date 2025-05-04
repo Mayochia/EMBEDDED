@@ -4,7 +4,7 @@ Linker command line:
 
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.33\dat\en_msgs.txt -cs \
   -h+CPE 3201-LE7.sym --cmf=CPE 3201-LE7.cmf -z -Q16F877A \
-  -oC:\Users\MAYOCH~1\AppData\Local\Temp\s11tg.6 -MCPE 3201-LE7.map -E1 \
+  -oC:\Users\MAYOCH~1\AppData\Local\Temp\s2eg.6 -MCPE 3201-LE7.map -E1 \
   -ver=XC8 -ASTACK=0110h-016fh -pstack=STACK -ACONST=00h-0FFhx32 \
   -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -AENTRY=00h-0FFhx32 \
   -ASTRING=00h-0FFhx32 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
@@ -523,7 +523,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 146 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c"
+		line 146 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\Piolo Code\LE7-3.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -573,7 +573,7 @@ Total ram usage:       13 bytes
 
  *************** function _init_I2C_Master *****************
  Defined at:
-		line 58 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c"
+		line 58 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\Piolo Code\LE7-3.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -602,7 +602,7 @@ Total ram usage:        0 bytes
 
  *************** function _initLCD *****************
  Defined at:
-		line 42 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c"
+		line 42 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\Piolo Code\LE7-3.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -633,7 +633,7 @@ Total ram usage:        0 bytes
 
  *************** function _displayTemp *****************
  Defined at:
-		line 137 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c"
+		line 137 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\Piolo Code\LE7-3.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -665,7 +665,7 @@ Total ram usage:        0 bytes
 
  *************** function _displayHumidity *****************
  Defined at:
-		line 129 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c"
+		line 129 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\Piolo Code\LE7-3.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -697,7 +697,7 @@ Total ram usage:        0 bytes
 
  *************** function _instCtrl *****************
  Defined at:
-		line 22 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c"
+		line 22 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\Piolo Code\LE7-3.c"
  Parameters:    Size  Location     Type
   INST            1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -729,7 +729,7 @@ Total ram usage:        1 bytes
 
  *************** function _display *****************
  Defined at:
-		line 51 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c"
+		line 51 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\Piolo Code\LE7-3.c"
  Parameters:    Size  Location     Type
   input           1    wreg     PTR const unsigned char 
 		 -> STR_4(5), STR_3(14), STR_2(4), STR_1(11), 
@@ -763,7 +763,7 @@ Total ram usage:        3 bytes
 
  *************** function _dataCtrl *****************
  Defined at:
-		line 32 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c"
+		line 32 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\Piolo Code\LE7-3.c"
  Parameters:    Size  Location     Type
   DATA            1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -795,7 +795,7 @@ Total ram usage:        1 bytes
 
  *************** function _delayLCD *****************
  Defined at:
-		line 15 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c"
+		line 15 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\Piolo Code\LE7-3.c"
  Parameters:    Size  Location     Type
   MUL             2    0[COMMON] int 
  Auto vars:     Size  Location     Type
@@ -827,7 +827,7 @@ Total ram usage:        6 bytes
 
  *************** function _delay *****************
  Defined at:
-		line 122 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c"
+		line 122 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\Piolo Code\LE7-3.c"
  Parameters:    Size  Location     Type
   MUL             2    0[COMMON] int 
  Auto vars:     Size  Location     Type
@@ -1144,7 +1144,7 @@ Total ram usage:        8 bytes
 
  *************** function _I2C_Stop *****************
  Defined at:
-		line 82 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c"
+		line 82 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\Piolo Code\LE7-3.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1174,7 +1174,7 @@ Total ram usage:        0 bytes
 
  *************** function _I2C_Start *****************
  Defined at:
-		line 75 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c"
+		line 75 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\Piolo Code\LE7-3.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1204,7 +1204,7 @@ Total ram usage:        0 bytes
 
  *************** function _I2C_Send *****************
  Defined at:
-		line 98 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c"
+		line 98 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\Piolo Code\LE7-3.c"
  Parameters:    Size  Location     Type
   data            1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -1234,7 +1234,7 @@ Total ram usage:        1 bytes
 
  *************** function _I2C_RepeatedStart *****************
  Defined at:
-		line 90 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c"
+		line 90 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\Piolo Code\LE7-3.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1264,7 +1264,7 @@ Total ram usage:        0 bytes
 
  *************** function _I2C_Receive *****************
  Defined at:
-		line 106 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c"
+		line 106 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\Piolo Code\LE7-3.c"
  Parameters:    Size  Location     Type
   ack             1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -1295,7 +1295,7 @@ Total ram usage:        3 bytes
 
  *************** function _I2C_Wait *****************
  Defined at:
-		line 69 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c"
+		line 69 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\Piolo Code\LE7-3.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1335,22 +1335,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftge.c
 
 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftge.c estimated size: 93
 
-C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c
-		___ftpack      		CODE           	01E4	0000	104
-
-C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c estimated size: 104
-
-C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c
-		___lwmod       		CODE           	0115	0000	52
-
-C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c estimated size: 52
-
-C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c
-		___ftmul       		CODE           	0390	0000	211
-
-C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c estimated size: 211
-
-D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c
+D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\Piolo Code\LE7-3.c
 		_delay         		CODE           	00B7	0000	47
 		_display       		CODE           	0FBB	0000	34
 		_displayTemp   		CODE           	0045	0000	35
@@ -1368,7 +1353,22 @@ D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Ac
 		_initLCD       		CODE           	008E	0000	41
 		_I2C_Receive   		CODE           	0068	0000	38
 
-D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c estimated size: 1014
+D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\Piolo Code\LE7-3.c estimated size: 1014
+
+C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c
+		___ftpack      		CODE           	01E4	0000	104
+
+C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c estimated size: 104
+
+C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c
+		___lwmod       		CODE           	0115	0000	52
+
+C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c estimated size: 52
+
+C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c
+		___ftmul       		CODE           	0390	0000	211
+
+C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c estimated size: 211
 
 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c
 		___lwdiv       		CODE           	0149	0000	62

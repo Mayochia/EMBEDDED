@@ -1051,7 +1051,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom_routines.h: 43: extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 [; ;eeprom_routines.h: 44: extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 [; ;pic.h: 154: extern __nonreentrant void _delay(unsigned long);
-"2 D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\To Submit\LE7-3.c
+"2 D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Practical Activities\Practical Activity #7\Piolo Code\LE7-3.c
 [p x FOSC=XT ]
 "3
 [p x WDTE=OFF ]
