@@ -319,7 +319,7 @@ void enterPass(void) {
 void setup()
 {
 	BRGH = 1;
-	SPBRG = 25;
+	SPBRG = 12;
 	SYNC = 0;
 	SPEN = 1;
 	TXEN = 1;
@@ -360,18 +360,43 @@ void main(void) {
     
     while (1) {
          
-		if(RCIF){
-			if(OERR){
-				CREN = 0;
-				CREN = 1;
-			}
-			rx_data = RCREG;
-			
-			if(rx_data == 'A'){
-				setServoClockwise();  // Lock
-			} else if (rx_data == 'B'){
-				setServoCounterClockwise();  //Unlock
-			}
+		if (RCIF) {
+		    if (OERR) {
+		        CREN = 0;
+		        CREN = 1;
+		    }
+		    rx_data = RCREG;
+		
+		    if (rx_data == 'A') {
+		        setServoClockwise();  // Lock
+		        initLCD();
+		
+		        instCtrl(0x80);
+		        displayMsg("LOCKED");
+		
+		        // Wait for unlock signal (B)
+		        while (1) {
+		            if (RCIF) {
+		                if (OERR) {
+		                    CREN = 0;
+		                    CREN = 1;
+		                }
+		                rx_data = RCREG;
+		                if (rx_data == 'B') {
+		                    break; // Exit loop when unlock command is received
+		                }
+		            }
+		        }
+		    }
+		
+		    if (rx_data == 'B') {
+		        setServoCounterClockwise();  // Unlock
+		        initLCD();
+		        instCtrl(0x80);
+		        displayMsg("[1]Set PIN");
+		        instCtrl(0xC0);
+		        displayMsg("[2]Enter PIN");
+		    }
 		}
 		
         if(invalid_flag == 1) {

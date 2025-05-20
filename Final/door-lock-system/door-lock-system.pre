@@ -1915,7 +1915,7 @@ verifyPIN();
 void setup()
 {
 BRGH = 1;
-SPBRG = 25;
+SPBRG = 12;
 SYNC = 0;
 SPEN = 1;
 TXEN = 1;
@@ -1956,17 +1956,42 @@ setServoClockwise();
 
 while (1) {
 
-if(RCIF){
-if(OERR){
+if (RCIF) {
+if (OERR) {
 CREN = 0;
 CREN = 1;
 }
 rx_data = RCREG;
 
-if(rx_data == 'A'){
+if (rx_data == 'A') {
 setServoClockwise();
-} else if (rx_data == 'B'){
+initLCD();
+
+instCtrl(0x80);
+displayMsg("LOCKED");
+
+
+while (1) {
+if (RCIF) {
+if (OERR) {
+CREN = 0;
+CREN = 1;
+}
+rx_data = RCREG;
+if (rx_data == 'B') {
+break;
+}
+}
+}
+}
+
+if (rx_data == 'B') {
 setServoCounterClockwise();
+initLCD();
+instCtrl(0x80);
+displayMsg("[1]Set PIN");
+instCtrl(0xC0);
+displayMsg("[2]Enter PIN");
 }
 }
 

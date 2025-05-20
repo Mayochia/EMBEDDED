@@ -220,12 +220,12 @@
             <span class="status-indicator indicator-on"></span>LOCKED
           </span>
         </div>
-        <div class="status-item">
+        <!-- <div class="status-item">
           <span class="status-label">Attempt Status:</span>
           <span id="switch-status" class="status-value off">
             <span class="status-indicator indicator-off"></span>ALERT
           </span>
-        </div>
+        </div> -->
       </div>
 
       <div class="controls">
@@ -346,10 +346,10 @@
               updateLockStatusUI(lockValue);
             }
 
-            if (currentSwitchState !== switchValue) {
-              currentSwitchState = switchValue;
-              updateSwitchStatusUI(switchValue);
-            }
+            // if (currentSwitchState !== switchValue) {
+            //   currentSwitchState = switchValue;
+            //   updateSwitchStatusUI(switchValue);
+            // }
 
             // Update last fetch time
             const now = new Date();
@@ -381,17 +381,17 @@
       }
 
       // Update Switch status in UI
-      function updateSwitchStatusUI(status) {
-        if (status === 1) {
-          switchStatus.className = "status-value on";
-          switchStatus.innerHTML =
-            '<span class="status-indicator indicator-on"></span>OPEN';
-        } else {
-          switchStatus.className = "status-value off";
-          switchStatus.innerHTML =
-            '<span class="status-indicator indicator-off"></span>CLOSED';
-        }
-      }
+      // function updateSwitchStatusUI(status) {
+      //   if (status === 1) {
+      //     switchStatus.className = "status-value on";
+      //     switchStatus.innerHTML =
+      //       '<span class="status-indicator indicator-on"></span>OPEN';
+      //   } else {
+      //     switchStatus.className = "status-value off";
+      //     switchStatus.innerHTML =
+      //       '<span class="status-indicator indicator-off"></span>CLOSED';
+      //   }
+      // }
 
       // Show notification message
       function showNotification(message, type) {
