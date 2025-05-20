@@ -2187,9 +2187,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;door-lock-system.c: 321: BRGH = 1;
 "321
 [e = _BRGH -> -> 1 `i `b ]
-[; ;door-lock-system.c: 322: SPBRG = 25;
+[; ;door-lock-system.c: 322: SPBRG = 12;
 "322
-[e = _SPBRG -> -> 25 `i `uc ]
+[e = _SPBRG -> -> 12 `i `uc ]
 [; ;door-lock-system.c: 323: SYNC = 0;
 "323
 [e = _SYNC -> -> 0 `i `b ]
@@ -2285,11 +2285,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "361
 [e :U 202 ]
 {
-[; ;door-lock-system.c: 363: if(RCIF){
+[; ;door-lock-system.c: 363: if (RCIF) {
 "363
 [e $ ! _RCIF 204  ]
 {
-[; ;door-lock-system.c: 364: if(OERR){
+[; ;door-lock-system.c: 364: if (OERR) {
 "364
 [e $ ! _OERR 205  ]
 {
@@ -2306,188 +2306,262 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;door-lock-system.c: 368: rx_data = RCREG;
 "368
 [e = _rx_data _RCREG ]
-[; ;door-lock-system.c: 370: if(rx_data == 'A'){
+[; ;door-lock-system.c: 370: if (rx_data == 'A') {
 "370
 [e $ ! == -> _rx_data `ui -> 65 `ui 206  ]
 {
 [; ;door-lock-system.c: 371: setServoClockwise();
 "371
 [e ( _setServoClockwise ..  ]
+[; ;door-lock-system.c: 372: initLCD();
 "372
-}
-[; ;door-lock-system.c: 372: } else if (rx_data == 'B'){
-[e $U 207  ]
-[e :U 206 ]
-[e $ ! == -> _rx_data `ui -> 66 `ui 208  ]
-{
-[; ;door-lock-system.c: 373: setServoCounterClockwise();
-"373
-[e ( _setServoCounterClockwise ..  ]
-"374
-}
-[e :U 208 ]
-"375
-[e :U 207 ]
-}
-[e :U 204 ]
-[; ;door-lock-system.c: 374: }
-[; ;door-lock-system.c: 375: }
-[; ;door-lock-system.c: 377: if(invalid_flag == 1) {
-"377
-[e $ ! == -> _invalid_flag `i -> 1 `i 209  ]
-{
-[; ;door-lock-system.c: 378: instCtrl(0x01);
-"378
-[e ( _instCtrl (1 -> -> 1 `i `uc ]
-[; ;door-lock-system.c: 379: displayMsg("ENTER PIN:");
-"379
-[e ( _displayMsg (1 :s 8C ]
-[; ;door-lock-system.c: 380: enterPass();
-"380
-[e ( _enterPass ..  ]
-"381
-}
-[e :U 209 ]
-[; ;door-lock-system.c: 381: }
-[; ;door-lock-system.c: 383: if (RD4) {
-"383
-[e $ ! _RD4 210  ]
-{
-[; ;door-lock-system.c: 384: _delay((unsigned long)((500)*(4000000/4000.0)));
-"384
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"385
-[v _INPUT `uc ~T0 @X0 1 a ]
-[; ;door-lock-system.c: 385: unsigned char INPUT = PORTD & 0x0F;
-[e = _INPUT -> & -> _PORTD `i -> 15 `i `uc ]
-[; ;door-lock-system.c: 386: while (RD4);
-"386
-[e $U 211  ]
-[e :U 212 ]
-[e :U 211 ]
-[e $ _RD4 212  ]
-[e :U 213 ]
-[; ;door-lock-system.c: 388: if (INPUT == 0x00) {
-"388
-[e $ ! == -> _INPUT `i -> 0 `i 214  ]
-{
-[; ;door-lock-system.c: 389: if(setpass_flag == 1) {
-"389
-[e $ ! == -> _setpass_flag `i -> 1 `i 215  ]
-{
-[; ;door-lock-system.c: 390: instCtrl(0x01);
-"390
-[e ( _instCtrl (1 -> -> 1 `i `uc ]
-[; ;door-lock-system.c: 391: instCtrl(0x80);
-"391
-[e ( _instCtrl (1 -> -> 128 `i `uc ]
-[; ;door-lock-system.c: 392: displayMsg("Already set");
-"392
-[e ( _displayMsg (1 :s 9C ]
-[; ;door-lock-system.c: 393: instCtrl(0xC0);
-"393
-[e ( _instCtrl (1 -> -> 192 `i `uc ]
-[; ;door-lock-system.c: 394: displayMsg("a password");
-"394
-[e ( _displayMsg (1 :s 10C ]
-[; ;door-lock-system.c: 395: _delay((unsigned long)((1000)*(4000000/4000.0)));
-"395
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"396
-}
-[; ;door-lock-system.c: 396: }
-[e $U 216  ]
-"397
-[e :U 215 ]
-[; ;door-lock-system.c: 397: else {
-{
-[; ;door-lock-system.c: 398: instCtrl(0x01);
-"398
-[e ( _instCtrl (1 -> -> 1 `i `uc ]
-[; ;door-lock-system.c: 399: displayMsg("SET PIN:");
-"399
-[e ( _displayMsg (1 :s 11C ]
-[; ;door-lock-system.c: 400: setPass();
-"400
-[e ( _setPass ..  ]
-[; ;door-lock-system.c: 401: instCtrl(0x01);
-"401
-[e ( _instCtrl (1 -> -> 1 `i `uc ]
-[; ;door-lock-system.c: 402: displayMsg("PIN SET!");
-"402
-[e ( _displayMsg (1 :s 12C ]
-[; ;door-lock-system.c: 403: _delay((unsigned long)((1000)*(4000000/4000.0)));
-"403
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"404
-}
-[e :U 216 ]
-[; ;door-lock-system.c: 404: }
-[; ;door-lock-system.c: 405: initLCD();
-"405
 [e ( _initLCD ..  ]
-[; ;door-lock-system.c: 406: instCtrl(0x80);
-"406
+[; ;door-lock-system.c: 374: instCtrl(0x80);
+"374
 [e ( _instCtrl (1 -> -> 128 `i `uc ]
-[; ;door-lock-system.c: 407: displayMsg("[1]Set PIN");
-"407
-[e ( _displayMsg (1 :s 13C ]
-[; ;door-lock-system.c: 408: instCtrl(0xC0);
-"408
-[e ( _instCtrl (1 -> -> 192 `i `uc ]
-[; ;door-lock-system.c: 409: displayMsg("[2]Enter PIN");
-"409
-[e ( _displayMsg (1 :s 14C ]
-"410
-}
-[; ;door-lock-system.c: 410: }
-[e $U 217  ]
-"411
-[e :U 214 ]
-[; ;door-lock-system.c: 411: else if (INPUT == 0x01) {
-[e $ ! == -> _INPUT `i -> 1 `i 218  ]
+[; ;door-lock-system.c: 375: displayMsg("LOCKED");
+"375
+[e ( _displayMsg (1 :s 8C ]
+[; ;door-lock-system.c: 378: while (1) {
+"378
+[e :U 208 ]
 {
-[; ;door-lock-system.c: 412: instCtrl(0x01);
-"412
-[e ( _instCtrl (1 -> -> 1 `i `uc ]
-[; ;door-lock-system.c: 413: displayMsg("ENTER PIN:");
-"413
-[e ( _displayMsg (1 :s 15C ]
-[; ;door-lock-system.c: 414: enterPass();
-"414
-[e ( _enterPass ..  ]
-"415
+[; ;door-lock-system.c: 379: if (RCIF) {
+"379
+[e $ ! _RCIF 210  ]
+{
+[; ;door-lock-system.c: 380: if (OERR) {
+"380
+[e $ ! _OERR 211  ]
+{
+[; ;door-lock-system.c: 381: CREN = 0;
+"381
+[e = _CREN -> -> 0 `i `b ]
+[; ;door-lock-system.c: 382: CREN = 1;
+"382
+[e = _CREN -> -> 1 `i `b ]
+"383
 }
-[e :U 218 ]
-"416
-[e :U 217 ]
+[e :U 211 ]
+[; ;door-lock-system.c: 383: }
+[; ;door-lock-system.c: 384: rx_data = RCREG;
+"384
+[e = _rx_data _RCREG ]
+[; ;door-lock-system.c: 385: if (rx_data == 'B') {
+"385
+[e $ ! == -> _rx_data `ui -> 66 `ui 212  ]
+{
+[; ;door-lock-system.c: 386: break;
+"386
+[e $U 209  ]
+"387
+}
+[e :U 212 ]
+"388
 }
 [e :U 210 ]
+"389
+}
+[e :U 207 ]
+"378
+[e $U 208  ]
+[e :U 209 ]
+"390
+}
+[e :U 206 ]
+[; ;door-lock-system.c: 387: }
+[; ;door-lock-system.c: 388: }
+[; ;door-lock-system.c: 389: }
+[; ;door-lock-system.c: 390: }
+[; ;door-lock-system.c: 392: if (rx_data == 'B') {
+"392
+[e $ ! == -> _rx_data `ui -> 66 `ui 213  ]
+{
+[; ;door-lock-system.c: 393: setServoCounterClockwise();
+"393
+[e ( _setServoCounterClockwise ..  ]
+[; ;door-lock-system.c: 394: initLCD();
+"394
+[e ( _initLCD ..  ]
+[; ;door-lock-system.c: 395: instCtrl(0x80);
+"395
+[e ( _instCtrl (1 -> -> 128 `i `uc ]
+[; ;door-lock-system.c: 396: displayMsg("[1]Set PIN");
+"396
+[e ( _displayMsg (1 :s 9C ]
+[; ;door-lock-system.c: 397: instCtrl(0xC0);
+"397
+[e ( _instCtrl (1 -> -> 192 `i `uc ]
+[; ;door-lock-system.c: 398: displayMsg("[2]Enter PIN");
+"398
+[e ( _displayMsg (1 :s 10C ]
+"399
+}
+[e :U 213 ]
+"400
+}
+[e :U 204 ]
+[; ;door-lock-system.c: 399: }
+[; ;door-lock-system.c: 400: }
+[; ;door-lock-system.c: 402: if(invalid_flag == 1) {
+"402
+[e $ ! == -> _invalid_flag `i -> 1 `i 214  ]
+{
+[; ;door-lock-system.c: 403: instCtrl(0x01);
+"403
+[e ( _instCtrl (1 -> -> 1 `i `uc ]
+[; ;door-lock-system.c: 404: displayMsg("ENTER PIN:");
+"404
+[e ( _displayMsg (1 :s 11C ]
+[; ;door-lock-system.c: 405: enterPass();
+"405
+[e ( _enterPass ..  ]
+"406
+}
+[e :U 214 ]
+[; ;door-lock-system.c: 406: }
+[; ;door-lock-system.c: 408: if (RD4) {
+"408
+[e $ ! _RD4 215  ]
+{
+[; ;door-lock-system.c: 409: _delay((unsigned long)((500)*(4000000/4000.0)));
+"409
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"410
+[v _INPUT `uc ~T0 @X0 1 a ]
+[; ;door-lock-system.c: 410: unsigned char INPUT = PORTD & 0x0F;
+[e = _INPUT -> & -> _PORTD `i -> 15 `i `uc ]
+[; ;door-lock-system.c: 411: while (RD4);
+"411
+[e $U 216  ]
+[e :U 217 ]
+[e :U 216 ]
+[e $ _RD4 217  ]
+[e :U 218 ]
+[; ;door-lock-system.c: 413: if (INPUT == 0x00) {
+"413
+[e $ ! == -> _INPUT `i -> 0 `i 219  ]
+{
+[; ;door-lock-system.c: 414: if(setpass_flag == 1) {
+"414
+[e $ ! == -> _setpass_flag `i -> 1 `i 220  ]
+{
+[; ;door-lock-system.c: 415: instCtrl(0x01);
+"415
+[e ( _instCtrl (1 -> -> 1 `i `uc ]
+[; ;door-lock-system.c: 416: instCtrl(0x80);
+"416
+[e ( _instCtrl (1 -> -> 128 `i `uc ]
+[; ;door-lock-system.c: 417: displayMsg("Already set");
 "417
+[e ( _displayMsg (1 :s 12C ]
+[; ;door-lock-system.c: 418: instCtrl(0xC0);
+"418
+[e ( _instCtrl (1 -> -> 192 `i `uc ]
+[; ;door-lock-system.c: 419: displayMsg("a password");
+"419
+[e ( _displayMsg (1 :s 13C ]
+[; ;door-lock-system.c: 420: _delay((unsigned long)((1000)*(4000000/4000.0)));
+"420
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"421
+}
+[; ;door-lock-system.c: 421: }
+[e $U 221  ]
+"422
+[e :U 220 ]
+[; ;door-lock-system.c: 422: else {
+{
+[; ;door-lock-system.c: 423: instCtrl(0x01);
+"423
+[e ( _instCtrl (1 -> -> 1 `i `uc ]
+[; ;door-lock-system.c: 424: displayMsg("SET PIN:");
+"424
+[e ( _displayMsg (1 :s 14C ]
+[; ;door-lock-system.c: 425: setPass();
+"425
+[e ( _setPass ..  ]
+[; ;door-lock-system.c: 426: instCtrl(0x01);
+"426
+[e ( _instCtrl (1 -> -> 1 `i `uc ]
+[; ;door-lock-system.c: 427: displayMsg("PIN SET!");
+"427
+[e ( _displayMsg (1 :s 15C ]
+[; ;door-lock-system.c: 428: _delay((unsigned long)((1000)*(4000000/4000.0)));
+"428
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"429
+}
+[e :U 221 ]
+[; ;door-lock-system.c: 429: }
+[; ;door-lock-system.c: 430: initLCD();
+"430
+[e ( _initLCD ..  ]
+[; ;door-lock-system.c: 431: instCtrl(0x80);
+"431
+[e ( _instCtrl (1 -> -> 128 `i `uc ]
+[; ;door-lock-system.c: 432: displayMsg("[1]Set PIN");
+"432
+[e ( _displayMsg (1 :s 16C ]
+[; ;door-lock-system.c: 433: instCtrl(0xC0);
+"433
+[e ( _instCtrl (1 -> -> 192 `i `uc ]
+[; ;door-lock-system.c: 434: displayMsg("[2]Enter PIN");
+"434
+[e ( _displayMsg (1 :s 17C ]
+"435
+}
+[; ;door-lock-system.c: 435: }
+[e $U 222  ]
+"436
+[e :U 219 ]
+[; ;door-lock-system.c: 436: else if (INPUT == 0x01) {
+[e $ ! == -> _INPUT `i -> 1 `i 223  ]
+{
+[; ;door-lock-system.c: 437: instCtrl(0x01);
+"437
+[e ( _instCtrl (1 -> -> 1 `i `uc ]
+[; ;door-lock-system.c: 438: displayMsg("ENTER PIN:");
+"438
+[e ( _displayMsg (1 :s 18C ]
+[; ;door-lock-system.c: 439: enterPass();
+"439
+[e ( _enterPass ..  ]
+"440
+}
+[e :U 223 ]
+"441
+[e :U 222 ]
+}
+[e :U 215 ]
+"442
 }
 [e :U 201 ]
 "361
 [e $U 202  ]
 [e :U 203 ]
-[; ;door-lock-system.c: 415: }
-[; ;door-lock-system.c: 416: }
-[; ;door-lock-system.c: 417: }
-[; ;door-lock-system.c: 418: }
-"418
+[; ;door-lock-system.c: 440: }
+[; ;door-lock-system.c: 441: }
+[; ;door-lock-system.c: 442: }
+[; ;door-lock-system.c: 443: }
+"443
 [e :UE 200 ]
 }
-[a 9C 65 108 114 101 97 100 121 32 115 101 116 0 ]
-[a 10C 97 32 112 97 115 115 119 111 114 100 0 ]
+[a 12C 65 108 114 101 97 100 121 32 115 101 116 0 ]
+[a 13C 97 32 112 97 115 115 119 111 114 100 0 ]
 [a 5C 78 79 32 84 82 73 65 76 83 32 76 69 70 84 0 ]
 [a 2C 91 49 93 83 101 116 32 80 73 78 0 ]
 [a 6C 91 49 93 83 101 116 32 80 73 78 0 ]
-[a 13C 91 49 93 83 101 116 32 80 73 78 0 ]
+[a 9C 91 49 93 83 101 116 32 80 73 78 0 ]
+[a 16C 91 49 93 83 101 116 32 80 73 78 0 ]
 [a 3C 91 50 93 69 110 116 101 114 32 80 73 78 0 ]
 [a 7C 91 50 93 69 110 116 101 114 32 80 73 78 0 ]
-[a 14C 91 50 93 69 110 116 101 114 32 80 73 78 0 ]
+[a 10C 91 50 93 69 110 116 101 114 32 80 73 78 0 ]
+[a 17C 91 50 93 69 110 116 101 114 32 80 73 78 0 ]
 [a 1C 86 65 76 73 68 32 80 73 78 0 ]
-[a 11C 83 69 84 32 80 73 78 58 0 ]
-[a 8C 69 78 84 69 82 32 80 73 78 58 0 ]
-[a 15C 69 78 84 69 82 32 80 73 78 58 0 ]
-[a 12C 80 73 78 32 83 69 84 33 0 ]
+[a 8C 76 79 67 75 69 68 0 ]
+[a 14C 83 69 84 32 80 73 78 58 0 ]
+[a 11C 69 78 84 69 82 32 80 73 78 58 0 ]
+[a 18C 69 78 84 69 82 32 80 73 78 58 0 ]
+[a 15C 80 73 78 32 83 69 84 33 0 ]
 [a 4C 73 78 86 65 76 73 68 32 80 73 78 33 0 ]

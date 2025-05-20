@@ -369,7 +369,7 @@ STR_3:
 	retlw	0
 psect	strings
 	
-STR_9:	
+STR_12:	
 	retlw	65	;'A'
 	retlw	108	;'l'
 	retlw	114	;'r'
@@ -384,7 +384,7 @@ STR_9:
 	retlw	0
 psect	strings
 	
-STR_8:	
+STR_11:	
 	retlw	69	;'E'
 	retlw	78	;'N'
 	retlw	84	;'T'
@@ -412,7 +412,7 @@ STR_2:
 	retlw	0
 psect	strings
 	
-STR_10:	
+STR_13:	
 	retlw	97	;'a'
 	retlw	32	;' '
 	retlw	112	;'p'
@@ -439,7 +439,7 @@ STR_1:
 	retlw	0
 psect	strings
 	
-STR_12:	
+STR_15:	
 	retlw	80	;'P'
 	retlw	73	;'I'
 	retlw	78	;'N'
@@ -451,7 +451,7 @@ STR_12:
 	retlw	0
 psect	strings
 	
-STR_11:	
+STR_14:	
 	retlw	83	;'S'
 	retlw	69	;'E'
 	retlw	84	;'T'
@@ -462,11 +462,23 @@ STR_11:
 	retlw	58	;':'
 	retlw	0
 psect	strings
+	
+STR_8:	
+	retlw	76	;'L'
+	retlw	79	;'O'
+	retlw	67	;'C'
+	retlw	75	;'K'
+	retlw	69	;'E'
+	retlw	68	;'D'
+	retlw	0
+psect	strings
 STR_6	equ	STR_2+0
-STR_13	equ	STR_2+0
+STR_9	equ	STR_2+0
+STR_16	equ	STR_2+0
 STR_7	equ	STR_3+0
-STR_14	equ	STR_3+0
-STR_15	equ	STR_8+0
+STR_10	equ	STR_3+0
+STR_17	equ	STR_3+0
+STR_18	equ	STR_11+0
 	global __end_of__stringdata
 __end_of__stringdata:
 ; #config settings
@@ -738,7 +750,7 @@ enterPass@j:	; 2 bytes @ 0x10
 	ds	3
 ;!
 ;!Data Sizes:
-;!    Strings     114
+;!    Strings     121
 ;!    Constant    0
 ;!    Data        8
 ;!    BSS         17
@@ -757,10 +769,11 @@ enterPass@j:	; 2 bytes @ 0x10
 ;!Pointer List with Targets:
 ;!
 ;!    displayMsg@message	PTR const unsigned char  size(1) Largest target is 15
-;!		 -> STR_15(CODE[11]), STR_14(CODE[13]), STR_13(CODE[11]), STR_12(CODE[9]), 
-;!		 -> STR_11(CODE[9]), STR_10(CODE[11]), STR_9(CODE[12]), STR_8(CODE[11]), 
-;!		 -> STR_7(CODE[13]), STR_6(CODE[11]), STR_5(CODE[15]), STR_4(CODE[13]), 
-;!		 -> STR_3(CODE[13]), STR_2(CODE[11]), STR_1(CODE[10]), 
+;!		 -> STR_18(CODE[11]), STR_17(CODE[13]), STR_16(CODE[11]), STR_15(CODE[9]), 
+;!		 -> STR_14(CODE[9]), STR_13(CODE[11]), STR_12(CODE[12]), STR_11(CODE[11]), 
+;!		 -> STR_10(CODE[13]), STR_9(CODE[11]), STR_8(CODE[7]), STR_7(CODE[13]), 
+;!		 -> STR_6(CODE[11]), STR_5(CODE[15]), STR_4(CODE[13]), STR_3(CODE[13]), 
+;!		 -> STR_2(CODE[11]), STR_1(CODE[10]), 
 ;!
 
 
@@ -805,7 +818,7 @@ enterPass@j:	; 2 bytes @ 0x10
 ;! ---------------------------------------------------------------------------------
 ;! (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
 ;! ---------------------------------------------------------------------------------
-;! (0) _main                                                 4     4      0    7488
+;! (0) _main                                                 4     4      0    7650
 ;!                                             13 COMMON     1     1      0
 ;!                                             18 BANK0      3     3      0
 ;!                         _displayMsg
@@ -828,12 +841,12 @@ enterPass@j:	; 2 bytes @ 0x10
 ;!                                              0 BANK0      3     3      0
 ;!                   _setServoPosition
 ;! ---------------------------------------------------------------------------------
-;! (1) _enterPass                                            5     5      0    3543
+;! (1) _enterPass                                            5     5      0    3624
 ;!                                             13 BANK0      5     5      0
 ;!                           _dataCtrl
 ;!                          _verifyPIN
 ;! ---------------------------------------------------------------------------------
-;! (2) _verifyPIN                                            7     7      0    2971
+;! (2) _verifyPIN                                            7     7      0    3052
 ;!                                              6 BANK0      7     7      0
 ;!                         _displayMsg
 ;!                            _initLCD
@@ -869,7 +882,7 @@ enterPass@j:	; 2 bytes @ 0x10
 ;!                                              6 COMMON     1     1      0
 ;!                          _LCD_delay
 ;! ---------------------------------------------------------------------------------
-;! (3) _displayMsg                                           3     3      0     790
+;! (3) _displayMsg                                           3     3      0     871
 ;!                                              7 COMMON     3     3      0
 ;!                           _dataCtrl
 ;! ---------------------------------------------------------------------------------
@@ -1017,7 +1030,7 @@ _main:
 ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	line	343
 	
-l1617:	
+l1648:	
 ;door-lock-system.c: 343: ADCON1 = 0x06;
 	movlw	(06h)
 	bsf	status, 5	;RP0=1, select bank1
@@ -1025,111 +1038,111 @@ l1617:
 	movwf	(159)^080h	;volatile
 	line	344
 	
-l1619:	
+l1650:	
 ;door-lock-system.c: 344: TRISA = 0x00;
 	clrf	(133)^080h	;volatile
 	line	345
 	
-l1621:	
+l1652:	
 ;door-lock-system.c: 345: TRISB = 0x00;
 	clrf	(134)^080h	;volatile
 	line	346
 	
-l1623:	
+l1654:	
 ;door-lock-system.c: 346: TRISC = 0x00;
 	clrf	(135)^080h	;volatile
 	line	347
 	
-l1625:	
+l1656:	
 ;door-lock-system.c: 347: TRISD = 0xFF;
 	movlw	(0FFh)
 	movwf	(136)^080h	;volatile
 	line	349
 	
-l1627:	
+l1658:	
 ;door-lock-system.c: 349: initLCD();
 	fcall	_initLCD
 	line	351
 	
-l1629:	
+l1660:	
 ;door-lock-system.c: 351: instCtrl(0x80);
 	movlw	(080h)
 	fcall	_instCtrl
 	line	352
 	
-l1631:	
+l1662:	
 ;door-lock-system.c: 352: displayMsg("[1]Set PIN");
 	movlw	((STR_6)-__stringbase)&0ffh
 	fcall	_displayMsg
 	line	353
 	
-l1633:	
+l1664:	
 ;door-lock-system.c: 353: instCtrl(0xC0);
 	movlw	(0C0h)
 	fcall	_instCtrl
 	line	354
 	
-l1635:	
+l1666:	
 ;door-lock-system.c: 354: displayMsg("[2]Enter PIN");
 	movlw	((STR_7)-__stringbase)&0ffh
 	fcall	_displayMsg
 	line	356
 	
-l1637:	
+l1668:	
 ;door-lock-system.c: 356: initialize();
 	fcall	_initialize
 	line	357
 	
-l1639:	
+l1670:	
 ;door-lock-system.c: 357: setup();
 	fcall	_setup
 	line	359
 	
-l1641:	
+l1672:	
 ;door-lock-system.c: 359: setServoClockwise();
 	fcall	_setServoClockwise
-	goto	l1643
+	goto	l1674
 	line	361
 ;door-lock-system.c: 361: while (1) {
 	
 l224:	
 	line	363
 	
-l1643:	
-;door-lock-system.c: 363: if(RCIF){
+l1674:	
+;door-lock-system.c: 363: if (RCIF) {
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	btfss	(101/8),(101)&7	;volatile
-	goto	u751
-	goto	u750
-u751:
-	goto	l1657
-u750:
+	goto	u781
+	goto	u780
+u781:
+	goto	l1714
+u780:
 	line	364
 	
-l1645:	
-;door-lock-system.c: 364: if(OERR){
+l1676:	
+;door-lock-system.c: 364: if (OERR) {
 	btfss	(193/8),(193)&7	;volatile
-	goto	u761
-	goto	u760
-u761:
-	goto	l1649
-u760:
+	goto	u791
+	goto	u790
+u791:
+	goto	l1680
+u790:
 	line	365
 	
-l1647:	
+l1678:	
 ;door-lock-system.c: 365: CREN = 0;
 	bcf	(196/8),(196)&7	;volatile
 	line	366
 ;door-lock-system.c: 366: CREN = 1;
 	bsf	(196/8),(196)&7	;volatile
-	goto	l1649
+	goto	l1680
 	line	367
 	
 l226:	
 	line	368
 	
-l1649:	
+l1680:	
 ;door-lock-system.c: 367: }
 ;door-lock-system.c: 368: rx_data = RCREG;
 	movf	(26),w	;volatile
@@ -1137,105 +1150,230 @@ l1649:
 	movf	(??_main+0)+0,w
 	movwf	(_rx_data)	;volatile
 	line	370
-;door-lock-system.c: 370: if(rx_data == 'A'){
+;door-lock-system.c: 370: if (rx_data == 'A') {
 	movf	(_rx_data),w	;volatile
 	xorlw	041h
 	skipz
-	goto	u771
-	goto	u770
-u771:
-	goto	l1653
-u770:
-	line	371
-	
-l1651:	
-;door-lock-system.c: 371: setServoClockwise();
-	fcall	_setServoClockwise
-	line	372
-;door-lock-system.c: 372: } else if (rx_data == 'B'){
-	goto	l1657
-	
-l227:	
-	
-l1653:	
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movf	(_rx_data),w	;volatile
-	xorlw	042h
-	skipz
-	goto	u781
-	goto	u780
-u781:
-	goto	l1657
-u780:
-	line	373
-	
-l1655:	
-;door-lock-system.c: 373: setServoCounterClockwise();
-	fcall	_setServoCounterClockwise
-	goto	l1657
-	line	374
-	
-l229:	
-	goto	l1657
-	line	375
-	
-l228:	
-	goto	l1657
-	
-l225:	
-	line	377
-	
-l1657:	
-;door-lock-system.c: 374: }
-;door-lock-system.c: 375: }
-;door-lock-system.c: 377: if(invalid_flag == 1) {
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	btfss	(_invalid_flag/8),(_invalid_flag)&7
-	goto	u791
-	goto	u790
-u791:
-	goto	l1665
-u790:
-	line	378
-	
-l1659:	
-;door-lock-system.c: 378: instCtrl(0x01);
-	movlw	(01h)
-	fcall	_instCtrl
-	line	379
-	
-l1661:	
-;door-lock-system.c: 379: displayMsg("ENTER PIN:");
-	movlw	((STR_8)-__stringbase)&0ffh
-	fcall	_displayMsg
-	line	380
-	
-l1663:	
-;door-lock-system.c: 380: enterPass();
-	fcall	_enterPass
-	goto	l1665
-	line	381
-	
-l230:	
-	line	383
-	
-l1665:	
-;door-lock-system.c: 381: }
-;door-lock-system.c: 383: if (RD4) {
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	btfss	(68/8),(68)&7	;volatile
 	goto	u801
 	goto	u800
 u801:
-	goto	l1643
+	goto	l1700
 u800:
+	line	371
+	
+l1682:	
+;door-lock-system.c: 371: setServoClockwise();
+	fcall	_setServoClockwise
+	line	372
+	
+l1684:	
+;door-lock-system.c: 372: initLCD();
+	fcall	_initLCD
+	line	374
+	
+l1686:	
+;door-lock-system.c: 374: instCtrl(0x80);
+	movlw	(080h)
+	fcall	_instCtrl
+	line	375
+	
+l1688:	
+;door-lock-system.c: 375: displayMsg("LOCKED");
+	movlw	((STR_8)-__stringbase)&0ffh
+	fcall	_displayMsg
+	goto	l1690
+	line	378
+;door-lock-system.c: 378: while (1) {
+	
+l228:	
+	line	379
+	
+l1690:	
+;door-lock-system.c: 379: if (RCIF) {
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	btfss	(101/8),(101)&7	;volatile
+	goto	u811
+	goto	u810
+u811:
+	goto	l1690
+u810:
+	line	380
+	
+l1692:	
+;door-lock-system.c: 380: if (OERR) {
+	btfss	(193/8),(193)&7	;volatile
+	goto	u821
+	goto	u820
+u821:
+	goto	l1696
+u820:
+	line	381
+	
+l1694:	
+;door-lock-system.c: 381: CREN = 0;
+	bcf	(196/8),(196)&7	;volatile
+	line	382
+;door-lock-system.c: 382: CREN = 1;
+	bsf	(196/8),(196)&7	;volatile
+	goto	l1696
+	line	383
+	
+l230:	
 	line	384
 	
-l1667:	
-;door-lock-system.c: 384: _delay((unsigned long)((500)*(4000000/4000.0)));
+l1696:	
+;door-lock-system.c: 383: }
+;door-lock-system.c: 384: rx_data = RCREG;
+	movf	(26),w	;volatile
+	movwf	(??_main+0)+0
+	movf	(??_main+0)+0,w
+	movwf	(_rx_data)	;volatile
+	line	385
+;door-lock-system.c: 385: if (rx_data == 'B') {
+	movf	(_rx_data),w	;volatile
+	xorlw	042h
+	skipz
+	goto	u831
+	goto	u830
+u831:
+	goto	l1690
+u830:
+	goto	l1700
+	line	386
+	
+l1698:	
+;door-lock-system.c: 386: break;
+	goto	l1700
+	line	387
+	
+l231:	
+	goto	l1690
+	line	388
+	
+l229:	
+	goto	l1690
+	line	389
+	
+l233:	
+	line	378
+	goto	l1690
+	
+l232:	
+	goto	l1700
+	line	390
+	
+l227:	
+	line	392
+	
+l1700:	
+;door-lock-system.c: 387: }
+;door-lock-system.c: 388: }
+;door-lock-system.c: 389: }
+;door-lock-system.c: 390: }
+;door-lock-system.c: 392: if (rx_data == 'B') {
+	movf	(_rx_data),w	;volatile
+	xorlw	042h
+	skipz
+	goto	u841
+	goto	u840
+u841:
+	goto	l1714
+u840:
+	line	393
+	
+l1702:	
+;door-lock-system.c: 393: setServoCounterClockwise();
+	fcall	_setServoCounterClockwise
+	line	394
+	
+l1704:	
+;door-lock-system.c: 394: initLCD();
+	fcall	_initLCD
+	line	395
+	
+l1706:	
+;door-lock-system.c: 395: instCtrl(0x80);
+	movlw	(080h)
+	fcall	_instCtrl
+	line	396
+	
+l1708:	
+;door-lock-system.c: 396: displayMsg("[1]Set PIN");
+	movlw	((STR_9)-__stringbase)&0ffh
+	fcall	_displayMsg
+	line	397
+	
+l1710:	
+;door-lock-system.c: 397: instCtrl(0xC0);
+	movlw	(0C0h)
+	fcall	_instCtrl
+	line	398
+	
+l1712:	
+;door-lock-system.c: 398: displayMsg("[2]Enter PIN");
+	movlw	((STR_10)-__stringbase)&0ffh
+	fcall	_displayMsg
+	goto	l1714
+	line	399
+	
+l234:	
+	goto	l1714
+	line	400
+	
+l225:	
+	line	402
+	
+l1714:	
+;door-lock-system.c: 399: }
+;door-lock-system.c: 400: }
+;door-lock-system.c: 402: if(invalid_flag == 1) {
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	btfss	(_invalid_flag/8),(_invalid_flag)&7
+	goto	u851
+	goto	u850
+u851:
+	goto	l1722
+u850:
+	line	403
+	
+l1716:	
+;door-lock-system.c: 403: instCtrl(0x01);
+	movlw	(01h)
+	fcall	_instCtrl
+	line	404
+	
+l1718:	
+;door-lock-system.c: 404: displayMsg("ENTER PIN:");
+	movlw	((STR_11)-__stringbase)&0ffh
+	fcall	_displayMsg
+	line	405
+	
+l1720:	
+;door-lock-system.c: 405: enterPass();
+	fcall	_enterPass
+	goto	l1722
+	line	406
+	
+l235:	
+	line	408
+	
+l1722:	
+;door-lock-system.c: 406: }
+;door-lock-system.c: 408: if (RD4) {
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	btfss	(68/8),(68)&7	;volatile
+	goto	u861
+	goto	u860
+u861:
+	goto	l1674
+u860:
+	line	409
+	
+l1724:	
+;door-lock-system.c: 409: _delay((unsigned long)((500)*(4000000/4000.0)));
 	opt asmopt_off
 movlw  3
 movwf	((??_main+0)+0+2),f
@@ -1243,20 +1381,20 @@ movlw	138
 movwf	((??_main+0)+0+1),f
 	movlw	86
 movwf	((??_main+0)+0),f
-u857:
+u917:
 	decfsz	((??_main+0)+0),f
-	goto	u857
+	goto	u917
 	decfsz	((??_main+0)+0+1),f
-	goto	u857
+	goto	u917
 	decfsz	((??_main+0)+0+2),f
-	goto	u857
+	goto	u917
 	nop2
 opt asmopt_on
 
-	line	385
+	line	410
 	
-l1669:	
-;door-lock-system.c: 385: unsigned char INPUT = PORTD & 0x0F;
+l1726:	
+;door-lock-system.c: 410: unsigned char INPUT = PORTD & 0x0F;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(8),w	;volatile
@@ -1264,239 +1402,239 @@ l1669:
 	movwf	(??_main+0)+0
 	movf	(??_main+0)+0,w
 	movwf	(main@INPUT)
-	line	386
-;door-lock-system.c: 386: while (RD4);
-	goto	l232
+	line	411
+;door-lock-system.c: 411: while (RD4);
+	goto	l237
 	
-l233:	
-	
-l232:	
-	btfsc	(68/8),(68)&7	;volatile
-	goto	u811
-	goto	u810
-u811:
-	goto	l232
-u810:
-	goto	l1671
-	
-l234:	
-	line	388
-	
-l1671:	
-;door-lock-system.c: 388: if (INPUT == 0x00) {
-	movf	(main@INPUT),f
-	skipz
-	goto	u821
-	goto	u820
-u821:
-	goto	l1703
-u820:
-	line	389
-	
-l1673:	
-;door-lock-system.c: 389: if(setpass_flag == 1) {
-	btfss	(_setpass_flag/8),(_setpass_flag)&7
-	goto	u831
-	goto	u830
-u831:
-	goto	l1683
-u830:
-	line	390
-	
-l1675:	
-;door-lock-system.c: 390: instCtrl(0x01);
-	movlw	(01h)
-	fcall	_instCtrl
-	line	391
-;door-lock-system.c: 391: instCtrl(0x80);
-	movlw	(080h)
-	fcall	_instCtrl
-	line	392
-	
-l1677:	
-;door-lock-system.c: 392: displayMsg("Already set");
-	movlw	((STR_9)-__stringbase)&0ffh
-	fcall	_displayMsg
-	line	393
-	
-l1679:	
-;door-lock-system.c: 393: instCtrl(0xC0);
-	movlw	(0C0h)
-	fcall	_instCtrl
-	line	394
-;door-lock-system.c: 394: displayMsg("a password");
-	movlw	((STR_10)-__stringbase)&0ffh
-	fcall	_displayMsg
-	line	395
-	
-l1681:	
-;door-lock-system.c: 395: _delay((unsigned long)((1000)*(4000000/4000.0)));
-	opt asmopt_off
-movlw  6
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-movwf	((??_main+0)+0+2),f
-movlw	19
-movwf	((??_main+0)+0+1),f
-	movlw	177
-movwf	((??_main+0)+0),f
-u867:
-	decfsz	((??_main+0)+0),f
-	goto	u867
-	decfsz	((??_main+0)+0+1),f
-	goto	u867
-	decfsz	((??_main+0)+0+2),f
-	goto	u867
-	nop2
-opt asmopt_on
-
-	line	396
-;door-lock-system.c: 396: }
-	goto	l1693
-	line	397
-	
-l236:	
-	line	398
-	
-l1683:	
-;door-lock-system.c: 397: else {
-;door-lock-system.c: 398: instCtrl(0x01);
-	movlw	(01h)
-	fcall	_instCtrl
-	line	399
-	
-l1685:	
-;door-lock-system.c: 399: displayMsg("SET PIN:");
-	movlw	((STR_11)-__stringbase)&0ffh
-	fcall	_displayMsg
-	line	400
-	
-l1687:	
-;door-lock-system.c: 400: setPass();
-	fcall	_setPass
-	line	401
-;door-lock-system.c: 401: instCtrl(0x01);
-	movlw	(01h)
-	fcall	_instCtrl
-	line	402
-	
-l1689:	
-;door-lock-system.c: 402: displayMsg("PIN SET!");
-	movlw	((STR_12)-__stringbase)&0ffh
-	fcall	_displayMsg
-	line	403
-	
-l1691:	
-;door-lock-system.c: 403: _delay((unsigned long)((1000)*(4000000/4000.0)));
-	opt asmopt_off
-movlw  6
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-movwf	((??_main+0)+0+2),f
-movlw	19
-movwf	((??_main+0)+0+1),f
-	movlw	177
-movwf	((??_main+0)+0),f
-u877:
-	decfsz	((??_main+0)+0),f
-	goto	u877
-	decfsz	((??_main+0)+0+1),f
-	goto	u877
-	decfsz	((??_main+0)+0+2),f
-	goto	u877
-	nop2
-opt asmopt_on
-
-	goto	l1693
-	line	404
+l238:	
 	
 l237:	
-	line	405
+	btfsc	(68/8),(68)&7	;volatile
+	goto	u871
+	goto	u870
+u871:
+	goto	l237
+u870:
+	goto	l1728
 	
-l1693:	
-;door-lock-system.c: 404: }
-;door-lock-system.c: 405: initLCD();
-	fcall	_initLCD
-	line	406
+l239:	
+	line	413
 	
-l1695:	
-;door-lock-system.c: 406: instCtrl(0x80);
+l1728:	
+;door-lock-system.c: 413: if (INPUT == 0x00) {
+	movf	(main@INPUT),f
+	skipz
+	goto	u881
+	goto	u880
+u881:
+	goto	l1760
+u880:
+	line	414
+	
+l1730:	
+;door-lock-system.c: 414: if(setpass_flag == 1) {
+	btfss	(_setpass_flag/8),(_setpass_flag)&7
+	goto	u891
+	goto	u890
+u891:
+	goto	l1740
+u890:
+	line	415
+	
+l1732:	
+;door-lock-system.c: 415: instCtrl(0x01);
+	movlw	(01h)
+	fcall	_instCtrl
+	line	416
+;door-lock-system.c: 416: instCtrl(0x80);
 	movlw	(080h)
 	fcall	_instCtrl
-	line	407
+	line	417
 	
-l1697:	
-;door-lock-system.c: 407: displayMsg("[1]Set PIN");
-	movlw	((STR_13)-__stringbase)&0ffh
+l1734:	
+;door-lock-system.c: 417: displayMsg("Already set");
+	movlw	((STR_12)-__stringbase)&0ffh
 	fcall	_displayMsg
-	line	408
+	line	418
 	
-l1699:	
-;door-lock-system.c: 408: instCtrl(0xC0);
+l1736:	
+;door-lock-system.c: 418: instCtrl(0xC0);
 	movlw	(0C0h)
 	fcall	_instCtrl
-	line	409
+	line	419
+;door-lock-system.c: 419: displayMsg("a password");
+	movlw	((STR_13)-__stringbase)&0ffh
+	fcall	_displayMsg
+	line	420
 	
-l1701:	
-;door-lock-system.c: 409: displayMsg("[2]Enter PIN");
+l1738:	
+;door-lock-system.c: 420: _delay((unsigned long)((1000)*(4000000/4000.0)));
+	opt asmopt_off
+movlw  6
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+movwf	((??_main+0)+0+2),f
+movlw	19
+movwf	((??_main+0)+0+1),f
+	movlw	177
+movwf	((??_main+0)+0),f
+u927:
+	decfsz	((??_main+0)+0),f
+	goto	u927
+	decfsz	((??_main+0)+0+1),f
+	goto	u927
+	decfsz	((??_main+0)+0+2),f
+	goto	u927
+	nop2
+opt asmopt_on
+
+	line	421
+;door-lock-system.c: 421: }
+	goto	l1750
+	line	422
+	
+l241:	
+	line	423
+	
+l1740:	
+;door-lock-system.c: 422: else {
+;door-lock-system.c: 423: instCtrl(0x01);
+	movlw	(01h)
+	fcall	_instCtrl
+	line	424
+	
+l1742:	
+;door-lock-system.c: 424: displayMsg("SET PIN:");
 	movlw	((STR_14)-__stringbase)&0ffh
 	fcall	_displayMsg
-	line	410
-;door-lock-system.c: 410: }
-	goto	l1643
-	line	411
+	line	425
 	
-l235:	
+l1744:	
+;door-lock-system.c: 425: setPass();
+	fcall	_setPass
+	line	426
+;door-lock-system.c: 426: instCtrl(0x01);
+	movlw	(01h)
+	fcall	_instCtrl
+	line	427
 	
-l1703:	
-;door-lock-system.c: 411: else if (INPUT == 0x01) {
+l1746:	
+;door-lock-system.c: 427: displayMsg("PIN SET!");
+	movlw	((STR_15)-__stringbase)&0ffh
+	fcall	_displayMsg
+	line	428
+	
+l1748:	
+;door-lock-system.c: 428: _delay((unsigned long)((1000)*(4000000/4000.0)));
+	opt asmopt_off
+movlw  6
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+movwf	((??_main+0)+0+2),f
+movlw	19
+movwf	((??_main+0)+0+1),f
+	movlw	177
+movwf	((??_main+0)+0),f
+u937:
+	decfsz	((??_main+0)+0),f
+	goto	u937
+	decfsz	((??_main+0)+0+1),f
+	goto	u937
+	decfsz	((??_main+0)+0+2),f
+	goto	u937
+	nop2
+opt asmopt_on
+
+	goto	l1750
+	line	429
+	
+l242:	
+	line	430
+	
+l1750:	
+;door-lock-system.c: 429: }
+;door-lock-system.c: 430: initLCD();
+	fcall	_initLCD
+	line	431
+	
+l1752:	
+;door-lock-system.c: 431: instCtrl(0x80);
+	movlw	(080h)
+	fcall	_instCtrl
+	line	432
+	
+l1754:	
+;door-lock-system.c: 432: displayMsg("[1]Set PIN");
+	movlw	((STR_16)-__stringbase)&0ffh
+	fcall	_displayMsg
+	line	433
+	
+l1756:	
+;door-lock-system.c: 433: instCtrl(0xC0);
+	movlw	(0C0h)
+	fcall	_instCtrl
+	line	434
+	
+l1758:	
+;door-lock-system.c: 434: displayMsg("[2]Enter PIN");
+	movlw	((STR_17)-__stringbase)&0ffh
+	fcall	_displayMsg
+	line	435
+;door-lock-system.c: 435: }
+	goto	l1674
+	line	436
+	
+l240:	
+	
+l1760:	
+;door-lock-system.c: 436: else if (INPUT == 0x01) {
 	movf	(main@INPUT),w
 	xorlw	01h
 	skipz
-	goto	u841
-	goto	u840
-u841:
-	goto	l1643
-u840:
-	line	412
+	goto	u901
+	goto	u900
+u901:
+	goto	l1674
+u900:
+	line	437
 	
-l1705:	
-;door-lock-system.c: 412: instCtrl(0x01);
+l1762:	
+;door-lock-system.c: 437: instCtrl(0x01);
 	movlw	(01h)
 	fcall	_instCtrl
-	line	413
+	line	438
 	
-l1707:	
-;door-lock-system.c: 413: displayMsg("ENTER PIN:");
-	movlw	((STR_15)-__stringbase)&0ffh
+l1764:	
+;door-lock-system.c: 438: displayMsg("ENTER PIN:");
+	movlw	((STR_18)-__stringbase)&0ffh
 	fcall	_displayMsg
-	line	414
+	line	439
 	
-l1709:	
-;door-lock-system.c: 414: enterPass();
+l1766:	
+;door-lock-system.c: 439: enterPass();
 	fcall	_enterPass
-	goto	l1643
-	line	415
+	goto	l1674
+	line	440
 	
-l239:	
-	goto	l1643
-	line	416
+l244:	
+	goto	l1674
+	line	441
 	
-l238:	
-	goto	l1643
+l243:	
+	goto	l1674
 	
-l231:	
-	goto	l1643
-	line	417
+l236:	
+	goto	l1674
+	line	442
 	
-l240:	
+l245:	
 	line	361
-	goto	l1643
+	goto	l1674
 	
-l241:	
-	line	418
+l246:	
+	line	443
 	
-l242:	
+l247:	
 	global	start
 	ljmp	start
 	opt stack 0
@@ -1549,68 +1687,68 @@ _setup:
 ; Regs used in _setup: [wreg+status,2]
 	line	321
 	
-l1587:	
+l1618:	
 ;door-lock-system.c: 321: BRGH = 1;
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	bsf	(1218/8)^080h,(1218)&7	;volatile
 	line	322
 	
-l1589:	
-;door-lock-system.c: 322: SPBRG = 25;
-	movlw	(019h)
+l1620:	
+;door-lock-system.c: 322: SPBRG = 12;
+	movlw	(0Ch)
 	movwf	(153)^080h	;volatile
 	line	323
 	
-l1591:	
+l1622:	
 ;door-lock-system.c: 323: SYNC = 0;
 	bcf	(1220/8)^080h,(1220)&7	;volatile
 	line	324
 	
-l1593:	
+l1624:	
 ;door-lock-system.c: 324: SPEN = 1;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bsf	(199/8),(199)&7	;volatile
 	line	325
 	
-l1595:	
+l1626:	
 ;door-lock-system.c: 325: TXEN = 1;
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	bsf	(1221/8)^080h,(1221)&7	;volatile
 	line	326
 	
-l1597:	
+l1628:	
 ;door-lock-system.c: 326: CREN = 1;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bsf	(196/8),(196)&7	;volatile
 	line	328
 	
-l1599:	
+l1630:	
 ;door-lock-system.c: 328: TXIF = 0;
 	bcf	(100/8),(100)&7	;volatile
 	line	329
 	
-l1601:	
+l1632:	
 ;door-lock-system.c: 329: RCIF = 0;
 	bcf	(101/8),(101)&7	;volatile
 	line	331
 	
-l1603:	
+l1634:	
 ;door-lock-system.c: 331: RCIE = 1;
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	bsf	(1125/8)^080h,(1125)&7	;volatile
 	line	332
 	
-l1605:	
+l1636:	
 ;door-lock-system.c: 332: PEIE = 1;
 	bsf	(94/8),(94)&7	;volatile
 	line	333
 	
-l1607:	
+l1638:	
 ;door-lock-system.c: 333: GIE = 1;
 	bsf	(95/8),(95)&7	;volatile
 	line	335
@@ -1619,24 +1757,24 @@ l1607:
 	movwf	(159)^080h	;volatile
 	line	337
 	
-l1609:	
+l1640:	
 ;door-lock-system.c: 337: TRISB = 0x00;
 	clrf	(134)^080h	;volatile
 	line	338
 	
-l1611:	
+l1642:	
 ;door-lock-system.c: 338: TRISD = 0xFF;
 	movlw	(0FFh)
 	movwf	(136)^080h	;volatile
 	line	339
 	
-l1613:	
+l1644:	
 ;door-lock-system.c: 339: TRISC = 0x80;
 	movlw	(080h)
 	movwf	(135)^080h	;volatile
 	line	340
 	
-l1615:	
+l1646:	
 ;door-lock-system.c: 340: PORTB = 0x00;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -1697,13 +1835,13 @@ _setPass:
 ; Regs used in _setPass: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	line	192
 	
-l1401:	
+l1432:	
 ;door-lock-system.c: 192: int i = 0;
 	clrf	(setPass@i)
 	clrf	(setPass@i+1)
 	line	195
 	
-l1403:	
+l1434:	
 ;door-lock-system.c: 193: unsigned char keyData;
 ;door-lock-system.c: 195: setpass_flag = 1;
 	bcf	status, 5	;RP0=0, select bank0
@@ -1711,7 +1849,7 @@ l1403:
 	bsf	(_setpass_flag/8),(_setpass_flag)&7
 	line	196
 ;door-lock-system.c: 196: while (i < 8) {
-	goto	l1507
+	goto	l1538
 	
 l147:	
 	line	197
@@ -1719,31 +1857,31 @@ l147:
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	btfss	(68/8),(68)&7	;volatile
-	goto	u691
-	goto	u690
-u691:
-	goto	l1507
-u690:
+	goto	u721
+	goto	u720
+u721:
+	goto	l1538
+u720:
 	line	198
 	
-l1405:	
+l1436:	
 ;door-lock-system.c: 198: _delay((unsigned long)((10)*(4000000/4000.0)));
 	opt asmopt_off
 movlw	13
 movwf	((??_setPass+0)+0+1),f
 	movlw	251
 movwf	((??_setPass+0)+0),f
-u887:
+u947:
 	decfsz	((??_setPass+0)+0),f
-	goto	u887
+	goto	u947
 	decfsz	((??_setPass+0)+0+1),f
-	goto	u887
+	goto	u947
 	nop2
 opt asmopt_on
 
 	line	199
 	
-l1407:	
+l1438:	
 ;door-lock-system.c: 199: keyData = PORTD & 0x0F;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -1754,13 +1892,13 @@ l1407:
 	movwf	(setPass@keyData)
 	line	201
 ;door-lock-system.c: 201: switch (keyData) {
-	goto	l1503
+	goto	l1534
 	line	202
 ;door-lock-system.c: 202: case 0x0: correctPIN[i++] = 1; dataCtrl('1'); break;
 	
 l150:	
 	
-l1409:	
+l1440:	
 	movf	(setPass@i),w
 	addlw	_correctPIN&0ffh
 	movwf	fsr0
@@ -1768,7 +1906,7 @@ l1409:
 	clrf	indf
 	incf	indf,f
 	
-l1411:	
+l1442:	
 	movlw	low(01h)
 	addwf	(setPass@i),f
 	skipnc
@@ -1776,7 +1914,7 @@ l1411:
 	movlw	high(01h)
 	addwf	(setPass@i+1),f
 	
-l1413:	
+l1444:	
 	movlw	(031h)
 	fcall	_dataCtrl
 	goto	l168
@@ -1785,7 +1923,7 @@ l1413:
 	
 l152:	
 	
-l1415:	
+l1446:	
 	movlw	(02h)
 	movwf	(??_setPass+0)+0
 	movf	(setPass@i),w
@@ -1795,7 +1933,7 @@ l1415:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l1417:	
+l1448:	
 	movlw	low(01h)
 	addwf	(setPass@i),f
 	skipnc
@@ -1803,7 +1941,7 @@ l1417:
 	movlw	high(01h)
 	addwf	(setPass@i+1),f
 	
-l1419:	
+l1450:	
 	movlw	(032h)
 	fcall	_dataCtrl
 	goto	l168
@@ -1812,7 +1950,7 @@ l1419:
 	
 l153:	
 	
-l1421:	
+l1452:	
 	movlw	(03h)
 	movwf	(??_setPass+0)+0
 	movf	(setPass@i),w
@@ -1822,7 +1960,7 @@ l1421:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l1423:	
+l1454:	
 	movlw	low(01h)
 	addwf	(setPass@i),f
 	skipnc
@@ -1830,7 +1968,7 @@ l1423:
 	movlw	high(01h)
 	addwf	(setPass@i+1),f
 	
-l1425:	
+l1456:	
 	movlw	(033h)
 	fcall	_dataCtrl
 	goto	l168
@@ -1839,7 +1977,7 @@ l1425:
 	
 l154:	
 	
-l1427:	
+l1458:	
 	movlw	(0Ah)
 	movwf	(??_setPass+0)+0
 	movf	(setPass@i),w
@@ -1849,7 +1987,7 @@ l1427:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l1429:	
+l1460:	
 	movlw	low(01h)
 	addwf	(setPass@i),f
 	skipnc
@@ -1857,7 +1995,7 @@ l1429:
 	movlw	high(01h)
 	addwf	(setPass@i+1),f
 	
-l1431:	
+l1462:	
 	movlw	(041h)
 	fcall	_dataCtrl
 	goto	l168
@@ -1866,7 +2004,7 @@ l1431:
 	
 l155:	
 	
-l1433:	
+l1464:	
 	movlw	(04h)
 	movwf	(??_setPass+0)+0
 	movf	(setPass@i),w
@@ -1876,7 +2014,7 @@ l1433:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l1435:	
+l1466:	
 	movlw	low(01h)
 	addwf	(setPass@i),f
 	skipnc
@@ -1884,7 +2022,7 @@ l1435:
 	movlw	high(01h)
 	addwf	(setPass@i+1),f
 	
-l1437:	
+l1468:	
 	movlw	(034h)
 	fcall	_dataCtrl
 	goto	l168
@@ -1893,7 +2031,7 @@ l1437:
 	
 l156:	
 	
-l1439:	
+l1470:	
 	movlw	(05h)
 	movwf	(??_setPass+0)+0
 	movf	(setPass@i),w
@@ -1903,7 +2041,7 @@ l1439:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l1441:	
+l1472:	
 	movlw	low(01h)
 	addwf	(setPass@i),f
 	skipnc
@@ -1911,7 +2049,7 @@ l1441:
 	movlw	high(01h)
 	addwf	(setPass@i+1),f
 	
-l1443:	
+l1474:	
 	movlw	(035h)
 	fcall	_dataCtrl
 	goto	l168
@@ -1920,7 +2058,7 @@ l1443:
 	
 l157:	
 	
-l1445:	
+l1476:	
 	movlw	(06h)
 	movwf	(??_setPass+0)+0
 	movf	(setPass@i),w
@@ -1930,7 +2068,7 @@ l1445:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l1447:	
+l1478:	
 	movlw	low(01h)
 	addwf	(setPass@i),f
 	skipnc
@@ -1938,7 +2076,7 @@ l1447:
 	movlw	high(01h)
 	addwf	(setPass@i+1),f
 	
-l1449:	
+l1480:	
 	movlw	(036h)
 	fcall	_dataCtrl
 	goto	l168
@@ -1947,7 +2085,7 @@ l1449:
 	
 l158:	
 	
-l1451:	
+l1482:	
 	movlw	(0Bh)
 	movwf	(??_setPass+0)+0
 	movf	(setPass@i),w
@@ -1957,7 +2095,7 @@ l1451:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l1453:	
+l1484:	
 	movlw	low(01h)
 	addwf	(setPass@i),f
 	skipnc
@@ -1965,7 +2103,7 @@ l1453:
 	movlw	high(01h)
 	addwf	(setPass@i+1),f
 	
-l1455:	
+l1486:	
 	movlw	(042h)
 	fcall	_dataCtrl
 	goto	l168
@@ -1974,7 +2112,7 @@ l1455:
 	
 l159:	
 	
-l1457:	
+l1488:	
 	movlw	(07h)
 	movwf	(??_setPass+0)+0
 	movf	(setPass@i),w
@@ -1984,7 +2122,7 @@ l1457:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l1459:	
+l1490:	
 	movlw	low(01h)
 	addwf	(setPass@i),f
 	skipnc
@@ -1992,7 +2130,7 @@ l1459:
 	movlw	high(01h)
 	addwf	(setPass@i+1),f
 	
-l1461:	
+l1492:	
 	movlw	(037h)
 	fcall	_dataCtrl
 	goto	l168
@@ -2001,7 +2139,7 @@ l1461:
 	
 l160:	
 	
-l1463:	
+l1494:	
 	movlw	(08h)
 	movwf	(??_setPass+0)+0
 	movf	(setPass@i),w
@@ -2011,7 +2149,7 @@ l1463:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l1465:	
+l1496:	
 	movlw	low(01h)
 	addwf	(setPass@i),f
 	skipnc
@@ -2019,7 +2157,7 @@ l1465:
 	movlw	high(01h)
 	addwf	(setPass@i+1),f
 	
-l1467:	
+l1498:	
 	movlw	(038h)
 	fcall	_dataCtrl
 	goto	l168
@@ -2028,7 +2166,7 @@ l1467:
 	
 l161:	
 	
-l1469:	
+l1500:	
 	movlw	(09h)
 	movwf	(??_setPass+0)+0
 	movf	(setPass@i),w
@@ -2038,7 +2176,7 @@ l1469:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l1471:	
+l1502:	
 	movlw	low(01h)
 	addwf	(setPass@i),f
 	skipnc
@@ -2046,7 +2184,7 @@ l1471:
 	movlw	high(01h)
 	addwf	(setPass@i+1),f
 	
-l1473:	
+l1504:	
 	movlw	(039h)
 	fcall	_dataCtrl
 	goto	l168
@@ -2055,7 +2193,7 @@ l1473:
 	
 l162:	
 	
-l1475:	
+l1506:	
 	movlw	(0Ch)
 	movwf	(??_setPass+0)+0
 	movf	(setPass@i),w
@@ -2065,7 +2203,7 @@ l1475:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l1477:	
+l1508:	
 	movlw	low(01h)
 	addwf	(setPass@i),f
 	skipnc
@@ -2073,7 +2211,7 @@ l1477:
 	movlw	high(01h)
 	addwf	(setPass@i+1),f
 	
-l1479:	
+l1510:	
 	movlw	(043h)
 	fcall	_dataCtrl
 	goto	l168
@@ -2082,7 +2220,7 @@ l1479:
 	
 l163:	
 	
-l1481:	
+l1512:	
 	movlw	(0Eh)
 	movwf	(??_setPass+0)+0
 	movf	(setPass@i),w
@@ -2092,7 +2230,7 @@ l1481:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l1483:	
+l1514:	
 	movlw	low(01h)
 	addwf	(setPass@i),f
 	skipnc
@@ -2100,7 +2238,7 @@ l1483:
 	movlw	high(01h)
 	addwf	(setPass@i+1),f
 	
-l1485:	
+l1516:	
 	movlw	(02Ah)
 	fcall	_dataCtrl
 	goto	l168
@@ -2109,14 +2247,14 @@ l1485:
 	
 l164:	
 	
-l1487:	
+l1518:	
 	movf	(setPass@i),w
 	addlw	_correctPIN&0ffh
 	movwf	fsr0
 	bcf	status, 7	;select IRP bank0
 	clrf	indf
 	
-l1489:	
+l1520:	
 	movlw	low(01h)
 	addwf	(setPass@i),f
 	skipnc
@@ -2124,7 +2262,7 @@ l1489:
 	movlw	high(01h)
 	addwf	(setPass@i+1),f
 	
-l1491:	
+l1522:	
 	movlw	(030h)
 	fcall	_dataCtrl
 	goto	l168
@@ -2133,7 +2271,7 @@ l1491:
 	
 l165:	
 	
-l1493:	
+l1524:	
 	movlw	low(08h)
 	movwf	(setPass@i)
 	movlw	high(08h)
@@ -2144,7 +2282,7 @@ l1493:
 	
 l166:	
 	
-l1495:	
+l1526:	
 	movlw	(0Dh)
 	movwf	(??_setPass+0)+0
 	movf	(setPass@i),w
@@ -2154,7 +2292,7 @@ l1495:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l1497:	
+l1528:	
 	movlw	low(01h)
 	addwf	(setPass@i),f
 	skipnc
@@ -2162,7 +2300,7 @@ l1497:
 	movlw	high(01h)
 	addwf	(setPass@i+1),f
 	
-l1499:	
+l1530:	
 	movlw	(044h)
 	fcall	_dataCtrl
 	goto	l168
@@ -2173,14 +2311,14 @@ l167:
 	goto	l168
 	line	223
 	
-l1501:	
+l1532:	
 ;door-lock-system.c: 223: }
 	goto	l168
 	line	201
 	
 l149:	
 	
-l1503:	
+l1534:	
 	movf	(setPass@keyData),w
 	; Switch size 1, requested type "space"
 ; Number of cases is 16, Range of values is 0 to 15
@@ -2194,52 +2332,52 @@ l1503:
 	opt asmopt_off
 	xorlw	0^0	; case 0
 	skipnz
-	goto	l1409
+	goto	l1440
 	xorlw	1^0	; case 1
 	skipnz
-	goto	l1415
+	goto	l1446
 	xorlw	2^1	; case 2
 	skipnz
-	goto	l1421
+	goto	l1452
 	xorlw	3^2	; case 3
 	skipnz
-	goto	l1427
+	goto	l1458
 	xorlw	4^3	; case 4
 	skipnz
-	goto	l1433
+	goto	l1464
 	xorlw	5^4	; case 5
 	skipnz
-	goto	l1439
+	goto	l1470
 	xorlw	6^5	; case 6
 	skipnz
-	goto	l1445
+	goto	l1476
 	xorlw	7^6	; case 7
 	skipnz
-	goto	l1451
+	goto	l1482
 	xorlw	8^7	; case 8
 	skipnz
-	goto	l1457
+	goto	l1488
 	xorlw	9^8	; case 9
 	skipnz
-	goto	l1463
+	goto	l1494
 	xorlw	10^9	; case 10
 	skipnz
-	goto	l1469
+	goto	l1500
 	xorlw	11^10	; case 11
 	skipnz
-	goto	l1475
+	goto	l1506
 	xorlw	12^11	; case 12
 	skipnz
-	goto	l1481
+	goto	l1512
 	xorlw	13^12	; case 13
 	skipnz
-	goto	l1487
+	goto	l1518
 	xorlw	14^13	; case 14
 	skipnz
-	goto	l1493
+	goto	l1524
 	xorlw	15^14	; case 15
 	skipnz
-	goto	l1495
+	goto	l1526
 	goto	l168
 	opt asmopt_on
 
@@ -2256,59 +2394,59 @@ l168:
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	btfsc	(68/8),(68)&7	;volatile
-	goto	u701
-	goto	u700
-u701:
+	goto	u731
+	goto	u730
+u731:
 	goto	l168
-u700:
-	goto	l1505
+u730:
+	goto	l1536
 	
 l170:	
 	line	225
 	
-l1505:	
+l1536:	
 ;door-lock-system.c: 225: _delay((unsigned long)((50)*(4000000/4000.0)));
 	opt asmopt_off
 movlw	65
 movwf	((??_setPass+0)+0+1),f
 	movlw	238
 movwf	((??_setPass+0)+0),f
-u897:
+u957:
 	decfsz	((??_setPass+0)+0),f
-	goto	u897
+	goto	u957
 	decfsz	((??_setPass+0)+0+1),f
-	goto	u897
+	goto	u957
 	nop
 opt asmopt_on
 
-	goto	l1507
+	goto	l1538
 	line	226
 	
 l148:	
-	goto	l1507
+	goto	l1538
 	line	227
 	
 l146:	
 	line	196
 	
-l1507:	
+l1538:	
 	movf	(setPass@i+1),w
 	xorlw	80h
 	movwf	btemp+1
 	movlw	(high(08h))^80h
 	subwf	btemp+1,w
 	skipz
-	goto	u715
+	goto	u745
 	movlw	low(08h)
 	subwf	(setPass@i),w
-u715:
+u745:
 
 	skipc
-	goto	u711
-	goto	u710
-u711:
+	goto	u741
+	goto	u740
+u741:
 	goto	l147
-u710:
+u740:
 	goto	l172
 	
 l171:	
@@ -2367,7 +2505,7 @@ _initialize:
 ; Regs used in _initialize: [wreg+status,2+status,0+pclath+cstack]
 	line	56
 	
-l1389:	
+l1420:	
 ;door-lock-system.c: 56: TRISC2 = 0;
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
@@ -2412,7 +2550,7 @@ l1389:
 	bsf	(7),6	;volatile
 	line	77
 	
-l1391:	
+l1422:	
 ;door-lock-system.c: 77: _delay((unsigned long)((300)*(4000000/4000.0)));
 	opt asmopt_off
 movlw  2
@@ -2421,30 +2559,30 @@ movlw	134
 movwf	((??_initialize+0)+0+1),f
 	movlw	153
 movwf	((??_initialize+0)+0),f
-u907:
+u967:
 	decfsz	((??_initialize+0)+0),f
-	goto	u907
+	goto	u967
 	decfsz	((??_initialize+0)+0+1),f
-	goto	u907
+	goto	u967
 	decfsz	((??_initialize+0)+0+2),f
-	goto	u907
+	goto	u967
 opt asmopt_on
 
 	line	78
 	
-l1393:	
+l1424:	
 ;door-lock-system.c: 78: PORTCbits.RC4 = 0;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bcf	(7),4	;volatile
 	line	79
 	
-l1395:	
+l1426:	
 ;door-lock-system.c: 79: PORTCbits.RC5 = 0;
 	bcf	(7),5	;volatile
 	line	80
 	
-l1397:	
+l1428:	
 ;door-lock-system.c: 80: PORTCbits.RC6 = 0;
 	bcf	(7),6	;volatile
 	line	81
@@ -2456,13 +2594,13 @@ movlw	134
 movwf	((??_initialize+0)+0+1),f
 	movlw	153
 movwf	((??_initialize+0)+0),f
-u917:
+u977:
 	decfsz	((??_initialize+0)+0),f
-	goto	u917
+	goto	u977
 	decfsz	((??_initialize+0)+0+1),f
-	goto	u917
+	goto	u977
 	decfsz	((??_initialize+0)+0+2),f
-	goto	u917
+	goto	u977
 opt asmopt_on
 
 	line	84
@@ -2490,19 +2628,19 @@ movlw	138
 movwf	((??_initialize+0)+0+1),f
 	movlw	86
 movwf	((??_initialize+0)+0),f
-u927:
+u987:
 	decfsz	((??_initialize+0)+0),f
-	goto	u927
+	goto	u987
 	decfsz	((??_initialize+0)+0+1),f
-	goto	u927
+	goto	u987
 	decfsz	((??_initialize+0)+0+2),f
-	goto	u927
+	goto	u987
 	nop2
 opt asmopt_on
 
 	line	96
 	
-l1399:	
+l1430:	
 ;door-lock-system.c: 96: setServoPosition(138);
 	movlw	(08Ah)
 	fcall	_setServoPosition
@@ -2563,7 +2701,7 @@ _enterPass:
 ; Regs used in _enterPass: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	line	292
 	
-l1509:	
+l1540:	
 ;door-lock-system.c: 292: int j = 0;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -2572,7 +2710,7 @@ l1509:
 	line	294
 ;door-lock-system.c: 293: unsigned char keyData;
 ;door-lock-system.c: 294: while (j < 8) {
-	goto	l1583
+	goto	l1614
 	
 l198:	
 	line	295
@@ -2580,31 +2718,31 @@ l198:
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	btfss	(68/8),(68)&7	;volatile
-	goto	u721
-	goto	u720
-u721:
-	goto	l1583
-u720:
+	goto	u751
+	goto	u750
+u751:
+	goto	l1614
+u750:
 	line	296
 	
-l1511:	
+l1542:	
 ;door-lock-system.c: 296: _delay((unsigned long)((10)*(4000000/4000.0)));
 	opt asmopt_off
 movlw	13
 movwf	((??_enterPass+0)+0+1),f
 	movlw	251
 movwf	((??_enterPass+0)+0),f
-u937:
+u997:
 	decfsz	((??_enterPass+0)+0),f
-	goto	u937
+	goto	u997
 	decfsz	((??_enterPass+0)+0+1),f
-	goto	u937
+	goto	u997
 	nop2
 opt asmopt_on
 
 	line	297
 	
-l1513:	
+l1544:	
 ;door-lock-system.c: 297: keyData = PORTD & 0x0F;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -2615,13 +2753,13 @@ l1513:
 	movwf	(enterPass@keyData)
 	line	299
 ;door-lock-system.c: 299: switch (keyData) {
-	goto	l1579
+	goto	l1610
 	line	300
 ;door-lock-system.c: 300: case 0x0: PIN[j++] = 1; dataCtrl('*'); break;
 	
 l201:	
 	
-l1515:	
+l1546:	
 	movf	(enterPass@j),w
 	addlw	_PIN&0ffh
 	movwf	fsr0
@@ -2629,7 +2767,7 @@ l1515:
 	clrf	indf
 	incf	indf,f
 	
-l1517:	
+l1548:	
 	movlw	low(01h)
 	addwf	(enterPass@j),f
 	skipnc
@@ -2637,7 +2775,7 @@ l1517:
 	movlw	high(01h)
 	addwf	(enterPass@j+1),f
 	
-l1519:	
+l1550:	
 	movlw	(02Ah)
 	fcall	_dataCtrl
 	goto	l214
@@ -2646,7 +2784,7 @@ l1519:
 	
 l203:	
 	
-l1521:	
+l1552:	
 	movlw	(02h)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -2658,7 +2796,7 @@ l1521:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l1523:	
+l1554:	
 	movlw	low(01h)
 	addwf	(enterPass@j),f
 	skipnc
@@ -2666,7 +2804,7 @@ l1523:
 	movlw	high(01h)
 	addwf	(enterPass@j+1),f
 	
-l1525:	
+l1556:	
 	movlw	(02Ah)
 	fcall	_dataCtrl
 	goto	l214
@@ -2675,7 +2813,7 @@ l1525:
 	
 l204:	
 	
-l1527:	
+l1558:	
 	movlw	(03h)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -2687,7 +2825,7 @@ l1527:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l1529:	
+l1560:	
 	movlw	low(01h)
 	addwf	(enterPass@j),f
 	skipnc
@@ -2695,7 +2833,7 @@ l1529:
 	movlw	high(01h)
 	addwf	(enterPass@j+1),f
 	
-l1531:	
+l1562:	
 	movlw	(02Ah)
 	fcall	_dataCtrl
 	goto	l214
@@ -2704,7 +2842,7 @@ l1531:
 	
 l205:	
 	
-l1533:	
+l1564:	
 	movlw	(04h)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -2716,7 +2854,7 @@ l1533:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l1535:	
+l1566:	
 	movlw	low(01h)
 	addwf	(enterPass@j),f
 	skipnc
@@ -2724,7 +2862,7 @@ l1535:
 	movlw	high(01h)
 	addwf	(enterPass@j+1),f
 	
-l1537:	
+l1568:	
 	movlw	(02Ah)
 	fcall	_dataCtrl
 	goto	l214
@@ -2733,7 +2871,7 @@ l1537:
 	
 l206:	
 	
-l1539:	
+l1570:	
 	movlw	(05h)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -2745,7 +2883,7 @@ l1539:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l1541:	
+l1572:	
 	movlw	low(01h)
 	addwf	(enterPass@j),f
 	skipnc
@@ -2753,7 +2891,7 @@ l1541:
 	movlw	high(01h)
 	addwf	(enterPass@j+1),f
 	
-l1543:	
+l1574:	
 	movlw	(02Ah)
 	fcall	_dataCtrl
 	goto	l214
@@ -2762,7 +2900,7 @@ l1543:
 	
 l207:	
 	
-l1545:	
+l1576:	
 	movlw	(06h)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -2774,7 +2912,7 @@ l1545:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l1547:	
+l1578:	
 	movlw	low(01h)
 	addwf	(enterPass@j),f
 	skipnc
@@ -2782,7 +2920,7 @@ l1547:
 	movlw	high(01h)
 	addwf	(enterPass@j+1),f
 	
-l1549:	
+l1580:	
 	movlw	(02Ah)
 	fcall	_dataCtrl
 	goto	l214
@@ -2791,7 +2929,7 @@ l1549:
 	
 l208:	
 	
-l1551:	
+l1582:	
 	movlw	(07h)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -2803,7 +2941,7 @@ l1551:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l1553:	
+l1584:	
 	movlw	low(01h)
 	addwf	(enterPass@j),f
 	skipnc
@@ -2811,7 +2949,7 @@ l1553:
 	movlw	high(01h)
 	addwf	(enterPass@j+1),f
 	
-l1555:	
+l1586:	
 	movlw	(02Ah)
 	fcall	_dataCtrl
 	goto	l214
@@ -2820,7 +2958,7 @@ l1555:
 	
 l209:	
 	
-l1557:	
+l1588:	
 	movlw	(08h)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -2832,7 +2970,7 @@ l1557:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l1559:	
+l1590:	
 	movlw	low(01h)
 	addwf	(enterPass@j),f
 	skipnc
@@ -2840,7 +2978,7 @@ l1559:
 	movlw	high(01h)
 	addwf	(enterPass@j+1),f
 	
-l1561:	
+l1592:	
 	movlw	(02Ah)
 	fcall	_dataCtrl
 	goto	l214
@@ -2849,7 +2987,7 @@ l1561:
 	
 l210:	
 	
-l1563:	
+l1594:	
 	movlw	(09h)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -2861,7 +2999,7 @@ l1563:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l1565:	
+l1596:	
 	movlw	low(01h)
 	addwf	(enterPass@j),f
 	skipnc
@@ -2869,7 +3007,7 @@ l1565:
 	movlw	high(01h)
 	addwf	(enterPass@j+1),f
 	
-l1567:	
+l1598:	
 	movlw	(02Ah)
 	fcall	_dataCtrl
 	goto	l214
@@ -2878,7 +3016,7 @@ l1567:
 	
 l211:	
 	
-l1569:	
+l1600:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(enterPass@j),w
@@ -2887,7 +3025,7 @@ l1569:
 	bcf	status, 7	;select IRP bank0
 	clrf	indf
 	
-l1571:	
+l1602:	
 	movlw	low(01h)
 	addwf	(enterPass@j),f
 	skipnc
@@ -2895,7 +3033,7 @@ l1571:
 	movlw	high(01h)
 	addwf	(enterPass@j+1),f
 	
-l1573:	
+l1604:	
 	movlw	(02Ah)
 	fcall	_dataCtrl
 	goto	l214
@@ -2904,7 +3042,7 @@ l1573:
 	
 l212:	
 	
-l1575:	
+l1606:	
 	movlw	low(08h)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -2919,14 +3057,14 @@ l213:
 	goto	l214
 	line	312
 	
-l1577:	
+l1608:	
 ;door-lock-system.c: 312: }
 	goto	l214
 	line	299
 	
 l200:	
 	
-l1579:	
+l1610:	
 	movf	(enterPass@keyData),w
 	; Switch size 1, requested type "space"
 ; Number of cases is 11, Range of values is 0 to 14
@@ -2940,37 +3078,37 @@ l1579:
 	opt asmopt_off
 	xorlw	0^0	; case 0
 	skipnz
-	goto	l1515
+	goto	l1546
 	xorlw	1^0	; case 1
 	skipnz
-	goto	l1521
+	goto	l1552
 	xorlw	2^1	; case 2
 	skipnz
-	goto	l1527
+	goto	l1558
 	xorlw	4^2	; case 4
 	skipnz
-	goto	l1533
+	goto	l1564
 	xorlw	5^4	; case 5
 	skipnz
-	goto	l1539
+	goto	l1570
 	xorlw	6^5	; case 6
 	skipnz
-	goto	l1545
+	goto	l1576
 	xorlw	8^6	; case 8
 	skipnz
-	goto	l1551
+	goto	l1582
 	xorlw	9^8	; case 9
 	skipnz
-	goto	l1557
+	goto	l1588
 	xorlw	10^9	; case 10
 	skipnz
-	goto	l1563
+	goto	l1594
 	xorlw	13^10	; case 13
 	skipnz
-	goto	l1569
+	goto	l1600
 	xorlw	14^13	; case 14
 	skipnz
-	goto	l1575
+	goto	l1606
 	goto	l214
 	opt asmopt_on
 
@@ -2987,42 +3125,42 @@ l214:
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	btfsc	(68/8),(68)&7	;volatile
-	goto	u731
-	goto	u730
-u731:
+	goto	u761
+	goto	u760
+u761:
 	goto	l214
-u730:
-	goto	l1581
+u760:
+	goto	l1612
 	
 l216:	
 	line	314
 	
-l1581:	
+l1612:	
 ;door-lock-system.c: 314: _delay((unsigned long)((50)*(4000000/4000.0)));
 	opt asmopt_off
 movlw	65
 movwf	((??_enterPass+0)+0+1),f
 	movlw	238
 movwf	((??_enterPass+0)+0),f
-u947:
+u1007:
 	decfsz	((??_enterPass+0)+0),f
-	goto	u947
+	goto	u1007
 	decfsz	((??_enterPass+0)+0+1),f
-	goto	u947
+	goto	u1007
 	nop
 opt asmopt_on
 
-	goto	l1583
+	goto	l1614
 	line	315
 	
 l199:	
-	goto	l1583
+	goto	l1614
 	line	316
 	
 l197:	
 	line	294
 	
-l1583:	
+l1614:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(enterPass@j+1),w
@@ -3031,23 +3169,23 @@ l1583:
 	movlw	(high(08h))^80h
 	subwf	btemp+1,w
 	skipz
-	goto	u745
+	goto	u775
 	movlw	low(08h)
 	subwf	(enterPass@j),w
-u745:
+u775:
 
 	skipc
-	goto	u741
-	goto	u740
-u741:
+	goto	u771
+	goto	u770
+u771:
 	goto	l198
-u740:
-	goto	l1585
+u770:
+	goto	l1616
 	
 l217:	
 	line	317
 	
-l1585:	
+l1616:	
 ;door-lock-system.c: 315: }
 ;door-lock-system.c: 316: }
 ;door-lock-system.c: 317: verifyPIN();
@@ -3113,7 +3251,7 @@ _verifyPIN:
 ; Regs used in _verifyPIN: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	line	239
 	
-l1323:	
+l1354:	
 ;door-lock-system.c: 239: int match = 1;
 	movlw	low(01h)
 	bcf	status, 5	;RP0=0, select bank0
@@ -3123,38 +3261,38 @@ l1323:
 	movwf	((verifyPIN@match))+1
 	line	240
 	
-l1325:	
+l1356:	
 ;door-lock-system.c: 240: for (int i = 0; i < 8; i++) {
 	clrf	(verifyPIN@i)
 	clrf	(verifyPIN@i+1)
 	
-l1327:	
+l1358:	
 	movf	(verifyPIN@i+1),w
 	xorlw	80h
 	movwf	btemp+1
 	movlw	(high(08h))^80h
 	subwf	btemp+1,w
 	skipz
-	goto	u615
+	goto	u645
 	movlw	low(08h)
 	subwf	(verifyPIN@i),w
-u615:
+u645:
 
 	skipc
-	goto	u611
-	goto	u610
-u611:
-	goto	l1331
-u610:
-	goto	l1339
+	goto	u641
+	goto	u640
+u641:
+	goto	l1362
+u640:
+	goto	l1370
 	
-l1329:	
-	goto	l1339
+l1360:	
+	goto	l1370
 	
 l181:	
 	line	241
 	
-l1331:	
+l1362:	
 ;door-lock-system.c: 241: if (correctPIN[i] != PIN[i]) {
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -3170,26 +3308,26 @@ l1331:
 	movf	indf,w
 	xorwf	(??_verifyPIN+0)+0,w
 	skipnz
-	goto	u621
-	goto	u620
-u621:
-	goto	l1335
-u620:
+	goto	u651
+	goto	u650
+u651:
+	goto	l1366
+u650:
 	line	242
 	
-l1333:	
+l1364:	
 ;door-lock-system.c: 242: match = 0;
 	clrf	(verifyPIN@match)
 	clrf	(verifyPIN@match+1)
 	line	243
 ;door-lock-system.c: 243: break;
-	goto	l1339
+	goto	l1370
 	line	244
 	
 l183:	
 	line	240
 	
-l1335:	
+l1366:	
 	movlw	low(01h)
 	addwf	(verifyPIN@i),f
 	skipnc
@@ -3197,30 +3335,30 @@ l1335:
 	movlw	high(01h)
 	addwf	(verifyPIN@i+1),f
 	
-l1337:	
+l1368:	
 	movf	(verifyPIN@i+1),w
 	xorlw	80h
 	movwf	btemp+1
 	movlw	(high(08h))^80h
 	subwf	btemp+1,w
 	skipz
-	goto	u635
+	goto	u665
 	movlw	low(08h)
 	subwf	(verifyPIN@i),w
-u635:
+u665:
 
 	skipc
-	goto	u631
-	goto	u630
-u631:
-	goto	l1331
-u630:
-	goto	l1339
+	goto	u661
+	goto	u660
+u661:
+	goto	l1362
+u660:
+	goto	l1370
 	
 l182:	
 	line	247
 	
-l1339:	
+l1370:	
 ;door-lock-system.c: 244: }
 ;door-lock-system.c: 245: }
 ;door-lock-system.c: 247: if (match) {
@@ -3229,59 +3367,59 @@ l1339:
 	movf	(verifyPIN@match+1),w
 	iorwf	(verifyPIN@match),w
 	skipnz
-	goto	u641
-	goto	u640
-u641:
-	goto	l1367
-u640:
+	goto	u671
+	goto	u670
+u671:
+	goto	l1398
+u670:
 	line	248
 	
-l1341:	
+l1372:	
 ;door-lock-system.c: 248: instCtrl(0x01);
 	movlw	(01h)
 	fcall	_instCtrl
 	line	249
 	
-l1343:	
+l1374:	
 ;door-lock-system.c: 249: displayMsg("VALID PIN");
 	movlw	((STR_1)-__stringbase)&0ffh
 	fcall	_displayMsg
 	line	250
 	
-l1345:	
+l1376:	
 ;door-lock-system.c: 250: invalid_flag = 0;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bcf	(_invalid_flag/8),(_invalid_flag)&7
 	line	253
 	
-l1347:	
+l1378:	
 ;door-lock-system.c: 253: setServoCounterClockwise();
 	fcall	_setServoCounterClockwise
 	line	255
 	
-l1349:	
+l1380:	
 ;door-lock-system.c: 255: if(RCIF){
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	btfss	(101/8),(101)&7	;volatile
-	goto	u651
-	goto	u650
-u651:
-	goto	l1353
-u650:
+	goto	u681
+	goto	u680
+u681:
+	goto	l1384
+u680:
 	line	256
 	
-l1351:	
+l1382:	
 ;door-lock-system.c: 256: setServoClockwise();
 	fcall	_setServoClockwise
-	goto	l1353
+	goto	l1384
 	line	257
 	
 l185:	
 	line	258
 	
-l1353:	
+l1384:	
 ;door-lock-system.c: 257: }
 ;door-lock-system.c: 258: _delay((unsigned long)((15000)*(4000000/4000.0)));
 	opt asmopt_off
@@ -3293,47 +3431,47 @@ movlw	25
 movwf	((??_verifyPIN+0)+0+1),f
 	movlw	154
 movwf	((??_verifyPIN+0)+0),f
-u957:
+u1017:
 	decfsz	((??_verifyPIN+0)+0),f
-	goto	u957
+	goto	u1017
 	decfsz	((??_verifyPIN+0)+0+1),f
-	goto	u957
+	goto	u1017
 	decfsz	((??_verifyPIN+0)+0+2),f
-	goto	u957
+	goto	u1017
 	nop2
 opt asmopt_on
 
 	line	260
 	
-l1355:	
+l1386:	
 ;door-lock-system.c: 260: setServoClockwise();
 	fcall	_setServoClockwise
 	line	262
 	
-l1357:	
+l1388:	
 ;door-lock-system.c: 262: initLCD();
 	fcall	_initLCD
 	line	263
 	
-l1359:	
+l1390:	
 ;door-lock-system.c: 263: instCtrl(0x80);
 	movlw	(080h)
 	fcall	_instCtrl
 	line	264
 	
-l1361:	
+l1392:	
 ;door-lock-system.c: 264: displayMsg("[1]Set PIN");
 	movlw	((STR_2)-__stringbase)&0ffh
 	fcall	_displayMsg
 	line	265
 	
-l1363:	
+l1394:	
 ;door-lock-system.c: 265: instCtrl(0xC0);
 	movlw	(0C0h)
 	fcall	_instCtrl
 	line	266
 	
-l1365:	
+l1396:	
 ;door-lock-system.c: 266: displayMsg("[2]Enter PIN");
 	movlw	((STR_3)-__stringbase)&0ffh
 	fcall	_displayMsg
@@ -3344,7 +3482,7 @@ l1365:
 l184:	
 	line	268
 	
-l1367:	
+l1398:	
 ;door-lock-system.c: 268: trial--;
 	movlw	low(-1)
 	bcf	status, 5	;RP0=0, select bank0
@@ -3356,50 +3494,50 @@ l1367:
 	addwf	(_trial+1),f
 	line	269
 	
-l1369:	
+l1400:	
 ;door-lock-system.c: 269: instCtrl(0x01);
 	movlw	(01h)
 	fcall	_instCtrl
 	line	270
 	
-l1371:	
+l1402:	
 ;door-lock-system.c: 270: displayMsg("INVALID PIN!");
 	movlw	((STR_4)-__stringbase)&0ffh
 	fcall	_displayMsg
 	line	271
 	
-l1373:	
+l1404:	
 ;door-lock-system.c: 271: invalid_flag = 1;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bsf	(_invalid_flag/8),(_invalid_flag)&7
 	line	274
 	
-l1375:	
+l1406:	
 ;door-lock-system.c: 274: if (trial == 0) {
 	movf	((_trial+1)),w
 	iorwf	((_trial)),w
 	skipz
-	goto	u661
-	goto	u660
-u661:
+	goto	u691
+	goto	u690
+u691:
 	goto	l194
-u660:
+u690:
 	line	275
 	
-l1377:	
+l1408:	
 ;door-lock-system.c: 275: instCtrl(0x01);
 	movlw	(01h)
 	fcall	_instCtrl
 	line	276
 	
-l1379:	
+l1410:	
 ;door-lock-system.c: 276: displayMsg("NO TRIALS LEFT");
 	movlw	((STR_5)-__stringbase)&0ffh
 	fcall	_displayMsg
 	line	277
 	
-l1381:	
+l1412:	
 ;door-lock-system.c: 277: _delay((unsigned long)((1000)*(4000000/4000.0)));
 	opt asmopt_off
 movlw  6
@@ -3410,13 +3548,13 @@ movlw	19
 movwf	((??_verifyPIN+0)+0+1),f
 	movlw	177
 movwf	((??_verifyPIN+0)+0),f
-u967:
+u1027:
 	decfsz	((??_verifyPIN+0)+0),f
-	goto	u967
+	goto	u1027
 	decfsz	((??_verifyPIN+0)+0+1),f
-	goto	u967
+	goto	u1027
 	decfsz	((??_verifyPIN+0)+0+2),f
-	goto	u967
+	goto	u1027
 	nop2
 opt asmopt_on
 
@@ -3430,17 +3568,17 @@ l188:
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	btfss	(100/8),(100)&7	;volatile
-	goto	u671
-	goto	u670
-u671:
+	goto	u701
+	goto	u700
+u701:
 	goto	l188
-u670:
-	goto	l1383
+u700:
+	goto	l1414
 	
 l190:	
 	line	280
 	
-l1383:	
+l1414:	
 ;door-lock-system.c: 280: TXREG = '1';
 	movlw	(031h)
 	movwf	(25)	;volatile
@@ -3451,11 +3589,11 @@ movlw	3
 movwf	((??_verifyPIN+0)+0+1),f
 	movlw	151
 movwf	((??_verifyPIN+0)+0),f
-u977:
+u1037:
 	decfsz	((??_verifyPIN+0)+0),f
-	goto	u977
+	goto	u1037
 	decfsz	((??_verifyPIN+0)+0+1),f
-	goto	u977
+	goto	u1037
 	nop2
 opt asmopt_on
 
@@ -3469,17 +3607,17 @@ l191:
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	btfss	(100/8),(100)&7	;volatile
-	goto	u681
-	goto	u680
-u681:
+	goto	u711
+	goto	u710
+u711:
 	goto	l191
-u680:
-	goto	l1385
+u710:
+	goto	l1416
 	
 l193:	
 	line	283
 	
-l1385:	
+l1416:	
 ;door-lock-system.c: 283: TXREG = '\n';
 	movlw	(0Ah)
 	movwf	(25)	;volatile
@@ -3490,17 +3628,17 @@ movlw	3
 movwf	((??_verifyPIN+0)+0+1),f
 	movlw	151
 movwf	((??_verifyPIN+0)+0),f
-u987:
+u1047:
 	decfsz	((??_verifyPIN+0)+0),f
-	goto	u987
+	goto	u1047
 	decfsz	((??_verifyPIN+0)+0+1),f
-	goto	u987
+	goto	u1047
 	nop2
 opt asmopt_on
 
 	line	286
 	
-l1387:	
+l1418:	
 ;door-lock-system.c: 286: locked();
 	fcall	_locked
 	goto	l194
@@ -3567,7 +3705,7 @@ _setServoCounterClockwise:
 ; Regs used in _setServoCounterClockwise: [wreg+status,2+status,0+pclath+cstack]
 	line	146
 	
-l1311:	
+l1342:	
 ;door-lock-system.c: 146: moveToPosition(SERVO_MAX_POS);
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -3629,7 +3767,7 @@ _setServoClockwise:
 ; Regs used in _setServoClockwise: [wreg+status,2+status,0+pclath+cstack]
 	line	142
 	
-l1309:	
+l1340:	
 ;door-lock-system.c: 142: moveToPosition(SERVO_MIN_POS);
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -3697,7 +3835,7 @@ _moveToPosition:
 	movwf	(moveToPosition@position)
 	line	118
 	
-l1253:	
+l1284:	
 ;door-lock-system.c: 118: if (position > currentPosition + 2 || position < currentPosition - 2) {
 	movf	(_currentPosition),w
 	addlw	low(02h)
@@ -3712,19 +3850,19 @@ l1253:
 	movlw	80h
 	subwf	(??_moveToPosition+2)+0,w
 	skipz
-	goto	u545
+	goto	u575
 	movf	(moveToPosition@position),w
 	subwf	0+(??_moveToPosition+0)+0,w
-u545:
+u575:
 
 	skipc
-	goto	u541
-	goto	u540
-u541:
-	goto	l1257
-u540:
+	goto	u571
+	goto	u570
+u571:
+	goto	l1288
+u570:
 	
-l1255:	
+l1286:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(_currentPosition),w
@@ -3738,54 +3876,54 @@ l1255:
 	xorlw	80h
 	sublw	080h
 	skipz
-	goto	u555
+	goto	u585
 	movf	0+(??_moveToPosition+0)+0,w
 	subwf	(moveToPosition@position),w
-u555:
+u585:
 
 	skipnc
-	goto	u551
-	goto	u550
-u551:
+	goto	u581
+	goto	u580
+u581:
 	goto	l115
-u550:
-	goto	l1257
+u580:
+	goto	l1288
 	
 l105:	
 	line	120
 	
-l1257:	
+l1288:	
 ;door-lock-system.c: 120: if(position > currentPosition) {
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(moveToPosition@position),w
 	subwf	(_currentPosition),w
 	skipnc
-	goto	u561
-	goto	u560
-u561:
-	goto	l1269
-u560:
+	goto	u591
+	goto	u590
+u591:
+	goto	l1300
+u590:
 	line	122
 	
-l1259:	
+l1290:	
 ;door-lock-system.c: 122: for(uint8_t pos = currentPosition; pos < position; pos += 3) {
 	movf	(_currentPosition),w
 	movwf	(??_moveToPosition+0)+0
 	movf	(??_moveToPosition+0)+0,w
 	movwf	(moveToPosition@pos)
-	goto	l1267
+	goto	l1298
 	
 l108:	
 	line	123
 	
-l1261:	
+l1292:	
 ;door-lock-system.c: 123: setServoPosition(pos);
 	movf	(moveToPosition@pos),w
 	fcall	_setServoPosition
 	line	124
 	
-l1263:	
+l1294:	
 ;door-lock-system.c: 124: _delay((unsigned long)((20)*(4000000/4000.0)));
 	opt asmopt_off
 movlw	26
@@ -3794,75 +3932,75 @@ movlw	26
 movwf	((??_moveToPosition+0)+0+1),f
 	movlw	248
 movwf	((??_moveToPosition+0)+0),f
-u997:
+u1057:
 	decfsz	((??_moveToPosition+0)+0),f
-	goto	u997
+	goto	u1057
 	decfsz	((??_moveToPosition+0)+0+1),f
-	goto	u997
+	goto	u1057
 	nop
 opt asmopt_on
 
 	line	122
 	
-l1265:	
+l1296:	
 	movlw	(03h)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(??_moveToPosition+0)+0
 	movf	(??_moveToPosition+0)+0,w
 	addwf	(moveToPosition@pos),f
-	goto	l1267
+	goto	l1298
 	
 l107:	
 	
-l1267:	
+l1298:	
 	movf	(moveToPosition@position),w
 	subwf	(moveToPosition@pos),w
 	skipc
-	goto	u571
-	goto	u570
-u571:
-	goto	l1261
-u570:
-	goto	l1281
+	goto	u601
+	goto	u600
+u601:
+	goto	l1292
+u600:
+	goto	l1312
 	
 l109:	
 	line	126
 ;door-lock-system.c: 125: }
 ;door-lock-system.c: 126: } else if(position < currentPosition) {
-	goto	l1281
+	goto	l1312
 	
 l106:	
 	
-l1269:	
+l1300:	
 	movf	(_currentPosition),w
 	subwf	(moveToPosition@position),w
 	skipnc
-	goto	u581
-	goto	u580
-u581:
-	goto	l1281
-u580:
+	goto	u611
+	goto	u610
+u611:
+	goto	l1312
+u610:
 	line	128
 	
-l1271:	
+l1302:	
 ;door-lock-system.c: 128: for(uint8_t pos = currentPosition; pos > position; pos -= 3) {
 	movf	(_currentPosition),w
 	movwf	(??_moveToPosition+0)+0
 	movf	(??_moveToPosition+0)+0,w
 	movwf	(moveToPosition@pos_166)
-	goto	l1279
+	goto	l1310
 	
 l113:	
 	line	129
 	
-l1273:	
+l1304:	
 ;door-lock-system.c: 129: setServoPosition(pos);
 	movf	(moveToPosition@pos_166),w
 	fcall	_setServoPosition
 	line	130
 	
-l1275:	
+l1306:	
 ;door-lock-system.c: 130: _delay((unsigned long)((20)*(4000000/4000.0)));
 	opt asmopt_off
 movlw	26
@@ -3871,47 +4009,47 @@ movlw	26
 movwf	((??_moveToPosition+0)+0+1),f
 	movlw	248
 movwf	((??_moveToPosition+0)+0),f
-u1007:
+u1067:
 	decfsz	((??_moveToPosition+0)+0),f
-	goto	u1007
+	goto	u1067
 	decfsz	((??_moveToPosition+0)+0+1),f
-	goto	u1007
+	goto	u1067
 	nop
 opt asmopt_on
 
 	line	128
 	
-l1277:	
+l1308:	
 	movlw	low(03h)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	subwf	(moveToPosition@pos_166),f
-	goto	l1279
+	goto	l1310
 	
 l112:	
 	
-l1279:	
+l1310:	
 	movf	(moveToPosition@pos_166),w
 	subwf	(moveToPosition@position),w
 	skipc
-	goto	u591
-	goto	u590
-u591:
-	goto	l1273
-u590:
-	goto	l1281
+	goto	u621
+	goto	u620
+u621:
+	goto	l1304
+u620:
+	goto	l1312
 	
 l114:	
-	goto	l1281
+	goto	l1312
 	line	132
 	
 l111:	
-	goto	l1281
+	goto	l1312
 	line	135
 	
 l110:	
 	
-l1281:	
+l1312:	
 ;door-lock-system.c: 131: }
 ;door-lock-system.c: 132: }
 ;door-lock-system.c: 135: setServoPosition(position);
@@ -3919,7 +4057,7 @@ l1281:
 	fcall	_setServoPosition
 	line	138
 	
-l1283:	
+l1314:	
 ;door-lock-system.c: 138: _delay((unsigned long)((500)*(4000000/4000.0)));
 	opt asmopt_off
 movlw  3
@@ -3930,13 +4068,13 @@ movlw	138
 movwf	((??_moveToPosition+0)+0+1),f
 	movlw	86
 movwf	((??_moveToPosition+0)+0),f
-u1017:
+u1077:
 	decfsz	((??_moveToPosition+0)+0),f
-	goto	u1017
+	goto	u1077
 	decfsz	((??_moveToPosition+0)+0+1),f
-	goto	u1017
+	goto	u1077
 	decfsz	((??_moveToPosition+0)+0+2),f
-	goto	u1017
+	goto	u1077
 	nop2
 opt asmopt_on
 
@@ -4004,18 +4142,18 @@ _setServoPosition:
 	movwf	(setServoPosition@position)
 	line	101
 	
-l1217:	
+l1248:	
 ;door-lock-system.c: 101: if(position < 50) position = 50;
 	movlw	(032h)
 	subwf	(setServoPosition@position),w
 	skipnc
-	goto	u471
-	goto	u470
-u471:
+	goto	u501
+	goto	u500
+u501:
 	goto	l98
-u470:
+u500:
 	
-l1219:	
+l1250:	
 	movlw	(032h)
 	movwf	(??_setServoPosition+0)+0
 	movf	(??_setServoPosition+0)+0,w
@@ -4027,23 +4165,23 @@ l98:
 	movlw	(0F1h)
 	subwf	(setServoPosition@position),w
 	skipc
-	goto	u481
-	goto	u480
-u481:
-	goto	l1223
-u480:
+	goto	u511
+	goto	u510
+u511:
+	goto	l1254
+u510:
 	
-l1221:	
+l1252:	
 	movlw	(0F0h)
 	movwf	(??_setServoPosition+0)+0
 	movf	(??_setServoPosition+0)+0,w
 	movwf	(setServoPosition@position)
-	goto	l1223
+	goto	l1254
 	
 l99:	
 	line	105
 	
-l1223:	
+l1254:	
 ;door-lock-system.c: 105: uint16_t scaledPosition = (uint16_t)position * 10;
 	movf	(setServoPosition@position),w
 	movwf	(??_setServoPosition+0)+0
@@ -4066,7 +4204,7 @@ l1223:
 
 	line	108
 	
-l1225:	
+l1256:	
 ;door-lock-system.c: 108: uint16_t duty = scaledPosition;
 	movf	(setServoPosition@scaledPosition+1),w
 	clrf	(setServoPosition@duty+1)
@@ -4077,7 +4215,7 @@ l1225:
 
 	line	109
 	
-l1227:	
+l1258:	
 ;door-lock-system.c: 109: CCPR1L = duty >> 2;
 	movf	(setServoPosition@duty+1),w
 	movwf	(??_setServoPosition+0)+0+1
@@ -4095,25 +4233,25 @@ l1227:
 	movwf	(21)	;volatile
 	line	110
 	
-l1229:	
+l1260:	
 ;door-lock-system.c: 110: CCP1CON = (CCP1CON & 0xCF) | ((duty & 0x03) << 4);
 	movf	(setServoPosition@duty),w
 	andlw	03h
 	movwf	(??_setServoPosition+0)+0
 	movlw	04h
-u495:
+u525:
 	clrc
 	rlf	(??_setServoPosition+0)+0,f
 	addlw	-1
 	skipz
-	goto	u495
+	goto	u525
 	movf	(23),w	;volatile
 	andlw	0CFh
 	iorwf	0+(??_setServoPosition+0)+0,w
 	movwf	(23)	;volatile
 	line	113
 	
-l1231:	
+l1262:	
 ;door-lock-system.c: 113: currentPosition = position;
 	movf	(setServoPosition@position),w
 	movwf	(??_setServoPosition+0)+0
@@ -4175,25 +4313,25 @@ ___wmul:
 ; Regs used in ___wmul: [wreg+status,2+status,0]
 	line	43
 	
-l1205:	
+l1236:	
 	clrf	(___wmul@product)
 	clrf	(___wmul@product+1)
-	goto	l1207
+	goto	l1238
 	line	44
 	
-l325:	
+l330:	
 	line	45
 	
-l1207:	
+l1238:	
 	btfss	(___wmul@multiplier),(0)&7
-	goto	u431
-	goto	u430
-u431:
-	goto	l326
-u430:
+	goto	u461
+	goto	u460
+u461:
+	goto	l331
+u460:
 	line	46
 	
-l1209:	
+l1240:	
 	movf	(___wmul@multiplicand),w
 	addwf	(___wmul@product),f
 	skipnc
@@ -4201,44 +4339,44 @@ l1209:
 	movf	(___wmul@multiplicand+1),w
 	addwf	(___wmul@product+1),f
 	
-l326:	
+l331:	
 	line	47
 	movlw	01h
 	
-u445:
+u475:
 	clrc
 	rlf	(___wmul@multiplicand),f
 	rlf	(___wmul@multiplicand+1),f
 	addlw	-1
 	skipz
-	goto	u445
+	goto	u475
 	line	48
 	
-l1211:	
+l1242:	
 	movlw	01h
 	
-u455:
+u485:
 	clrc
 	rrf	(___wmul@multiplier+1),f
 	rrf	(___wmul@multiplier),f
 	addlw	-1
 	skipz
-	goto	u455
+	goto	u485
 	line	49
 	movf	((___wmul@multiplier+1)),w
 	iorwf	((___wmul@multiplier)),w
 	skipz
-	goto	u461
-	goto	u460
-u461:
-	goto	l1207
-u460:
-	goto	l1213
+	goto	u491
+	goto	u490
+u491:
+	goto	l1238
+u490:
+	goto	l1244
 	
-l327:	
+l332:	
 	line	52
 	
-l1213:	
+l1244:	
 	movf	(___wmul@product+1),w
 	clrf	(?___wmul+1)
 	addwf	(?___wmul+1)
@@ -4246,12 +4384,12 @@ l1213:
 	clrf	(?___wmul)
 	addwf	(?___wmul)
 
-	goto	l328
+	goto	l333
 	
-l1215:	
+l1246:	
 	line	53
 	
-l328:	
+l333:	
 	return
 	opt stack 0
 GLOBAL	__end_of___wmul
@@ -4370,7 +4508,7 @@ _initLCD:
 ; Regs used in _initLCD: [wreg+status,2+status,0+btemp+1+pclath+cstack]
 	line	167
 	
-l1313:	
+l1344:	
 ;door-lock-system.c: 167: LCD_delay(15);
 	movlw	low(0Fh)
 	movwf	(LCD_delay@MUL)
@@ -4456,7 +4594,7 @@ _instCtrl:
 	movwf	(instCtrl@INST)
 	line	158
 	
-l1285:	
+l1316:	
 ;door-lock-system.c: 158: PORTB = INST;
 	movf	(instCtrl@INST),w
 	bcf	status, 5	;RP0=0, select bank0
@@ -4464,22 +4602,22 @@ l1285:
 	movwf	(6)	;volatile
 	line	159
 	
-l1287:	
+l1318:	
 ;door-lock-system.c: 159: RA0 = 0;
 	bcf	(40/8),(40)&7	;volatile
 	line	160
 	
-l1289:	
+l1320:	
 ;door-lock-system.c: 160: RA1 = 0;
 	bcf	(41/8),(41)&7	;volatile
 	line	161
 	
-l1291:	
+l1322:	
 ;door-lock-system.c: 161: RA2 = 1;
 	bsf	(42/8),(42)&7	;volatile
 	line	162
 	
-l1293:	
+l1324:	
 ;door-lock-system.c: 162: LCD_delay(1);
 	movlw	low(01h)
 	movwf	(LCD_delay@MUL)
@@ -4488,7 +4626,7 @@ l1293:
 	fcall	_LCD_delay
 	line	163
 	
-l1295:	
+l1326:	
 ;door-lock-system.c: 163: RA2 = 0;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -4508,16 +4646,18 @@ GLOBAL	__end_of_instCtrl
 ;;		line 184 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\door-lock-system\door-lock-system.c"
 ;; Parameters:    Size  Location     Type
 ;;  message         1    wreg     PTR const unsigned char 
-;;		 -> STR_15(11), STR_14(13), STR_13(11), STR_12(9), 
-;;		 -> STR_11(9), STR_10(11), STR_9(12), STR_8(11), 
-;;		 -> STR_7(13), STR_6(11), STR_5(15), STR_4(13), 
-;;		 -> STR_3(13), STR_2(11), STR_1(10), 
+;;		 -> STR_18(11), STR_17(13), STR_16(11), STR_15(9), 
+;;		 -> STR_14(9), STR_13(11), STR_12(12), STR_11(11), 
+;;		 -> STR_10(13), STR_9(11), STR_8(7), STR_7(13), 
+;;		 -> STR_6(11), STR_5(15), STR_4(13), STR_3(13), 
+;;		 -> STR_2(11), STR_1(10), 
 ;; Auto vars:     Size  Location     Type
 ;;  message         1    9[COMMON] PTR const unsigned char 
-;;		 -> STR_15(11), STR_14(13), STR_13(11), STR_12(9), 
-;;		 -> STR_11(9), STR_10(11), STR_9(12), STR_8(11), 
-;;		 -> STR_7(13), STR_6(11), STR_5(15), STR_4(13), 
-;;		 -> STR_3(13), STR_2(11), STR_1(10), 
+;;		 -> STR_18(11), STR_17(13), STR_16(11), STR_15(9), 
+;;		 -> STR_14(9), STR_13(11), STR_12(12), STR_11(11), 
+;;		 -> STR_10(13), STR_9(11), STR_8(7), STR_7(13), 
+;;		 -> STR_6(11), STR_5(15), STR_4(13), STR_3(13), 
+;;		 -> STR_2(11), STR_1(10), 
 ;;  i               2    7[COMMON] int 
 ;; Return value:  Size  Location     Type
 ;;		None               void
@@ -4560,17 +4700,17 @@ _displayMsg:
 	movwf	(displayMsg@message)
 	line	186
 	
-l1315:	
+l1346:	
 ;door-lock-system.c: 185: int i;
 ;door-lock-system.c: 186: for (i = 0; message[i] != '\0'; i++) {
 	clrf	(displayMsg@i)
 	clrf	(displayMsg@i+1)
-	goto	l1321
+	goto	l1352
 	
 l141:	
 	line	187
 	
-l1317:	
+l1348:	
 ;door-lock-system.c: 187: dataCtrl(message[i]);
 	movf	(displayMsg@i),w
 	addwf	(displayMsg@message),w
@@ -4579,29 +4719,29 @@ l1317:
 	fcall	_dataCtrl
 	line	186
 	
-l1319:	
+l1350:	
 	movlw	low(01h)
 	addwf	(displayMsg@i),f
 	skipnc
 	incf	(displayMsg@i+1),f
 	movlw	high(01h)
 	addwf	(displayMsg@i+1),f
-	goto	l1321
+	goto	l1352
 	
 l140:	
 	
-l1321:	
+l1352:	
 	movf	(displayMsg@i),w
 	addwf	(displayMsg@message),w
 	movwf	fsr0
 	fcall	stringdir
 	iorlw	0
 	skipz
-	goto	u601
-	goto	u600
-u601:
-	goto	l1317
-u600:
+	goto	u631
+	goto	u630
+u631:
+	goto	l1348
+u630:
 	goto	l143
 	
 l142:	
@@ -4664,7 +4804,7 @@ _dataCtrl:
 	movwf	(dataCtrl@DATA)
 	line	176
 	
-l1297:	
+l1328:	
 ;door-lock-system.c: 176: PORTB = DATA;
 	movf	(dataCtrl@DATA),w
 	bcf	status, 5	;RP0=0, select bank0
@@ -4672,22 +4812,22 @@ l1297:
 	movwf	(6)	;volatile
 	line	177
 	
-l1299:	
+l1330:	
 ;door-lock-system.c: 177: RA0 = 1;
 	bsf	(40/8),(40)&7	;volatile
 	line	178
 	
-l1301:	
+l1332:	
 ;door-lock-system.c: 178: RA1 = 0;
 	bcf	(41/8),(41)&7	;volatile
 	line	179
 	
-l1303:	
+l1334:	
 ;door-lock-system.c: 179: RA2 = 1;
 	bsf	(42/8),(42)&7	;volatile
 	line	180
 	
-l1305:	
+l1336:	
 ;door-lock-system.c: 180: LCD_delay(1);
 	movlw	low(01h)
 	movwf	(LCD_delay@MUL)
@@ -4696,7 +4836,7 @@ l1305:
 	fcall	_LCD_delay
 	line	181
 	
-l1307:	
+l1338:	
 ;door-lock-system.c: 181: RA2 = 0;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -4758,7 +4898,7 @@ _LCD_delay:
 ; Regs used in _LCD_delay: [wreg+status,2+status,0+btemp+1]
 	line	153
 	
-l1233:	
+l1264:	
 ;door-lock-system.c: 152: int i, j;
 ;door-lock-system.c: 153: for (i = MUL; i != 0; i--)
 	movf	(LCD_delay@MUL+1),w
@@ -4769,54 +4909,54 @@ l1233:
 	addwf	(LCD_delay@i)
 
 	
-l1235:	
+l1266:	
 	movf	((LCD_delay@i+1)),w
 	iorwf	((LCD_delay@i)),w
 	skipz
-	goto	u501
-	goto	u500
-u501:
-	goto	l1239
-u500:
+	goto	u531
+	goto	u530
+u531:
+	goto	l1270
+u530:
 	goto	l128
 	
-l1237:	
+l1268:	
 	goto	l128
 	line	154
 	
 l124:	
 	
-l1239:	
+l1270:	
 ;door-lock-system.c: 154: for (j = 0; j < 256; j++) {}
 	clrf	(LCD_delay@j)
 	clrf	(LCD_delay@j+1)
 	
-l1241:	
+l1272:	
 	movf	(LCD_delay@j+1),w
 	xorlw	80h
 	movwf	btemp+1
 	movlw	(high(0100h))^80h
 	subwf	btemp+1,w
 	skipz
-	goto	u515
+	goto	u545
 	movlw	low(0100h)
 	subwf	(LCD_delay@j),w
-u515:
+u545:
 
 	skipc
-	goto	u511
-	goto	u510
-u511:
-	goto	l1245
-u510:
-	goto	l1249
+	goto	u541
+	goto	u540
+u541:
+	goto	l1276
+u540:
+	goto	l1280
 	
-l1243:	
-	goto	l1249
+l1274:	
+	goto	l1280
 	
 l126:	
 	
-l1245:	
+l1276:	
 	movlw	low(01h)
 	addwf	(LCD_delay@j),f
 	skipnc
@@ -4824,30 +4964,30 @@ l1245:
 	movlw	high(01h)
 	addwf	(LCD_delay@j+1),f
 	
-l1247:	
+l1278:	
 	movf	(LCD_delay@j+1),w
 	xorlw	80h
 	movwf	btemp+1
 	movlw	(high(0100h))^80h
 	subwf	btemp+1,w
 	skipz
-	goto	u525
+	goto	u555
 	movlw	low(0100h)
 	subwf	(LCD_delay@j),w
-u525:
+u555:
 
 	skipc
-	goto	u521
-	goto	u520
-u521:
-	goto	l1245
-u520:
-	goto	l1249
+	goto	u551
+	goto	u550
+u551:
+	goto	l1276
+u550:
+	goto	l1280
 	
 l127:	
 	line	153
 	
-l1249:	
+l1280:	
 	movlw	low(-1)
 	addwf	(LCD_delay@i),f
 	skipnc
@@ -4855,15 +4995,15 @@ l1249:
 	movlw	high(-1)
 	addwf	(LCD_delay@i+1),f
 	
-l1251:	
+l1282:	
 	movf	((LCD_delay@i+1)),w
 	iorwf	((LCD_delay@i)),w
 	skipz
-	goto	u531
-	goto	u530
-u531:
-	goto	l1239
-u530:
+	goto	u561
+	goto	u560
+u561:
+	goto	l1270
+u560:
 	goto	l128
 	
 l125:	
