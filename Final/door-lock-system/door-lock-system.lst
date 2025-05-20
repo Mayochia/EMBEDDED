@@ -1,0 +1,3748 @@
+
+
+Microchip Technology PIC LITE Macro Assembler V1.33 build 59893 
+                                                                                               Tue May 20 20:28:31 2025
+
+Microchip Technology Omniscient Code Generator (Lite mode) build 59893
+     1                           	processor	16F877A
+     2                           	opt	pw 120
+     3                           	opt	lm
+     4                           	psect	idataBANK0,global,class=CODE,delta=2
+     5                           	psect	strings,global,class=STRING,delta=2
+     6                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     7                           	psect	bitbssBANK0,global,bit,class=BANK0,space=1,delta=1
+     8                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1
+     9                           	psect	dataBANK0,global,class=BANK0,space=1,delta=1
+    10                           	psect	clrtext,global,class=CODE,delta=2
+    11                           	psect	inittext,global,class=CODE,delta=2
+    12                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+    13                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+    14                           	psect	maintext,global,class=CODE,split=1,delta=2
+    15                           	psect	text1,local,class=CODE,merge=1,delta=2
+    16                           	psect	text2,local,class=CODE,merge=1,delta=2
+    17                           	psect	text3,local,class=CODE,merge=1,delta=2
+    18                           	psect	text4,local,class=CODE,merge=1,delta=2
+    19                           	psect	text5,local,class=CODE,merge=1,delta=2
+    20                           	psect	text6,local,class=CODE,merge=1,delta=2
+    21                           	psect	text7,local,class=CODE,merge=1,delta=2
+    22                           	psect	text8,local,class=CODE,merge=1,delta=2
+    23                           	psect	text9,local,class=CODE,merge=1,delta=2
+    24                           	psect	text10,local,class=CODE,merge=1,delta=2
+    25                           	psect	text11,local,class=CODE,merge=1,delta=2
+    26                           	psect	text12,local,class=CODE,merge=1,delta=2
+    27                           	psect	text13,local,class=CODE,merge=1,delta=2
+    28                           	psect	text14,local,class=CODE,merge=1,delta=2
+    29                           	psect	text15,local,class=CODE,merge=1,delta=2
+    30                           	psect	text16,local,class=CODE,merge=1,delta=2
+    31                           	dabs	1,0x7E,2
+    32  0000                     	;# 
+    33  0001                     	;# 
+    34  0002                     	;# 
+    35  0003                     	;# 
+    36  0004                     	;# 
+    37  0005                     	;# 
+    38  0006                     	;# 
+    39  0007                     	;# 
+    40  0008                     	;# 
+    41  0009                     	;# 
+    42  000A                     	;# 
+    43  000B                     	;# 
+    44  000C                     	;# 
+    45  000D                     	;# 
+    46  000E                     	;# 
+    47  000E                     	;# 
+    48  000F                     	;# 
+    49  0010                     	;# 
+    50  0011                     	;# 
+    51  0012                     	;# 
+    52  0013                     	;# 
+    53  0014                     	;# 
+    54  0015                     	;# 
+    55  0015                     	;# 
+    56  0016                     	;# 
+    57  0017                     	;# 
+    58  0018                     	;# 
+    59  0019                     	;# 
+    60  001A                     	;# 
+    61  001B                     	;# 
+    62  001B                     	;# 
+    63  001C                     	;# 
+    64  001D                     	;# 
+    65  001E                     	;# 
+    66  001F                     	;# 
+    67  0081                     	;# 
+    68  0085                     	;# 
+    69  0086                     	;# 
+    70  0087                     	;# 
+    71  0088                     	;# 
+    72  0089                     	;# 
+    73  008C                     	;# 
+    74  008D                     	;# 
+    75  008E                     	;# 
+    76  0091                     	;# 
+    77  0092                     	;# 
+    78  0093                     	;# 
+    79  0094                     	;# 
+    80  0098                     	;# 
+    81  0099                     	;# 
+    82  009C                     	;# 
+    83  009D                     	;# 
+    84  009E                     	;# 
+    85  009F                     	;# 
+    86  010C                     	;# 
+    87  010D                     	;# 
+    88  010E                     	;# 
+    89  010F                     	;# 
+    90  018C                     	;# 
+    91  018D                     	;# 
+    92                           
+    93                           	psect	idataBANK0
+    94  00F7                     __pidataBANK0:	
+    95                           
+    96                           ;initializer for _tick
+    97  00F7  3430               	retlw	48
+    98  00F8  3475               	retlw	117
+    99                           
+   100                           ;initializer for _trial
+   101  00F9  3403               	retlw	3
+   102  00FA  3400               	retlw	0
+   103                           
+   104                           ;initializer for _SERVO_MAX_POS
+   105  00FB  346F               	retlw	111
+   106                           
+   107                           ;initializer for _SERVO_MID_POS
+   108  00FC  348A               	retlw	138
+   109                           
+   110                           ;initializer for _SERVO_MIN_POS
+   111  00FD  34A5               	retlw	165
+   112                           
+   113                           ;initializer for _currentPosition
+   114  00FE  3496               	retlw	150
+   115  0017                     _CCP1CON	set	23
+   116  0015                     _CCPR1L	set	21
+   117  0006                     _PORTB	set	6
+   118  0007                     _PORTCbits	set	7
+   119  0008                     _PORTD	set	8
+   120  001A                     _RCREG	set	26
+   121  0012                     _T2CON	set	18
+   122  0019                     _TXREG	set	25
+   123  00C4                     _CREN	set	196
+   124  005F                     _GIE	set	95
+   125  00C1                     _OERR	set	193
+   126  005E                     _PEIE	set	94
+   127  0028                     _RA0	set	40
+   128  0029                     _RA1	set	41
+   129  002A                     _RA2	set	42
+   130  0065                     _RCIF	set	101
+   131  0044                     _RD4	set	68
+   132  00C7                     _SPEN	set	199
+   133  0064                     _TXIF	set	100
+   134  009F                     _ADCON1	set	159
+   135  0092                     _PR2	set	146
+   136  0099                     _SPBRG	set	153
+   137  0085                     _TRISA	set	133
+   138  0086                     _TRISB	set	134
+   139  0087                     _TRISC	set	135
+   140  0087                     _TRISCbits	set	135
+   141  0088                     _TRISD	set	136
+   142  0088                     _TRISDbits	set	136
+   143  04C2                     _BRGH	set	1218
+   144  0465                     _RCIE	set	1125
+   145  04C4                     _SYNC	set	1220
+   146  043A                     _TRISC2	set	1082
+   147  04C5                     _TXEN	set	1221
+   148                           
+   149                           	psect	strings
+   150  0003                     __pstrings:	
+   151  0003                     stringtab:	
+   152  0003                     __stringtab:	
+   153  0003                     stringcode:	
+   154                           ;	String table - string pointers are 1 byte each
+   155                           
+   156  0003                     stringdir:	
+   157  0003  3000               	movlw	high stringdir
+   158  0004  008A               	movwf	10
+   159  0005  0804               	movf	4,w
+   160  0006  0A84               	incf	4,f
+   161  0007  0782               	addwf	2,f
+   162  0008                     __stringbase:	
+   163  0008  3400               	retlw	0
+   164  0009                     __end_of__stringtab:	
+   165  0009                     __stringdata:	
+   166  0009                     STR_5:	
+   167  0009  344E               	retlw	78	;'N'
+   168  000A  344F               	retlw	79	;'O'
+   169  000B  3420               	retlw	32	;' '
+   170  000C  3454               	retlw	84	;'T'
+   171  000D  3452               	retlw	82	;'R'
+   172  000E  3449               	retlw	73	;'I'
+   173  000F  3441               	retlw	65	;'A'
+   174  0010  344C               	retlw	76	;'L'
+   175  0011  3453               	retlw	83	;'S'
+   176  0012  3420               	retlw	32	;' '
+   177  0013  344C               	retlw	76	;'L'
+   178  0014  3445               	retlw	69	;'E'
+   179  0015  3446               	retlw	70	;'F'
+   180  0016  3454               	retlw	84	;'T'
+   181  0017  3400               	retlw	0
+   182  0018                     STR_4:	
+   183  0018  3449               	retlw	73	;'I'
+   184  0019  344E               	retlw	78	;'N'
+   185  001A  3456               	retlw	86	;'V'
+   186  001B  3441               	retlw	65	;'A'
+   187  001C  344C               	retlw	76	;'L'
+   188  001D  3449               	retlw	73	;'I'
+   189  001E  3444               	retlw	68	;'D'
+   190  001F  3420               	retlw	32	;' '
+   191  0020  3450               	retlw	80	;'P'
+   192  0021  3449               	retlw	73	;'I'
+   193  0022  344E               	retlw	78	;'N'
+   194  0023  3421               	retlw	33	;'!'
+   195  0024  3400               	retlw	0
+   196  0025                     STR_3:	
+   197  0025  345B               	retlw	91	;'['
+   198  0026  3432               	retlw	50	;'2'
+   199  0027  345D               	retlw	93	;']'
+   200  0028  3445               	retlw	69	;'E'
+   201  0029  346E               	retlw	110	;'n'
+   202  002A  3474               	retlw	116	;'t'
+   203  002B  3465               	retlw	101	;'e'
+   204  002C  3472               	retlw	114	;'r'
+   205  002D  3420               	retlw	32	;' '
+   206  002E  3450               	retlw	80	;'P'
+   207  002F  3449               	retlw	73	;'I'
+   208  0030  344E               	retlw	78	;'N'
+   209  0031  3400               	retlw	0
+   210  0032                     STR_9:	
+   211  0032  3441               	retlw	65	;'A'
+   212  0033  346C               	retlw	108	;'l'
+   213  0034  3472               	retlw	114	;'r'
+   214  0035  3465               	retlw	101	;'e'
+   215  0036  3461               	retlw	97	;'a'
+   216  0037  3464               	retlw	100	;'d'
+   217  0038  3479               	retlw	121	;'y'
+   218  0039  3420               	retlw	32	;' '
+   219  003A  3473               	retlw	115	;'s'
+   220  003B  3465               	retlw	101	;'e'
+   221  003C  3474               	retlw	116	;'t'
+   222  003D  3400               	retlw	0
+   223  003E                     STR_8:	
+   224  003E  3445               	retlw	69	;'E'
+   225  003F  344E               	retlw	78	;'N'
+   226  0040  3454               	retlw	84	;'T'
+   227  0041  3445               	retlw	69	;'E'
+   228  0042  3452               	retlw	82	;'R'
+   229  0043  3420               	retlw	32	;' '
+   230  0044  3450               	retlw	80	;'P'
+   231  0045  3449               	retlw	73	;'I'
+   232  0046  344E               	retlw	78	;'N'
+   233  0047  343A               	retlw	58	;':'
+   234  0048  3400               	retlw	0
+   235  0049                     STR_2:	
+   236  0049  345B               	retlw	91	;'['
+   237  004A  3431               	retlw	49	;'1'
+   238  004B  345D               	retlw	93	;']'
+   239  004C  3453               	retlw	83	;'S'
+   240  004D  3465               	retlw	101	;'e'
+   241  004E  3474               	retlw	116	;'t'
+   242  004F  3420               	retlw	32	;' '
+   243  0050  3450               	retlw	80	;'P'
+   244  0051  3449               	retlw	73	;'I'
+   245  0052  344E               	retlw	78	;'N'
+   246  0053  3400               	retlw	0
+   247  0054                     STR_10:	
+   248  0054  3461               	retlw	97	;'a'
+   249  0055  3420               	retlw	32	;' '
+   250  0056  3470               	retlw	112	;'p'
+   251  0057  3461               	retlw	97	;'a'
+   252  0058  3473               	retlw	115	;'s'
+   253  0059  3473               	retlw	115	;'s'
+   254  005A  3477               	retlw	119	;'w'
+   255  005B  346F               	retlw	111	;'o'
+   256  005C  3472               	retlw	114	;'r'
+   257  005D  3464               	retlw	100	;'d'
+   258  005E  3400               	retlw	0
+   259  005F                     STR_1:	
+   260  005F  3456               	retlw	86	;'V'
+   261  0060  3441               	retlw	65	;'A'
+   262  0061  344C               	retlw	76	;'L'
+   263  0062  3449               	retlw	73	;'I'
+   264  0063  3444               	retlw	68	;'D'
+   265  0064  3420               	retlw	32	;' '
+   266  0065  3450               	retlw	80	;'P'
+   267  0066  3449               	retlw	73	;'I'
+   268  0067  344E               	retlw	78	;'N'
+   269  0068  3400               	retlw	0
+   270  0069                     STR_12:	
+   271  0069  3450               	retlw	80	;'P'
+   272  006A  3449               	retlw	73	;'I'
+   273  006B  344E               	retlw	78	;'N'
+   274  006C  3420               	retlw	32	;' '
+   275  006D  3453               	retlw	83	;'S'
+   276  006E  3445               	retlw	69	;'E'
+   277  006F  3454               	retlw	84	;'T'
+   278  0070  3421               	retlw	33	;'!'
+   279  0071  3400               	retlw	0
+   280  0072                     STR_11:	
+   281  0072  3453               	retlw	83	;'S'
+   282  0073  3445               	retlw	69	;'E'
+   283  0074  3454               	retlw	84	;'T'
+   284  0075  3420               	retlw	32	;' '
+   285  0076  3450               	retlw	80	;'P'
+   286  0077  3449               	retlw	73	;'I'
+   287  0078  344E               	retlw	78	;'N'
+   288  0079  343A               	retlw	58	;':'
+   289  007A  3400               	retlw	0
+   290  007B                     __end_of__stringdata:	
+   291                           
+   292                           ; #config settings
+   293  0000                     
+   294                           	psect	cinit
+   295  07E7                     start_initialization:	
+   296  07E7                     __initialization:	
+   297                           
+   298                           ; Clear objects allocated to BITBANK0
+   299  07E7  01CE               	clrf	(__pbitbssBANK0/(0+8))& (0+127)
+   300                           
+   301                           ; Clear objects allocated to BANK0
+   302  07E8  1383               	bcf	3,7	;select IRP bank0
+   303  07E9  3035               	movlw	low __pbssBANK0
+   304  07EA  0084               	movwf	4
+   305  07EB  3046               	movlw	low (__pbssBANK0+17)
+   306  07EC  120A  118A  20EF  120A  118A  	fcall	clear_ram0
+   307                           
+   308                           ; Initialize objects allocated to BANK0
+   309  07F1  304E               	movlw	low (__pdataBANK0+8)
+   310  07F2  00FD               	movwf	btemp+-1
+   311  07F3  3000               	movlw	high __pidataBANK0
+   312  07F4  00FE               	movwf	btemp
+   313  07F5  30F7               	movlw	low __pidataBANK0
+   314  07F6  00FF               	movwf	btemp+1
+   315  07F7  3046               	movlw	low __pdataBANK0
+   316  07F8  0084               	movwf	4
+   317  07F9  120A  118A  2103   	fcall	init_ram0
+   318  07FC                     end_of_initialization:	
+   319                           ;End of C runtime variable initialization code
+   320                           
+   321  07FC                     __end_of__initialization:	
+   322  07FC  0183               	clrf	3
+   323  07FD  120A  118A  2BEE   	ljmp	_main	;jump to C main() function
+   324                           
+   325                           	psect	bitbssBANK0
+   326  0270                     __pbitbssBANK0:	
+   327  0270                     _invalid_flag:	
+   328  0270                     	ds	1
+   329  0271                     _setpass_flag:	
+   330  0271                     	ds	1
+   331                           
+   332                           	psect	bssBANK0
+   333  0035                     __pbssBANK0:	
+   334  0035                     _PIN:	
+   335  0035                     	ds	8
+   336  003D                     _correctPIN:	
+   337  003D                     	ds	8
+   338  0045                     _rx_data:	
+   339  0045                     	ds	1
+   340                           
+   341                           	psect	dataBANK0
+   342  0046                     __pdataBANK0:	
+   343  0046                     _tick:	
+   344  0046                     	ds	2
+   345  0048                     _trial:	
+   346  0048                     	ds	2
+   347  004A                     _SERVO_MAX_POS:	
+   348  004A                     	ds	1
+   349  004B                     _SERVO_MID_POS:	
+   350  004B                     	ds	1
+   351  004C                     _SERVO_MIN_POS:	
+   352  004C                     	ds	1
+   353  004D                     _currentPosition:	
+   354  004D                     	ds	1
+   355                           
+   356                           	psect	clrtext
+   357  00EF                     clear_ram0:	
+   358                           ;	Called with FSR containing the base address, and
+   359                           ;	W with the last address+1
+   360                           
+   361  00EF  0064               	clrwdt	;clear the watchdog before getting into this loop
+   362  00F0                     clrloop0:	
+   363  00F0  0180               	clrf	0	;clear RAM location pointed to by FSR
+   364  00F1  0A84               	incf	4,f	;increment pointer
+   365  00F2  0604               	xorwf	4,w	;XOR with final address
+   366  00F3  1903               	btfsc	3,2	;have we reached the end yet?
+   367  00F4  3400               	retlw	0	;all done for this memory range, return
+   368  00F5  0604               	xorwf	4,w	;XOR again to restore value
+   369  00F6  28F0               	goto	clrloop0	;do the next byte
+   370                           
+   371                           	psect	inittext
+   372  00FF                     init_fetch0:	
+   373                           ;	Called with low address in FSR and high address in W
+   374                           
+   375  00FF  087E               	movf	126,w
+   376  0100  008A               	movwf	10
+   377  0101  087F               	movf	127,w
+   378  0102  0082               	movwf	2
+   379  0103                     init_ram0:	
+   380                           ;Called with:
+   381                           ;	high address of idata address in btemp 
+   382                           ;	low address of idata address in btemp+1 
+   383                           ;	low address of data in FSR
+   384                           ;	high address + 1 of data in btemp-1
+   385                           
+   386  0103  20FF  120A  118A   	fcall	init_fetch0
+   387  0106  0080               	movwf	0
+   388  0107  0A84               	incf	4,f
+   389  0108  0804               	movf	4,w
+   390  0109  067D               	xorwf	125,w
+   391  010A  1903               	btfsc	3,2
+   392  010B  3400               	retlw	0
+   393  010C  0AFF               	incf	127,f
+   394  010D  1903               	btfsc	3,2
+   395  010E  0AFE               	incf	126,f
+   396  010F  2903               	goto	init_ram0
+   397                           
+   398                           	psect	cstackCOMMON
+   399  0070                     __pcstackCOMMON:	
+   400  0070                     ?_setServoPosition:	
+   401  0070                     ?_initialize:	
+   402                           ; 0 bytes @ 0x0
+   403                           
+   404  0070                     ?_moveToPosition:	
+   405                           ; 0 bytes @ 0x0
+   406                           
+   407  0070                     ?_setServoClockwise:	
+   408                           ; 0 bytes @ 0x0
+   409                           
+   410  0070                     ?_setServoCounterClockwise:	
+   411                           ; 0 bytes @ 0x0
+   412                           
+   413  0070                     ?_LCD_delay:	
+   414                           ; 0 bytes @ 0x0
+   415                           
+   416  0070                     ?_instCtrl:	
+   417                           ; 0 bytes @ 0x0
+   418                           
+   419  0070                     ?_initLCD:	
+   420                           ; 0 bytes @ 0x0
+   421                           
+   422  0070                     ?_dataCtrl:	
+   423                           ; 0 bytes @ 0x0
+   424                           
+   425  0070                     ?_displayMsg:	
+   426                           ; 0 bytes @ 0x0
+   427                           
+   428  0070                     ?_setPass:	
+   429                           ; 0 bytes @ 0x0
+   430                           
+   431  0070                     ?_locked:	
+   432                           ; 0 bytes @ 0x0
+   433                           
+   434  0070                     ??_locked:	
+   435                           ; 0 bytes @ 0x0
+   436                           
+   437  0070                     ?_verifyPIN:	
+   438                           ; 0 bytes @ 0x0
+   439                           
+   440  0070                     ?_enterPass:	
+   441                           ; 0 bytes @ 0x0
+   442                           
+   443  0070                     ?_setup:	
+   444                           ; 0 bytes @ 0x0
+   445                           
+   446  0070                     ??_setup:	
+   447                           ; 0 bytes @ 0x0
+   448                           
+   449  0070                     ?_main:	
+   450                           ; 0 bytes @ 0x0
+   451                           
+   452  0070                     ?___wmul:	
+   453                           ; 0 bytes @ 0x0
+   454                           
+   455  0070                     LCD_delay@MUL:	
+   456                           ; 2 bytes @ 0x0
+   457                           
+   458  0070                     ___wmul@multiplier:	
+   459                           ; 2 bytes @ 0x0
+   460                           
+   461                           
+   462                           ; 2 bytes @ 0x0
+   463  0070                     	ds	2
+   464  0072                     ??_LCD_delay:	
+   465  0072                     LCD_delay@i:	
+   466                           ; 0 bytes @ 0x2
+   467                           
+   468  0072                     ___wmul@multiplicand:	
+   469                           ; 2 bytes @ 0x2
+   470                           
+   471                           
+   472                           ; 2 bytes @ 0x2
+   473  0072                     	ds	2
+   474  0074                     ??___wmul:	
+   475  0074                     LCD_delay@j:	
+   476                           ; 0 bytes @ 0x4
+   477                           
+   478  0074                     ___wmul@product:	
+   479                           ; 2 bytes @ 0x4
+   480                           
+   481                           
+   482                           ; 2 bytes @ 0x4
+   483  0074                     	ds	2
+   484  0076                     ??_setServoPosition:	
+   485  0076                     ??_instCtrl:	
+   486                           ; 0 bytes @ 0x6
+   487                           
+   488  0076                     ??_dataCtrl:	
+   489                           ; 0 bytes @ 0x6
+   490                           
+   491  0076                     instCtrl@INST:	
+   492                           ; 0 bytes @ 0x6
+   493                           
+   494  0076                     dataCtrl@DATA:	
+   495                           ; 1 bytes @ 0x6
+   496                           
+   497                           
+   498                           ; 1 bytes @ 0x6
+   499  0076                     	ds	1
+   500  0077                     ??_initLCD:	
+   501  0077                     ??_displayMsg:	
+   502                           ; 0 bytes @ 0x7
+   503                           
+   504  0077                     ??_setPass:	
+   505                           ; 0 bytes @ 0x7
+   506                           
+   507  0077                     displayMsg@i:	
+   508                           ; 0 bytes @ 0x7
+   509                           
+   510                           
+   511                           ; 2 bytes @ 0x7
+   512  0077                     	ds	1
+   513  0078                     setServoPosition@scaledPosition:	
+   514                           
+   515                           ; 2 bytes @ 0x8
+   516  0078                     	ds	1
+   517  0079                     displayMsg@message:	
+   518  0079                     setPass@keyData:	
+   519                           ; 1 bytes @ 0x9
+   520                           
+   521                           
+   522                           ; 1 bytes @ 0x9
+   523  0079                     	ds	1
+   524  007A                     setServoPosition@duty:	
+   525  007A                     setPass@i:	
+   526                           ; 2 bytes @ 0xA
+   527                           
+   528                           
+   529                           ; 2 bytes @ 0xA
+   530  007A                     	ds	2
+   531  007C                     setServoPosition@position:	
+   532                           
+   533                           ; 1 bytes @ 0xC
+   534  007C                     	ds	1
+   535  007D                     ??_setServoClockwise:	
+   536  007D                     ??_setServoCounterClockwise:	
+   537                           ; 0 bytes @ 0xD
+   538                           
+   539  007D                     main@INPUT:	
+   540                           ; 0 bytes @ 0xD
+   541                           
+   542                           
+   543                           ; 1 bytes @ 0xD
+   544  007D                     	ds	1
+   545                           
+   546                           	psect	cstackBANK0
+   547  0020                     __pcstackBANK0:	
+   548  0020                     ??_initialize:	
+   549  0020                     ??_moveToPosition:	
+   550                           ; 0 bytes @ 0x0
+   551                           
+   552                           
+   553                           ; 0 bytes @ 0x0
+   554  0020                     	ds	3
+   555  0023                     moveToPosition@pos:	
+   556                           
+   557                           ; 1 bytes @ 0x3
+   558  0023                     	ds	1
+   559  0024                     moveToPosition@pos_166:	
+   560                           
+   561                           ; 1 bytes @ 0x4
+   562  0024                     	ds	1
+   563  0025                     moveToPosition@position:	
+   564                           
+   565                           ; 1 bytes @ 0x5
+   566  0025                     	ds	1
+   567  0026                     ??_verifyPIN:	
+   568                           
+   569                           ; 0 bytes @ 0x6
+   570  0026                     	ds	3
+   571  0029                     verifyPIN@match:	
+   572                           
+   573                           ; 2 bytes @ 0x9
+   574  0029                     	ds	2
+   575  002B                     verifyPIN@i:	
+   576                           
+   577                           ; 2 bytes @ 0xB
+   578  002B                     	ds	2
+   579  002D                     ??_enterPass:	
+   580                           
+   581                           ; 0 bytes @ 0xD
+   582  002D                     	ds	2
+   583  002F                     enterPass@keyData:	
+   584                           
+   585                           ; 1 bytes @ 0xF
+   586  002F                     	ds	1
+   587  0030                     enterPass@j:	
+   588                           
+   589                           ; 2 bytes @ 0x10
+   590  0030                     	ds	2
+   591  0032                     ??_main:	
+   592                           
+   593                           ; 0 bytes @ 0x12
+   594  0032                     	ds	3
+   595                           
+   596                           	psect	maintext
+   597  03EE                     __pmaintext:	
+   598 ;;
+   599 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   600 ;;
+   601 ;; *************** function _main *****************
+   602 ;; Defined at:
+   603 ;;		line 342 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\door-lock-system\door-lo
+      +ck-system.c"
+   604 ;; Parameters:    Size  Location     Type
+   605 ;;		None
+   606 ;; Auto vars:     Size  Location     Type
+   607 ;;  INPUT           1   13[COMMON] unsigned char 
+   608 ;; Return value:  Size  Location     Type
+   609 ;;		None               void
+   610 ;; Registers used:
+   611 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   612 ;; Tracked objects:
+   613 ;;		On entry : 17F/0
+   614 ;;		On exit  : 0/0
+   615 ;;		Unchanged: 0/0
+   616 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   617 ;;      Params:         0       0       0       0       0
+   618 ;;      Locals:         1       0       0       0       0
+   619 ;;      Temps:          0       3       0       0       0
+   620 ;;      Totals:         1       3       0       0       0
+   621 ;;Total ram usage:        4 bytes
+   622 ;; Hardware stack levels required when called:    6
+   623 ;; This function calls:
+   624 ;;		_displayMsg
+   625 ;;		_enterPass
+   626 ;;		_initLCD
+   627 ;;		_initialize
+   628 ;;		_instCtrl
+   629 ;;		_setPass
+   630 ;;		_setServoClockwise
+   631 ;;		_setServoCounterClockwise
+   632 ;;		_setup
+   633 ;; This function is called by:
+   634 ;;		Startup code after reset
+   635 ;; This function uses a non-reentrant model
+   636 ;;
+   637                           
+   638                           
+   639                           ;psect for function _main
+   640  03EE                     _main:	
+   641                           
+   642                           ;door-lock-system.c: 343: ADCON1 = 0x06;
+   643                           
+   644                           ;incstack = 0
+   645                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   646  03EE  3006               	movlw	6
+   647  03EF  1683               	bsf	3,5	;RP0=1, select bank1
+   648  03F0  1303               	bcf	3,6	;RP1=0, select bank1
+   649  03F1  009F               	movwf	31	;volatile
+   650                           
+   651                           ;door-lock-system.c: 344: TRISA = 0x00;
+   652  03F2  0185               	clrf	5	;volatile
+   653                           
+   654                           ;door-lock-system.c: 345: TRISB = 0x00;
+   655  03F3  0186               	clrf	6	;volatile
+   656                           
+   657                           ;door-lock-system.c: 346: TRISC = 0x00;
+   658  03F4  0187               	clrf	7	;volatile
+   659                           
+   660                           ;door-lock-system.c: 347: TRISD = 0xFF;
+   661  03F5  30FF               	movlw	255
+   662  03F6  0088               	movwf	8	;volatile
+   663                           
+   664                           ;door-lock-system.c: 349: initLCD();
+   665  03F7  120A  118A  219C  120A  118A  	fcall	_initLCD
+   666                           
+   667                           ;door-lock-system.c: 351: instCtrl(0x80);
+   668  03FC  3080               	movlw	128
+   669  03FD  120A  118A  2123  120A  118A  	fcall	_instCtrl
+   670                           
+   671                           ;door-lock-system.c: 352: displayMsg("[1]Set PIN");
+   672  0402  3041               	movlw	(STR_2-__stringbase)& (0+255)
+   673  0403  120A  118A  2157  120A  118A  	fcall	_displayMsg
+   674                           
+   675                           ;door-lock-system.c: 353: instCtrl(0xC0);
+   676  0408  30C0               	movlw	192
+   677  0409  120A  118A  2123  120A  118A  	fcall	_instCtrl
+   678                           
+   679                           ;door-lock-system.c: 354: displayMsg("[2]Enter PIN");
+   680  040E  301D               	movlw	(STR_3-__stringbase)& (0+255)
+   681  040F  120A  118A  2157  120A  118A  	fcall	_displayMsg
+   682                           
+   683                           ;door-lock-system.c: 356: initialize();
+   684  0414  120A  118A  21F1  120A  118A  	fcall	_initialize
+   685                           
+   686                           ;door-lock-system.c: 357: setup();
+   687  0419  120A  118A  2136  120A  118A  	fcall	_setup
+   688                           
+   689                           ;door-lock-system.c: 359: setServoClockwise();
+   690  041E  120A  118A  20E1  120A  118A  	fcall	_setServoClockwise
+   691  0423                     l1643:	
+   692                           ;door-lock-system.c: 361: while (1) {
+   693                           
+   694                           
+   695                           ;door-lock-system.c: 363: if(RCIF){
+   696  0423  1283               	bcf	3,5	;RP0=0, select bank0
+   697  0424  1303               	bcf	3,6	;RP1=0, select bank0
+   698  0425  1E8C               	btfss	12,5	;volatile
+   699  0426  2C44               	goto	l1657
+   700                           
+   701                           ;door-lock-system.c: 364: if(OERR){
+   702  0427  1C98               	btfss	24,1	;volatile
+   703  0428  2C2B               	goto	l1649
+   704                           
+   705                           ;door-lock-system.c: 365: CREN = 0;
+   706  0429  1218               	bcf	24,4	;volatile
+   707                           
+   708                           ;door-lock-system.c: 366: CREN = 1;
+   709  042A  1618               	bsf	24,4	;volatile
+   710  042B                     l1649:	
+   711                           
+   712                           ;door-lock-system.c: 367: }
+   713                           ;door-lock-system.c: 368: rx_data = RCREG;
+   714  042B  081A               	movf	26,w	;volatile
+   715  042C  00B2               	movwf	??_main
+   716  042D  0832               	movf	??_main,w
+   717  042E  00C5               	movwf	_rx_data	;volatile
+   718                           
+   719                           ;door-lock-system.c: 370: if(rx_data == 'A'){
+   720  042F  0845               	movf	_rx_data,w	;volatile
+   721  0430  3A41               	xorlw	65
+   722  0431  1D03               	skipz
+   723  0432  2C39               	goto	l1653
+   724                           
+   725                           ;door-lock-system.c: 371: setServoClockwise();
+   726  0433  120A  118A  20E1  120A  118A  	fcall	_setServoClockwise
+   727                           
+   728                           ;door-lock-system.c: 372: } else if (rx_data == 'B'){
+   729  0438  2C44               	goto	l1657
+   730  0439                     l1653:	
+   731  0439  1283               	bcf	3,5	;RP0=0, select bank0
+   732  043A  1303               	bcf	3,6	;RP1=0, select bank0
+   733  043B  0845               	movf	_rx_data,w	;volatile
+   734  043C  3A42               	xorlw	66
+   735  043D  1D03               	skipz
+   736  043E  2C44               	goto	l1657
+   737                           
+   738                           ;door-lock-system.c: 373: setServoCounterClockwise();
+   739  043F  120A  118A  20E8  120A  118A  	fcall	_setServoCounterClockwise
+   740  0444                     l1657:	
+   741                           
+   742                           ;door-lock-system.c: 374: }
+   743                           ;door-lock-system.c: 375: }
+   744                           ;door-lock-system.c: 377: if(invalid_flag == 1) {
+   745  0444  1283               	bcf	3,5	;RP0=0, select bank0
+   746  0445  1303               	bcf	3,6	;RP1=0, select bank0
+   747  0446  1C4E               	btfss	_invalid_flag/(0+8),_invalid_flag& (0+7)
+   748  0447  2C59               	goto	l1665
+   749                           
+   750                           ;door-lock-system.c: 378: instCtrl(0x01);
+   751  0448  3001               	movlw	1
+   752  0449  120A  118A  2123  120A  118A  	fcall	_instCtrl
+   753                           
+   754                           ;door-lock-system.c: 379: displayMsg("ENTER PIN:");
+   755  044E  3036               	movlw	(STR_8-__stringbase)& (0+255)
+   756  044F  120A  118A  2157  120A  118A  	fcall	_displayMsg
+   757                           
+   758                           ;door-lock-system.c: 380: enterPass();
+   759  0454  120A  118A  2506  120A  118A  	fcall	_enterPass
+   760  0459                     l1665:	
+   761                           
+   762                           ;door-lock-system.c: 381: }
+   763                           ;door-lock-system.c: 383: if (RD4) {
+   764  0459  1283               	bcf	3,5	;RP0=0, select bank0
+   765  045A  1303               	bcf	3,6	;RP1=0, select bank0
+   766  045B  1E08               	btfss	8,4	;volatile
+   767  045C  2C23               	goto	l1643
+   768                           
+   769                           ;door-lock-system.c: 384: _delay((unsigned long)((500)*(4000000/4000.0)));
+   770  045D  3003               	movlw	3
+   771  045E  00B4               	movwf	??_main+2
+   772  045F  308A               	movlw	138
+   773  0460  00B3               	movwf	??_main+1
+   774  0461  3056               	movlw	86
+   775  0462  00B2               	movwf	??_main
+   776  0463                     u857:	
+   777  0463  0BB2               	decfsz	??_main,f
+   778  0464  2C63               	goto	u857
+   779  0465  0BB3               	decfsz	??_main+1,f
+   780  0466  2C63               	goto	u857
+   781  0467  0BB4               	decfsz	??_main+2,f
+   782  0468  2C63               	goto	u857
+   783  0469  2C6A               	nop2
+   784                           
+   785                           ;door-lock-system.c: 385: unsigned char INPUT = PORTD & 0x0F;
+   786  046A  1283               	bcf	3,5	;RP0=0, select bank0
+   787  046B  1303               	bcf	3,6	;RP1=0, select bank0
+   788  046C  0808               	movf	8,w	;volatile
+   789  046D  390F               	andlw	15
+   790  046E  00B2               	movwf	??_main
+   791  046F  0832               	movf	??_main,w
+   792  0470  00FD               	movwf	main@INPUT
+   793  0471                     l232:	
+   794                           ;door-lock-system.c: 386: while (RD4);
+   795                           
+   796  0471  1A08               	btfsc	8,4	;volatile
+   797  0472  2C71               	goto	l232
+   798                           
+   799                           ;door-lock-system.c: 388: if (INPUT == 0x00) {
+   800  0473  08FD               	movf	main@INPUT,f
+   801  0474  1D03               	skipz
+   802  0475  2CF0               	goto	l1703
+   803                           
+   804                           ;door-lock-system.c: 389: if(setpass_flag == 1) {
+   805  0476  1CCE               	btfss	_setpass_flag/(0+8),_setpass_flag& (0+7)
+   806  0477  2CA6               	goto	l1683
+   807                           
+   808                           ;door-lock-system.c: 390: instCtrl(0x01);
+   809  0478  3001               	movlw	1
+   810  0479  120A  118A  2123  120A  118A  	fcall	_instCtrl
+   811                           
+   812                           ;door-lock-system.c: 391: instCtrl(0x80);
+   813  047E  3080               	movlw	128
+   814  047F  120A  118A  2123  120A  118A  	fcall	_instCtrl
+   815                           
+   816                           ;door-lock-system.c: 392: displayMsg("Already set");
+   817  0484  302A               	movlw	(STR_9-__stringbase)& (0+255)
+   818  0485  120A  118A  2157  120A  118A  	fcall	_displayMsg
+   819                           
+   820                           ;door-lock-system.c: 393: instCtrl(0xC0);
+   821  048A  30C0               	movlw	192
+   822  048B  120A  118A  2123  120A  118A  	fcall	_instCtrl
+   823                           
+   824                           ;door-lock-system.c: 394: displayMsg("a password");
+   825  0490  304C               	movlw	(STR_10-__stringbase)& (0+255)
+   826  0491  120A  118A  2157  120A  118A  	fcall	_displayMsg
+   827                           
+   828                           ;door-lock-system.c: 395: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   829  0496  3006               	movlw	6
+   830  0497  1283               	bcf	3,5	;RP0=0, select bank0
+   831  0498  1303               	bcf	3,6	;RP1=0, select bank0
+   832  0499  00B4               	movwf	??_main+2
+   833  049A  3013               	movlw	19
+   834  049B  00B3               	movwf	??_main+1
+   835  049C  30B1               	movlw	177
+   836  049D  00B2               	movwf	??_main
+   837  049E                     u867:	
+   838  049E  0BB2               	decfsz	??_main,f
+   839  049F  2C9E               	goto	u867
+   840  04A0  0BB3               	decfsz	??_main+1,f
+   841  04A1  2C9E               	goto	u867
+   842  04A2  0BB4               	decfsz	??_main+2,f
+   843  04A3  2C9E               	goto	u867
+   844  04A4  2CA5               	nop2
+   845                           
+   846                           ;door-lock-system.c: 396: }
+   847  04A5  2CD2               	goto	l1693
+   848  04A6                     l1683:	
+   849                           
+   850                           ;door-lock-system.c: 397: else {
+   851                           ;door-lock-system.c: 398: instCtrl(0x01);
+   852  04A6  3001               	movlw	1
+   853  04A7  120A  118A  2123  120A  118A  	fcall	_instCtrl
+   854                           
+   855                           ;door-lock-system.c: 399: displayMsg("SET PIN:");
+   856  04AC  306A               	movlw	(STR_11-__stringbase)& (0+255)
+   857  04AD  120A  118A  2157  120A  118A  	fcall	_displayMsg
+   858                           
+   859                           ;door-lock-system.c: 400: setPass();
+   860  04B2  120A  118A  2647  120A  118A  	fcall	_setPass
+   861                           
+   862                           ;door-lock-system.c: 401: instCtrl(0x01);
+   863  04B7  3001               	movlw	1
+   864  04B8  120A  118A  2123  120A  118A  	fcall	_instCtrl
+   865                           
+   866                           ;door-lock-system.c: 402: displayMsg("PIN SET!");
+   867  04BD  3061               	movlw	(STR_12-__stringbase)& (0+255)
+   868  04BE  120A  118A  2157  120A  118A  	fcall	_displayMsg
+   869                           
+   870                           ;door-lock-system.c: 403: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   871  04C3  3006               	movlw	6
+   872  04C4  1283               	bcf	3,5	;RP0=0, select bank0
+   873  04C5  1303               	bcf	3,6	;RP1=0, select bank0
+   874  04C6  00B4               	movwf	??_main+2
+   875  04C7  3013               	movlw	19
+   876  04C8  00B3               	movwf	??_main+1
+   877  04C9  30B1               	movlw	177
+   878  04CA  00B2               	movwf	??_main
+   879  04CB                     u877:	
+   880  04CB  0BB2               	decfsz	??_main,f
+   881  04CC  2CCB               	goto	u877
+   882  04CD  0BB3               	decfsz	??_main+1,f
+   883  04CE  2CCB               	goto	u877
+   884  04CF  0BB4               	decfsz	??_main+2,f
+   885  04D0  2CCB               	goto	u877
+   886  04D1  2CD2               	nop2
+   887  04D2                     l1693:	
+   888                           
+   889                           ;door-lock-system.c: 404: }
+   890                           ;door-lock-system.c: 405: initLCD();
+   891  04D2  120A  118A  219C  120A  118A  	fcall	_initLCD
+   892                           
+   893                           ;door-lock-system.c: 406: instCtrl(0x80);
+   894  04D7  3080               	movlw	128
+   895  04D8  120A  118A  2123  120A  118A  	fcall	_instCtrl
+   896                           
+   897                           ;door-lock-system.c: 407: displayMsg("[1]Set PIN");
+   898  04DD  3041               	movlw	(STR_2-__stringbase)& (0+255)
+   899  04DE  120A  118A  2157  120A  118A  	fcall	_displayMsg
+   900                           
+   901                           ;door-lock-system.c: 408: instCtrl(0xC0);
+   902  04E3  30C0               	movlw	192
+   903  04E4  120A  118A  2123  120A  118A  	fcall	_instCtrl
+   904                           
+   905                           ;door-lock-system.c: 409: displayMsg("[2]Enter PIN");
+   906  04E9  301D               	movlw	(STR_3-__stringbase)& (0+255)
+   907  04EA  120A  118A  2157  120A  118A  	fcall	_displayMsg
+   908                           
+   909                           ;door-lock-system.c: 410: }
+   910  04EF  2C23               	goto	l1643
+   911  04F0                     l1703:	
+   912                           
+   913                           ;door-lock-system.c: 411: else if (INPUT == 0x01) {
+   914  04F0  087D               	movf	main@INPUT,w
+   915  04F1  3A01               	xorlw	1
+   916  04F2  1D03               	skipz
+   917  04F3  2C23               	goto	l1643
+   918                           
+   919                           ;door-lock-system.c: 412: instCtrl(0x01);
+   920  04F4  3001               	movlw	1
+   921  04F5  120A  118A  2123  120A  118A  	fcall	_instCtrl
+   922                           
+   923                           ;door-lock-system.c: 413: displayMsg("ENTER PIN:");
+   924  04FA  3036               	movlw	(STR_8-__stringbase)& (0+255)
+   925  04FB  120A  118A  2157  120A  118A  	fcall	_displayMsg
+   926                           
+   927                           ;door-lock-system.c: 414: enterPass();
+   928  0500  120A  118A  2506  120A  118A  	fcall	_enterPass
+   929  0505  2C23               	goto	l1643
+   930  0506                     __end_of_main:	
+   931                           
+   932                           	psect	text1
+   933  0136                     __ptext1:	
+   934 ;; *************** function _setup *****************
+   935 ;; Defined at:
+   936 ;;		line 319 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\door-lock-system\door-lo
+      +ck-system.c"
+   937 ;; Parameters:    Size  Location     Type
+   938 ;;		None
+   939 ;; Auto vars:     Size  Location     Type
+   940 ;;		None
+   941 ;; Return value:  Size  Location     Type
+   942 ;;		None               void
+   943 ;; Registers used:
+   944 ;;		wreg, status,2
+   945 ;; Tracked objects:
+   946 ;;		On entry : 0/0
+   947 ;;		On exit  : 0/0
+   948 ;;		Unchanged: 0/0
+   949 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   950 ;;      Params:         0       0       0       0       0
+   951 ;;      Locals:         0       0       0       0       0
+   952 ;;      Temps:          0       0       0       0       0
+   953 ;;      Totals:         0       0       0       0       0
+   954 ;;Total ram usage:        0 bytes
+   955 ;; Hardware stack levels used:    1
+   956 ;; This function calls:
+   957 ;;		Nothing
+   958 ;; This function is called by:
+   959 ;;		_main
+   960 ;; This function uses a non-reentrant model
+   961 ;;
+   962                           
+   963                           
+   964                           ;psect for function _setup
+   965  0136                     _setup:	
+   966                           
+   967                           ;door-lock-system.c: 321: BRGH = 1;
+   968                           
+   969                           ;incstack = 0
+   970                           ; Regs used in _setup: [wreg+status,2]
+   971  0136  1683               	bsf	3,5	;RP0=1, select bank1
+   972  0137  1303               	bcf	3,6	;RP1=0, select bank1
+   973  0138  1518               	bsf	24,2	;volatile
+   974                           
+   975                           ;door-lock-system.c: 322: SPBRG = 25;
+   976  0139  3019               	movlw	25
+   977  013A  0099               	movwf	25	;volatile
+   978                           
+   979                           ;door-lock-system.c: 323: SYNC = 0;
+   980  013B  1218               	bcf	24,4	;volatile
+   981                           
+   982                           ;door-lock-system.c: 324: SPEN = 1;
+   983  013C  1283               	bcf	3,5	;RP0=0, select bank0
+   984  013D  1303               	bcf	3,6	;RP1=0, select bank0
+   985  013E  1798               	bsf	24,7	;volatile
+   986                           
+   987                           ;door-lock-system.c: 325: TXEN = 1;
+   988  013F  1683               	bsf	3,5	;RP0=1, select bank1
+   989  0140  1303               	bcf	3,6	;RP1=0, select bank1
+   990  0141  1698               	bsf	24,5	;volatile
+   991                           
+   992                           ;door-lock-system.c: 326: CREN = 1;
+   993  0142  1283               	bcf	3,5	;RP0=0, select bank0
+   994  0143  1303               	bcf	3,6	;RP1=0, select bank0
+   995  0144  1618               	bsf	24,4	;volatile
+   996                           
+   997                           ;door-lock-system.c: 328: TXIF = 0;
+   998  0145  120C               	bcf	12,4	;volatile
+   999                           
+  1000                           ;door-lock-system.c: 329: RCIF = 0;
+  1001  0146  128C               	bcf	12,5	;volatile
+  1002                           
+  1003                           ;door-lock-system.c: 331: RCIE = 1;
+  1004  0147  1683               	bsf	3,5	;RP0=1, select bank1
+  1005  0148  1303               	bcf	3,6	;RP1=0, select bank1
+  1006  0149  168C               	bsf	12,5	;volatile
+  1007                           
+  1008                           ;door-lock-system.c: 332: PEIE = 1;
+  1009  014A  170B               	bsf	11,6	;volatile
+  1010                           
+  1011                           ;door-lock-system.c: 333: GIE = 1;
+  1012  014B  178B               	bsf	11,7	;volatile
+  1013                           
+  1014                           ;door-lock-system.c: 335: ADCON1 = 0x06;
+  1015  014C  3006               	movlw	6
+  1016  014D  009F               	movwf	31	;volatile
+  1017                           
+  1018                           ;door-lock-system.c: 337: TRISB = 0x00;
+  1019  014E  0186               	clrf	6	;volatile
+  1020                           
+  1021                           ;door-lock-system.c: 338: TRISD = 0xFF;
+  1022  014F  30FF               	movlw	255
+  1023  0150  0088               	movwf	8	;volatile
+  1024                           
+  1025                           ;door-lock-system.c: 339: TRISC = 0x80;
+  1026  0151  3080               	movlw	128
+  1027  0152  0087               	movwf	7	;volatile
+  1028                           
+  1029                           ;door-lock-system.c: 340: PORTB = 0x00;
+  1030  0153  1283               	bcf	3,5	;RP0=0, select bank0
+  1031  0154  1303               	bcf	3,6	;RP1=0, select bank0
+  1032  0155  0186               	clrf	6	;volatile
+  1033  0156  0008               	return
+  1034  0157                     __end_of_setup:	
+  1035                           
+  1036                           	psect	text2
+  1037  0647                     __ptext2:	
+  1038 ;; *************** function _setPass *****************
+  1039 ;; Defined at:
+  1040 ;;		line 191 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\door-lock-system\door-lo
+      +ck-system.c"
+  1041 ;; Parameters:    Size  Location     Type
+  1042 ;;		None
+  1043 ;; Auto vars:     Size  Location     Type
+  1044 ;;  i               2   10[COMMON] int 
+  1045 ;;  keyData         1    9[COMMON] unsigned char 
+  1046 ;; Return value:  Size  Location     Type
+  1047 ;;		None               void
+  1048 ;; Registers used:
+  1049 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+  1050 ;; Tracked objects:
+  1051 ;;		On entry : 0/0
+  1052 ;;		On exit  : 0/0
+  1053 ;;		Unchanged: 0/0
+  1054 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1055 ;;      Params:         0       0       0       0       0
+  1056 ;;      Locals:         3       0       0       0       0
+  1057 ;;      Temps:          2       0       0       0       0
+  1058 ;;      Totals:         5       0       0       0       0
+  1059 ;;Total ram usage:        5 bytes
+  1060 ;; Hardware stack levels used:    1
+  1061 ;; Hardware stack levels required when called:    2
+  1062 ;; This function calls:
+  1063 ;;		_dataCtrl
+  1064 ;; This function is called by:
+  1065 ;;		_main
+  1066 ;; This function uses a non-reentrant model
+  1067 ;;
+  1068                           
+  1069                           
+  1070                           ;psect for function _setPass
+  1071  0647                     _setPass:	
+  1072                           
+  1073                           ;door-lock-system.c: 192: int i = 0;
+  1074                           
+  1075                           ;incstack = 0
+  1076                           ; Regs used in _setPass: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+  1077  0647  01FA               	clrf	setPass@i
+  1078  0648  01FB               	clrf	setPass@i+1
+  1079                           
+  1080                           ;door-lock-system.c: 193: unsigned char keyData;
+  1081                           ;door-lock-system.c: 195: setpass_flag = 1;
+  1082  0649  1283               	bcf	3,5	;RP0=0, select bank0
+  1083  064A  1303               	bcf	3,6	;RP1=0, select bank0
+  1084  064B  14CE               	bsf	_setpass_flag/(0+8),_setpass_flag& (0+7)
+  1085  064C                     l1507:	
+  1086                           ;door-lock-system.c: 196: while (i < 8) {
+  1087                           
+  1088  064C  087B               	movf	setPass@i+1,w
+  1089  064D  3A80               	xorlw	128
+  1090  064E  00FF               	movwf	127
+  1091  064F  3080               	movlw	128
+  1092  0650  027F               	subwf	127,w
+  1093  0651  1D03               	skipz
+  1094  0652  2E55               	goto	u715
+  1095  0653  3008               	movlw	8
+  1096  0654  027A               	subwf	setPass@i,w
+  1097  0655                     u715:	
+  1098  0655  1803               	btfsc	3,0
+  1099  0656  0008               	return
+  1100                           
+  1101                           ;door-lock-system.c: 197: if (RD4) {
+  1102  0657  1283               	bcf	3,5	;RP0=0, select bank0
+  1103  0658  1303               	bcf	3,6	;RP1=0, select bank0
+  1104  0659  1E08               	btfss	8,4	;volatile
+  1105  065A  2E4C               	goto	l1507
+  1106                           
+  1107                           ;door-lock-system.c: 198: _delay((unsigned long)((10)*(4000000/4000.0)));
+  1108  065B  300D               	movlw	13
+  1109  065C  00F8               	movwf	??_setPass+1
+  1110  065D  30FB               	movlw	251
+  1111  065E  00F7               	movwf	??_setPass
+  1112  065F                     u887:	
+  1113  065F  0BF7               	decfsz	??_setPass,f
+  1114  0660  2E5F               	goto	u887
+  1115  0661  0BF8               	decfsz	??_setPass+1,f
+  1116  0662  2E5F               	goto	u887
+  1117  0663  2E64               	nop2
+  1118                           
+  1119                           ;door-lock-system.c: 199: keyData = PORTD & 0x0F;
+  1120  0664  1283               	bcf	3,5	;RP0=0, select bank0
+  1121  0665  1303               	bcf	3,6	;RP1=0, select bank0
+  1122  0666  0808               	movf	8,w	;volatile
+  1123  0667  390F               	andlw	15
+  1124  0668  00F7               	movwf	??_setPass
+  1125  0669  0877               	movf	??_setPass,w
+  1126  066A  00F9               	movwf	setPass@keyData
+  1127                           
+  1128                           ;door-lock-system.c: 201: switch (keyData) {
+  1129  066B  2FA7               	goto	l1503
+  1130  066C                     l1409:	
+  1131                           ;door-lock-system.c: 202: case 0x0: correctPIN[i++] = 1; dataCtrl('1'); break;
+  1132                           
+  1133  066C  087A               	movf	setPass@i,w
+  1134  066D  3E3D               	addlw	_correctPIN& (0+255)
+  1135  066E  0084               	movwf	4
+  1136  066F  1383               	bcf	3,7	;select IRP bank0
+  1137  0670  0180               	clrf	0
+  1138  0671  0A80               	incf	0,f
+  1139  0672  3001               	movlw	1
+  1140  0673  07FA               	addwf	setPass@i,f
+  1141  0674  1803               	skipnc
+  1142  0675  0AFB               	incf	setPass@i+1,f
+  1143  0676  3000               	movlw	0
+  1144  0677  07FB               	addwf	setPass@i+1,f
+  1145  0678  3031               	movlw	49
+  1146  0679  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1147  067E  2FD9               	goto	l168
+  1148  067F                     l1415:	
+  1149                           ;door-lock-system.c: 203: case 0x1: correctPIN[i++] = 2; dataCtrl('2'); break;
+  1150                           
+  1151  067F  3002               	movlw	2
+  1152  0680  00F7               	movwf	??_setPass
+  1153  0681  087A               	movf	setPass@i,w
+  1154  0682  3E3D               	addlw	_correctPIN& (0+255)
+  1155  0683  0084               	movwf	4
+  1156  0684  0877               	movf	??_setPass,w
+  1157  0685  1383               	bcf	3,7	;select IRP bank0
+  1158  0686  0080               	movwf	0
+  1159  0687  3001               	movlw	1
+  1160  0688  07FA               	addwf	setPass@i,f
+  1161  0689  1803               	skipnc
+  1162  068A  0AFB               	incf	setPass@i+1,f
+  1163  068B  3000               	movlw	0
+  1164  068C  07FB               	addwf	setPass@i+1,f
+  1165  068D  3032               	movlw	50
+  1166  068E  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1167  0693  2FD9               	goto	l168
+  1168  0694                     l1421:	
+  1169                           ;door-lock-system.c: 204: case 0x2: correctPIN[i++] = 3; dataCtrl('3'); break;
+  1170                           
+  1171  0694  3003               	movlw	3
+  1172  0695  00F7               	movwf	??_setPass
+  1173  0696  087A               	movf	setPass@i,w
+  1174  0697  3E3D               	addlw	_correctPIN& (0+255)
+  1175  0698  0084               	movwf	4
+  1176  0699  0877               	movf	??_setPass,w
+  1177  069A  1383               	bcf	3,7	;select IRP bank0
+  1178  069B  0080               	movwf	0
+  1179  069C  3001               	movlw	1
+  1180  069D  07FA               	addwf	setPass@i,f
+  1181  069E  1803               	skipnc
+  1182  069F  0AFB               	incf	setPass@i+1,f
+  1183  06A0  3000               	movlw	0
+  1184  06A1  07FB               	addwf	setPass@i+1,f
+  1185  06A2  3033               	movlw	51
+  1186  06A3  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1187  06A8  2FD9               	goto	l168
+  1188  06A9                     l1427:	
+  1189                           ;door-lock-system.c: 205: case 0x3: correctPIN[i++] = 10; dataCtrl('A'); break;
+  1190                           
+  1191  06A9  300A               	movlw	10
+  1192  06AA  00F7               	movwf	??_setPass
+  1193  06AB  087A               	movf	setPass@i,w
+  1194  06AC  3E3D               	addlw	_correctPIN& (0+255)
+  1195  06AD  0084               	movwf	4
+  1196  06AE  0877               	movf	??_setPass,w
+  1197  06AF  1383               	bcf	3,7	;select IRP bank0
+  1198  06B0  0080               	movwf	0
+  1199  06B1  3001               	movlw	1
+  1200  06B2  07FA               	addwf	setPass@i,f
+  1201  06B3  1803               	skipnc
+  1202  06B4  0AFB               	incf	setPass@i+1,f
+  1203  06B5  3000               	movlw	0
+  1204  06B6  07FB               	addwf	setPass@i+1,f
+  1205  06B7  3041               	movlw	65
+  1206  06B8  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1207  06BD  2FD9               	goto	l168
+  1208  06BE                     l1433:	
+  1209                           ;door-lock-system.c: 207: case 0x4: correctPIN[i++] = 4; dataCtrl('4'); break;
+  1210                           
+  1211  06BE  3004               	movlw	4
+  1212  06BF  00F7               	movwf	??_setPass
+  1213  06C0  087A               	movf	setPass@i,w
+  1214  06C1  3E3D               	addlw	_correctPIN& (0+255)
+  1215  06C2  0084               	movwf	4
+  1216  06C3  0877               	movf	??_setPass,w
+  1217  06C4  1383               	bcf	3,7	;select IRP bank0
+  1218  06C5  0080               	movwf	0
+  1219  06C6  3001               	movlw	1
+  1220  06C7  07FA               	addwf	setPass@i,f
+  1221  06C8  1803               	skipnc
+  1222  06C9  0AFB               	incf	setPass@i+1,f
+  1223  06CA  3000               	movlw	0
+  1224  06CB  07FB               	addwf	setPass@i+1,f
+  1225  06CC  3034               	movlw	52
+  1226  06CD  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1227  06D2  2FD9               	goto	l168
+  1228  06D3                     l1439:	
+  1229                           ;door-lock-system.c: 208: case 0x5: correctPIN[i++] = 5; dataCtrl('5'); break;
+  1230                           
+  1231  06D3  3005               	movlw	5
+  1232  06D4  00F7               	movwf	??_setPass
+  1233  06D5  087A               	movf	setPass@i,w
+  1234  06D6  3E3D               	addlw	_correctPIN& (0+255)
+  1235  06D7  0084               	movwf	4
+  1236  06D8  0877               	movf	??_setPass,w
+  1237  06D9  1383               	bcf	3,7	;select IRP bank0
+  1238  06DA  0080               	movwf	0
+  1239  06DB  3001               	movlw	1
+  1240  06DC  07FA               	addwf	setPass@i,f
+  1241  06DD  1803               	skipnc
+  1242  06DE  0AFB               	incf	setPass@i+1,f
+  1243  06DF  3000               	movlw	0
+  1244  06E0  07FB               	addwf	setPass@i+1,f
+  1245  06E1  3035               	movlw	53
+  1246  06E2  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1247  06E7  2FD9               	goto	l168
+  1248  06E8                     l1445:	
+  1249                           ;door-lock-system.c: 209: case 0x6: correctPIN[i++] = 6; dataCtrl('6'); break;
+  1250                           
+  1251  06E8  3006               	movlw	6
+  1252  06E9  00F7               	movwf	??_setPass
+  1253  06EA  087A               	movf	setPass@i,w
+  1254  06EB  3E3D               	addlw	_correctPIN& (0+255)
+  1255  06EC  0084               	movwf	4
+  1256  06ED  0877               	movf	??_setPass,w
+  1257  06EE  1383               	bcf	3,7	;select IRP bank0
+  1258  06EF  0080               	movwf	0
+  1259  06F0  3001               	movlw	1
+  1260  06F1  07FA               	addwf	setPass@i,f
+  1261  06F2  1803               	skipnc
+  1262  06F3  0AFB               	incf	setPass@i+1,f
+  1263  06F4  3000               	movlw	0
+  1264  06F5  07FB               	addwf	setPass@i+1,f
+  1265  06F6  3036               	movlw	54
+  1266  06F7  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1267  06FC  2FD9               	goto	l168
+  1268  06FD                     l1451:	
+  1269                           ;door-lock-system.c: 210: case 0x7: correctPIN[i++] = 11; dataCtrl('B'); break;
+  1270                           
+  1271  06FD  300B               	movlw	11
+  1272  06FE  00F7               	movwf	??_setPass
+  1273  06FF  087A               	movf	setPass@i,w
+  1274  0700  3E3D               	addlw	_correctPIN& (0+255)
+  1275  0701  0084               	movwf	4
+  1276  0702  0877               	movf	??_setPass,w
+  1277  0703  1383               	bcf	3,7	;select IRP bank0
+  1278  0704  0080               	movwf	0
+  1279  0705  3001               	movlw	1
+  1280  0706  07FA               	addwf	setPass@i,f
+  1281  0707  1803               	skipnc
+  1282  0708  0AFB               	incf	setPass@i+1,f
+  1283  0709  3000               	movlw	0
+  1284  070A  07FB               	addwf	setPass@i+1,f
+  1285  070B  3042               	movlw	66
+  1286  070C  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1287  0711  2FD9               	goto	l168
+  1288  0712                     l1457:	
+  1289                           ;door-lock-system.c: 212: case 0x8: correctPIN[i++] = 7; dataCtrl('7'); break;
+  1290                           
+  1291  0712  3007               	movlw	7
+  1292  0713  00F7               	movwf	??_setPass
+  1293  0714  087A               	movf	setPass@i,w
+  1294  0715  3E3D               	addlw	_correctPIN& (0+255)
+  1295  0716  0084               	movwf	4
+  1296  0717  0877               	movf	??_setPass,w
+  1297  0718  1383               	bcf	3,7	;select IRP bank0
+  1298  0719  0080               	movwf	0
+  1299  071A  3001               	movlw	1
+  1300  071B  07FA               	addwf	setPass@i,f
+  1301  071C  1803               	skipnc
+  1302  071D  0AFB               	incf	setPass@i+1,f
+  1303  071E  3000               	movlw	0
+  1304  071F  07FB               	addwf	setPass@i+1,f
+  1305  0720  3037               	movlw	55
+  1306  0721  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1307  0726  2FD9               	goto	l168
+  1308  0727                     l1463:	
+  1309                           ;door-lock-system.c: 213: case 0x9: correctPIN[i++] = 8; dataCtrl('8'); break;
+  1310                           
+  1311  0727  3008               	movlw	8
+  1312  0728  00F7               	movwf	??_setPass
+  1313  0729  087A               	movf	setPass@i,w
+  1314  072A  3E3D               	addlw	_correctPIN& (0+255)
+  1315  072B  0084               	movwf	4
+  1316  072C  0877               	movf	??_setPass,w
+  1317  072D  1383               	bcf	3,7	;select IRP bank0
+  1318  072E  0080               	movwf	0
+  1319  072F  3001               	movlw	1
+  1320  0730  07FA               	addwf	setPass@i,f
+  1321  0731  1803               	skipnc
+  1322  0732  0AFB               	incf	setPass@i+1,f
+  1323  0733  3000               	movlw	0
+  1324  0734  07FB               	addwf	setPass@i+1,f
+  1325  0735  3038               	movlw	56
+  1326  0736  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1327  073B  2FD9               	goto	l168
+  1328  073C                     l1469:	
+  1329                           ;door-lock-system.c: 214: case 0xA: correctPIN[i++] = 9; dataCtrl('9'); break;
+  1330                           
+  1331  073C  3009               	movlw	9
+  1332  073D  00F7               	movwf	??_setPass
+  1333  073E  087A               	movf	setPass@i,w
+  1334  073F  3E3D               	addlw	_correctPIN& (0+255)
+  1335  0740  0084               	movwf	4
+  1336  0741  0877               	movf	??_setPass,w
+  1337  0742  1383               	bcf	3,7	;select IRP bank0
+  1338  0743  0080               	movwf	0
+  1339  0744  3001               	movlw	1
+  1340  0745  07FA               	addwf	setPass@i,f
+  1341  0746  1803               	skipnc
+  1342  0747  0AFB               	incf	setPass@i+1,f
+  1343  0748  3000               	movlw	0
+  1344  0749  07FB               	addwf	setPass@i+1,f
+  1345  074A  3039               	movlw	57
+  1346  074B  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1347  0750  2FD9               	goto	l168
+  1348  0751                     l1475:	
+  1349                           ;door-lock-system.c: 215: case 0xB: correctPIN[i++] = 12; dataCtrl('C'); break;
+  1350                           
+  1351  0751  300C               	movlw	12
+  1352  0752  00F7               	movwf	??_setPass
+  1353  0753  087A               	movf	setPass@i,w
+  1354  0754  3E3D               	addlw	_correctPIN& (0+255)
+  1355  0755  0084               	movwf	4
+  1356  0756  0877               	movf	??_setPass,w
+  1357  0757  1383               	bcf	3,7	;select IRP bank0
+  1358  0758  0080               	movwf	0
+  1359  0759  3001               	movlw	1
+  1360  075A  07FA               	addwf	setPass@i,f
+  1361  075B  1803               	skipnc
+  1362  075C  0AFB               	incf	setPass@i+1,f
+  1363  075D  3000               	movlw	0
+  1364  075E  07FB               	addwf	setPass@i+1,f
+  1365  075F  3043               	movlw	67
+  1366  0760  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1367  0765  2FD9               	goto	l168
+  1368  0766                     l1481:	
+  1369                           ;door-lock-system.c: 217: case 0xC: correctPIN[i++] = 14; dataCtrl('*'); break;
+  1370                           
+  1371  0766  300E               	movlw	14
+  1372  0767  00F7               	movwf	??_setPass
+  1373  0768  087A               	movf	setPass@i,w
+  1374  0769  3E3D               	addlw	_correctPIN& (0+255)
+  1375  076A  0084               	movwf	4
+  1376  076B  0877               	movf	??_setPass,w
+  1377  076C  1383               	bcf	3,7	;select IRP bank0
+  1378  076D  0080               	movwf	0
+  1379  076E  3001               	movlw	1
+  1380  076F  07FA               	addwf	setPass@i,f
+  1381  0770  1803               	skipnc
+  1382  0771  0AFB               	incf	setPass@i+1,f
+  1383  0772  3000               	movlw	0
+  1384  0773  07FB               	addwf	setPass@i+1,f
+  1385  0774  302A               	movlw	42
+  1386  0775  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1387  077A  2FD9               	goto	l168
+  1388  077B                     l1487:	
+  1389                           ;door-lock-system.c: 218: case 0xD: correctPIN[i++] = 0; dataCtrl('0'); break;
+  1390                           
+  1391  077B  087A               	movf	setPass@i,w
+  1392  077C  3E3D               	addlw	_correctPIN& (0+255)
+  1393  077D  0084               	movwf	4
+  1394  077E  1383               	bcf	3,7	;select IRP bank0
+  1395  077F  0180               	clrf	0
+  1396  0780  3001               	movlw	1
+  1397  0781  07FA               	addwf	setPass@i,f
+  1398  0782  1803               	skipnc
+  1399  0783  0AFB               	incf	setPass@i+1,f
+  1400  0784  3000               	movlw	0
+  1401  0785  07FB               	addwf	setPass@i+1,f
+  1402  0786  3030               	movlw	48
+  1403  0787  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1404  078C  2FD9               	goto	l168
+  1405  078D                     l1493:	
+  1406                           ;door-lock-system.c: 219: case 0xE: i = 8; break;
+  1407                           
+  1408  078D  3008               	movlw	8
+  1409  078E  00FA               	movwf	setPass@i
+  1410  078F  3000               	movlw	0
+  1411  0790  00FB               	movwf	setPass@i+1
+  1412  0791  2FD9               	goto	l168
+  1413  0792                     l1495:	
+  1414                           ;door-lock-system.c: 220: case 0xF: correctPIN[i++] = 13; dataCtrl('D'); break;
+  1415                           
+  1416  0792  300D               	movlw	13
+  1417  0793  00F7               	movwf	??_setPass
+  1418  0794  087A               	movf	setPass@i,w
+  1419  0795  3E3D               	addlw	_correctPIN& (0+255)
+  1420  0796  0084               	movwf	4
+  1421  0797  0877               	movf	??_setPass,w
+  1422  0798  1383               	bcf	3,7	;select IRP bank0
+  1423  0799  0080               	movwf	0
+  1424  079A  3001               	movlw	1
+  1425  079B  07FA               	addwf	setPass@i,f
+  1426  079C  1803               	skipnc
+  1427  079D  0AFB               	incf	setPass@i+1,f
+  1428  079E  3000               	movlw	0
+  1429  079F  07FB               	addwf	setPass@i+1,f
+  1430  07A0  3044               	movlw	68
+  1431  07A1  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1432                           
+  1433                           ;door-lock-system.c: 223: }
+  1434                           
+  1435                           ;door-lock-system.c: 222: default: break;
+  1436  07A6  2FD9               	goto	l168
+  1437  07A7                     l1503:	
+  1438  07A7  0879               	movf	setPass@keyData,w
+  1439                           
+  1440                           ; Switch size 1, requested type "space"
+  1441                           ; Number of cases is 16, Range of values is 0 to 15
+  1442                           ; switch strategies available:
+  1443                           ; Name         Instructions Cycles
+  1444                           ; simple_byte           49    25 (average)
+  1445                           ; direct_byte           56     8 (fixed)
+  1446                           ; jumptable            260     6 (fixed)
+  1447                           ;	Chosen strategy is simple_byte
+  1448  07A8  3A00               	xorlw	0	; case 0
+  1449  07A9  1903               	skipnz
+  1450  07AA  2E6C               	goto	l1409
+  1451  07AB  3A01               	xorlw	1	; case 1
+  1452  07AC  1903               	skipnz
+  1453  07AD  2E7F               	goto	l1415
+  1454  07AE  3A03               	xorlw	3	; case 2
+  1455  07AF  1903               	skipnz
+  1456  07B0  2E94               	goto	l1421
+  1457  07B1  3A01               	xorlw	1	; case 3
+  1458  07B2  1903               	skipnz
+  1459  07B3  2EA9               	goto	l1427
+  1460  07B4  3A07               	xorlw	7	; case 4
+  1461  07B5  1903               	skipnz
+  1462  07B6  2EBE               	goto	l1433
+  1463  07B7  3A01               	xorlw	1	; case 5
+  1464  07B8  1903               	skipnz
+  1465  07B9  2ED3               	goto	l1439
+  1466  07BA  3A03               	xorlw	3	; case 6
+  1467  07BB  1903               	skipnz
+  1468  07BC  2EE8               	goto	l1445
+  1469  07BD  3A01               	xorlw	1	; case 7
+  1470  07BE  1903               	skipnz
+  1471  07BF  2EFD               	goto	l1451
+  1472  07C0  3A0F               	xorlw	15	; case 8
+  1473  07C1  1903               	skipnz
+  1474  07C2  2F12               	goto	l1457
+  1475  07C3  3A01               	xorlw	1	; case 9
+  1476  07C4  1903               	skipnz
+  1477  07C5  2F27               	goto	l1463
+  1478  07C6  3A03               	xorlw	3	; case 10
+  1479  07C7  1903               	skipnz
+  1480  07C8  2F3C               	goto	l1469
+  1481  07C9  3A01               	xorlw	1	; case 11
+  1482  07CA  1903               	skipnz
+  1483  07CB  2F51               	goto	l1475
+  1484  07CC  3A07               	xorlw	7	; case 12
+  1485  07CD  1903               	skipnz
+  1486  07CE  2F66               	goto	l1481
+  1487  07CF  3A01               	xorlw	1	; case 13
+  1488  07D0  1903               	skipnz
+  1489  07D1  2F7B               	goto	l1487
+  1490  07D2  3A03               	xorlw	3	; case 14
+  1491  07D3  1903               	skipnz
+  1492  07D4  2F8D               	goto	l1493
+  1493  07D5  3A01               	xorlw	1	; case 15
+  1494  07D6  1903               	skipnz
+  1495  07D7  2F92               	goto	l1495
+  1496  07D8  2FD9               	goto	l168
+  1497  07D9                     l168:	
+  1498                           ;door-lock-system.c: 224: while (RD4);
+  1499                           
+  1500  07D9  1283               	bcf	3,5	;RP0=0, select bank0
+  1501  07DA  1303               	bcf	3,6	;RP1=0, select bank0
+  1502  07DB  1A08               	btfsc	8,4	;volatile
+  1503  07DC  2FD9               	goto	l168
+  1504                           
+  1505                           ;door-lock-system.c: 225: _delay((unsigned long)((50)*(4000000/4000.0)));
+  1506  07DD  3041               	movlw	65
+  1507  07DE  00F8               	movwf	??_setPass+1
+  1508  07DF  30EE               	movlw	238
+  1509  07E0  00F7               	movwf	??_setPass
+  1510  07E1                     u897:	
+  1511  07E1  0BF7               	decfsz	??_setPass,f
+  1512  07E2  2FE1               	goto	u897
+  1513  07E3  0BF8               	decfsz	??_setPass+1,f
+  1514  07E4  2FE1               	goto	u897
+  1515  07E5  0000               	nop
+  1516  07E6  2E4C               	goto	l1507
+  1517  07E7                     __end_of_setPass:	
+  1518                           
+  1519                           	psect	text3
+  1520  01F1                     __ptext3:	
+  1521 ;; *************** function _initialize *****************
+  1522 ;; Defined at:
+  1523 ;;		line 54 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\door-lock-system\door-loc
+      +k-system.c"
+  1524 ;; Parameters:    Size  Location     Type
+  1525 ;;		None
+  1526 ;; Auto vars:     Size  Location     Type
+  1527 ;;		None
+  1528 ;; Return value:  Size  Location     Type
+  1529 ;;		None               void
+  1530 ;; Registers used:
+  1531 ;;		wreg, status,2, status,0, pclath, cstack
+  1532 ;; Tracked objects:
+  1533 ;;		On entry : 0/0
+  1534 ;;		On exit  : 0/0
+  1535 ;;		Unchanged: 0/0
+  1536 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1537 ;;      Params:         0       0       0       0       0
+  1538 ;;      Locals:         0       0       0       0       0
+  1539 ;;      Temps:          0       3       0       0       0
+  1540 ;;      Totals:         0       3       0       0       0
+  1541 ;;Total ram usage:        3 bytes
+  1542 ;; Hardware stack levels used:    1
+  1543 ;; Hardware stack levels required when called:    2
+  1544 ;; This function calls:
+  1545 ;;		_setServoPosition
+  1546 ;; This function is called by:
+  1547 ;;		_main
+  1548 ;; This function uses a non-reentrant model
+  1549 ;;
+  1550                           
+  1551                           
+  1552                           ;psect for function _initialize
+  1553  01F1                     _initialize:	
+  1554                           
+  1555                           ;door-lock-system.c: 56: TRISC2 = 0;
+  1556                           
+  1557                           ;incstack = 0
+  1558                           ; Regs used in _initialize: [wreg+status,2+status,0+pclath+cstack]
+  1559  01F1  1683               	bsf	3,5	;RP0=1, select bank1
+  1560  01F2  1303               	bcf	3,6	;RP1=0, select bank1
+  1561  01F3  1107               	bcf	7,2	;volatile
+  1562                           
+  1563                           ;door-lock-system.c: 59: TRISCbits.TRISC4 = 0;
+  1564  01F4  1207               	bcf	7,4	;volatile
+  1565                           
+  1566                           ;door-lock-system.c: 60: TRISCbits.TRISC5 = 0;
+  1567  01F5  1287               	bcf	7,5	;volatile
+  1568                           
+  1569                           ;door-lock-system.c: 61: TRISCbits.TRISC6 = 0;
+  1570  01F6  1307               	bcf	7,6	;volatile
+  1571                           
+  1572                           ;door-lock-system.c: 64: TRISDbits.TRISD0 = 1;
+  1573  01F7  1408               	bsf	8,0	;volatile
+  1574                           
+  1575                           ;door-lock-system.c: 65: TRISDbits.TRISD1 = 1;
+  1576  01F8  1488               	bsf	8,1	;volatile
+  1577                           
+  1578                           ;door-lock-system.c: 66: TRISDbits.TRISD2 = 1;
+  1579  01F9  1508               	bsf	8,2	;volatile
+  1580                           
+  1581                           ;door-lock-system.c: 69: PORTCbits.RC4 = 0;
+  1582  01FA  1283               	bcf	3,5	;RP0=0, select bank0
+  1583  01FB  1303               	bcf	3,6	;RP1=0, select bank0
+  1584  01FC  1207               	bcf	7,4	;volatile
+  1585                           
+  1586                           ;door-lock-system.c: 70: PORTCbits.RC5 = 0;
+  1587  01FD  1287               	bcf	7,5	;volatile
+  1588                           
+  1589                           ;door-lock-system.c: 71: PORTCbits.RC6 = 0;
+  1590  01FE  1307               	bcf	7,6	;volatile
+  1591                           
+  1592                           ;door-lock-system.c: 74: PORTCbits.RC4 = 1;
+  1593  01FF  1607               	bsf	7,4	;volatile
+  1594                           
+  1595                           ;door-lock-system.c: 75: PORTCbits.RC5 = 1;
+  1596  0200  1687               	bsf	7,5	;volatile
+  1597                           
+  1598                           ;door-lock-system.c: 76: PORTCbits.RC6 = 1;
+  1599  0201  1707               	bsf	7,6	;volatile
+  1600                           
+  1601                           ;door-lock-system.c: 77: _delay((unsigned long)((300)*(4000000/4000.0)));
+  1602  0202  3002               	movlw	2
+  1603  0203  00A2               	movwf	??_initialize+2
+  1604  0204  3086               	movlw	134
+  1605  0205  00A1               	movwf	??_initialize+1
+  1606  0206  3099               	movlw	153
+  1607  0207  00A0               	movwf	??_initialize
+  1608  0208                     u907:	
+  1609  0208  0BA0               	decfsz	??_initialize,f
+  1610  0209  2A08               	goto	u907
+  1611  020A  0BA1               	decfsz	??_initialize+1,f
+  1612  020B  2A08               	goto	u907
+  1613  020C  0BA2               	decfsz	??_initialize+2,f
+  1614  020D  2A08               	goto	u907
+  1615                           
+  1616                           ;door-lock-system.c: 78: PORTCbits.RC4 = 0;
+  1617  020E  1283               	bcf	3,5	;RP0=0, select bank0
+  1618  020F  1303               	bcf	3,6	;RP1=0, select bank0
+  1619  0210  1207               	bcf	7,4	;volatile
+  1620                           
+  1621                           ;door-lock-system.c: 79: PORTCbits.RC5 = 0;
+  1622  0211  1287               	bcf	7,5	;volatile
+  1623                           
+  1624                           ;door-lock-system.c: 80: PORTCbits.RC6 = 0;
+  1625  0212  1307               	bcf	7,6	;volatile
+  1626                           
+  1627                           ;door-lock-system.c: 81: _delay((unsigned long)((300)*(4000000/4000.0)));
+  1628  0213  3002               	movlw	2
+  1629  0214  00A2               	movwf	??_initialize+2
+  1630  0215  3086               	movlw	134
+  1631  0216  00A1               	movwf	??_initialize+1
+  1632  0217  3099               	movlw	153
+  1633  0218  00A0               	movwf	??_initialize
+  1634  0219                     u917:	
+  1635  0219  0BA0               	decfsz	??_initialize,f
+  1636  021A  2A19               	goto	u917
+  1637  021B  0BA1               	decfsz	??_initialize+1,f
+  1638  021C  2A19               	goto	u917
+  1639  021D  0BA2               	decfsz	??_initialize+2,f
+  1640  021E  2A19               	goto	u917
+  1641                           
+  1642                           ;door-lock-system.c: 84: PR2 = 199;
+  1643  021F  30C7               	movlw	199
+  1644  0220  1683               	bsf	3,5	;RP0=1, select bank1
+  1645  0221  1303               	bcf	3,6	;RP1=0, select bank1
+  1646  0222  0092               	movwf	18	;volatile
+  1647                           
+  1648                           ;door-lock-system.c: 89: CCP1CON = 0x0C;
+  1649  0223  300C               	movlw	12
+  1650  0224  1283               	bcf	3,5	;RP0=0, select bank0
+  1651  0225  1303               	bcf	3,6	;RP1=0, select bank0
+  1652  0226  0097               	movwf	23	;volatile
+  1653                           
+  1654                           ;door-lock-system.c: 92: T2CON = 0x06;
+  1655  0227  3006               	movlw	6
+  1656  0228  0092               	movwf	18	;volatile
+  1657                           
+  1658                           ;door-lock-system.c: 95: _delay((unsigned long)((500)*(4000000/4000.0)));
+  1659  0229  3003               	movlw	3
+  1660  022A  00A2               	movwf	??_initialize+2
+  1661  022B  308A               	movlw	138
+  1662  022C  00A1               	movwf	??_initialize+1
+  1663  022D  3056               	movlw	86
+  1664  022E  00A0               	movwf	??_initialize
+  1665  022F                     u927:	
+  1666  022F  0BA0               	decfsz	??_initialize,f
+  1667  0230  2A2F               	goto	u927
+  1668  0231  0BA1               	decfsz	??_initialize+1,f
+  1669  0232  2A2F               	goto	u927
+  1670  0233  0BA2               	decfsz	??_initialize+2,f
+  1671  0234  2A2F               	goto	u927
+  1672  0235  2A36               	nop2
+  1673                           
+  1674                           ;door-lock-system.c: 96: setServoPosition(138);
+  1675  0236  308A               	movlw	138
+  1676  0237  120A  118A  223B   	fcall	_setServoPosition
+  1677  023A  0008               	return
+  1678  023B                     __end_of_initialize:	
+  1679                           
+  1680                           	psect	text4
+  1681  0506                     __ptext4:	
+  1682 ;; *************** function _enterPass *****************
+  1683 ;; Defined at:
+  1684 ;;		line 291 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\door-lock-system\door-lo
+      +ck-system.c"
+  1685 ;; Parameters:    Size  Location     Type
+  1686 ;;		None
+  1687 ;; Auto vars:     Size  Location     Type
+  1688 ;;  j               2   16[BANK0 ] int 
+  1689 ;;  keyData         1   15[BANK0 ] unsigned char 
+  1690 ;; Return value:  Size  Location     Type
+  1691 ;;		None               void
+  1692 ;; Registers used:
+  1693 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+  1694 ;; Tracked objects:
+  1695 ;;		On entry : 0/0
+  1696 ;;		On exit  : 0/0
+  1697 ;;		Unchanged: 0/0
+  1698 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1699 ;;      Params:         0       0       0       0       0
+  1700 ;;      Locals:         0       3       0       0       0
+  1701 ;;      Temps:          0       2       0       0       0
+  1702 ;;      Totals:         0       5       0       0       0
+  1703 ;;Total ram usage:        5 bytes
+  1704 ;; Hardware stack levels used:    1
+  1705 ;; Hardware stack levels required when called:    5
+  1706 ;; This function calls:
+  1707 ;;		_dataCtrl
+  1708 ;;		_verifyPIN
+  1709 ;; This function is called by:
+  1710 ;;		_main
+  1711 ;; This function uses a non-reentrant model
+  1712 ;;
+  1713                           
+  1714                           
+  1715                           ;psect for function _enterPass
+  1716  0506                     _enterPass:	
+  1717                           
+  1718                           ;door-lock-system.c: 292: int j = 0;
+  1719                           
+  1720                           ;incstack = 0
+  1721                           ; Regs used in _enterPass: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+  1722  0506  1283               	bcf	3,5	;RP0=0, select bank0
+  1723  0507  1303               	bcf	3,6	;RP1=0, select bank0
+  1724  0508  01B0               	clrf	enterPass@j
+  1725  0509  01B1               	clrf	enterPass@j+1
+  1726  050A                     l1583:	
+  1727                           ;door-lock-system.c: 293: unsigned char keyData;
+  1728                           ;door-lock-system.c: 294: while (j < 8) {
+  1729                           
+  1730  050A  1283               	bcf	3,5	;RP0=0, select bank0
+  1731  050B  1303               	bcf	3,6	;RP1=0, select bank0
+  1732  050C  0831               	movf	enterPass@j+1,w
+  1733  050D  3A80               	xorlw	128
+  1734  050E  00FF               	movwf	127
+  1735  050F  3080               	movlw	128
+  1736  0510  027F               	subwf	127,w
+  1737  0511  1D03               	skipz
+  1738  0512  2D15               	goto	u745
+  1739  0513  3008               	movlw	8
+  1740  0514  0230               	subwf	enterPass@j,w
+  1741  0515                     u745:	
+  1742  0515  1803               	btfsc	3,0
+  1743  0516  2E43               	goto	l1585
+  1744                           
+  1745                           ;door-lock-system.c: 295: if (RD4){
+  1746  0517  1283               	bcf	3,5	;RP0=0, select bank0
+  1747  0518  1303               	bcf	3,6	;RP1=0, select bank0
+  1748  0519  1E08               	btfss	8,4	;volatile
+  1749  051A  2D0A               	goto	l1583
+  1750                           
+  1751                           ;door-lock-system.c: 296: _delay((unsigned long)((10)*(4000000/4000.0)));
+  1752  051B  300D               	movlw	13
+  1753  051C  00AE               	movwf	??_enterPass+1
+  1754  051D  30FB               	movlw	251
+  1755  051E  00AD               	movwf	??_enterPass
+  1756  051F                     u937:	
+  1757  051F  0BAD               	decfsz	??_enterPass,f
+  1758  0520  2D1F               	goto	u937
+  1759  0521  0BAE               	decfsz	??_enterPass+1,f
+  1760  0522  2D1F               	goto	u937
+  1761  0523  2D24               	nop2
+  1762                           
+  1763                           ;door-lock-system.c: 297: keyData = PORTD & 0x0F;
+  1764  0524  1283               	bcf	3,5	;RP0=0, select bank0
+  1765  0525  1303               	bcf	3,6	;RP1=0, select bank0
+  1766  0526  0808               	movf	8,w	;volatile
+  1767  0527  390F               	andlw	15
+  1768  0528  00AD               	movwf	??_enterPass
+  1769  0529  082D               	movf	??_enterPass,w
+  1770  052A  00AF               	movwf	enterPass@keyData
+  1771                           
+  1772                           ;door-lock-system.c: 299: switch (keyData) {
+  1773  052B  2E12               	goto	l1579
+  1774  052C                     l1515:	
+  1775                           ;door-lock-system.c: 300: case 0x0: PIN[j++] = 1; dataCtrl('*'); break;
+  1776                           
+  1777  052C  0830               	movf	enterPass@j,w
+  1778  052D  3E35               	addlw	_PIN& (0+255)
+  1779  052E  0084               	movwf	4
+  1780  052F  1383               	bcf	3,7	;select IRP bank0
+  1781  0530  0180               	clrf	0
+  1782  0531  0A80               	incf	0,f
+  1783  0532  3001               	movlw	1
+  1784  0533  07B0               	addwf	enterPass@j,f
+  1785  0534  1803               	skipnc
+  1786  0535  0AB1               	incf	enterPass@j+1,f
+  1787  0536  3000               	movlw	0
+  1788  0537  07B1               	addwf	enterPass@j+1,f
+  1789  0538  302A               	movlw	42
+  1790  0539  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1791  053E  2E35               	goto	l214
+  1792  053F                     l1521:	
+  1793                           ;door-lock-system.c: 301: case 0x1: PIN[j++] = 2; dataCtrl('*'); break;
+  1794                           
+  1795  053F  3002               	movlw	2
+  1796  0540  1283               	bcf	3,5	;RP0=0, select bank0
+  1797  0541  1303               	bcf	3,6	;RP1=0, select bank0
+  1798  0542  00AD               	movwf	??_enterPass
+  1799  0543  0830               	movf	enterPass@j,w
+  1800  0544  3E35               	addlw	_PIN& (0+255)
+  1801  0545  0084               	movwf	4
+  1802  0546  082D               	movf	??_enterPass,w
+  1803  0547  1383               	bcf	3,7	;select IRP bank0
+  1804  0548  0080               	movwf	0
+  1805  0549  3001               	movlw	1
+  1806  054A  07B0               	addwf	enterPass@j,f
+  1807  054B  1803               	skipnc
+  1808  054C  0AB1               	incf	enterPass@j+1,f
+  1809  054D  3000               	movlw	0
+  1810  054E  07B1               	addwf	enterPass@j+1,f
+  1811  054F  302A               	movlw	42
+  1812  0550  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1813  0555  2E35               	goto	l214
+  1814  0556                     l1527:	
+  1815                           ;door-lock-system.c: 302: case 0x2: PIN[j++] = 3; dataCtrl('*'); break;
+  1816                           
+  1817  0556  3003               	movlw	3
+  1818  0557  1283               	bcf	3,5	;RP0=0, select bank0
+  1819  0558  1303               	bcf	3,6	;RP1=0, select bank0
+  1820  0559  00AD               	movwf	??_enterPass
+  1821  055A  0830               	movf	enterPass@j,w
+  1822  055B  3E35               	addlw	_PIN& (0+255)
+  1823  055C  0084               	movwf	4
+  1824  055D  082D               	movf	??_enterPass,w
+  1825  055E  1383               	bcf	3,7	;select IRP bank0
+  1826  055F  0080               	movwf	0
+  1827  0560  3001               	movlw	1
+  1828  0561  07B0               	addwf	enterPass@j,f
+  1829  0562  1803               	skipnc
+  1830  0563  0AB1               	incf	enterPass@j+1,f
+  1831  0564  3000               	movlw	0
+  1832  0565  07B1               	addwf	enterPass@j+1,f
+  1833  0566  302A               	movlw	42
+  1834  0567  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1835  056C  2E35               	goto	l214
+  1836  056D                     l1533:	
+  1837                           ;door-lock-system.c: 303: case 0x4: PIN[j++] = 4; dataCtrl('*'); break;
+  1838                           
+  1839  056D  3004               	movlw	4
+  1840  056E  1283               	bcf	3,5	;RP0=0, select bank0
+  1841  056F  1303               	bcf	3,6	;RP1=0, select bank0
+  1842  0570  00AD               	movwf	??_enterPass
+  1843  0571  0830               	movf	enterPass@j,w
+  1844  0572  3E35               	addlw	_PIN& (0+255)
+  1845  0573  0084               	movwf	4
+  1846  0574  082D               	movf	??_enterPass,w
+  1847  0575  1383               	bcf	3,7	;select IRP bank0
+  1848  0576  0080               	movwf	0
+  1849  0577  3001               	movlw	1
+  1850  0578  07B0               	addwf	enterPass@j,f
+  1851  0579  1803               	skipnc
+  1852  057A  0AB1               	incf	enterPass@j+1,f
+  1853  057B  3000               	movlw	0
+  1854  057C  07B1               	addwf	enterPass@j+1,f
+  1855  057D  302A               	movlw	42
+  1856  057E  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1857  0583  2E35               	goto	l214
+  1858  0584                     l1539:	
+  1859                           ;door-lock-system.c: 304: case 0x5: PIN[j++] = 5; dataCtrl('*'); break;
+  1860                           
+  1861  0584  3005               	movlw	5
+  1862  0585  1283               	bcf	3,5	;RP0=0, select bank0
+  1863  0586  1303               	bcf	3,6	;RP1=0, select bank0
+  1864  0587  00AD               	movwf	??_enterPass
+  1865  0588  0830               	movf	enterPass@j,w
+  1866  0589  3E35               	addlw	_PIN& (0+255)
+  1867  058A  0084               	movwf	4
+  1868  058B  082D               	movf	??_enterPass,w
+  1869  058C  1383               	bcf	3,7	;select IRP bank0
+  1870  058D  0080               	movwf	0
+  1871  058E  3001               	movlw	1
+  1872  058F  07B0               	addwf	enterPass@j,f
+  1873  0590  1803               	skipnc
+  1874  0591  0AB1               	incf	enterPass@j+1,f
+  1875  0592  3000               	movlw	0
+  1876  0593  07B1               	addwf	enterPass@j+1,f
+  1877  0594  302A               	movlw	42
+  1878  0595  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1879  059A  2E35               	goto	l214
+  1880  059B                     l1545:	
+  1881                           ;door-lock-system.c: 305: case 0x6: PIN[j++] = 6; dataCtrl('*'); break;
+  1882                           
+  1883  059B  3006               	movlw	6
+  1884  059C  1283               	bcf	3,5	;RP0=0, select bank0
+  1885  059D  1303               	bcf	3,6	;RP1=0, select bank0
+  1886  059E  00AD               	movwf	??_enterPass
+  1887  059F  0830               	movf	enterPass@j,w
+  1888  05A0  3E35               	addlw	_PIN& (0+255)
+  1889  05A1  0084               	movwf	4
+  1890  05A2  082D               	movf	??_enterPass,w
+  1891  05A3  1383               	bcf	3,7	;select IRP bank0
+  1892  05A4  0080               	movwf	0
+  1893  05A5  3001               	movlw	1
+  1894  05A6  07B0               	addwf	enterPass@j,f
+  1895  05A7  1803               	skipnc
+  1896  05A8  0AB1               	incf	enterPass@j+1,f
+  1897  05A9  3000               	movlw	0
+  1898  05AA  07B1               	addwf	enterPass@j+1,f
+  1899  05AB  302A               	movlw	42
+  1900  05AC  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1901  05B1  2E35               	goto	l214
+  1902  05B2                     l1551:	
+  1903                           ;door-lock-system.c: 306: case 0x8: PIN[j++] = 7; dataCtrl('*'); break;
+  1904                           
+  1905  05B2  3007               	movlw	7
+  1906  05B3  1283               	bcf	3,5	;RP0=0, select bank0
+  1907  05B4  1303               	bcf	3,6	;RP1=0, select bank0
+  1908  05B5  00AD               	movwf	??_enterPass
+  1909  05B6  0830               	movf	enterPass@j,w
+  1910  05B7  3E35               	addlw	_PIN& (0+255)
+  1911  05B8  0084               	movwf	4
+  1912  05B9  082D               	movf	??_enterPass,w
+  1913  05BA  1383               	bcf	3,7	;select IRP bank0
+  1914  05BB  0080               	movwf	0
+  1915  05BC  3001               	movlw	1
+  1916  05BD  07B0               	addwf	enterPass@j,f
+  1917  05BE  1803               	skipnc
+  1918  05BF  0AB1               	incf	enterPass@j+1,f
+  1919  05C0  3000               	movlw	0
+  1920  05C1  07B1               	addwf	enterPass@j+1,f
+  1921  05C2  302A               	movlw	42
+  1922  05C3  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1923  05C8  2E35               	goto	l214
+  1924  05C9                     l1557:	
+  1925                           ;door-lock-system.c: 307: case 0x9: PIN[j++] = 8; dataCtrl('*'); break;
+  1926                           
+  1927  05C9  3008               	movlw	8
+  1928  05CA  1283               	bcf	3,5	;RP0=0, select bank0
+  1929  05CB  1303               	bcf	3,6	;RP1=0, select bank0
+  1930  05CC  00AD               	movwf	??_enterPass
+  1931  05CD  0830               	movf	enterPass@j,w
+  1932  05CE  3E35               	addlw	_PIN& (0+255)
+  1933  05CF  0084               	movwf	4
+  1934  05D0  082D               	movf	??_enterPass,w
+  1935  05D1  1383               	bcf	3,7	;select IRP bank0
+  1936  05D2  0080               	movwf	0
+  1937  05D3  3001               	movlw	1
+  1938  05D4  07B0               	addwf	enterPass@j,f
+  1939  05D5  1803               	skipnc
+  1940  05D6  0AB1               	incf	enterPass@j+1,f
+  1941  05D7  3000               	movlw	0
+  1942  05D8  07B1               	addwf	enterPass@j+1,f
+  1943  05D9  302A               	movlw	42
+  1944  05DA  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1945  05DF  2E35               	goto	l214
+  1946  05E0                     l1563:	
+  1947                           ;door-lock-system.c: 308: case 0xA: PIN[j++] = 9; dataCtrl('*'); break;
+  1948                           
+  1949  05E0  3009               	movlw	9
+  1950  05E1  1283               	bcf	3,5	;RP0=0, select bank0
+  1951  05E2  1303               	bcf	3,6	;RP1=0, select bank0
+  1952  05E3  00AD               	movwf	??_enterPass
+  1953  05E4  0830               	movf	enterPass@j,w
+  1954  05E5  3E35               	addlw	_PIN& (0+255)
+  1955  05E6  0084               	movwf	4
+  1956  05E7  082D               	movf	??_enterPass,w
+  1957  05E8  1383               	bcf	3,7	;select IRP bank0
+  1958  05E9  0080               	movwf	0
+  1959  05EA  3001               	movlw	1
+  1960  05EB  07B0               	addwf	enterPass@j,f
+  1961  05EC  1803               	skipnc
+  1962  05ED  0AB1               	incf	enterPass@j+1,f
+  1963  05EE  3000               	movlw	0
+  1964  05EF  07B1               	addwf	enterPass@j+1,f
+  1965  05F0  302A               	movlw	42
+  1966  05F1  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1967  05F6  2E35               	goto	l214
+  1968  05F7                     l1569:	
+  1969                           ;door-lock-system.c: 309: case 0xD: PIN[j++] = 0; dataCtrl('*'); break;
+  1970                           
+  1971  05F7  1283               	bcf	3,5	;RP0=0, select bank0
+  1972  05F8  1303               	bcf	3,6	;RP1=0, select bank0
+  1973  05F9  0830               	movf	enterPass@j,w
+  1974  05FA  3E35               	addlw	_PIN& (0+255)
+  1975  05FB  0084               	movwf	4
+  1976  05FC  1383               	bcf	3,7	;select IRP bank0
+  1977  05FD  0180               	clrf	0
+  1978  05FE  3001               	movlw	1
+  1979  05FF  07B0               	addwf	enterPass@j,f
+  1980  0600  1803               	skipnc
+  1981  0601  0AB1               	incf	enterPass@j+1,f
+  1982  0602  3000               	movlw	0
+  1983  0603  07B1               	addwf	enterPass@j+1,f
+  1984  0604  302A               	movlw	42
+  1985  0605  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  1986  060A  2E35               	goto	l214
+  1987  060B                     l1575:	
+  1988                           ;door-lock-system.c: 310: case 0xE: j = 8; break;
+  1989                           
+  1990  060B  3008               	movlw	8
+  1991  060C  1283               	bcf	3,5	;RP0=0, select bank0
+  1992  060D  1303               	bcf	3,6	;RP1=0, select bank0
+  1993  060E  00B0               	movwf	enterPass@j
+  1994  060F  3000               	movlw	0
+  1995  0610  00B1               	movwf	enterPass@j+1
+  1996                           
+  1997                           ;door-lock-system.c: 312: }
+  1998                           
+  1999                           ;door-lock-system.c: 311: default: break;
+  2000  0611  2E35               	goto	l214
+  2001  0612                     l1579:	
+  2002  0612  082F               	movf	enterPass@keyData,w
+  2003                           
+  2004                           ; Switch size 1, requested type "space"
+  2005                           ; Number of cases is 11, Range of values is 0 to 14
+  2006                           ; switch strategies available:
+  2007                           ; Name         Instructions Cycles
+  2008                           ; simple_byte           34    18 (average)
+  2009                           ; direct_byte           53     8 (fixed)
+  2010                           ; jumptable            260     6 (fixed)
+  2011                           ;	Chosen strategy is simple_byte
+  2012  0613  3A00               	xorlw	0	; case 0
+  2013  0614  1903               	skipnz
+  2014  0615  2D2C               	goto	l1515
+  2015  0616  3A01               	xorlw	1	; case 1
+  2016  0617  1903               	skipnz
+  2017  0618  2D3F               	goto	l1521
+  2018  0619  3A03               	xorlw	3	; case 2
+  2019  061A  1903               	skipnz
+  2020  061B  2D56               	goto	l1527
+  2021  061C  3A06               	xorlw	6	; case 4
+  2022  061D  1903               	skipnz
+  2023  061E  2D6D               	goto	l1533
+  2024  061F  3A01               	xorlw	1	; case 5
+  2025  0620  1903               	skipnz
+  2026  0621  2D84               	goto	l1539
+  2027  0622  3A03               	xorlw	3	; case 6
+  2028  0623  1903               	skipnz
+  2029  0624  2D9B               	goto	l1545
+  2030  0625  3A0E               	xorlw	14	; case 8
+  2031  0626  1903               	skipnz
+  2032  0627  2DB2               	goto	l1551
+  2033  0628  3A01               	xorlw	1	; case 9
+  2034  0629  1903               	skipnz
+  2035  062A  2DC9               	goto	l1557
+  2036  062B  3A03               	xorlw	3	; case 10
+  2037  062C  1903               	skipnz
+  2038  062D  2DE0               	goto	l1563
+  2039  062E  3A07               	xorlw	7	; case 13
+  2040  062F  1903               	skipnz
+  2041  0630  2DF7               	goto	l1569
+  2042  0631  3A03               	xorlw	3	; case 14
+  2043  0632  1903               	skipnz
+  2044  0633  2E0B               	goto	l1575
+  2045  0634  2E35               	goto	l214
+  2046  0635                     l214:	
+  2047                           ;door-lock-system.c: 313: while (RD4);
+  2048                           
+  2049  0635  1283               	bcf	3,5	;RP0=0, select bank0
+  2050  0636  1303               	bcf	3,6	;RP1=0, select bank0
+  2051  0637  1A08               	btfsc	8,4	;volatile
+  2052  0638  2E35               	goto	l214
+  2053                           
+  2054                           ;door-lock-system.c: 314: _delay((unsigned long)((50)*(4000000/4000.0)));
+  2055  0639  3041               	movlw	65
+  2056  063A  00AE               	movwf	??_enterPass+1
+  2057  063B  30EE               	movlw	238
+  2058  063C  00AD               	movwf	??_enterPass
+  2059  063D                     u947:	
+  2060  063D  0BAD               	decfsz	??_enterPass,f
+  2061  063E  2E3D               	goto	u947
+  2062  063F  0BAE               	decfsz	??_enterPass+1,f
+  2063  0640  2E3D               	goto	u947
+  2064  0641  0000               	nop
+  2065  0642  2D0A               	goto	l1583
+  2066  0643                     l1585:	
+  2067                           
+  2068                           ;door-lock-system.c: 315: }
+  2069                           ;door-lock-system.c: 316: }
+  2070                           ;door-lock-system.c: 317: verifyPIN();
+  2071  0643  120A  118A  230D   	fcall	_verifyPIN
+  2072  0646  0008               	return
+  2073  0647                     __end_of_enterPass:	
+  2074                           
+  2075                           	psect	text5
+  2076  030D                     __ptext5:	
+  2077 ;; *************** function _verifyPIN *****************
+  2078 ;; Defined at:
+  2079 ;;		line 238 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\door-lock-system\door-lo
+      +ck-system.c"
+  2080 ;; Parameters:    Size  Location     Type
+  2081 ;;		None
+  2082 ;; Auto vars:     Size  Location     Type
+  2083 ;;  i               2   11[BANK0 ] int 
+  2084 ;;  match           2    9[BANK0 ] int 
+  2085 ;; Return value:  Size  Location     Type
+  2086 ;;		None               void
+  2087 ;; Registers used:
+  2088 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+  2089 ;; Tracked objects:
+  2090 ;;		On entry : 0/0
+  2091 ;;		On exit  : 0/0
+  2092 ;;		Unchanged: 0/0
+  2093 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2094 ;;      Params:         0       0       0       0       0
+  2095 ;;      Locals:         0       4       0       0       0
+  2096 ;;      Temps:          0       3       0       0       0
+  2097 ;;      Totals:         0       7       0       0       0
+  2098 ;;Total ram usage:        7 bytes
+  2099 ;; Hardware stack levels used:    1
+  2100 ;; Hardware stack levels required when called:    4
+  2101 ;; This function calls:
+  2102 ;;		_displayMsg
+  2103 ;;		_initLCD
+  2104 ;;		_instCtrl
+  2105 ;;		_locked
+  2106 ;;		_setServoClockwise
+  2107 ;;		_setServoCounterClockwise
+  2108 ;; This function is called by:
+  2109 ;;		_enterPass
+  2110 ;; This function uses a non-reentrant model
+  2111 ;;
+  2112                           
+  2113                           
+  2114                           ;psect for function _verifyPIN
+  2115  030D                     _verifyPIN:	
+  2116                           
+  2117                           ;door-lock-system.c: 239: int match = 1;
+  2118                           
+  2119                           ;incstack = 0
+  2120                           ; Regs used in _verifyPIN: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+  2121  030D  3001               	movlw	1
+  2122  030E  1283               	bcf	3,5	;RP0=0, select bank0
+  2123  030F  1303               	bcf	3,6	;RP1=0, select bank0
+  2124  0310  00A9               	movwf	verifyPIN@match
+  2125  0311  3000               	movlw	0
+  2126  0312  00AA               	movwf	verifyPIN@match+1
+  2127                           
+  2128                           ;door-lock-system.c: 240: for (int i = 0; i < 8; i++) {
+  2129  0313  01AB               	clrf	verifyPIN@i
+  2130  0314  01AC               	clrf	verifyPIN@i+1
+  2131  0315  082C               	movf	verifyPIN@i+1,w
+  2132  0316  3A80               	xorlw	128
+  2133  0317  00FF               	movwf	127
+  2134  0318  3080               	movlw	128
+  2135  0319  027F               	subwf	127,w
+  2136  031A  1D03               	skipz
+  2137  031B  2B1E               	goto	u615
+  2138  031C  3008               	movlw	8
+  2139  031D  022B               	subwf	verifyPIN@i,w
+  2140  031E                     u615:	
+  2141  031E  1803               	btfsc	3,0
+  2142  031F  2B43               	goto	l1339
+  2143  0320                     l1331:	
+  2144                           
+  2145                           ;door-lock-system.c: 241: if (correctPIN[i] != PIN[i]) {
+  2146  0320  1283               	bcf	3,5	;RP0=0, select bank0
+  2147  0321  1303               	bcf	3,6	;RP1=0, select bank0
+  2148  0322  082B               	movf	verifyPIN@i,w
+  2149  0323  3E35               	addlw	_PIN& (0+255)
+  2150  0324  0084               	movwf	4
+  2151  0325  1383               	bcf	3,7	;select IRP bank0
+  2152  0326  0800               	movf	0,w
+  2153  0327  00A6               	movwf	??_verifyPIN
+  2154  0328  082B               	movf	verifyPIN@i,w
+  2155  0329  3E3D               	addlw	_correctPIN& (0+255)
+  2156  032A  0084               	movwf	4
+  2157  032B  0800               	movf	0,w
+  2158  032C  0626               	xorwf	??_verifyPIN,w
+  2159  032D  1903               	skipnz
+  2160  032E  2B32               	goto	l1335
+  2161                           
+  2162                           ;door-lock-system.c: 242: match = 0;
+  2163  032F  01A9               	clrf	verifyPIN@match
+  2164  0330  01AA               	clrf	verifyPIN@match+1
+  2165                           
+  2166                           ;door-lock-system.c: 243: break;
+  2167  0331  2B43               	goto	l1339
+  2168  0332                     l1335:	
+  2169  0332  3001               	movlw	1
+  2170  0333  07AB               	addwf	verifyPIN@i,f
+  2171  0334  1803               	skipnc
+  2172  0335  0AAC               	incf	verifyPIN@i+1,f
+  2173  0336  3000               	movlw	0
+  2174  0337  07AC               	addwf	verifyPIN@i+1,f
+  2175  0338  082C               	movf	verifyPIN@i+1,w
+  2176  0339  3A80               	xorlw	128
+  2177  033A  00FF               	movwf	127
+  2178  033B  3080               	movlw	128
+  2179  033C  027F               	subwf	127,w
+  2180  033D  1D03               	skipz
+  2181  033E  2B41               	goto	u635
+  2182  033F  3008               	movlw	8
+  2183  0340  022B               	subwf	verifyPIN@i,w
+  2184  0341                     u635:	
+  2185  0341  1C03               	skipc
+  2186  0342  2B20               	goto	l1331
+  2187  0343                     l1339:	
+  2188                           
+  2189                           ;door-lock-system.c: 244: }
+  2190                           ;door-lock-system.c: 245: }
+  2191                           ;door-lock-system.c: 247: if (match) {
+  2192  0343  1283               	bcf	3,5	;RP0=0, select bank0
+  2193  0344  1303               	bcf	3,6	;RP1=0, select bank0
+  2194  0345  082A               	movf	verifyPIN@match+1,w
+  2195  0346  0429               	iorwf	verifyPIN@match,w
+  2196  0347  1903               	skipnz
+  2197  0348  2B96               	goto	l1367
+  2198                           
+  2199                           ;door-lock-system.c: 248: instCtrl(0x01);
+  2200  0349  3001               	movlw	1
+  2201  034A  120A  118A  2123  120A  118A  	fcall	_instCtrl
+  2202                           
+  2203                           ;door-lock-system.c: 249: displayMsg("VALID PIN");
+  2204  034F  3057               	movlw	(STR_1-__stringbase)& (0+255)
+  2205  0350  120A  118A  2157  120A  118A  	fcall	_displayMsg
+  2206                           
+  2207                           ;door-lock-system.c: 250: invalid_flag = 0;
+  2208  0355  1283               	bcf	3,5	;RP0=0, select bank0
+  2209  0356  1303               	bcf	3,6	;RP1=0, select bank0
+  2210  0357  104E               	bcf	_invalid_flag/(0+8),_invalid_flag& (0+7)
+  2211                           
+  2212                           ;door-lock-system.c: 253: setServoCounterClockwise();
+  2213  0358  120A  118A  20E8  120A  118A  	fcall	_setServoCounterClockwise
+  2214                           
+  2215                           ;door-lock-system.c: 255: if(RCIF){
+  2216  035D  1283               	bcf	3,5	;RP0=0, select bank0
+  2217  035E  1303               	bcf	3,6	;RP1=0, select bank0
+  2218  035F  1E8C               	btfss	12,5	;volatile
+  2219  0360  2B66               	goto	l1353
+  2220                           
+  2221                           ;door-lock-system.c: 256: setServoClockwise();
+  2222  0361  120A  118A  20E1  120A  118A  	fcall	_setServoClockwise
+  2223  0366                     l1353:	
+  2224                           
+  2225                           ;door-lock-system.c: 257: }
+  2226                           ;door-lock-system.c: 258: _delay((unsigned long)((15000)*(4000000/4000.0)));
+  2227  0366  304D               	movlw	77
+  2228  0367  1283               	bcf	3,5	;RP0=0, select bank0
+  2229  0368  1303               	bcf	3,6	;RP1=0, select bank0
+  2230  0369  00A8               	movwf	??_verifyPIN+2
+  2231  036A  3019               	movlw	25
+  2232  036B  00A7               	movwf	??_verifyPIN+1
+  2233  036C  309A               	movlw	154
+  2234  036D  00A6               	movwf	??_verifyPIN
+  2235  036E                     u957:	
+  2236  036E  0BA6               	decfsz	??_verifyPIN,f
+  2237  036F  2B6E               	goto	u957
+  2238  0370  0BA7               	decfsz	??_verifyPIN+1,f
+  2239  0371  2B6E               	goto	u957
+  2240  0372  0BA8               	decfsz	??_verifyPIN+2,f
+  2241  0373  2B6E               	goto	u957
+  2242  0374  2B75               	nop2
+  2243                           
+  2244                           ;door-lock-system.c: 260: setServoClockwise();
+  2245  0375  120A  118A  20E1  120A  118A  	fcall	_setServoClockwise
+  2246                           
+  2247                           ;door-lock-system.c: 262: initLCD();
+  2248  037A  120A  118A  219C  120A  118A  	fcall	_initLCD
+  2249                           
+  2250                           ;door-lock-system.c: 263: instCtrl(0x80);
+  2251  037F  3080               	movlw	128
+  2252  0380  120A  118A  2123  120A  118A  	fcall	_instCtrl
+  2253                           
+  2254                           ;door-lock-system.c: 264: displayMsg("[1]Set PIN");
+  2255  0385  3041               	movlw	(STR_2-__stringbase)& (0+255)
+  2256  0386  120A  118A  2157  120A  118A  	fcall	_displayMsg
+  2257                           
+  2258                           ;door-lock-system.c: 265: instCtrl(0xC0);
+  2259  038B  30C0               	movlw	192
+  2260  038C  120A  118A  2123  120A  118A  	fcall	_instCtrl
+  2261                           
+  2262                           ;door-lock-system.c: 266: displayMsg("[2]Enter PIN");
+  2263  0391  301D               	movlw	(STR_3-__stringbase)& (0+255)
+  2264  0392  120A  118A  2157   	fcall	_displayMsg
+  2265                           
+  2266                           ;door-lock-system.c: 267: } else {
+  2267  0395  0008               	return
+  2268  0396                     l1367:	
+  2269                           
+  2270                           ;door-lock-system.c: 268: trial--;
+  2271  0396  30FF               	movlw	255
+  2272  0397  1283               	bcf	3,5	;RP0=0, select bank0
+  2273  0398  1303               	bcf	3,6	;RP1=0, select bank0
+  2274  0399  07C8               	addwf	_trial,f
+  2275  039A  1803               	skipnc
+  2276  039B  0AC9               	incf	_trial+1,f
+  2277  039C  30FF               	movlw	255
+  2278  039D  07C9               	addwf	_trial+1,f
+  2279                           
+  2280                           ;door-lock-system.c: 269: instCtrl(0x01);
+  2281  039E  3001               	movlw	1
+  2282  039F  120A  118A  2123  120A  118A  	fcall	_instCtrl
+  2283                           
+  2284                           ;door-lock-system.c: 270: displayMsg("INVALID PIN!");
+  2285  03A4  3010               	movlw	(STR_4-__stringbase)& (0+255)
+  2286  03A5  120A  118A  2157  120A  118A  	fcall	_displayMsg
+  2287                           
+  2288                           ;door-lock-system.c: 271: invalid_flag = 1;
+  2289  03AA  1283               	bcf	3,5	;RP0=0, select bank0
+  2290  03AB  1303               	bcf	3,6	;RP1=0, select bank0
+  2291  03AC  144E               	bsf	_invalid_flag/(0+8),_invalid_flag& (0+7)
+  2292                           
+  2293                           ;door-lock-system.c: 274: if (trial == 0) {
+  2294  03AD  0849               	movf	_trial+1,w
+  2295  03AE  0448               	iorwf	_trial,w
+  2296  03AF  1D03               	skipz
+  2297  03B0  0008               	return
+  2298                           
+  2299                           ;door-lock-system.c: 275: instCtrl(0x01);
+  2300  03B1  3001               	movlw	1
+  2301  03B2  120A  118A  2123  120A  118A  	fcall	_instCtrl
+  2302                           
+  2303                           ;door-lock-system.c: 276: displayMsg("NO TRIALS LEFT");
+  2304  03B7  3001               	movlw	(STR_5-__stringbase)& (0+255)
+  2305  03B8  120A  118A  2157  120A  118A  	fcall	_displayMsg
+  2306                           
+  2307                           ;door-lock-system.c: 277: _delay((unsigned long)((1000)*(4000000/4000.0)));
+  2308  03BD  3006               	movlw	6
+  2309  03BE  1283               	bcf	3,5	;RP0=0, select bank0
+  2310  03BF  1303               	bcf	3,6	;RP1=0, select bank0
+  2311  03C0  00A8               	movwf	??_verifyPIN+2
+  2312  03C1  3013               	movlw	19
+  2313  03C2  00A7               	movwf	??_verifyPIN+1
+  2314  03C3  30B1               	movlw	177
+  2315  03C4  00A6               	movwf	??_verifyPIN
+  2316  03C5                     u967:	
+  2317  03C5  0BA6               	decfsz	??_verifyPIN,f
+  2318  03C6  2BC5               	goto	u967
+  2319  03C7  0BA7               	decfsz	??_verifyPIN+1,f
+  2320  03C8  2BC5               	goto	u967
+  2321  03C9  0BA8               	decfsz	??_verifyPIN+2,f
+  2322  03CA  2BC5               	goto	u967
+  2323  03CB  2BCC               	nop2
+  2324  03CC                     l188:	
+  2325                           ;door-lock-system.c: 279: while(!TXIF);
+  2326                           
+  2327  03CC  1283               	bcf	3,5	;RP0=0, select bank0
+  2328  03CD  1303               	bcf	3,6	;RP1=0, select bank0
+  2329  03CE  1E0C               	btfss	12,4	;volatile
+  2330  03CF  2BCC               	goto	l188
+  2331                           
+  2332                           ;door-lock-system.c: 280: TXREG = '1';
+  2333  03D0  3031               	movlw	49
+  2334  03D1  0099               	movwf	25	;volatile
+  2335                           
+  2336                           ;door-lock-system.c: 281: _delay((unsigned long)((2)*(4000000/4000.0)));
+  2337  03D2  3003               	movlw	3
+  2338  03D3  00A7               	movwf	??_verifyPIN+1
+  2339  03D4  3097               	movlw	151
+  2340  03D5  00A6               	movwf	??_verifyPIN
+  2341  03D6                     u977:	
+  2342  03D6  0BA6               	decfsz	??_verifyPIN,f
+  2343  03D7  2BD6               	goto	u977
+  2344  03D8  0BA7               	decfsz	??_verifyPIN+1,f
+  2345  03D9  2BD6               	goto	u977
+  2346  03DA  2BDB               	nop2
+  2347  03DB                     l191:	
+  2348                           ;door-lock-system.c: 282: while(!TXIF);
+  2349                           
+  2350  03DB  1283               	bcf	3,5	;RP0=0, select bank0
+  2351  03DC  1303               	bcf	3,6	;RP1=0, select bank0
+  2352  03DD  1E0C               	btfss	12,4	;volatile
+  2353  03DE  2BDB               	goto	l191
+  2354                           
+  2355                           ;door-lock-system.c: 283: TXREG = '\n';
+  2356  03DF  300A               	movlw	10
+  2357  03E0  0099               	movwf	25	;volatile
+  2358                           
+  2359                           ;door-lock-system.c: 284: _delay((unsigned long)((2)*(4000000/4000.0)));
+  2360  03E1  3003               	movlw	3
+  2361  03E2  00A7               	movwf	??_verifyPIN+1
+  2362  03E3  3097               	movlw	151
+  2363  03E4  00A6               	movwf	??_verifyPIN
+  2364  03E5                     u987:	
+  2365  03E5  0BA6               	decfsz	??_verifyPIN,f
+  2366  03E6  2BE5               	goto	u987
+  2367  03E7  0BA7               	decfsz	??_verifyPIN+1,f
+  2368  03E8  2BE5               	goto	u987
+  2369  03E9  2BEA               	nop2
+  2370                           
+  2371                           ;door-lock-system.c: 286: locked();
+  2372  03EA  120A  118A  20E0   	fcall	_locked
+  2373  03ED  0008               	return
+  2374  03EE                     __end_of_verifyPIN:	
+  2375                           
+  2376                           	psect	text6
+  2377  00E8                     __ptext6:	
+  2378 ;; *************** function _setServoCounterClockwise *****************
+  2379 ;; Defined at:
+  2380 ;;		line 145 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\door-lock-system\door-lo
+      +ck-system.c"
+  2381 ;; Parameters:    Size  Location     Type
+  2382 ;;		None
+  2383 ;; Auto vars:     Size  Location     Type
+  2384 ;;		None
+  2385 ;; Return value:  Size  Location     Type
+  2386 ;;		None               void
+  2387 ;; Registers used:
+  2388 ;;		wreg, status,2, status,0, pclath, cstack
+  2389 ;; Tracked objects:
+  2390 ;;		On entry : 0/0
+  2391 ;;		On exit  : 0/0
+  2392 ;;		Unchanged: 0/0
+  2393 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2394 ;;      Params:         0       0       0       0       0
+  2395 ;;      Locals:         0       0       0       0       0
+  2396 ;;      Temps:          0       0       0       0       0
+  2397 ;;      Totals:         0       0       0       0       0
+  2398 ;;Total ram usage:        0 bytes
+  2399 ;; Hardware stack levels used:    1
+  2400 ;; Hardware stack levels required when called:    3
+  2401 ;; This function calls:
+  2402 ;;		_moveToPosition
+  2403 ;; This function is called by:
+  2404 ;;		_verifyPIN
+  2405 ;;		_main
+  2406 ;; This function uses a non-reentrant model
+  2407 ;;
+  2408                           
+  2409                           
+  2410                           ;psect for function _setServoCounterClockwise
+  2411  00E8                     _setServoCounterClockwise:	
+  2412                           
+  2413                           ;door-lock-system.c: 146: moveToPosition(SERVO_MAX_POS);
+  2414                           
+  2415                           ;incstack = 0
+  2416                           ; Regs used in _setServoCounterClockwise: [wreg+status,2+status,0+pclath+cstack]
+  2417  00E8  1283               	bcf	3,5	;RP0=0, select bank0
+  2418  00E9  1303               	bcf	3,6	;RP1=0, select bank0
+  2419  00EA  084A               	movf	_SERVO_MAX_POS,w
+  2420  00EB  120A  118A  2288   	fcall	_moveToPosition
+  2421  00EE  0008               	return
+  2422  00EF                     __end_of_setServoCounterClockwise:	
+  2423                           
+  2424                           	psect	text7
+  2425  00E1                     __ptext7:	
+  2426 ;; *************** function _setServoClockwise *****************
+  2427 ;; Defined at:
+  2428 ;;		line 141 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\door-lock-system\door-lo
+      +ck-system.c"
+  2429 ;; Parameters:    Size  Location     Type
+  2430 ;;		None
+  2431 ;; Auto vars:     Size  Location     Type
+  2432 ;;		None
+  2433 ;; Return value:  Size  Location     Type
+  2434 ;;		None               void
+  2435 ;; Registers used:
+  2436 ;;		wreg, status,2, status,0, pclath, cstack
+  2437 ;; Tracked objects:
+  2438 ;;		On entry : 0/0
+  2439 ;;		On exit  : 0/0
+  2440 ;;		Unchanged: 0/0
+  2441 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2442 ;;      Params:         0       0       0       0       0
+  2443 ;;      Locals:         0       0       0       0       0
+  2444 ;;      Temps:          0       0       0       0       0
+  2445 ;;      Totals:         0       0       0       0       0
+  2446 ;;Total ram usage:        0 bytes
+  2447 ;; Hardware stack levels used:    1
+  2448 ;; Hardware stack levels required when called:    3
+  2449 ;; This function calls:
+  2450 ;;		_moveToPosition
+  2451 ;; This function is called by:
+  2452 ;;		_verifyPIN
+  2453 ;;		_main
+  2454 ;; This function uses a non-reentrant model
+  2455 ;;
+  2456                           
+  2457                           
+  2458                           ;psect for function _setServoClockwise
+  2459  00E1                     _setServoClockwise:	
+  2460                           
+  2461                           ;door-lock-system.c: 142: moveToPosition(SERVO_MIN_POS);
+  2462                           
+  2463                           ;incstack = 0
+  2464                           ; Regs used in _setServoClockwise: [wreg+status,2+status,0+pclath+cstack]
+  2465  00E1  1283               	bcf	3,5	;RP0=0, select bank0
+  2466  00E2  1303               	bcf	3,6	;RP1=0, select bank0
+  2467  00E3  084C               	movf	_SERVO_MIN_POS,w
+  2468  00E4  120A  118A  2288   	fcall	_moveToPosition
+  2469  00E7  0008               	return
+  2470  00E8                     __end_of_setServoClockwise:	
+  2471                           
+  2472                           	psect	text8
+  2473  0288                     __ptext8:	
+  2474 ;; *************** function _moveToPosition *****************
+  2475 ;; Defined at:
+  2476 ;;		line 116 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\door-lock-system\door-lo
+      +ck-system.c"
+  2477 ;; Parameters:    Size  Location     Type
+  2478 ;;  position        1    wreg     unsigned char 
+  2479 ;; Auto vars:     Size  Location     Type
+  2480 ;;  position        1    5[BANK0 ] unsigned char 
+  2481 ;;  pos             1    4[BANK0 ] unsigned char 
+  2482 ;;  pos             1    3[BANK0 ] unsigned char 
+  2483 ;; Return value:  Size  Location     Type
+  2484 ;;		None               void
+  2485 ;; Registers used:
+  2486 ;;		wreg, status,2, status,0, pclath, cstack
+  2487 ;; Tracked objects:
+  2488 ;;		On entry : 0/0
+  2489 ;;		On exit  : 0/0
+  2490 ;;		Unchanged: 0/0
+  2491 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2492 ;;      Params:         0       0       0       0       0
+  2493 ;;      Locals:         0       3       0       0       0
+  2494 ;;      Temps:          0       3       0       0       0
+  2495 ;;      Totals:         0       6       0       0       0
+  2496 ;;Total ram usage:        6 bytes
+  2497 ;; Hardware stack levels used:    1
+  2498 ;; Hardware stack levels required when called:    2
+  2499 ;; This function calls:
+  2500 ;;		_setServoPosition
+  2501 ;; This function is called by:
+  2502 ;;		_setServoClockwise
+  2503 ;;		_setServoCounterClockwise
+  2504 ;; This function uses a non-reentrant model
+  2505 ;;
+  2506                           
+  2507                           
+  2508                           ;psect for function _moveToPosition
+  2509  0288                     _moveToPosition:	
+  2510                           
+  2511                           ;incstack = 0
+  2512                           ; Regs used in _moveToPosition: [wreg+status,2+status,0+pclath+cstack]
+  2513                           ;moveToPosition@position stored from wreg
+  2514  0288  1283               	bcf	3,5	;RP0=0, select bank0
+  2515  0289  1303               	bcf	3,6	;RP1=0, select bank0
+  2516  028A  00A5               	movwf	moveToPosition@position
+  2517                           
+  2518                           ;door-lock-system.c: 118: if (position > currentPosition + 2 || position < currentPositi
+      +                          on - 2) {
+  2519  028B  084D               	movf	_currentPosition,w
+  2520  028C  3E02               	addlw	2
+  2521  028D  00A0               	movwf	??_moveToPosition
+  2522  028E  3000               	movlw	0
+  2523  028F  1803               	skipnc
+  2524  0290  3001               	movlw	1
+  2525  0291  00A1               	movwf	??_moveToPosition+1
+  2526  0292  0821               	movf	??_moveToPosition+1,w
+  2527  0293  3A80               	xorlw	128
+  2528  0294  00A2               	movwf	??_moveToPosition+2
+  2529  0295  3080               	movlw	128
+  2530  0296  0222               	subwf	??_moveToPosition+2,w
+  2531  0297  1D03               	skipz
+  2532  0298  2A9B               	goto	u545
+  2533  0299  0825               	movf	moveToPosition@position,w
+  2534  029A  0220               	subwf	??_moveToPosition,w
+  2535  029B                     u545:	
+  2536  029B  1C03               	skipc
+  2537  029C  2AAF               	goto	l1257
+  2538  029D  1283               	bcf	3,5	;RP0=0, select bank0
+  2539  029E  1303               	bcf	3,6	;RP1=0, select bank0
+  2540  029F  084D               	movf	_currentPosition,w
+  2541  02A0  3EFE               	addlw	254
+  2542  02A1  00A0               	movwf	??_moveToPosition
+  2543  02A2  30FF               	movlw	255
+  2544  02A3  1803               	skipnc
+  2545  02A4  3000               	movlw	0
+  2546  02A5  00A1               	movwf	??_moveToPosition+1
+  2547  02A6  0821               	movf	??_moveToPosition+1,w
+  2548  02A7  3A80               	xorlw	128
+  2549  02A8  3C80               	sublw	128
+  2550  02A9  1D03               	skipz
+  2551  02AA  2AAD               	goto	u555
+  2552  02AB  0820               	movf	??_moveToPosition,w
+  2553  02AC  0225               	subwf	moveToPosition@position,w
+  2554  02AD                     u555:	
+  2555  02AD  1803               	skipnc
+  2556  02AE  0008               	return
+  2557  02AF                     l1257:	
+  2558                           
+  2559                           ;door-lock-system.c: 120: if(position > currentPosition) {
+  2560  02AF  1283               	bcf	3,5	;RP0=0, select bank0
+  2561  02B0  1303               	bcf	3,6	;RP1=0, select bank0
+  2562  02B1  0825               	movf	moveToPosition@position,w
+  2563  02B2  024D               	subwf	_currentPosition,w
+  2564  02B3  1803               	skipnc
+  2565  02B4  2AD5               	goto	l1269
+  2566                           
+  2567                           ;door-lock-system.c: 122: for(uint8_t pos = currentPosition; pos < position; pos += 3) {
+  2568  02B5  084D               	movf	_currentPosition,w
+  2569  02B6  00A0               	movwf	??_moveToPosition
+  2570  02B7  0820               	movf	??_moveToPosition,w
+  2571  02B8  00A3               	movwf	moveToPosition@pos
+  2572  02B9                     l1267:	
+  2573  02B9  0825               	movf	moveToPosition@position,w
+  2574  02BA  0223               	subwf	moveToPosition@pos,w
+  2575  02BB  1803               	btfsc	3,0
+  2576  02BC  2AF7               	goto	l1281
+  2577                           
+  2578                           ;door-lock-system.c: 123: setServoPosition(pos);
+  2579  02BD  0823               	movf	moveToPosition@pos,w
+  2580  02BE  120A  118A  223B  120A  118A  	fcall	_setServoPosition
+  2581                           
+  2582                           ;door-lock-system.c: 124: _delay((unsigned long)((20)*(4000000/4000.0)));
+  2583  02C3  301A               	movlw	26
+  2584  02C4  1283               	bcf	3,5	;RP0=0, select bank0
+  2585  02C5  1303               	bcf	3,6	;RP1=0, select bank0
+  2586  02C6  00A1               	movwf	??_moveToPosition+1
+  2587  02C7  30F8               	movlw	248
+  2588  02C8  00A0               	movwf	??_moveToPosition
+  2589  02C9                     u997:	
+  2590  02C9  0BA0               	decfsz	??_moveToPosition,f
+  2591  02CA  2AC9               	goto	u997
+  2592  02CB  0BA1               	decfsz	??_moveToPosition+1,f
+  2593  02CC  2AC9               	goto	u997
+  2594  02CD  0000               	nop
+  2595  02CE  3003               	movlw	3
+  2596  02CF  1283               	bcf	3,5	;RP0=0, select bank0
+  2597  02D0  1303               	bcf	3,6	;RP1=0, select bank0
+  2598  02D1  00A0               	movwf	??_moveToPosition
+  2599  02D2  0820               	movf	??_moveToPosition,w
+  2600  02D3  07A3               	addwf	moveToPosition@pos,f
+  2601  02D4  2AB9               	goto	l1267
+  2602  02D5                     l1269:	
+  2603                           ;door-lock-system.c: 125: }
+  2604                           ;door-lock-system.c: 126: } else if(position < currentPosition) {
+  2605                           
+  2606  02D5  084D               	movf	_currentPosition,w
+  2607  02D6  0225               	subwf	moveToPosition@position,w
+  2608  02D7  1803               	skipnc
+  2609  02D8  2AF7               	goto	l1281
+  2610                           
+  2611                           ;door-lock-system.c: 128: for(uint8_t pos = currentPosition; pos > position; pos -= 3) {
+  2612  02D9  084D               	movf	_currentPosition,w
+  2613  02DA  00A0               	movwf	??_moveToPosition
+  2614  02DB  0820               	movf	??_moveToPosition,w
+  2615  02DC  00A4               	movwf	moveToPosition@pos_166
+  2616  02DD                     l1279:	
+  2617  02DD  0824               	movf	moveToPosition@pos_166,w
+  2618  02DE  0225               	subwf	moveToPosition@position,w
+  2619  02DF  1803               	btfsc	3,0
+  2620  02E0  2AF7               	goto	l1281
+  2621                           
+  2622                           ;door-lock-system.c: 129: setServoPosition(pos);
+  2623  02E1  0824               	movf	moveToPosition@pos_166,w
+  2624  02E2  120A  118A  223B  120A  118A  	fcall	_setServoPosition
+  2625                           
+  2626                           ;door-lock-system.c: 130: _delay((unsigned long)((20)*(4000000/4000.0)));
+  2627  02E7  301A               	movlw	26
+  2628  02E8  1283               	bcf	3,5	;RP0=0, select bank0
+  2629  02E9  1303               	bcf	3,6	;RP1=0, select bank0
+  2630  02EA  00A1               	movwf	??_moveToPosition+1
+  2631  02EB  30F8               	movlw	248
+  2632  02EC  00A0               	movwf	??_moveToPosition
+  2633  02ED                     u1007:	
+  2634  02ED  0BA0               	decfsz	??_moveToPosition,f
+  2635  02EE  2AED               	goto	u1007
+  2636  02EF  0BA1               	decfsz	??_moveToPosition+1,f
+  2637  02F0  2AED               	goto	u1007
+  2638  02F1  0000               	nop
+  2639  02F2  3003               	movlw	3
+  2640  02F3  1283               	bcf	3,5	;RP0=0, select bank0
+  2641  02F4  1303               	bcf	3,6	;RP1=0, select bank0
+  2642  02F5  02A4               	subwf	moveToPosition@pos_166,f
+  2643  02F6  2ADD               	goto	l1279
+  2644  02F7                     l1281:	
+  2645                           
+  2646                           ;door-lock-system.c: 131: }
+  2647                           ;door-lock-system.c: 132: }
+  2648                           ;door-lock-system.c: 135: setServoPosition(position);
+  2649  02F7  0825               	movf	moveToPosition@position,w
+  2650  02F8  120A  118A  223B  120A  118A  	fcall	_setServoPosition
+  2651                           
+  2652                           ;door-lock-system.c: 138: _delay((unsigned long)((500)*(4000000/4000.0)));
+  2653  02FD  3003               	movlw	3
+  2654  02FE  1283               	bcf	3,5	;RP0=0, select bank0
+  2655  02FF  1303               	bcf	3,6	;RP1=0, select bank0
+  2656  0300  00A2               	movwf	??_moveToPosition+2
+  2657  0301  308A               	movlw	138
+  2658  0302  00A1               	movwf	??_moveToPosition+1
+  2659  0303  3056               	movlw	86
+  2660  0304  00A0               	movwf	??_moveToPosition
+  2661  0305                     u1017:	
+  2662  0305  0BA0               	decfsz	??_moveToPosition,f
+  2663  0306  2B05               	goto	u1017
+  2664  0307  0BA1               	decfsz	??_moveToPosition+1,f
+  2665  0308  2B05               	goto	u1017
+  2666  0309  0BA2               	decfsz	??_moveToPosition+2,f
+  2667  030A  2B05               	goto	u1017
+  2668  030B  2B0C               	nop2
+  2669  030C  0008               	return
+  2670  030D                     __end_of_moveToPosition:	
+  2671                           
+  2672                           	psect	text9
+  2673  023B                     __ptext9:	
+  2674 ;; *************** function _setServoPosition *****************
+  2675 ;; Defined at:
+  2676 ;;		line 99 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\door-lock-system\door-loc
+      +k-system.c"
+  2677 ;; Parameters:    Size  Location     Type
+  2678 ;;  position        1    wreg     unsigned char 
+  2679 ;; Auto vars:     Size  Location     Type
+  2680 ;;  position        1   12[COMMON] unsigned char 
+  2681 ;;  duty            2   10[COMMON] unsigned int 
+  2682 ;;  scaledPositi    2    8[COMMON] unsigned int 
+  2683 ;; Return value:  Size  Location     Type
+  2684 ;;		None               void
+  2685 ;; Registers used:
+  2686 ;;		wreg, status,2, status,0, pclath, cstack
+  2687 ;; Tracked objects:
+  2688 ;;		On entry : 0/0
+  2689 ;;		On exit  : 0/0
+  2690 ;;		Unchanged: 0/0
+  2691 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2692 ;;      Params:         0       0       0       0       0
+  2693 ;;      Locals:         5       0       0       0       0
+  2694 ;;      Temps:          2       0       0       0       0
+  2695 ;;      Totals:         7       0       0       0       0
+  2696 ;;Total ram usage:        7 bytes
+  2697 ;; Hardware stack levels used:    1
+  2698 ;; Hardware stack levels required when called:    1
+  2699 ;; This function calls:
+  2700 ;;		___wmul
+  2701 ;; This function is called by:
+  2702 ;;		_initialize
+  2703 ;;		_moveToPosition
+  2704 ;; This function uses a non-reentrant model
+  2705 ;;
+  2706                           
+  2707                           
+  2708                           ;psect for function _setServoPosition
+  2709  023B                     _setServoPosition:	
+  2710                           
+  2711                           ;incstack = 0
+  2712                           ; Regs used in _setServoPosition: [wreg+status,2+status,0+pclath+cstack]
+  2713                           ;setServoPosition@position stored from wreg
+  2714  023B  00FC               	movwf	setServoPosition@position
+  2715                           
+  2716                           ;door-lock-system.c: 101: if(position < 50) position = 50;
+  2717  023C  3032               	movlw	50
+  2718  023D  027C               	subwf	setServoPosition@position,w
+  2719  023E  1803               	skipnc
+  2720  023F  2A44               	goto	l98
+  2721  0240  3032               	movlw	50
+  2722  0241  00F6               	movwf	??_setServoPosition
+  2723  0242  0876               	movf	??_setServoPosition,w
+  2724  0243  00FC               	movwf	setServoPosition@position
+  2725  0244                     l98:	
+  2726                           
+  2727                           ;door-lock-system.c: 102: if(position > 240) position = 240;
+  2728  0244  30F1               	movlw	241
+  2729  0245  027C               	subwf	setServoPosition@position,w
+  2730  0246  1C03               	skipc
+  2731  0247  2A4C               	goto	l1223
+  2732  0248  30F0               	movlw	240
+  2733  0249  00F6               	movwf	??_setServoPosition
+  2734  024A  0876               	movf	??_setServoPosition,w
+  2735  024B  00FC               	movwf	setServoPosition@position
+  2736  024C                     l1223:	
+  2737                           
+  2738                           ;door-lock-system.c: 105: uint16_t scaledPosition = (uint16_t)position * 10;
+  2739  024C  087C               	movf	setServoPosition@position,w
+  2740  024D  00F6               	movwf	??_setServoPosition
+  2741  024E  01F7               	clrf	??_setServoPosition+1
+  2742  024F  0876               	movf	??_setServoPosition,w
+  2743  0250  00F0               	movwf	___wmul@multiplier
+  2744  0251  0877               	movf	??_setServoPosition+1,w
+  2745  0252  00F1               	movwf	___wmul@multiplier+1
+  2746  0253  300A               	movlw	10
+  2747  0254  00F2               	movwf	___wmul@multiplicand
+  2748  0255  3000               	movlw	0
+  2749  0256  00F3               	movwf	___wmul@multiplicand+1
+  2750  0257  120A  118A  2179  120A  118A  	fcall	___wmul
+  2751  025C  0871               	movf	?___wmul+1,w
+  2752  025D  01F9               	clrf	setServoPosition@scaledPosition+1
+  2753  025E  07F9               	addwf	setServoPosition@scaledPosition+1,f
+  2754  025F  0870               	movf	?___wmul,w
+  2755  0260  01F8               	clrf	setServoPosition@scaledPosition
+  2756  0261  07F8               	addwf	setServoPosition@scaledPosition,f
+  2757                           
+  2758                           ;door-lock-system.c: 108: uint16_t duty = scaledPosition;
+  2759  0262  0879               	movf	setServoPosition@scaledPosition+1,w
+  2760  0263  01FB               	clrf	setServoPosition@duty+1
+  2761  0264  07FB               	addwf	setServoPosition@duty+1,f
+  2762  0265  0878               	movf	setServoPosition@scaledPosition,w
+  2763  0266  01FA               	clrf	setServoPosition@duty
+  2764  0267  07FA               	addwf	setServoPosition@duty,f
+  2765                           
+  2766                           ;door-lock-system.c: 109: CCPR1L = duty >> 2;
+  2767  0268  087B               	movf	setServoPosition@duty+1,w
+  2768  0269  00F7               	movwf	??_setServoPosition+1
+  2769  026A  087A               	movf	setServoPosition@duty,w
+  2770  026B  00F6               	movwf	??_setServoPosition
+  2771  026C  1003               	clrc
+  2772  026D  0CF7               	rrf	??_setServoPosition+1,f
+  2773  026E  0CF6               	rrf	??_setServoPosition,f
+  2774  026F  1003               	clrc
+  2775  0270  0CF7               	rrf	??_setServoPosition+1,f
+  2776  0271  0CF6               	rrf	??_setServoPosition,f
+  2777  0272  0876               	movf	??_setServoPosition,w
+  2778  0273  1283               	bcf	3,5	;RP0=0, select bank0
+  2779  0274  1303               	bcf	3,6	;RP1=0, select bank0
+  2780  0275  0095               	movwf	21	;volatile
+  2781                           
+  2782                           ;door-lock-system.c: 110: CCP1CON = (CCP1CON & 0xCF) | ((duty & 0x03) << 4);
+  2783  0276  087A               	movf	setServoPosition@duty,w
+  2784  0277  3903               	andlw	3
+  2785  0278  00F6               	movwf	??_setServoPosition
+  2786  0279  3004               	movlw	4
+  2787  027A                     u495:	
+  2788  027A  1003               	clrc
+  2789  027B  0DF6               	rlf	??_setServoPosition,f
+  2790  027C  3EFF               	addlw	-1
+  2791  027D  1D03               	skipz
+  2792  027E  2A7A               	goto	u495
+  2793  027F  0817               	movf	23,w	;volatile
+  2794  0280  39CF               	andlw	207
+  2795  0281  0476               	iorwf	??_setServoPosition,w
+  2796  0282  0097               	movwf	23	;volatile
+  2797                           
+  2798                           ;door-lock-system.c: 113: currentPosition = position;
+  2799  0283  087C               	movf	setServoPosition@position,w
+  2800  0284  00F6               	movwf	??_setServoPosition
+  2801  0285  0876               	movf	??_setServoPosition,w
+  2802  0286  00CD               	movwf	_currentPosition
+  2803  0287  0008               	return
+  2804  0288                     __end_of_setServoPosition:	
+  2805                           
+  2806                           	psect	text10
+  2807  0179                     __ptext10:	
+  2808 ;; *************** function ___wmul *****************
+  2809 ;; Defined at:
+  2810 ;;		line 15 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul16.c"
+  2811 ;; Parameters:    Size  Location     Type
+  2812 ;;  multiplier      2    0[COMMON] unsigned int 
+  2813 ;;  multiplicand    2    2[COMMON] unsigned int 
+  2814 ;; Auto vars:     Size  Location     Type
+  2815 ;;  product         2    4[COMMON] unsigned int 
+  2816 ;; Return value:  Size  Location     Type
+  2817 ;;                  2    0[COMMON] unsigned int 
+  2818 ;; Registers used:
+  2819 ;;		wreg, status,2, status,0
+  2820 ;; Tracked objects:
+  2821 ;;		On entry : 0/0
+  2822 ;;		On exit  : 0/0
+  2823 ;;		Unchanged: 0/0
+  2824 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2825 ;;      Params:         4       0       0       0       0
+  2826 ;;      Locals:         2       0       0       0       0
+  2827 ;;      Temps:          0       0       0       0       0
+  2828 ;;      Totals:         6       0       0       0       0
+  2829 ;;Total ram usage:        6 bytes
+  2830 ;; Hardware stack levels used:    1
+  2831 ;; This function calls:
+  2832 ;;		Nothing
+  2833 ;; This function is called by:
+  2834 ;;		_setServoPosition
+  2835 ;; This function uses a non-reentrant model
+  2836 ;;
+  2837                           
+  2838                           
+  2839                           ;psect for function ___wmul
+  2840  0179                     ___wmul:	
+  2841                           
+  2842                           ;incstack = 0
+  2843                           ; Regs used in ___wmul: [wreg+status,2+status,0]
+  2844  0179  01F4               	clrf	___wmul@product
+  2845  017A  01F5               	clrf	___wmul@product+1
+  2846  017B                     l1207:	
+  2847  017B  1C70               	btfss	___wmul@multiplier,0
+  2848  017C  2983               	goto	l326
+  2849  017D  0872               	movf	___wmul@multiplicand,w
+  2850  017E  07F4               	addwf	___wmul@product,f
+  2851  017F  1803               	skipnc
+  2852  0180  0AF5               	incf	___wmul@product+1,f
+  2853  0181  0873               	movf	___wmul@multiplicand+1,w
+  2854  0182  07F5               	addwf	___wmul@product+1,f
+  2855  0183                     l326:	
+  2856  0183  3001               	movlw	1
+  2857  0184                     u445:	
+  2858  0184  1003               	clrc
+  2859  0185  0DF2               	rlf	___wmul@multiplicand,f
+  2860  0186  0DF3               	rlf	___wmul@multiplicand+1,f
+  2861  0187  3EFF               	addlw	-1
+  2862  0188  1D03               	skipz
+  2863  0189  2984               	goto	u445
+  2864  018A  3001               	movlw	1
+  2865  018B                     u455:	
+  2866  018B  1003               	clrc
+  2867  018C  0CF1               	rrf	___wmul@multiplier+1,f
+  2868  018D  0CF0               	rrf	___wmul@multiplier,f
+  2869  018E  3EFF               	addlw	-1
+  2870  018F  1D03               	skipz
+  2871  0190  298B               	goto	u455
+  2872  0191  0871               	movf	___wmul@multiplier+1,w
+  2873  0192  0470               	iorwf	___wmul@multiplier,w
+  2874  0193  1D03               	skipz
+  2875  0194  297B               	goto	l1207
+  2876  0195  0875               	movf	___wmul@product+1,w
+  2877  0196  01F1               	clrf	?___wmul+1
+  2878  0197  07F1               	addwf	?___wmul+1,f
+  2879  0198  0874               	movf	___wmul@product,w
+  2880  0199  01F0               	clrf	?___wmul
+  2881  019A  07F0               	addwf	?___wmul,f
+  2882  019B  0008               	return
+  2883  019C                     __end_of___wmul:	
+  2884                           
+  2885                           	psect	text11
+  2886  00E0                     __ptext11:	
+  2887 ;; *************** function _locked *****************
+  2888 ;; Defined at:
+  2889 ;;		line 230 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\door-lock-system\door-lo
+      +ck-system.c"
+  2890 ;; Parameters:    Size  Location     Type
+  2891 ;;		None
+  2892 ;; Auto vars:     Size  Location     Type
+  2893 ;;		None
+  2894 ;; Return value:  Size  Location     Type
+  2895 ;;		None               void
+  2896 ;; Registers used:
+  2897 ;;		None
+  2898 ;; Tracked objects:
+  2899 ;;		On entry : 0/0
+  2900 ;;		On exit  : 0/0
+  2901 ;;		Unchanged: 0/0
+  2902 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2903 ;;      Params:         0       0       0       0       0
+  2904 ;;      Locals:         0       0       0       0       0
+  2905 ;;      Temps:          0       0       0       0       0
+  2906 ;;      Totals:         0       0       0       0       0
+  2907 ;;Total ram usage:        0 bytes
+  2908 ;; Hardware stack levels used:    1
+  2909 ;; This function calls:
+  2910 ;;		Nothing
+  2911 ;; This function is called by:
+  2912 ;;		_verifyPIN
+  2913 ;; This function uses a non-reentrant model
+  2914 ;;
+  2915                           
+  2916                           
+  2917                           ;psect for function _locked
+  2918  00E0                     _locked:	
+  2919  00E0                     l175:	
+  2920                           ;incstack = 0
+  2921                           ; Regs used in _locked: []
+  2922                           ;door-lock-system.c: 232: while (1) {
+  2923                           
+  2924  00E0  28E0               	goto	l175
+  2925  00E1                     __end_of_locked:	
+  2926                           
+  2927                           	psect	text12
+  2928  019C                     __ptext12:	
+  2929 ;; *************** function _initLCD *****************
+  2930 ;; Defined at:
+  2931 ;;		line 166 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\door-lock-system\door-lo
+      +ck-system.c"
+  2932 ;; Parameters:    Size  Location     Type
+  2933 ;;		None
+  2934 ;; Auto vars:     Size  Location     Type
+  2935 ;;		None
+  2936 ;; Return value:  Size  Location     Type
+  2937 ;;		None               void
+  2938 ;; Registers used:
+  2939 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+  2940 ;; Tracked objects:
+  2941 ;;		On entry : 0/0
+  2942 ;;		On exit  : 0/0
+  2943 ;;		Unchanged: 0/0
+  2944 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2945 ;;      Params:         0       0       0       0       0
+  2946 ;;      Locals:         0       0       0       0       0
+  2947 ;;      Temps:          0       0       0       0       0
+  2948 ;;      Totals:         0       0       0       0       0
+  2949 ;;Total ram usage:        0 bytes
+  2950 ;; Hardware stack levels used:    1
+  2951 ;; Hardware stack levels required when called:    2
+  2952 ;; This function calls:
+  2953 ;;		_LCD_delay
+  2954 ;;		_instCtrl
+  2955 ;; This function is called by:
+  2956 ;;		_verifyPIN
+  2957 ;;		_main
+  2958 ;; This function uses a non-reentrant model
+  2959 ;;
+  2960                           
+  2961                           
+  2962                           ;psect for function _initLCD
+  2963  019C                     _initLCD:	
+  2964                           
+  2965                           ;door-lock-system.c: 167: LCD_delay(15);
+  2966                           
+  2967                           ;incstack = 0
+  2968                           ; Regs used in _initLCD: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+  2969  019C  300F               	movlw	15
+  2970  019D  00F0               	movwf	LCD_delay@MUL
+  2971  019E  3000               	movlw	0
+  2972  019F  00F1               	movwf	LCD_delay@MUL+1
+  2973  01A0  120A  118A  21C2  120A  118A  	fcall	_LCD_delay
+  2974                           
+  2975                           ;door-lock-system.c: 168: instCtrl(0x38);
+  2976  01A5  3038               	movlw	56
+  2977  01A6  120A  118A  2123  120A  118A  	fcall	_instCtrl
+  2978                           
+  2979                           ;door-lock-system.c: 169: instCtrl(0x08);
+  2980  01AB  3008               	movlw	8
+  2981  01AC  120A  118A  2123  120A  118A  	fcall	_instCtrl
+  2982                           
+  2983                           ;door-lock-system.c: 170: instCtrl(0x01);
+  2984  01B1  3001               	movlw	1
+  2985  01B2  120A  118A  2123  120A  118A  	fcall	_instCtrl
+  2986                           
+  2987                           ;door-lock-system.c: 171: instCtrl(0x06);
+  2988  01B7  3006               	movlw	6
+  2989  01B8  120A  118A  2123  120A  118A  	fcall	_instCtrl
+  2990                           
+  2991                           ;door-lock-system.c: 172: instCtrl(0x0C);
+  2992  01BD  300C               	movlw	12
+  2993  01BE  120A  118A  2123   	fcall	_instCtrl
+  2994  01C1  0008               	return
+  2995  01C2                     __end_of_initLCD:	
+  2996                           
+  2997                           	psect	text13
+  2998  0123                     __ptext13:	
+  2999 ;; *************** function _instCtrl *****************
+  3000 ;; Defined at:
+  3001 ;;		line 157 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\door-lock-system\door-lo
+      +ck-system.c"
+  3002 ;; Parameters:    Size  Location     Type
+  3003 ;;  INST            1    wreg     unsigned char 
+  3004 ;; Auto vars:     Size  Location     Type
+  3005 ;;  INST            1    6[COMMON] unsigned char 
+  3006 ;; Return value:  Size  Location     Type
+  3007 ;;		None               void
+  3008 ;; Registers used:
+  3009 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+  3010 ;; Tracked objects:
+  3011 ;;		On entry : 0/0
+  3012 ;;		On exit  : 0/0
+  3013 ;;		Unchanged: 0/0
+  3014 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  3015 ;;      Params:         0       0       0       0       0
+  3016 ;;      Locals:         1       0       0       0       0
+  3017 ;;      Temps:          0       0       0       0       0
+  3018 ;;      Totals:         1       0       0       0       0
+  3019 ;;Total ram usage:        1 bytes
+  3020 ;; Hardware stack levels used:    1
+  3021 ;; Hardware stack levels required when called:    1
+  3022 ;; This function calls:
+  3023 ;;		_LCD_delay
+  3024 ;; This function is called by:
+  3025 ;;		_initLCD
+  3026 ;;		_verifyPIN
+  3027 ;;		_main
+  3028 ;; This function uses a non-reentrant model
+  3029 ;;
+  3030                           
+  3031                           
+  3032                           ;psect for function _instCtrl
+  3033  0123                     _instCtrl:	
+  3034                           
+  3035                           ;incstack = 0
+  3036                           ; Regs used in _instCtrl: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+  3037                           ;instCtrl@INST stored from wreg
+  3038  0123  00F6               	movwf	instCtrl@INST
+  3039                           
+  3040                           ;door-lock-system.c: 158: PORTB = INST;
+  3041  0124  0876               	movf	instCtrl@INST,w
+  3042  0125  1283               	bcf	3,5	;RP0=0, select bank0
+  3043  0126  1303               	bcf	3,6	;RP1=0, select bank0
+  3044  0127  0086               	movwf	6	;volatile
+  3045                           
+  3046                           ;door-lock-system.c: 159: RA0 = 0;
+  3047  0128  1005               	bcf	5,0	;volatile
+  3048                           
+  3049                           ;door-lock-system.c: 160: RA1 = 0;
+  3050  0129  1085               	bcf	5,1	;volatile
+  3051                           
+  3052                           ;door-lock-system.c: 161: RA2 = 1;
+  3053  012A  1505               	bsf	5,2	;volatile
+  3054                           
+  3055                           ;door-lock-system.c: 162: LCD_delay(1);
+  3056  012B  3001               	movlw	1
+  3057  012C  00F0               	movwf	LCD_delay@MUL
+  3058  012D  3000               	movlw	0
+  3059  012E  00F1               	movwf	LCD_delay@MUL+1
+  3060  012F  120A  118A  21C2   	fcall	_LCD_delay
+  3061                           
+  3062                           ;door-lock-system.c: 163: RA2 = 0;
+  3063  0132  1283               	bcf	3,5	;RP0=0, select bank0
+  3064  0133  1303               	bcf	3,6	;RP1=0, select bank0
+  3065  0134  1105               	bcf	5,2	;volatile
+  3066  0135  0008               	return
+  3067  0136                     __end_of_instCtrl:	
+  3068                           
+  3069                           	psect	text14
+  3070  0157                     __ptext14:	
+  3071 ;; *************** function _displayMsg *****************
+  3072 ;; Defined at:
+  3073 ;;		line 184 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\door-lock-system\door-lo
+      +ck-system.c"
+  3074 ;; Parameters:    Size  Location     Type
+  3075 ;;  message         1    wreg     PTR const unsigned char 
+  3076 ;;		 -> STR_15(11), STR_14(13), STR_13(11), STR_12(9), 
+  3077 ;;		 -> STR_11(9), STR_10(11), STR_9(12), STR_8(11), 
+  3078 ;;		 -> STR_7(13), STR_6(11), STR_5(15), STR_4(13), 
+  3079 ;;		 -> STR_3(13), STR_2(11), STR_1(10), 
+  3080 ;; Auto vars:     Size  Location     Type
+  3081 ;;  message         1    9[COMMON] PTR const unsigned char 
+  3082 ;;		 -> STR_15(11), STR_14(13), STR_13(11), STR_12(9), 
+  3083 ;;		 -> STR_11(9), STR_10(11), STR_9(12), STR_8(11), 
+  3084 ;;		 -> STR_7(13), STR_6(11), STR_5(15), STR_4(13), 
+  3085 ;;		 -> STR_3(13), STR_2(11), STR_1(10), 
+  3086 ;;  i               2    7[COMMON] int 
+  3087 ;; Return value:  Size  Location     Type
+  3088 ;;		None               void
+  3089 ;; Registers used:
+  3090 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+  3091 ;; Tracked objects:
+  3092 ;;		On entry : 0/0
+  3093 ;;		On exit  : 0/0
+  3094 ;;		Unchanged: 0/0
+  3095 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  3096 ;;      Params:         0       0       0       0       0
+  3097 ;;      Locals:         3       0       0       0       0
+  3098 ;;      Temps:          0       0       0       0       0
+  3099 ;;      Totals:         3       0       0       0       0
+  3100 ;;Total ram usage:        3 bytes
+  3101 ;; Hardware stack levels used:    1
+  3102 ;; Hardware stack levels required when called:    2
+  3103 ;; This function calls:
+  3104 ;;		_dataCtrl
+  3105 ;; This function is called by:
+  3106 ;;		_verifyPIN
+  3107 ;;		_main
+  3108 ;; This function uses a non-reentrant model
+  3109 ;;
+  3110                           
+  3111                           
+  3112                           ;psect for function _displayMsg
+  3113  0157                     _displayMsg:	
+  3114                           
+  3115                           ;incstack = 0
+  3116                           ; Regs used in _displayMsg: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+  3117                           ;displayMsg@message stored from wreg
+  3118  0157  00F9               	movwf	displayMsg@message
+  3119                           
+  3120                           ;door-lock-system.c: 185: int i;
+  3121                           ;door-lock-system.c: 186: for (i = 0; message[i] != '\0'; i++) {
+  3122  0158  01F7               	clrf	displayMsg@i
+  3123  0159  01F8               	clrf	displayMsg@i+1
+  3124  015A                     l1321:	
+  3125  015A  0877               	movf	displayMsg@i,w
+  3126  015B  0779               	addwf	displayMsg@message,w
+  3127  015C  0084               	movwf	4
+  3128  015D  120A  118A  2003  120A  118A  	fcall	stringdir
+  3129  0162  3800               	iorlw	0
+  3130  0163  1903               	btfsc	3,2
+  3131  0164  0008               	return
+  3132                           
+  3133                           ;door-lock-system.c: 187: dataCtrl(message[i]);
+  3134  0165  0877               	movf	displayMsg@i,w
+  3135  0166  0779               	addwf	displayMsg@message,w
+  3136  0167  0084               	movwf	4
+  3137  0168  120A  118A  2003  120A  118A  	fcall	stringdir
+  3138  016D  120A  118A  2110  120A  118A  	fcall	_dataCtrl
+  3139  0172  3001               	movlw	1
+  3140  0173  07F7               	addwf	displayMsg@i,f
+  3141  0174  1803               	skipnc
+  3142  0175  0AF8               	incf	displayMsg@i+1,f
+  3143  0176  3000               	movlw	0
+  3144  0177  07F8               	addwf	displayMsg@i+1,f
+  3145  0178  295A               	goto	l1321
+  3146  0179                     __end_of_displayMsg:	
+  3147                           
+  3148                           	psect	text15
+  3149  0110                     __ptext15:	
+  3150 ;; *************** function _dataCtrl *****************
+  3151 ;; Defined at:
+  3152 ;;		line 175 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\door-lock-system\door-lo
+      +ck-system.c"
+  3153 ;; Parameters:    Size  Location     Type
+  3154 ;;  DATA            1    wreg     unsigned char 
+  3155 ;; Auto vars:     Size  Location     Type
+  3156 ;;  DATA            1    6[COMMON] unsigned char 
+  3157 ;; Return value:  Size  Location     Type
+  3158 ;;		None               void
+  3159 ;; Registers used:
+  3160 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+  3161 ;; Tracked objects:
+  3162 ;;		On entry : 0/0
+  3163 ;;		On exit  : 0/0
+  3164 ;;		Unchanged: 0/0
+  3165 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  3166 ;;      Params:         0       0       0       0       0
+  3167 ;;      Locals:         1       0       0       0       0
+  3168 ;;      Temps:          0       0       0       0       0
+  3169 ;;      Totals:         1       0       0       0       0
+  3170 ;;Total ram usage:        1 bytes
+  3171 ;; Hardware stack levels used:    1
+  3172 ;; Hardware stack levels required when called:    1
+  3173 ;; This function calls:
+  3174 ;;		_LCD_delay
+  3175 ;; This function is called by:
+  3176 ;;		_displayMsg
+  3177 ;;		_setPass
+  3178 ;;		_enterPass
+  3179 ;; This function uses a non-reentrant model
+  3180 ;;
+  3181                           
+  3182                           
+  3183                           ;psect for function _dataCtrl
+  3184  0110                     _dataCtrl:	
+  3185                           
+  3186                           ;incstack = 0
+  3187                           ; Regs used in _dataCtrl: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+  3188                           ;dataCtrl@DATA stored from wreg
+  3189  0110  00F6               	movwf	dataCtrl@DATA
+  3190                           
+  3191                           ;door-lock-system.c: 176: PORTB = DATA;
+  3192  0111  0876               	movf	dataCtrl@DATA,w
+  3193  0112  1283               	bcf	3,5	;RP0=0, select bank0
+  3194  0113  1303               	bcf	3,6	;RP1=0, select bank0
+  3195  0114  0086               	movwf	6	;volatile
+  3196                           
+  3197                           ;door-lock-system.c: 177: RA0 = 1;
+  3198  0115  1405               	bsf	5,0	;volatile
+  3199                           
+  3200                           ;door-lock-system.c: 178: RA1 = 0;
+  3201  0116  1085               	bcf	5,1	;volatile
+  3202                           
+  3203                           ;door-lock-system.c: 179: RA2 = 1;
+  3204  0117  1505               	bsf	5,2	;volatile
+  3205                           
+  3206                           ;door-lock-system.c: 180: LCD_delay(1);
+  3207  0118  3001               	movlw	1
+  3208  0119  00F0               	movwf	LCD_delay@MUL
+  3209  011A  3000               	movlw	0
+  3210  011B  00F1               	movwf	LCD_delay@MUL+1
+  3211  011C  120A  118A  21C2   	fcall	_LCD_delay
+  3212                           
+  3213                           ;door-lock-system.c: 181: RA2 = 0;
+  3214  011F  1283               	bcf	3,5	;RP0=0, select bank0
+  3215  0120  1303               	bcf	3,6	;RP1=0, select bank0
+  3216  0121  1105               	bcf	5,2	;volatile
+  3217  0122  0008               	return
+  3218  0123                     __end_of_dataCtrl:	
+  3219                           
+  3220                           	psect	text16
+  3221  01C2                     __ptext16:	
+  3222 ;; *************** function _LCD_delay *****************
+  3223 ;; Defined at:
+  3224 ;;		line 151 in file "D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\door-lock-system\door-lo
+      +ck-system.c"
+  3225 ;; Parameters:    Size  Location     Type
+  3226 ;;  MUL             2    0[COMMON] int 
+  3227 ;; Auto vars:     Size  Location     Type
+  3228 ;;  j               2    4[COMMON] int 
+  3229 ;;  i               2    2[COMMON] int 
+  3230 ;; Return value:  Size  Location     Type
+  3231 ;;		None               void
+  3232 ;; Registers used:
+  3233 ;;		wreg, status,2, status,0, btemp+1
+  3234 ;; Tracked objects:
+  3235 ;;		On entry : 0/0
+  3236 ;;		On exit  : 0/0
+  3237 ;;		Unchanged: 0/0
+  3238 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  3239 ;;      Params:         2       0       0       0       0
+  3240 ;;      Locals:         4       0       0       0       0
+  3241 ;;      Temps:          0       0       0       0       0
+  3242 ;;      Totals:         6       0       0       0       0
+  3243 ;;Total ram usage:        6 bytes
+  3244 ;; Hardware stack levels used:    1
+  3245 ;; This function calls:
+  3246 ;;		Nothing
+  3247 ;; This function is called by:
+  3248 ;;		_instCtrl
+  3249 ;;		_initLCD
+  3250 ;;		_dataCtrl
+  3251 ;; This function uses a non-reentrant model
+  3252 ;;
+  3253                           
+  3254                           
+  3255                           ;psect for function _LCD_delay
+  3256  01C2                     _LCD_delay:	
+  3257                           
+  3258                           ;door-lock-system.c: 152: int i, j;
+  3259                           ;door-lock-system.c: 153: for (i = MUL; i != 0; i--)
+  3260                           
+  3261                           ;incstack = 0
+  3262                           ; Regs used in _LCD_delay: [wreg+status,2+status,0+btemp+1]
+  3263  01C2  0871               	movf	LCD_delay@MUL+1,w
+  3264  01C3  01F3               	clrf	LCD_delay@i+1
+  3265  01C4  07F3               	addwf	LCD_delay@i+1,f
+  3266  01C5  0870               	movf	LCD_delay@MUL,w
+  3267  01C6  01F2               	clrf	LCD_delay@i
+  3268  01C7  07F2               	addwf	LCD_delay@i,f
+  3269  01C8                     L1:	
+  3270  01C8  0873               	movf	LCD_delay@i+1,w
+  3271  01C9  0472               	iorwf	LCD_delay@i,w
+  3272  01CA  1903               	btfsc	3,2
+  3273  01CB  0008               	return
+  3274                           
+  3275                           ;door-lock-system.c: 154: for (j = 0; j < 256; j++) {}
+  3276  01CC  01F4               	clrf	LCD_delay@j
+  3277  01CD  01F5               	clrf	LCD_delay@j+1
+  3278  01CE  0875               	movf	LCD_delay@j+1,w
+  3279  01CF  3A80               	xorlw	128
+  3280  01D0  00FF               	movwf	127
+  3281  01D1  3081               	movlw	129
+  3282  01D2  027F               	subwf	127,w
+  3283  01D3  1D03               	skipz
+  3284  01D4  29D7               	goto	u515
+  3285  01D5  3000               	movlw	0
+  3286  01D6  0274               	subwf	LCD_delay@j,w
+  3287  01D7                     u515:	
+  3288  01D7  1803               	btfsc	3,0
+  3289  01D8  29EA               	goto	l1249
+  3290  01D9                     l1245:	
+  3291  01D9  3001               	movlw	1
+  3292  01DA  07F4               	addwf	LCD_delay@j,f
+  3293  01DB  1803               	skipnc
+  3294  01DC  0AF5               	incf	LCD_delay@j+1,f
+  3295  01DD  3000               	movlw	0
+  3296  01DE  07F5               	addwf	LCD_delay@j+1,f
+  3297  01DF  0875               	movf	LCD_delay@j+1,w
+  3298  01E0  3A80               	xorlw	128
+  3299  01E1  00FF               	movwf	127
+  3300  01E2  3081               	movlw	129
+  3301  01E3  027F               	subwf	127,w
+  3302  01E4  1D03               	skipz
+  3303  01E5  29E8               	goto	u525
+  3304  01E6  3000               	movlw	0
+  3305  01E7  0274               	subwf	LCD_delay@j,w
+  3306  01E8                     u525:	
+  3307  01E8  1C03               	skipc
+  3308  01E9  29D9               	goto	l1245
+  3309  01EA                     l1249:	
+  3310  01EA  30FF               	movlw	255
+  3311  01EB  07F2               	addwf	LCD_delay@i,f
+  3312  01EC  1803               	skipnc
+  3313  01ED  0AF3               	incf	LCD_delay@i+1,f
+  3314  01EE  30FF               	movlw	255
+  3315  01EF  07F3               	addwf	LCD_delay@i+1,f
+  3316  01F0  29C8               	goto	L1
+  3317  01F1                     __end_of_LCD_delay:	
+  3318  007E                     btemp	set	126	;btemp
+  3319  007E                     wtemp	set	126
+  3320  007E                     wtemp0	set	126
+  3321  0080                     wtemp1	set	128
+  3322  0082                     wtemp2	set	130
+  3323  0084                     wtemp3	set	132
+  3324  0086                     wtemp4	set	134
+  3325  0088                     wtemp5	set	136
+  3326  007F                     wtemp6	set	127
+  3327  007E                     ttemp	set	126
+  3328  007E                     ttemp0	set	126
+  3329  0081                     ttemp1	set	129
+  3330  0084                     ttemp2	set	132
+  3331  0087                     ttemp3	set	135
+  3332  007F                     ttemp4	set	127
+  3333  007E                     ltemp	set	126
+  3334  007E                     ltemp0	set	126
+  3335  0082                     ltemp1	set	130
+  3336  0086                     ltemp2	set	134
+  3337  0080                     ltemp3	set	128
+
+
+Data Sizes:
+    Strings     114
+    Constant    0
+    Data        8
+    BSS         17
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14     14      14
+    BANK0            80     21      47
+    BANK1            80      0       0
+    BANK3            96      0       0
+    BANK2            96      0       0
+
+Pointer List with Targets:
+
+    displayMsg@message	PTR const unsigned char  size(1) Largest target is 15
+		 -> STR_15(CODE[11]), STR_14(CODE[13]), STR_13(CODE[11]), STR_12(CODE[9]), 
+		 -> STR_11(CODE[9]), STR_10(CODE[11]), STR_9(CODE[12]), STR_8(CODE[11]), 
+		 -> STR_7(CODE[13]), STR_6(CODE[11]), STR_5(CODE[15]), STR_4(CODE[13]), 
+		 -> STR_3(CODE[13]), STR_2(CODE[11]), STR_1(CODE[10]), 
+
+
+Critical Paths under _main in COMMON
+
+    _setPass->_dataCtrl
+    _initialize->_setServoPosition
+    _moveToPosition->_setServoPosition
+    _setServoPosition->___wmul
+    _initLCD->_instCtrl
+    _instCtrl->_LCD_delay
+    _displayMsg->_dataCtrl
+    _dataCtrl->_LCD_delay
+
+Critical Paths under _main in BANK0
+
+    _main->_enterPass
+    _enterPass->_verifyPIN
+    _setServoCounterClockwise->_moveToPosition
+    _setServoClockwise->_moveToPosition
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 4     4      0    7488
+                                             13 COMMON     1     1      0
+                                             18 BANK0      3     3      0
+                         _displayMsg
+                          _enterPass
+                            _initLCD
+                         _initialize
+                           _instCtrl
+                            _setPass
+                  _setServoClockwise
+           _setServoCounterClockwise
+                              _setup
+ ---------------------------------------------------------------------------------
+ (1) _setup                                                0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _setPass                                              5     5      0     687
+                                              7 COMMON     5     5      0
+                           _dataCtrl
+ ---------------------------------------------------------------------------------
+ (1) _initialize                                           3     3      0     356
+                                              0 BANK0      3     3      0
+                   _setServoPosition
+ ---------------------------------------------------------------------------------
+ (1) _enterPass                                            5     5      0    3543
+                                             13 BANK0      5     5      0
+                           _dataCtrl
+                          _verifyPIN
+ ---------------------------------------------------------------------------------
+ (2) _verifyPIN                                            7     7      0    2971
+                                              6 BANK0      7     7      0
+                         _displayMsg
+                            _initLCD
+                           _instCtrl
+                             _locked
+                  _setServoClockwise
+           _setServoCounterClockwise
+ ---------------------------------------------------------------------------------
+ (1) _setServoCounterClockwise                             0     0      0     602
+                     _moveToPosition
+ ---------------------------------------------------------------------------------
+ (1) _setServoClockwise                                    0     0      0     602
+                     _moveToPosition
+ ---------------------------------------------------------------------------------
+ (2) _moveToPosition                                       6     6      0     602
+                                              0 BANK0      6     6      0
+                   _setServoPosition
+ ---------------------------------------------------------------------------------
+ (3) _setServoPosition                                     7     7      0     356
+                                              6 COMMON     7     7      0
+                             ___wmul
+ ---------------------------------------------------------------------------------
+ (4) ___wmul                                               6     2      4     198
+                                              0 COMMON     6     2      4
+ ---------------------------------------------------------------------------------
+ (3) _locked                                               0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _initLCD                                              0     0      0     568
+                          _LCD_delay
+                           _instCtrl
+ ---------------------------------------------------------------------------------
+ (1) _instCtrl                                             1     1      0     295
+                                              6 COMMON     1     1      0
+                          _LCD_delay
+ ---------------------------------------------------------------------------------
+ (3) _displayMsg                                           3     3      0     790
+                                              7 COMMON     3     3      0
+                           _dataCtrl
+ ---------------------------------------------------------------------------------
+ (2) _dataCtrl                                             1     1      0     295
+                                              6 COMMON     1     1      0
+                          _LCD_delay
+ ---------------------------------------------------------------------------------
+ (3) _LCD_delay                                            6     4      2     273
+                                              0 COMMON     6     4      2
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 4
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _displayMsg
+     _dataCtrl
+       _LCD_delay
+   _enterPass
+     _dataCtrl
+       _LCD_delay
+     _verifyPIN
+       _displayMsg
+         _dataCtrl
+           _LCD_delay
+       _initLCD
+         _LCD_delay
+         _instCtrl
+           _LCD_delay
+       _instCtrl
+         _LCD_delay
+       _locked
+       _setServoClockwise
+         _moveToPosition
+           _setServoPosition
+             ___wmul
+       _setServoCounterClockwise
+         _moveToPosition
+           _setServoPosition
+             ___wmul
+   _initLCD
+     _LCD_delay
+     _instCtrl
+       _LCD_delay
+   _initialize
+     _setServoPosition
+       ___wmul
+   _instCtrl
+     _LCD_delay
+   _setPass
+     _dataCtrl
+       _LCD_delay
+   _setServoClockwise
+     _moveToPosition
+       _setServoPosition
+         ___wmul
+   _setServoCounterClockwise
+     _moveToPosition
+       _setServoPosition
+         ___wmul
+   _setup
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BANK3               60      0       0       9        0.0%
+BITBANK3            60      0       0       8        0.0%
+SFR3                 0      0       0       4        0.0%
+BITSFR3              0      0       0       4        0.0%
+BANK2               60      0       0      11        0.0%
+BITBANK2            60      0       0      10        0.0%
+SFR2                 0      0       0       5        0.0%
+BITSFR2              0      0       0       5        0.0%
+BANK1               50      0       0       7        0.0%
+BITBANK1            50      0       0       6        0.0%
+SFR1                 0      0       0       2        0.0%
+BITSFR1              0      0       0       2        0.0%
+BANK0               50     15      2F       5       58.8%
+BITBANK0            50      0       1       4        1.3%
+SFR0                 0      0       0       1        0.0%
+BITSFR0              0      0       0       1        0.0%
+COMMON               E      E       E       1      100.0%
+BITCOMMON            E      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+DATA                 0      0      3D      12        0.0%
+ABS                  0      0      3D       3        0.0%
+NULL                 0      0       0       0        0.0%
+STACK                0      0       0       2        0.0%
+EEDATA             100      0       0       0        0.0%
+
+
+Microchip Technology PIC Macro Assembler V1.33 build 59893 
+Symbol Table                                                                                   Tue May 20 20:28:31 2025
+
+                                pc 0002                        __CFG_CP$OFF 0000  
+                               l98 0244                                 fsr 0004  
+              ___wmul@multiplicand 0072                                l214 0635  
+                              l232 0471                                l326 0183  
+                              l175 00E0                                l191 03DB  
+                              l168 07D9                                l188 03CC  
+            moveToPosition@pos_166 0024                                _GIE 005F  
+                              _RA0 0028                                _RA1 0029  
+                              _RA2 002A                                _RD4 0044  
+                              _PR2 0092                       __CFG_CPD$OFF 0000  
+                              u515 01D7                                u525 01E8  
+                              u445 0184                                u455 018B  
+                              u615 031E                                _PIN 0035  
+                              u545 029B                                u555 02AD  
+                              u635 0341                                u715 0655  
+                              u495 027A                                u745 0515  
+                              u907 0208                                u917 0219  
+                              u927 022F                                u937 051F  
+                              u857 0463                                u947 063D  
+                              u867 049E                                u957 036E  
+                              u877 04CB                                u967 03C5  
+                              u887 065F                                u977 03D6  
+                              u897 07E1                                u987 03E5  
+                              u997 02C9                                fsr0 0004  
+                              indf 0000                       __CFG_FOSC$XT 0000  
+                     __CFG_LVP$OFF 0000                               l1207 017B  
+                             l1223 024C                               l1321 015A  
+                             l1331 0320                               l1245 01D9  
+                             l1421 0694                               l1335 0332  
+                             l1415 067F                               l1503 07A7  
+                             l1249 01EA                               l1281 02F7  
+                             l1257 02AF                               l1353 0366  
+                             l1521 053F                               l1433 06BE  
+                             l1409 066C                               l1267 02B9  
+                             l1339 0343                               l1515 052C  
+                             l1451 06FD                               l1427 06A9  
+                             l1507 064C                               l1269 02D5  
+                             l1533 056D                               l1445 06E8  
+                             l1279 02DD                               l1367 0396  
+                             l1551 05B2                               l1527 0556  
+                             l1463 0727                               l1439 06D3  
+                             l1703 04F0                               l1545 059B  
+                             l1481 0766                               l1457 0712  
+                             l1563 05E0                               l1539 0584  
+                             l1475 0751                               l1643 0423  
+                             l1557 05C9                               l1493 078D  
+                             l1469 073C                               l1653 0439  
+                             l1575 060B                               l1583 050A  
+                             l1495 0792                               l1487 077B  
+                             l1585 0643                               l1569 05F7  
+                             l1665 0459                               l1649 042B  
+                             l1657 0444                               l1579 0612  
+                             l1683 04A6                               l1693 04D2  
+                             STR_1 005F                               STR_2 0049  
+                             STR_3 0025                               STR_4 0018  
+                             STR_5 0009                               STR_6 0049  
+                             STR_7 0025                               STR_8 003E  
+                             STR_9 0032                               _BRGH 04C2  
+                             _CREN 00C4                               u1007 02ED  
+                             u1017 0305                               _PEIE 005E  
+                             _RCIE 0465                               _RCIF 0065  
+                             _OERR 00C1                               _SPEN 00C7  
+                             _TXEN 04C5                               _TXIF 0064  
+                             _SYNC 04C4                       __CFG_WRT$OFF 0000  
+                             _main 03EE                        displayMsg@i 0077  
+                             _tick 0046           setServoPosition@position 007C  
+                             btemp 007E                      __CFG_BOREN$ON 0000  
+                             ltemp 007E                               start 0000  
+                             ttemp 007E                               wtemp 007E  
+           moveToPosition@position 0025                 __size_of_LCD_delay 002F  
+                moveToPosition@pos 0023                              ?_main 0070  
+                            STR_10 0054                              STR_11 0072  
+                            STR_12 0069                              STR_13 0049  
+                            STR_14 0025                              STR_15 003E  
+                    __CFG_WDTE$OFF 0000                              _T2CON 0012  
+                            _RCREG 001A                              _SPBRG 0099  
+                            _PORTB 0006                              _PORTD 0008  
+                            _TRISA 0085                              _TRISB 0086  
+                            _TRISC 0087                              _TRISD 0088  
+                            _TXREG 0019                      __CFG_PWRTE$ON 0000  
+          __size_of_moveToPosition 0085                    __end_of_initLCD 01C2  
+                            _setup 0136                              _trial 0048  
+                  __end_of_setPass 07E7                              pclath 000A  
+                            ltemp0 007E                              ltemp1 0082  
+                            ltemp2 0086                              ltemp3 0080  
+                            ttemp0 007E                              ttemp1 0081  
+                            ttemp2 0084                              ttemp3 0087  
+                            ttemp4 007F                   _setServoPosition 023B  
+                            status 0003                              wtemp0 007E  
+                            wtemp1 0080                              wtemp2 0082  
+                            wtemp3 0084                              wtemp4 0086  
+                            wtemp5 0088                              wtemp6 007F  
+                  __initialization 07E7                       __end_of_main 0506  
+       ??_setServoCounterClockwise 007D                             ??_main 0032  
+                __end_of_LCD_delay 01F1                  _setServoClockwise 00E1  
+                           _ADCON1 009F                             _CCPR1L 0015  
+                           ?_setup 0070                 ?_setServoClockwise 0070  
+                           _TRISC2 043A                   __end_of_dataCtrl 0123  
+              ??_setServoClockwise 007D                             ___wmul 0179  
+                           _locked 00E0                   __end_of_instCtrl 0136  
+   setServoPosition@scaledPosition 0078                       LCD_delay@MUL 0070  
+                        ??_initLCD 0077          __end_of_setServoClockwise 00E8  
+                        ??_setPass 0077                    _currentPosition 004D  
+          __end_of__initialization 07FC                     __pcstackCOMMON 0070  
+                     __pidataBANK0 00F7                      __end_of_setup 0157  
+                   _moveToPosition 0288                            ??_setup 0070  
+                       __pbssBANK0 0035                 __size_of_enterPass 0141  
+                   verifyPIN@match 0029                         __pmaintext 03EE  
+ __end_of_setServoCounterClockwise 00EF                            ?___wmul 0070  
+                          _CCP1CON 0017                            ?_locked 0070  
+         __end_of_setServoPosition 0288             __end_of_moveToPosition 030D  
+                        ?_dataCtrl 0070         __size_of_setServoClockwise 0007  
+               __size_of_verifyPIN 00E1                         _displayMsg 0157  
+                       __stringtab 0003               setServoPosition@duty 007A  
+                       _correctPIN 003D                          ?_instCtrl 0070  
+                  __size_of___wmul 0023                  __end_of_enterPass 0647  
+                  __size_of_locked 0001                         _initialize 01F1  
+                          __ptext1 0136                            __ptext2 0647  
+                          __ptext3 01F1                            __ptext4 0506  
+                          __ptext5 030D                            __ptext6 00E8  
+                          __ptext7 00E1                            __ptext8 0288  
+                          __ptext9 023B                  displayMsg@message 0079  
+                  ?_moveToPosition 0070                            _initLCD 019C  
+                       ??_dataCtrl 0076                            _setPass 0647  
+                          _rx_data 0045                            clrloop0 00F0  
+                        _LCD_delay 01C2               end_of_initialization 07FC  
+                       ??_instCtrl 0076                  __end_of_verifyPIN 03EE  
+                        _PORTCbits 0007                          _TRISCbits 0087  
+                        _TRISDbits 0088  __size_of_setServoCounterClockwise 0007  
+                      ?_displayMsg 0070          ?_setServoCounterClockwise 0070  
+                     instCtrl@INST 0076                         ?_LCD_delay 0070  
+                   __end_of___wmul 019C                        ?_initialize 0070  
+                    __pbitbssBANK0 0270                     __end_of_locked 00E1  
+                       LCD_delay@i 0072                         LCD_delay@j 0074  
+                       enterPass@j 0030                start_initialization 07E7  
+                     dataCtrl@DATA 0076                           ??___wmul 0074  
+                       init_fetch0 00FF                __size_of_displayMsg 0022  
+                      __pdataBANK0 0046                           ??_locked 0070  
+                ?_setServoPosition 0070                          ___latbits 0002  
+               ??_setServoPosition 0076                      __pcstackBANK0 0020  
+                    _SERVO_MID_POS 004B                      _SERVO_MAX_POS 004A  
+              __end_of__stringdata 007B                      _SERVO_MIN_POS 004C  
+                __size_of_dataCtrl 0013                        ??_LCD_delay 0072  
+              __size_of_initialize 004A                  __size_of_instCtrl 0013  
+                 ??_moveToPosition 0020                          __pstrings 0003  
+                         ?_initLCD 0070                          _enterPass 0506  
+                         ?_setPass 0070                       _invalid_flag 0270  
+                   __size_of_setup 0021                     ___wmul@product 0074  
+                        clear_ram0 00EF                          main@INPUT 007D  
+                        _verifyPIN 030D                        __stringbase 0008  
+                      __stringdata 0009                  ___wmul@multiplier 0070  
+                       ?_enterPass 0070                         verifyPIN@i 002B  
+                     ??_displayMsg 0077                 __end_of_displayMsg 0179  
+                       ?_verifyPIN 0070                       ??_initialize 0020  
+               __end_of__stringtab 0009                           _dataCtrl 0110  
+                 __size_of_initLCD 0026                   __size_of_setPass 01A0  
+                         __ptext10 0179                           __ptext11 00E0  
+                         __ptext12 019C                           __ptext13 0123  
+                         __ptext14 0157                           __ptext15 0110  
+                         __ptext16 01C2                     setPass@keyData 0079  
+                    __size_of_main 0118                           _instCtrl 0123  
+               __end_of_initialize 023B           _setServoCounterClockwise 00E8  
+                      ??_enterPass 002D                           init_ram0 0103  
+                         setPass@i 007A          __size_of_setServoPosition 004D  
+                        stringcode 0003                       _setpass_flag 0271  
+                      ??_verifyPIN 0026                           stringdir 0003  
+                         stringtab 0003                   enterPass@keyData 002F  

@@ -1,0 +1,1 @@
+ main.d  main.p1:  D:/From\ old\ laptop/Subjects/Uni/3rd\ Year\ M/2nd\ sem/Embedded\ Systems/Final/led_test/main.c

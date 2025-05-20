@@ -1,0 +1,7 @@
+_uart_transmit_state: CODE, 1970 0 27
+_uart_transmit: CODE, 1940 0 8
+_main: CODE, 1997 0 47
+_init_ports: CODE, 1948 0 9
+_init_uart: CODE, 1957 0 13
+__initialization: CODE, 2044 0 0
+Total: 104

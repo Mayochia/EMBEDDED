@@ -1,0 +1,375 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$startup.obj
+end_init CODE 0 0 0 3 2
+config CONFIG 0 2007 2007 1 2
+$led_test.obj
+cinit CODE 0 7FC 7FC 4 2
+text6 CODE 0 6EE 6EE B 2
+text5 CODE 0 729 729 1F 2
+text4 CODE 0 748 748 36 2
+text3 CODE 0 708 708 10 2
+text2 CODE 0 6F9 6F9 F 2
+text1 CODE 0 718 718 11 2
+maintext CODE 0 77E 77E 7E 2
+cstackCOMMON COMMON 1 70 70 D 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+BANK0 0020-006F 1
+BANK1 00A0-00EF 1
+BANK2 0110-016F 1
+BANK3 0190-01EF 1
+CODE 0003-06ED 2
+CODE 0800-1FFF 2
+COMMON 007D-007D 1
+CONST 0003-06ED 2
+CONST 0800-1FFF 2
+EEDATA 2100-21FF 2
+ENTRY 0003-06ED 2
+ENTRY 0800-1FFF 2
+IDLOC 2000-2003 2
+RAM 0020-006F 1
+RAM 00A0-00EF 1
+RAM 0110-016F 1
+RAM 0190-01EF 1
+SFR0 0000-001F 1
+SFR1 0080-009F 1
+SFR2 0100-010F 1
+SFR3 0180-018F 1
+STACK 0110-016F 1
+STRCODE 0003-06ED 2
+STRCODE 0800-1FFF 2
+STRING 0003-06ED 2
+STRING 0800-1FFF 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <file name>:<line number> <address> <psect name> <class name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$led_test.obj
+"C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h":2761 0 text0 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":133 6EE text6 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":134 6EF text6 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":135 6F3 text6 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":136 6F6 text6 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":137 6F8 text6 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":85 6F9 text2 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":87 6F9 text2 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":88 6FC text2 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":89 6FD text2 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":90 6FE text2 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":93 6FF text2 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":95 700 text2 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":98 703 text2 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":99 707 text2 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":139 708 text3 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":141 708 text3 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":142 70C text3 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":143 70D text3 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":144 70E text3 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":147 70E text3 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":148 710 text3 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":149 714 text3 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":152 716 text3 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":164 718 text1 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":165 719 text1 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":166 71D text1 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":167 720 text1 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":168 725 text1 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":169 728 text1 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":155 729 text5 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":157 729 text5 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":158 738 text5 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":160 73C text5 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":161 743 text5 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":162 747 text5 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":101 748 text4 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":103 748 text4 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":104 74B text4 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":105 74D text4 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":106 74E text4 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":107 751 text4 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":108 754 text4 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":111 757 text4 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":112 759 text4 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":113 75A text4 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":114 75B text4 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":115 75B text4 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":116 75D text4 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":120 761 text4 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":121 762 text4 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":129 763 text4 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":130 770 text4 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":131 77D text4 CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":36 77E maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":38 77E maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":39 782 maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":41 783 maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":42 788 maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":44 78D maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":48 79A maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":51 7A0 maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":52 7A4 maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":53 7AD maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":55 7B3 maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":56 7B7 maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":59 7BB maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":60 7BF maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":63 7C2 maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":68 7CE maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":69 7D2 maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":71 7DA maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":72 7E2 maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":76 7E8 maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":77 7EC maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":76 7F1 maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":81 7F2 maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\main.c":46 7FB maintext CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\led_test.as":218 7FC cinit CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\led_test.as":221 7FC cinit CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\led_test.as":227 7FC cinit CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\led_test.as":228 7FC cinit CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\led_test.as":229 7FD cinit CODE
+$startup.obj
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\startup.as":39 0 functab CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\startup.as":40 0 functab CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\startup.as":41 0 functab CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\startup.as":42 0 functab CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\startup.as":43 0 functab CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\startup.as":44 0 functab CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\startup.as":63 0 reset_vec CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\startup.as":69 0 init CODE
+"D:\From old laptop\Subjects\Uni\3rd Year M\2nd sem\Embedded Systems\Final\led_test\startup.as":72 0 end_init CODE
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+UART_Receive@dummy 71 0 COMMON 1 cstackCOMMON led_test.obj
+__CFG_WRT$OFF 0 0 ABS 0 - led_test.obj
+__S0 2008 0 ABS 0 - -
+__S1 7D 0 ABS 0 - -
+__S2 0 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+__Hintentry 0 0 CODE 0 intentry -
+__Lintentry 0 0 CODE 0 intentry -
+__size_of_UART_Transmit 0 0 ABS 0 - led_test.obj
+__CFG_BOREN$ON 0 0 ABS 0 - led_test.obj
+__CFG_PWRTE$ON 0 0 ABS 0 - led_test.obj
+_main EFC 0 CODE 0 maintext led_test.obj
+process_command@value 70 0 COMMON 1 cstackCOMMON led_test.obj
+___sp 0 0 STACK 2 stack startup.obj
+btemp 7E 0 ABS 0 - led_test.obj
+ltemp 7E 0 ABS 0 - led_test.obj
+ttemp 7E 0 ABS 0 - led_test.obj
+wtemp 7E 0 ABS 0 - led_test.obj
+start 0 0 CODE 0 init startup.obj
+_RCREG 1A 0 ABS 0 - led_test.obj
+_TXREG 19 0 ABS 0 - led_test.obj
+reset_vec 0 0 CODE 0 reset_vec startup.obj
+_SPBRG 99 0 ABS 0 - led_test.obj
+ltemp0 7E 0 ABS 0 - led_test.obj
+ttemp0 7E 0 ABS 0 - led_test.obj
+wtemp0 7E 0 ABS 0 - led_test.obj
+ltemp1 82 0 ABS 0 - led_test.obj
+ttemp1 81 0 ABS 0 - led_test.obj
+wtemp1 80 0 ABS 0 - led_test.obj
+ltemp2 86 0 ABS 0 - led_test.obj
+ttemp2 84 0 ABS 0 - led_test.obj
+wtemp2 82 0 ABS 0 - led_test.obj
+ltemp3 80 0 ABS 0 - led_test.obj
+ttemp3 87 0 ABS 0 - led_test.obj
+wtemp3 84 0 ABS 0 - led_test.obj
+ttemp4 7F 0 ABS 0 - led_test.obj
+wtemp4 86 0 ABS 0 - led_test.obj
+wtemp5 88 0 ABS 0 - led_test.obj
+wtemp6 7F 0 ABS 0 - led_test.obj
+__Hconfig 4010 0 CONFIG 0 config -
+__Lconfig 400E 0 CONFIG 0 config -
+_UART_Receive E10 0 CODE 0 text3 led_test.obj
+__Hram 0 0 ABS 0 ram -
+__Lram 0 0 ABS 0 ram -
+__Hfunctab 0 0 CODE 0 functab -
+__Lfunctab 0 0 CODE 0 functab -
+_ADCON1 9F 0 ABS 0 - led_test.obj
+__Hcommon 0 0 ABS 0 common -
+__Lcommon 0 0 ABS 0 common -
+__Heeprom_data 0 0 EEDATA 3 eeprom_data -
+__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+__size_of_UART_Init 0 0 ABS 0 - led_test.obj
+_PIR1bits C 0 ABS 0 - led_test.obj
+___int_sp 0 0 STACK 2 stack startup.obj
+__Habs1 0 0 ABS 0 abs1 -
+__Labs1 0 0 ABS 0 abs1 -
+__Hsfr0 0 0 ABS 0 sfr0 -
+__Lsfr0 0 0 ABS 0 sfr0 -
+__Hsfr1 0 0 ABS 0 sfr1 -
+__Lsfr1 0 0 ABS 0 sfr1 -
+__Hsfr2 0 0 ABS 0 sfr2 -
+__Lsfr2 0 0 ABS 0 sfr2 -
+__Hsfr3 0 0 ABS 0 sfr3 -
+__Lsfr3 0 0 ABS 0 sfr3 -
+__end_of_UART_Receive E30 0 CODE 0 text3 led_test.obj
+_UART_TransmitInteger E52 0 CODE 0 text5 led_test.obj
+__end_of_UART_Init EFC 0 CODE 0 text4 led_test.obj
+__Hcode 0 0 ABS 0 code -
+__Lcode 0 0 ABS 0 code -
+stackhi 0 0 ABS 0 - startup.obj
+stacklo 0 0 ABS 0 - startup.obj
+__Hinit 0 0 CODE 0 init -
+__Linit 0 0 CODE 0 init -
+__end_of_main FF8 0 CODE 0 maintext led_test.obj
+__Htext 0 0 ABS 0 text -
+__Ltext 0 0 ABS 0 text -
+end_of_initialization FF8 0 CODE 0 cinit led_test.obj
+_UART_Init E90 0 CODE 0 text4 led_test.obj
+UART_Transmit@data 70 0 COMMON 1 cstackCOMMON led_test.obj
+__CFG_FOSC$XT 0 0 ABS 0 - led_test.obj
+_RCSTAbits 18 0 ABS 0 - led_test.obj
+_TRISBbits 86 0 ABS 0 - led_test.obj
+_TRISCbits 87 0 ABS 0 - led_test.obj
+_PORTBbits 6 0 ABS 0 - led_test.obj
+_TXSTAbits 98 0 ABS 0 - led_test.obj
+__Hstrings 0 0 ABS 0 strings -
+__Lstrings 0 0 ABS 0 strings -
+_UART_Transmit DDC 0 CODE 0 text6 led_test.obj
+__end_of_UART_TransmitInteger E90 0 CODE 0 text5 led_test.obj
+__Hbank0 0 0 ABS 0 bank0 -
+__Lbank0 0 0 ABS 0 bank0 -
+__Hbank1 0 0 ABS 0 bank1 -
+__Lbank1 0 0 ABS 0 bank1 -
+__Hbank2 0 0 ABS 0 bank2 -
+__Lbank2 0 0 ABS 0 bank2 -
+__Hbank3 0 0 ABS 0 bank3 -
+__Lbank3 0 0 ABS 0 bank3 -
+___latbits 2 0 ABS 0 - led_test.obj
+__Hpowerup 0 0 CODE 0 powerup -
+__Lpowerup 0 0 CODE 0 powerup -
+__ptext0 0 0 CODE 0 text0 led_test.obj
+__ptext1 E30 0 CODE 0 text1 led_test.obj
+__ptext2 DF2 0 CODE 0 text2 led_test.obj
+__ptext3 E10 0 CODE 0 text3 led_test.obj
+__ptext4 E90 0 CODE 0 text4 led_test.obj
+__ptext5 E52 0 CODE 0 text5 led_test.obj
+__ptext6 DDC 0 CODE 0 text6 led_test.obj
+__Hclrtext 0 0 ABS 0 clrtext -
+__Lclrtext 0 0 ABS 0 clrtext -
+__size_of_UART_Receive 0 0 ABS 0 - led_test.obj
+__end_of__initialization FF8 0 CODE 0 cinit led_test.obj
+main@prev_switch_state 7A 0 COMMON 1 cstackCOMMON led_test.obj
+__Hidloc 0 0 IDLOC 0 idloc -
+__Lidloc 0 0 IDLOC 0 idloc -
+__Hstack 0 0 STACK 2 stack -
+__Lstack 0 0 STACK 2 stack -
+__Hspace_0 2008 0 ABS 0 - -
+__Lspace_0 0 0 ABS 0 - -
+__Hspace_1 7D 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Hspace_2 0 0 ABS 0 - -
+__Lspace_2 0 0 ABS 0 - -
+__Hcinit 1000 0 CODE 0 cinit -
+__Lcinit FF8 0 CODE 0 cinit -
+__Hspace_3 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__size_of_main 0 0 ABS 0 - led_test.obj
+__end_of_process_command E52 0 CODE 0 text1 led_test.obj
+_initialize DF2 0 CODE 0 text2 led_test.obj
+UART_TransmitInteger@value 71 0 COMMON 1 cstackCOMMON led_test.obj
+__Hend_init 6 0 CODE 0 end_init -
+__Lend_init 0 0 CODE 0 end_init -
+UART_Init@dummy 76 0 COMMON 1 cstackCOMMON led_test.obj
+main@rx_data 7B 0 COMMON 1 cstackCOMMON led_test.obj
+__end_of_initialize E10 0 CODE 0 text2 led_test.obj
+__Hreset_vec 0 0 CODE 0 reset_vec -
+__Lreset_vec 0 0 CODE 0 reset_vec -
+intlevel0 0 0 CODE 0 functab startup.obj
+__CFG_WDTE$OFF 0 0 ABS 0 - led_test.obj
+intlevel1 0 0 CODE 0 functab startup.obj
+intlevel2 0 0 CODE 0 functab startup.obj
+intlevel3 0 0 CODE 0 functab startup.obj
+intlevel4 0 0 CODE 0 functab startup.obj
+intlevel5 0 0 CODE 0 functab startup.obj
+__HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+__LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON led_test.obj
+main@current_switch_state 7C 0 COMMON 1 cstackCOMMON led_test.obj
+__CFG_CPD$OFF 0 0 ABS 0 - led_test.obj
+start_initialization FF8 0 CODE 0 cinit led_test.obj
+__Hmaintext 0 0 ABS 0 maintext -
+__Lmaintext 0 0 ABS 0 maintext -
+__pmaintext EFC 0 CODE 0 maintext led_test.obj
+_OPTION_REGbits 81 0 ABS 0 - led_test.obj
+__end_of_UART_Transmit DF2 0 CODE 0 text6 led_test.obj
+_process_command E30 0 CODE 0 text1 led_test.obj
+__initialization FF8 0 CODE 0 cinit led_test.obj
+__size_of_UART_TransmitInteger 0 0 ABS 0 - led_test.obj
+__CFG_CP$OFF 0 0 ABS 0 - led_test.obj
+__size_of_process_command 0 0 ABS 0 - led_test.obj
+__CFG_LVP$OFF 0 0 ABS 0 - led_test.obj
+__size_of_initialize 0 0 ABS 0 - led_test.obj
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect in on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+- 1 7E 2
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+reset_vec 0 0 0 3 2
+cinit 0 7FC FF8 4 2
+config 0 2007 400E 1 2
+cstackCOMMON 1 70 70 D 1
+maintext 0 77E EFC 7E 2
+text4 0 748 E90 36 2
+text5 0 729 E52 1F 2
+text1 0 718 E30 11 2
+text3 0 708 E10 10 2
+text2 0 6F9 DF2 F 2
+text6 0 6EE DDC B 2
